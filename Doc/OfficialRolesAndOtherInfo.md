@@ -5,7 +5,7 @@
 
 **Game Name**: Bee Brawler - Exit the Hive
 
-**Company**: nonReal
+**Company**: notReal
 
 **Game Type** 
 
