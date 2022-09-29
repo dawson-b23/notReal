@@ -8,8 +8,7 @@ public class WeaponPickup : MonoBehaviour {
       if(other.gameObject.tag == "Player") {
          PlayerController playerScript;
          if(other.gameObject.TryGetComponent<PlayerController>(out playerScript)) {
-            //TODO REPLACE SETTER WITH PROPER NAME
-            playerScript.GiveWeapon(attachedWeapon); 
+            playerScript.CurrentWeapon(attachedWeapon); 
             attachedWeapon.transform.parent = other.gameObject.transform;
             attachedWeapon.transform.position = other.gameObject.transform.position; 
             attachedWeapon.gameObject.SetActive(true);
