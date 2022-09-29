@@ -17,14 +17,18 @@ public abstract class AbstractWeapon : MonoBehaviour {
       if((Time.time - lastAttackTime) > cooldown) {
          lastAttackTime = Time.time;
          GameObject[] enemiesHit = AttackAnimation();
-         foreach(GameObject enemy in enemiesHit) {
-            //TODO REPLACE ENEMY DAMAGE LOGIC WITH INTEGRATION TO ENEMY SCRIPT
-            // ENEMYSCRIPTNAME enemyScript;
-            // if(enemy.TryGetComponent<ENEMYSCRIPTNAME>(out enemyScript)) {
-            //    enemyScript.DAMAGEFUNCTION(damage);
-            // } else {
-            //    Debug.Log("Unable to find enemy script in enemy hit.");
-            // }
+         if(enemiesHit != null) {
+            foreach(GameObject enemy in enemiesHit) {
+               EnemyTracking enemyScript;
+               if(enemy != null) {
+                  if(enemy.TryGetComponent<EnemyTracking>(out enemyScript)) {
+                     //enemyScript.takeDamage(damage);
+                     Destroy(enemyScript.gameObject);
+                  } else {
+                     Debug.Log("Unable to find enemy script in enemy hit.");
+                  }
+               }
+            }
          }
       } else {
          CooldownAnimation();
