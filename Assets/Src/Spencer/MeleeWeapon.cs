@@ -10,7 +10,7 @@ public class MeleeWeapon : AbstractWeapon {
 
       Collider2D[] collidersHit = new Collider2D[16];
       GameObject[] enemiesHit = new GameObject[16];
-      gameObject.GetComponent<Collider2D>().OverlapCollider(contFilter.NoFilter(), collidersHit);
+      gameObject.GetComponentInChildren<Collider2D>().OverlapCollider(contFilter.NoFilter(), collidersHit);
       
       int i = 0;
       foreach(Collider2D col in collidersHit) {
