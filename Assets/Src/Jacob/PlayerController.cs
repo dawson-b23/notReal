@@ -12,7 +12,7 @@ public class PlayerController : MonoBehaviour
     public float PlayerSpeed { get => playerSpeed; set => playerSpeed = value; }
 
     //TEMP
-    public float exp = 0.0f;
+    public int exp = 0;
 
     [SerializeField]
     private float jumpForce = 10.0f;
@@ -128,6 +128,12 @@ public class PlayerController : MonoBehaviour
         // Switch state back based on current action
     }
 
+    public void LevelUp()
+    {
+        SpriteRenderer img = this.GetComponent<SpriteRenderer>();
+        img.color = new Color(img.color.r + 0.1f, img.color.g + 0.1f, img.color.b + 0.1f);
+    }
+
     private void PlayerAttack()
     {
         // TODO: remove null check
@@ -135,7 +141,9 @@ public class PlayerController : MonoBehaviour
         {
             canAttack = false;
             SwitchPlayerState(PlayerState.Attacking);
-            currentWeapon.Attack();
+            int expGained = 0;
+            currentWeapon.Attack(out expGained);
+            exp += expGained;
             StartCoroutine(AttackCooldown());
 
             // Need to switch state back after attack

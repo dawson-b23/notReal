@@ -10,7 +10,7 @@ public class PlayerCameraController : MonoBehaviour
 
     private Vector2 offset = Vector2.zero;
 
-    private void Update()
+    private void FixedUpdate()
     {
         if(tracker != null)
         {
@@ -20,7 +20,7 @@ public class PlayerCameraController : MonoBehaviour
             {
                 //this.transform.position += new Vector3(-offset.normalized.x, -offset.normalized.y, 0.0f) * maxDistance;
 
-                Vector3 foo = Vector3.Lerp(this.transform.position, tracker.position, 0.01f);
+                Vector3 foo = Vector3.Lerp(this.transform.position, tracker.position, 0.05f);
                 foo = new Vector3(foo.x, foo.y, -10.0f);
 
                 this.transform.position = foo;

@@ -13,17 +13,20 @@ public class SkillTree : MonoBehaviour
 
     //public PlayerController playerController;
 
-    int upgradeval = 5;
-    int requiredexp = 10;
+    int upgradeval = 10;
+    int requiredexp = 5;
 
 
-    void Upgrade(){
+    public void Upgrade(){
+        Debug.Log("Current Exp: " + player.exp);
        if(player.exp >= requiredexp){
             player.PlayerSpeed += upgradeval;
             player.exp -= requiredexp;
     
             Debug.Log("exp = " + player.exp);
             Debug.Log("Upgrading");
+
+            player.LevelUp();
         }else{
 
             Debug.Log("Not enough exp!");

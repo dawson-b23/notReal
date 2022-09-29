@@ -15,8 +15,9 @@ public abstract class AbstractWeapon : MonoBehaviour {
       gameObject.SetActive(false);
    }
 
-   public void Attack() {
-      if((Time.time - lastAttackTime) > cooldown) {
+   public void Attack(out int expGained) {
+      expGained = 0;
+      if ((Time.time - lastAttackTime) > cooldown) {
          lastAttackTime = Time.time;
          GameObject[] enemiesHit = AttackAnimation();
          if(enemiesHit != null) {
@@ -26,6 +27,7 @@ public abstract class AbstractWeapon : MonoBehaviour {
                   if(enemy.TryGetComponent<EnemyTracking>(out enemyScript)) {
                      //enemyScript.takeDamage(damage);
                      Destroy(enemyScript.gameObject);
+                     expGained += 4;
                      upgrade.Upgrade();
                   } else {
                      Debug.Log("Unable to find enemy script in enemy hit.");
