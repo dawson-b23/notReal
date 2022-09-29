@@ -4,19 +4,25 @@ using UnityEngine;
 
 public class SkillTree : MonoBehaviour
 {
-    /*
-    //public PlayerData playerData;
+        PlayerController player = GameObject.FindGameObjectWithTag("Player");
+    
+    private void Start(){
+
+        //PlayerController player = GameObject.FindGameObjectWithTag("Player");
+    }
+
+    //public PlayerController playerController;
 
     int upgradeval = 5;
     int requiredexp = 10;
 
 
     void Upgrade(){
-       if(playerData.exp >= requiredexp){
-            playerData.speed += upgradeval;
-            playerData.exp -= requiredexp;
+       if(player.exp >= requiredexp){
+            player.speed += upgradeval;
+            player.exp -= requiredexp;
     
-            Debug.Log("exp = " + playerData.exp);
+            Debug.Log("exp = " + player.exp);
             Debug.Log("Upgrading");
         }else{
 
@@ -24,5 +30,5 @@ public class SkillTree : MonoBehaviour
         }
     
     }
-    */
+    
 }

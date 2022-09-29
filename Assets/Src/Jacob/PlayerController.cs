@@ -4,9 +4,11 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+    public int playerexp = 0;
+
     [Header("Player Settings")]
     [SerializeField]
-    private float playerSpeed = 1.0f;
+    public float playerSpeed = 1.0f;
 
     [SerializeField]
     private float jumpForce = 10.0f;
