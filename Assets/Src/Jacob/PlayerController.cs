@@ -8,7 +8,8 @@ public class PlayerController : MonoBehaviour
 
     [Header("Player Settings")]
     [SerializeField]
-    public float playerSpeed = 1.0f;
+    private float playerSpeed = 1.0f;
+    public float PlayerSpeed { get => playerSpeed; set => playerSpeed = value; }
 
     //TEMP
     public float exp = 0.0f;
@@ -23,6 +24,12 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
     [Tooltip("The dash cooldown in seconds")]
     private float dashCooldown = 0.25f;
+
+    [Header("References")]
+    [SerializeField]
+    private GameObject playerCamera = null;
+    [SerializeField]
+    private Transform cameraTracker = null;
 
     // References to objects
     private Rigidbody2D rigidBody = null;
@@ -56,6 +63,10 @@ public class PlayerController : MonoBehaviour
         {
             Debug.LogError("Player does not have a valid Rigidbody2D attached to it");
         }
+
+        playerCamera = Instantiate(playerCamera);
+        playerCamera.transform.position = this.transform.position + new Vector3(0.0f, 0.0f, -10.0f);
+        playerCamera.GetComponent<PlayerCameraController>().SetTracker(cameraTracker);
     }
 
     void Update()

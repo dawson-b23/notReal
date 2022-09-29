@@ -131,6 +131,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 3441117423821933057, guid: 5c769f64f22f49f49b70344faf25c192, type: 3}
+      propertyPath: m_Icon
+      value: 
+      objectReference: {fileID: 5132851093641282708, guid: 0000000000000000d000000000000000, type: 0}
+    - target: {fileID: 3441117423821933057, guid: 5c769f64f22f49f49b70344faf25c192, type: 3}
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
@@ -1553,6 +1557,14 @@ PrefabInstance:
       propertyPath: objects.Array.data[2]
       value: 
       objectReference: {fileID: 5199883001929114538, guid: b23eed90f6a43fd43ad10ccae6525d36, type: 3}
+    - target: {fileID: 8480027673185601216, guid: 07a1aef3315270b4aac0b52c15c7872a, type: 3}
+      propertyPath: objects.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8480027673185601216, guid: 07a1aef3315270b4aac0b52c15c7872a, type: 3}
+      propertyPath: objects.Array.data[0]
+      value: 
+      objectReference: {fileID: 4277482150060571805, guid: e181c2d3a198a8b44b99b2ea2e1c201a, type: 3}
     - target: {fileID: 8540607446595531996, guid: 07a1aef3315270b4aac0b52c15c7872a, type: 3}
       propertyPath: objects.Array.size
       value: 3
