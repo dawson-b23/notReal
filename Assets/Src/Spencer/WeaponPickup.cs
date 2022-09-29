@@ -5,12 +5,12 @@ public class WeaponPickup : MonoBehaviour {
    private AbstractWeapon attachedWeapon;
 
    private void OnTriggerEnter2D(Collider2D other) {
-      if(collider.gameObject.tag == "Player") {
+      if(other.gameObject.tag == "Player") {
          //TODO SET PLAYER EQUIPPED WEAPON
          //PS playerScript;
-         //if(collider.gameObject.TryGetComponent<PS>(out playerScript)) {
+         //if(other.gameObject.TryGetComponent<PS>(out playerScript)) {
          // playerScript.equippedWeapon = attachedWeapon;
-         // attachedWeapon.transform = collider.gameObject.transform;
+         // attachedWeapon.transform = other.gameObject.transform;
          // attachedWeapon.gameObject.SetActive(true);
          //} else {
          // Debug.Log("Unable to find player script.");
