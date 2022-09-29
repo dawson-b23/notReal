@@ -5,6 +5,8 @@ public abstract class AbstractWeapon : MonoBehaviour {
    private int damage;
    [SerializeField]
    private float cooldown;
+   [SerializeField]
+   private SkillTree upgrade;
 
    private float lastAttackTime;
 
@@ -24,6 +26,7 @@ public abstract class AbstractWeapon : MonoBehaviour {
                   if(enemy.TryGetComponent<EnemyTracking>(out enemyScript)) {
                      //enemyScript.takeDamage(damage);
                      Destroy(enemyScript.gameObject);
+                     upgrade.Upgrade();
                   } else {
                      Debug.Log("Unable to find enemy script in enemy hit.");
                   }
