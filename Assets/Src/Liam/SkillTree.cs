@@ -19,7 +19,7 @@ public class SkillTree : MonoBehaviour
 
     void Upgrade(){
        if(player.exp >= requiredexp){
-            player.playerSpeed += upgradeval;
+            player.PlayerSpeed += upgradeval;
             player.exp -= requiredexp;
     
             Debug.Log("exp = " + player.exp);
