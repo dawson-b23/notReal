@@ -10,6 +10,9 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
     public float playerSpeed = 1.0f;
 
+    //TEMP
+    public float exp = 0.0f;
+
     [SerializeField]
     private float jumpForce = 10.0f;
 
@@ -24,6 +27,7 @@ public class PlayerController : MonoBehaviour
     // References to objects
     private Rigidbody2D rigidBody = null;
     private AbstractWeapon currentWeapon = null;
+    public AbstractWeapon CurrentWeapon { get => currentWeapon; set => currentWeapon = value; }
 
     // Misc private variables
     private float movementInput = 0.0f;
