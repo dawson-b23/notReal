@@ -6,11 +6,18 @@ public class SkillTree : MonoBehaviour
 {
     private PlayerController player = null;
     
+    
     private void Start(){
 
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
     }
 
+    public PlayerController GetPlayer(){
+       if(player == null){
+        player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
+       }
+        return player;
+    }
     //public PlayerController playerController;
 
     int upgradeval = 10;
