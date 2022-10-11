@@ -11,10 +11,11 @@ public class queenBC : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(playerInRange)
+        if(playerInRange && Input.GetKeyDown(KeyCode.E))
         {
             // Move console msg to trigger once to prevent spamming the console - JacobW
-
+            //play sound?
+            //enter shop/dialogue
             //print("Hello!! I'm Queen BC! Yep! Thats it!");
         }
     }
