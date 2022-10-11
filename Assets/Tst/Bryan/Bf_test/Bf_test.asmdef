@@ -1,10 +1,10 @@
 {
-    "name": "Playmode",
+    "name": "Bf_test",
     "rootNamespace": "",
     "references": [
         "UnityEngine.TestRunner",
         "UnityEditor.TestRunner",
-        "Scripts"
+        "NewAssembly"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],
