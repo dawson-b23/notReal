@@ -21,28 +21,24 @@ public abstract class AbstractWeapon : MonoBehaviour {
       expGained = 0;
       if ((Time.time - lastAttackTime) > cooldown) {
          lastAttackTime = Time.time;
-         GameObject[] enemiesHit = AttackAnimation();
-         if(enemiesHit != null) {
-            foreach(GameObject enemy in enemiesHit) {
-               EnemyTracking enemyScript;
-               if(enemy != null) {
-                  if(enemy.TryGetComponent<EnemyTracking>(out enemyScript)) {
-                     //enemyScript.takeDamage(damage);
-                     Destroy(enemyScript.gameObject);
-                     expGained += 4;
-                     upgrade.Upgrade();
-                  } else {
-                     Debug.Log("Unable to find enemy script in enemy hit.");
-                  }
-               }
-            }
-         }
+         AttackAnimation();
       } else {
          CooldownAnimation();
       }
    }
 
-   protected abstract GameObject[] AttackAnimation();
+   protected void ProcessHit(GameObject enemy) {
+      EnemyTracking enemyScript;
+      if(enemy.TryGetComponent<EnemyTracking>(out enemyScript)) {
+         //enemyScript.takeDamage(damage);
+         Destroy(enemyScript.gameObject);
+         upgrade.Upgrade();
+      } else {
+         Debug.Log("Unable to find enemy script in enemy hit.");
+      }
+   }
+
+   protected abstract void AttackAnimation();
 
    protected abstract void CooldownAnimation();
 
