@@ -3,24 +3,29 @@ using UnityEngine;
 
 public class MeleeWeapon : AbstractWeapon {
    private ContactFilter2D contFilter;
+   private bool attacking;
 
-   protected override GameObject[] AttackAnimation() {
+   protected override void AttackAnimation() {
       Debug.Log("Weapon attack.");
       StartCoroutine(VisualAttack());
 
       Collider2D[] collidersHit = new Collider2D[16];
-      GameObject[] enemiesHit = new GameObject[16];
       gameObject.GetComponentInChildren<Collider2D>().OverlapCollider(contFilter.NoFilter(), collidersHit);
       
-      int i = 0;
       foreach(Collider2D col in collidersHit) {
          if(col != null && col.tag == "Enemy") {
-            enemiesHit[i] = col.gameObject;
-            i++;
+            ProcessHit(col.gameObject);
          }
       }
 
-      return enemiesHit;
+   }
+
+   private void OnTriggerEnter2D(Collider2D other) {
+      if(attacking) {
+         if(other.gameObject.tag == "Enemy") {
+            ProcessHit(other.gameObject);
+         }
+      }
    }
 
    protected override void CooldownAnimation() {
@@ -29,10 +34,12 @@ public class MeleeWeapon : AbstractWeapon {
    }
 
    private IEnumerator VisualAttack() {
+      attacking = true;
       for(int i = 0; i < 360; i += 5) {
          transform.rotation *= Quaternion.AngleAxis(5, Vector3.forward);
          yield return null;
       }
+      attacking = false;
    }
    
    private IEnumerator VisualCooldown() {
