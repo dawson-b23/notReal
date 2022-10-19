@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Room : MonoBehaviour
 {
-    
+    public int roomType;
     public int enemyAmount;
     int enemy_lvl;
     int loot_lvl;
@@ -42,7 +42,10 @@ public class Room : MonoBehaviour
             return loot_lvl;
         }
     
-
+        public void RoomDestruction()
+    {
+        Destroy(gameObject);
+    }
     
     void Start()
     {

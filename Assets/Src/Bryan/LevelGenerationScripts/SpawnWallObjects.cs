@@ -14,8 +14,9 @@ public class SpawnWallObjects : MonoBehaviour
             // Random selection of objects[] array
             int rand = Random.Range(0, objects.Length);
             // Instantiate(objects[rand], transform.position, Quaternion.identity);
-            var newObj = GameObject.Instantiate(objects[rand], transform.position, Quaternion.identity);
-            newObj.transform.parent = GameObject.Find("WallObjectContainer").transform;
+            GameObject newObj = GameObject.Instantiate(objects[rand], transform.position, Quaternion.identity);
+            newObj.transform.parent = transform;
+            // newObj.transform.parent = GameObject.Find("WallObjectContainer").transform;
         }
     }
 }

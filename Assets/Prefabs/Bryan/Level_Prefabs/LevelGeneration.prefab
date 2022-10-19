@@ -1,0 +1,66 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &3777797514785590491
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3777797514785590493}
+  - component: {fileID: 3777797514785590492}
+  m_Layer: 0
+  m_Name: LevelGeneration
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3777797514785590493
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3777797514785590491}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -9.684574, y: -84.86515, z: -11.88911}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3777797514785590492
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3777797514785590491}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 138ccabff4a7ea54a8745e64c78c7a92, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  WorldStartingPositions:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  rooms:
+  - {fileID: 8432775190027671361, guid: 84e2e1eef60944e43a93b2ec7f9e79be, type: 3}
+  - {fileID: 8432775190027671361, guid: 4af63f7494dc68a49999dfbded38c401, type: 3}
+  - {fileID: 8432775190027671361, guid: c19e9816eae43c24e9d0968b9f273194, type: 3}
+  - {fileID: 8432775190027671361, guid: 5e4a4375fb89ad64ca65fb1f3e49e2c4, type: 3}
+  - {fileID: 8432775190027671361, guid: f1d751e87cc087a4593f2085502eceb2, type: 3}
+  room:
+    serializedVersion: 2
+    m_Bits: 0
+  moveAmount: 20
+  startTime: 0.25
+  minX: -40
+  maxX: 40
+  minY: 10

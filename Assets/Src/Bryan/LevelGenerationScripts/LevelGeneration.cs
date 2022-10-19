@@ -5,15 +5,15 @@ using UnityEngine;
 public class LevelGeneration : MonoBehaviour
 {
     public Transform[] WorldStartingPositions;
-    public GameObject[] rooms;
-
-    public int direction;
+    public GameObject[] rooms; //ROOM OPENINGS 0 = spawnroom 1 = left/right, 2 left/right/bottom, 3 left/right/top, 4 left/right/top/bottom
+    public LayerMask room;
+    private int direction;
     public float moveAmount;
 
     private float timeBetweenRoom;
     public float startTime = 0.25f;
 
-
+   
     public float minX;
     public float maxX;
     public float minY;
@@ -44,22 +44,55 @@ public class LevelGeneration : MonoBehaviour
 
     private void Move()
     {
+        
         //move right
         if (direction == 1 || direction == 2)
         {
+            Debug.Log("direction = " + direction);
             if (transform.position.x < maxX)
             {
                 Vector2 newPosition = new Vector2(transform.position.x + moveAmount, transform.position.y);
                 transform.position = newPosition;
+                Vector2 nextPosition = new Vector2(transform.position.x + moveAmount, transform.position.y);
 
                 direction = Random.Range(1, 6);// force direction to be 1,2 or 5 to prevent overlap
-                if(direction == 3)// move right
+               
+                //prevents moving back left onto itself
+                if (direction == 3)// move right
                 {
                     direction = 2;
-                }else if(direction == 4)//move down
+                }
+                else if (direction == 4)//move down
                 {
                     direction = 5;
                 }
+
+               
+                // ensure bottom opening 
+               if(nextPosition.x > maxX)
+                {
+                    int randBottomRoom = 4; //force room to have all four openings to deal with edge case
+                    Instantiate(rooms[randBottomRoom], transform.position, Quaternion.identity);
+                }
+                else if (direction == 5)
+                    {
+                   
+                    int randBottomRoom = Random.Range(2, 5);
+
+                    if (randBottomRoom == 3)
+                    {
+                        randBottomRoom = 2;
+                    }
+                    
+                    Instantiate(rooms[randBottomRoom], transform.position, Quaternion.identity);
+                }
+                else
+                {
+                    //added to give a room with a left opening
+                    int rand = Random.Range(1, rooms.Length);
+                    Instantiate(rooms[rand], transform.position, Quaternion.identity);
+                   
+                }              
             }
             else
             {//moved down if right boundary is reached
@@ -68,12 +101,35 @@ public class LevelGeneration : MonoBehaviour
         }//move left
         else if (direction == 3 || direction == 4)
         {
+            Debug.Log("direction = " + direction);
             if (transform.position.x > minX)
             {
                 Vector2 newPosition = new Vector2(transform.position.x - moveAmount, transform.position.y);
                 transform.position = newPosition;
+                Vector2 nextPosition = new Vector2(transform.position.x - moveAmount, transform.position.y);
 
                 direction = Random.Range(3, 6);// force direction to be left or down to prevent overlap
+
+               
+                if (nextPosition.x < minX)
+                {
+                    int randBottomRoom = 4; //force room to have all four openings to deal with edge case
+                    Instantiate(rooms[randBottomRoom], transform.position, Quaternion.identity);
+                }
+                else if (direction == 5)                  
+                {
+                    int randBottomRoom = 4;//force room to have all four openings to deal with edge case
+                    Instantiate(rooms[randBottomRoom], transform.position, Quaternion.identity);
+                }
+                else { 
+
+                    //added to give a room with a right opening
+                    int rand = Random.Range(1, rooms.Length);
+                    Instantiate(rooms[rand], transform.position, Quaternion.identity);
+                }
+               
+
+                
             }
             else
             {//moved down if left boundary is reached
@@ -84,12 +140,28 @@ public class LevelGeneration : MonoBehaviour
         //move down
         else if (direction == 5)
         {
+            Debug.Log("direction = " + direction);
             if (transform.position.y > minY)
             {
                 Vector2 newPosition = new Vector2(transform.position.x, transform.position.y - moveAmount);
                 transform.position = newPosition;
-
                 direction = Random.Range(1, 6);//any direction 
+
+
+
+                if (direction == 5)
+                {
+                    int randBottomRoom = 4;
+                    Instantiate(rooms[randBottomRoom], transform.position, Quaternion.identity);
+
+                }
+                else
+                {
+                    //added to give a room with a top opening
+                    int rand = Random.Range(3, 5);
+                    Instantiate(rooms[rand], transform.position, Quaternion.identity);
+
+                }
             }
             else
             {//stop generation
@@ -99,7 +171,7 @@ public class LevelGeneration : MonoBehaviour
             }
         }
 
-        Instantiate(rooms[0], transform.position, Quaternion.identity);
+      //  Instantiate(rooms[0], transform.position, Quaternion.identity);
         
 
         
