@@ -1,3 +1,9 @@
+/*StressTest.cs
+ * Calls infinte testRooms 
+ * Haults when fps drops below 5 frames per sec
+ * Test scripts located in void Update
+ */
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -10,7 +16,7 @@ public Transform[] WorldStartingPositions;
 public GameObject[] rooms; //ROOM OPENINGS 0 = spawnroom 1 = left/right, 2 left/right/bottom, 3 left/right/top, 4 left/right/top/bottom
 public LayerMask room;
 public float moveAmount;
-public float startTime = 0.25f;
+public float startTime = 0.0f;
 public int roomCount = 0;
 public float minX;
 public float maxX;
@@ -33,15 +39,28 @@ private void Update()
 {
     if (timeBetweenRoom <= 0 && stopGeneration == false)
     {
+            float frameRate;
+            frameRate = 1 / Time.unscaledDeltaTime;
+           
             System.Diagnostics.Stopwatch stopwatch = new System.Diagnostics.Stopwatch();
             stopwatch.Start();
-        Move();
-        timeBetweenRoom = startTime;
-        roomCount = roomCount + 1;
+        
+            Move();
+       
+            timeBetweenRoom = startTime;
+       
+            roomCount = roomCount + 1;
             stopwatch.Stop();
+
             Debug.Log("roomCount = " + roomCount);
+            Debug.Log("frameRate = " + frameRate);
             Debug.Log("Time taken: " + (stopwatch.Elapsed));
             stopwatch.Reset();
+
+            if(frameRate <= 5 && roomCount > 5)// added roomCount to prevent stopping on startup
+            {
+                stopGeneration = true;
+            }
     }
     else
     {
