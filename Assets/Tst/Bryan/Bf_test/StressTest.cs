@@ -33,13 +33,15 @@ private void Update()
 {
     if (timeBetweenRoom <= 0 && stopGeneration == false)
     {
-     
+            System.Diagnostics.Stopwatch stopwatch = new System.Diagnostics.Stopwatch();
+            stopwatch.Start();
         Move();
         timeBetweenRoom = startTime;
-         
         roomCount = roomCount + 1;
-           
-       Debug.Log("roomCount = " + roomCount);
+            stopwatch.Stop();
+            Debug.Log("roomCount = " + roomCount);
+            Debug.Log("Time taken: " + (stopwatch.Elapsed));
+            stopwatch.Reset();
     }
     else
     {
