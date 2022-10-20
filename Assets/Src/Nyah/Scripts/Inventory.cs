@@ -4,73 +4,28 @@ using System.Collections.Generic;
 using UnityEngine;
 using static Item;
 using static UnityEditor.Progress;
+using System.Linq;
 
-public class Inventory : MenuManager
+public class Inventory : MonoBehaviour
 {
-    /*public static Inventory instance;
-
-    public void Awake()
-    {
-        instance = this;
-    } */
-
     //private List<Item> inventoryItems = new List<Item>();
-    // make array ??
+
     public int maxInventory = 20; // make private after test
-    private List<Item> inventoryItems;
-    // add list for other weapon ??
+    public List<Item> inventoryItems;
 
     // constructor initializes list
     public Inventory()
     {
         inventoryItems = new List<Item>(maxInventory);
         //Debug.Log("Inventory initialized"); // works
-
-        // add to player class
-        // Inventory inventory;
-        // in awake function:
-        // inventory = new Inventory();
-        // if weapon is picked up, CreateItem()
-        // AddInventory(item)
-
-        //AddInventory(new Item { itemType = Item.ItemType.Melee, itemAmount = 1 });
-        //AddInventory(new Item { itemType = Item.ItemType.Gun, itemAmount = 1 });
-        //Debug.Log(inventoryItems[0].itemAmount);
-        //Debug.Log(inventoryItems[1].itemType);
-
-        //Item item = CreateItem(ItemType.Melee);
-
-        //AddInventory(item);
-        //Debug.Log(inventoryItems.Count);
-
-        //RemoveInventory(item);
-
-        //RemoveInventory(Item.ItemType.Melee);
-        //Debug.Log("removing one from inventory");
-        //Debug.Log(inventoryItems.Count);
-
     }
 
     public Item CreateItem(ItemType itemtype)
     {
+        // can i do itemAmount++?
         Item item = new Item { itemType = itemtype, itemAmount = 1 };
 
         return item;
-    }
-
-    // inventory display in HUD 
-    public void OpenInventory()
-    {
-        Debug.Log("Opening inventory menu");
-        OpenMenu(Menu.InventoryMenu);
-        PauseGame();
-    }
-
-    public void CloseInventory()
-    {
-        Debug.Log("Closing inventory menu");
-        CloseMenu(Menu.InventoryMenu);
-        ResumeGame();
     }
 
     public void AddInventory(Item item)
@@ -88,27 +43,25 @@ public class Inventory : MenuManager
             {
                 //Debug.Log("inventory full; cant add item");
             }
-            // for testing
-            // AddInventory(new Item { itemType = Item.ItemType.Melee, itemAmount = 1 });
-            // Debug.Log(inventoryItems.Count)
         }
     }
 
-    public void RemoveInventory(Item item)
+    //public void RemoveInventory(Item item)
+    public void RemoveInventory()
     {
-        // if weapon exists as a weapon
-        if (WeaponExists(item))
+        if (inventoryItems.Count > 0)
         {
-            // check inventory for this weapon
-            if(CheckInventory(item))
+            Item lastItem = inventoryItems.Last();
+            // if weapon exists as a weapon
+            if (WeaponExists(lastItem))
             {
-                inventoryItems.Remove(item);
+                // check inventory for this weapon
+                if (CheckInventory(lastItem))
+                {
+                    inventoryItems.Remove(lastItem);
+                }
             }
         }
-
-        // for testing
-        // RemoveInventory()
-        // Debug.Log(inventoryItems.Count)
     }
 
     public bool IsFull()
@@ -163,27 +116,7 @@ public class Inventory : MenuManager
 
     public int ItemCount()
     {
-        //int count = item.itemAmount;
         return inventoryItems.Count;
     }
-
-    /* 
-    need to update inventory in the upgrade
-    inventory in the update inventory funtion
-    (i will use this function for testing)
-    */
-
-    // update inventory
-    // add or remove a weapon
-    // increase or decrease inventory value
-
-    // if an object is picked up
-    // (in weaponpickup function)
-    // add 1 to inventory (inventory.melee++)
-
-    // if an object is requested from inventory
-    // check inventory for object
-    // if true, remove 1 from inventory (inventory.melee--)
-
 
 }

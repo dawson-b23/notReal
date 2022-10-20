@@ -1,4 +1,4 @@
-using System.Collections;
+/*using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -39,4 +39,4 @@ public class InventoryMenu : MenuManager
         Time.timeScale = 1f;
         Debug.Log("close inventory menu");
     }
-}
+}*/
