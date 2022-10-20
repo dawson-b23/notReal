@@ -12,7 +12,7 @@ public abstract class AbstractWeapon : MonoBehaviour {
 
    public float LastAttack(){return lastAttackTime;}
 
-   private void Start() {
+   protected void Start() {
       lastAttackTime = Time.time;
       gameObject.SetActive(false);
    }
