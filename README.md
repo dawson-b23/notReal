@@ -8,3 +8,5 @@ The GIT repository for our game Exit the Hive for CS383 Fall 22
 [This is an external link to our RFP](https://docs.google.com/document/d/1Sw9odjzAvscDFULWWv9RSHUHHx_IeRLqtcw7mlSpH0A/edit?usp=sharing)
 
 [This is an external link to our SA Presentation](https://docs.google.com/presentation/d/12Rm-kqJbmAJNkKOFj-5OjsXYrfRN9hBogm5m4wF_9pM/edit?usp=sharing)
+
+[This is an external link to the Coding Standards](https://docs.google.com/document/d/1ncAYS1ibqsMViA1SDKeQCdNwg0VUpv483rlubR4NYRU/edit)
