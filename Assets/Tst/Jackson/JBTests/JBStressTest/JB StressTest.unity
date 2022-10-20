@@ -194,6 +194,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b857c5184311eef468798228044896e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  NPC: {fileID: 2121776285}
 --- !u!1 &686037757
 GameObject:
   m_ObjectHideFlags: 0
@@ -347,11 +348,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4715440400243645493, guid: e181c2d3a198a8b44b99b2ea2e1c201a, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -4.29
       objectReference: {fileID: 0}
     - target: {fileID: 4715440400243645493, guid: e181c2d3a198a8b44b99b2ea2e1c201a, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -0.53
       objectReference: {fileID: 0}
     - target: {fileID: 4715440400243645493, guid: e181c2d3a198a8b44b99b2ea2e1c201a, type: 3}
       propertyPath: m_LocalPosition.z
@@ -870,3 +871,8 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &2121776285 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4277482150060571805, guid: e181c2d3a198a8b44b99b2ea2e1c201a, type: 3}
+  m_PrefabInstance: {fileID: 920092279}
+  m_PrefabAsset: {fileID: 0}
