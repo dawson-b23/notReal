@@ -1,32 +1,50 @@
+/*
+ * NewTestScript.cs
+ * Liam Mathews
+ * Boundary Tests, ensure
+ * Upgrade method functions properly
+ * and proper amt of exp is exchanged  
+ */
+
+using NUnit.Framework;
 using System.Collections;
 using System.Collections.Generic;
-using NUnit.Framework;
 using UnityEngine;
 using UnityEngine.TestTools;
 
+
+/*
+ * NewTestScript class
+ * contains methods for ensuring that upgrade function
+ * behaves properly, with a control test, a test with too much exp,
+ * and a test with too little exp 
+ * 
+ * member variables:
+ * EXPTestControl() - control test, checks exp exchange with exact amount
+ * EXPTestAbove() - above test, checks exp exchange with high amount
+ * EXPTestBelow() - below test, checks exp exchange with a low amount
+ * NewTestScriptWithEnumeratorPasses() - for PlayMode tests, unecessary here
+ */
 public class NewTestScript
 {
-    // A Test behaves as an ordinary method
     [Test]
-    public void NewTestScriptSimplePasses()
-    {
-        // Use the Assert class to test conditions
-    }
-
-
-    [Test]
+    //assign player exact amount of exp needed
+    //call upgrade function to ensure exp removed does not exceed or 
+    //go under required value
+    //call again to make sure player.exp does not go under zero
     public void EXPTestControl()
-        {
+        {   
+            SkillTree skillTree = new SkillTree(); // initialize a skill tree
             
-            SkillTree skillTree = new SkillTree();
-            //PlayerController player = new PlayerController(); 
-            
-            PlayerController player = skillTree.GetPlayer();
-            //exp = 100;
+            PlayerController player = skillTree.GetPlayer(); //initalize player from SkillTree script
+
+            // assign player 5 exp, check for success
             player.exp = 5; 
             Assert.That(player.exp == 5);
 
-            //keep calling Upgrade
+            //call upgrade method, ensure proper amount
+            //of exp was removed, try again to make sure
+            //no more exp is removed
             skillTree.Upgrade();
             Assert.That(player.exp == 0);
             skillTree.Upgrade();
@@ -34,14 +52,17 @@ public class NewTestScript
         }
 
     [Test]
+    //assign player one more exp than needed
+    //call upgrade function to ensure exp removed does not exceed or 
+    //go under required value
+    //call again to make sure player.exp is not spent, 
+    //will be less than required amt but greater than zero
     public void EXPTestAbove()
         {
-            
             SkillTree skillTree = new SkillTree();
-            //PlayerController player = new PlayerController(); 
             
             PlayerController player = skillTree.GetPlayer();
-            //exp = 100;
+            
             player.exp = 6; 
             Assert.That(player.exp == 6);
 
@@ -53,14 +74,18 @@ public class NewTestScript
         }
 
         [Test]
+        //assign player four more exp than needed, after first call to upgrade 
+        //player.exp will be below the required amount
+        //call upgrade function to ensure exp removed does not exceed or 
+        //go under required value
+        //call again to make sure player.exp is not spent, 
+        //will be less than required amt but greater than zero
         public void EXPTestBelow()
-        {
-            
-            SkillTree skillTree = new SkillTree();
-            //PlayerController player = new PlayerController(); 
+        {  
+            SkillTree skillTree = new SkillTree(); 
             
             PlayerController player = skillTree.GetPlayer();
-            //exp = 100;
+
             player.exp = 9; 
             Assert.That(player.exp == 9);
 
@@ -69,17 +94,5 @@ public class NewTestScript
             Assert.That(player.exp == 4);
             skillTree.Upgrade();
             Assert.That(player.exp == 4);
-        }
-
-   
-
-    // A UnityTest behaves like a coroutine in Play Mode. In Edit Mode you can use
-    // `yield return null;` to skip a frame.
-    [UnityTest]
-    public IEnumerator NewTestScriptWithEnumeratorPasses()
-    {
-        // Use the Assert class to test conditions.
-        // Use yield to skip a frame.
-        yield return null;
-    }
+        }   
 }
