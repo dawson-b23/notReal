@@ -1,28 +1,49 @@
+/*
+ * LevelGeneration.cs
+ * Bryan Frahm
+ * Generates a path through the world
+ */
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/*
+ * 
+ * worldStartingPositions - gives position of where to start generating
+ * rooms - an array that holds room prefabs with reference to directional openings
+ *        0 = spawnroom 1 = left/right, 2 left/right/bottom, 3 left/right/top, 4 left/right/top/bottom     
+ * moveAmount - the amount moved for the next room to spawn in, based on room size
+ * startTime - delay added between each room spawning
+ * minX - minimum X value to act as border
+ * maxX - max x value
+ * minY - minimum y value to initiate stopGeneration
+ * direction - int value to determine direction 1,2 right 3,4 left 5 down
+ * stopGeneration - stops spawning new rooms
+ * timeBetweenRoom - temp variable to hold time to add delay when spawning rooms
+ *
+ * Move() - function to spawn and place rooms
+ */
 public class LevelGeneration : MonoBehaviour
 {
-    public Transform[] WorldStartingPositions;
+    public Transform[] worldStartingPositions;
     public GameObject[] rooms; //ROOM OPENINGS 0 = spawnroom 1 = left/right, 2 left/right/bottom, 3 left/right/top, 4 left/right/top/bottom
-    public LayerMask room;
-    private int direction;
     public float moveAmount;
-
-    private float timeBetweenRoom;
     public float startTime = 0.25f;
-
-   
     public float minX;
     public float maxX;
     public float minY;
+
+    private int direction;
     private bool stopGeneration;
+    private float timeBetweenRoom;
+
+
     // Start is called before the first frame update
     void Start()
     {
-        int randStartingPos = Random.Range(0, WorldStartingPositions.Length);
-        transform.position = WorldStartingPositions[randStartingPos].position;
+        int randStartingPos = Random.Range(0, worldStartingPositions.Length);
+        transform.position = worldStartingPositions[randStartingPos].position;
         Instantiate(rooms[0], transform.position, Quaternion.identity);
 
         direction = Random.Range(1, 6);
@@ -32,7 +53,7 @@ public class LevelGeneration : MonoBehaviour
     {
         if (timeBetweenRoom <= 0 && stopGeneration == false)
         {
-            Move();
+            move();
             timeBetweenRoom = startTime;
         }
         else
@@ -42,7 +63,11 @@ public class LevelGeneration : MonoBehaviour
 
     }
 
-    private void Move()
+    /*move()
+     * funciton to move and spawn a room in a determined direction
+     * 
+     */
+    private void move()
     {
         
         //move right
@@ -171,7 +196,7 @@ public class LevelGeneration : MonoBehaviour
             }
         }
 
-      //  Instantiate(rooms[0], transform.position, Quaternion.identity);
+      
         
 
         
