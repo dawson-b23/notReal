@@ -20,6 +20,7 @@ using UnityEngine;
  * OnCollisionEnter2D() - destroys the projectile, and if it hit an enemy, damage the enemy
  * setSpeed(float) - setter for speed
  * setSpeed(RangedWeapon) - setter for source
+ * setBearing(Vector3) - setter for bearing
  */
 public class Projectile : MonoBehaviour 
 {
@@ -27,7 +28,7 @@ public class Projectile : MonoBehaviour
     private float speed;
     [SerializeField]
     private RangedWeapon source;
-    private Vector3 bearing = new Vector3(1.0f, 0.0f, 0.0f);
+    private Vector3 bearing;
     
     /*
      * Moves the projectile
@@ -60,6 +61,13 @@ public class Projectile : MonoBehaviour
      * setter for source
      */
     public void setSource(RangedWeapon newSource) { source = newSource; }
+
+    /*
+     * setter for bearing
+     */
+    public void setBearing(Vector3 newBearing) {
+        bearing = newBearing.normalized;
+    }
 
 }
 

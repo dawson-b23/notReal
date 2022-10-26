@@ -142,7 +142,7 @@ public class PlayerController : MonoBehaviour
             canAttack = false;
             SwitchPlayerState(PlayerState.Attacking);
             int expGained = 0;
-            currentWeapon.Attack(out expGained);
+            currentWeapon.attack(out expGained);
             exp += expGained;
             StartCoroutine(AttackCooldown());
 

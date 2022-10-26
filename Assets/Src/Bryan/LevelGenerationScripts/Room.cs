@@ -1,13 +1,34 @@
+/*
+ * Room.cs
+ * Bryan Frahm
+ * Sets contents of rooms
+ */
+
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+
+/*
+ * roomType - work in progress
+ * enemyAmount - amount of enemies
+ * enemyLevel - work in pregress
+ * lootLevel - work in progress
+ * 
+ * Room() - constructor/ work in progress
+ * setEnemy() - take playerLevel and return enemyAmount
+ * RoomDestruction() - destroy a room/ work in progress
+ * 
+ */
 
 public class Room : MonoBehaviour
 {
     public int roomType;
     public int enemyAmount;
-    int enemy_lvl;
-    int loot_lvl;
+    
+    private int enemyLevel;
+    private int lootLevel;
+
     // Start is called before the first frame update
     public Room()
     {
@@ -35,11 +56,11 @@ public class Room : MonoBehaviour
         }
         int setEnemylvl(int playerlvl)
         {
-            return enemy_lvl;
+            return enemyLevel;
         }
         int setLootlvl(int playerlvl)
         {
-            return loot_lvl;
+            return lootLevel;
         }
     
         public void RoomDestruction()

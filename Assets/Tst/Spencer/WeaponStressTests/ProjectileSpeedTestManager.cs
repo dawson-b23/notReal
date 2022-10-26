@@ -60,7 +60,7 @@ public class ProjectileSpeedTestManager : MonoBehaviour
     {
         launcher.gameObject.SetActive(true);
         launched.setSpeed(speed);
-        launcher.Attack(out wastebin);
+        launcher.attack(out wastebin);
         speed += speedInterval;
         yield return new WaitForSeconds(launchInterval);
         StartCoroutine(launch());
