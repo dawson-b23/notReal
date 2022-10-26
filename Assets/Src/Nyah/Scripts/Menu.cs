@@ -1,3 +1,8 @@
+/*
+ * Menu.cs
+ * Nyah Nelson
+ * Menu reference values
+ */
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;

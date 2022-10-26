@@ -1,8 +1,21 @@
+/*
+ * MenuManage.cs
+ * Nyah Nelson
+ * Basic functions for all menus
+ */
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+/*
+ * MenuManager class to manage basic functions for all menus
+ * 
+ * member variables:
+ * menu game objects
+ * openMenu(Menu menu) - open a menu
+ * closeMenu(Menu menu) - close a menu
+ */
 public class MenuManager : MonoBehaviour
 {
     
@@ -10,9 +23,9 @@ public class MenuManager : MonoBehaviour
     [SerializeField]
     GameObject mainMenu, pauseMenu, optionsMenu, inventoryMenu;
 
-    // function to open a menu 
     // public void OpenMenu(Menu menu, GameObject callingMenu)
-    public void OpenMenu(Menu menu)
+    // functions to open a menu
+    public void openMenu(Menu menu)
     {
         // open menu
         switch(menu)
@@ -33,7 +46,7 @@ public class MenuManager : MonoBehaviour
     }
 
     // function to close a menu
-    public void CloseMenu(Menu menu)
+    public void closeMenu(Menu menu)
     {
         // close menu
         switch (menu)
@@ -55,7 +68,11 @@ public class MenuManager : MonoBehaviour
         }
     }
 
-    protected virtual void PauseGame()
+    /* or make them abstract???
+     * protected virtual void PauseGame();
+     * protected virtual void ResumeGame();
+    */
+    /*protected virtual void PauseGame()
     {
         Time.timeScale = 0f;
         Debug.Log("pause game");
@@ -65,7 +82,7 @@ public class MenuManager : MonoBehaviour
     {
         Time.timeScale = 1f;
         Debug.Log("resume game");
-    }
+    } */
 
     
 }
