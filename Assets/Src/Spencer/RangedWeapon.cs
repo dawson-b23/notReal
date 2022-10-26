@@ -13,6 +13,7 @@ using UnityEngine;
  *
  * member variables:
  * projectilePrototype - the projectile to be copied and fired
+ * cooldownParticlePrototype - a particle to be spawned when the weapon is on cooldown
  * launchPoint - an empty containing the location new projectiles spawn at
  *
  * member functions:
@@ -27,6 +28,8 @@ public class RangedWeapon : AbstractWeapon
     [SerializeField]
     private Projectile projectilePrototype;
     [SerializeField]
+    private SimpleParticle cooldownParticlePrototype = null;
+    [SerializeField]
     private GameObject launchPoint;
 
     /*
@@ -37,6 +40,9 @@ public class RangedWeapon : AbstractWeapon
         base.Start();
         projectilePrototype.gameObject.SetActive(false);
         projectilePrototype.setSource(this);
+        if(cooldownParticlePrototype != null) {
+            cooldownParticlePrototype.gameObject.SetActive(false);
+        }
     }
     
     /*
@@ -68,10 +74,18 @@ public class RangedWeapon : AbstractWeapon
 
     /*
      * Display that the weapon is on cooldown
+     * Creates several small particles with random velocities and lifetimes instead of a projectile
      */
     protected override void cooldownAnimation() 
     {
-        //TODO make ranged attack doolcown
+        if(cooldownParticlePrototype != null) {
+            int numParticles = 3 + (int) (Random.value * 6);
+            for(int i = 0; i < numParticles; i++) {
+                SimpleParticle newParticle = Instantiate(cooldownParticlePrototype);
+                newParticle.gameObject.SetActive(true);
+                newParticle.transform.position = launchPoint.transform.position;
+            }
+        }
     }
 
     /*

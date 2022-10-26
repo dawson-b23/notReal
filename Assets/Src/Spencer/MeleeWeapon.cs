@@ -70,8 +70,11 @@ public class MeleeWeapon : AbstractWeapon
      */
     protected override void cooldownAnimation() 
     {
-        // Debug.Log("Weapon on cooldown.");
-        StartCoroutine(visualCooldown());
+        if(!attacking)
+        {
+            // Debug.Log("Weapon on cooldown.");
+            StartCoroutine(visualCooldown());
+        }
     }
 
     /*
@@ -81,10 +84,18 @@ public class MeleeWeapon : AbstractWeapon
     private IEnumerator visualAttack() 
     {
         attacking = true;
-        for(int i = 0; i < 360; i += 5) 
+        float totalTime = cooldown;
+        float lastRotationTime;
+        for(double i = Time.fixedDeltaTime; i < totalTime; i += Time.fixedDeltaTime) 
         {
-            transform.rotation *= Quaternion.AngleAxis(5, Vector3.forward);
-            yield return null;
+            transform.localRotation *= Quaternion.AngleAxis((Time.fixedDeltaTime / totalTime) * 360, Vector3.forward);
+
+            // The for loop is based around fixed timesteps, so yield until the next fixed step
+            lastRotationTime = Time.fixedTime;
+            while(Time.fixedTime == lastRotationTime) 
+            {
+                yield return null;
+            }
         }
         attacking = false;
     }
@@ -92,6 +103,7 @@ public class MeleeWeapon : AbstractWeapon
     /*
      * Visually display the cooldown.
      * Shrink the weapon, then grow it back to regular size
+     * Currently, this should never be called, since the attack length is equal to the cooldown
      */
     private IEnumerator visualCooldown() 
     {

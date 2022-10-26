@@ -29,7 +29,7 @@ public abstract class AbstractWeapon : MonoBehaviour
     [SerializeField]
     private int damage;
     [SerializeField]
-    private float cooldown;
+    protected float cooldown;
     [SerializeField]
     private SkillTree upgrade;
 
@@ -41,7 +41,7 @@ public abstract class AbstractWeapon : MonoBehaviour
      */
     protected void Start() 
     {
-        lastAttackTime = Time.time;
+        lastAttackTime = Time.fixedTime;
         gameObject.SetActive(false);
     }
 
@@ -59,9 +59,9 @@ public abstract class AbstractWeapon : MonoBehaviour
     public void attack(out int expGained) 
     {
         expGained = 0;
-        if ((Time.time - lastAttackTime) > cooldown) 
+        if ((Time.fixedTime - lastAttackTime) > cooldown) 
         {
-            lastAttackTime = Time.time;
+            lastAttackTime = Time.fixedTime;
             attackAnimation();
         } else 
         {
