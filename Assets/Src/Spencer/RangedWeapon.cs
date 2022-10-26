@@ -17,6 +17,7 @@ using UnityEngine;
  *
  * member functions:
  * Start() - initialize the weapon
+ * FixedUpdate() - turns the weapon to face the mouse
  * attackAnimation() - fire a projectile
  * cooldownAnimation() - display the weapon is on cooldown
  * processProjectileHit(GameObject) - wrapper for processHit
@@ -37,6 +38,19 @@ public class RangedWeapon : AbstractWeapon
         projectilePrototype.gameObject.SetActive(false);
         projectilePrototype.setSource(this);
     }
+    
+    /*
+     * Turns the weapon to face the mouse
+     */
+    private void FixedUpdate() 
+    {
+        Vector3 originPos = Camera.main.WorldToViewportPoint(transform.position);
+        Vector3 mousePos = Camera.main.ScreenToViewportPoint(Input.mousePosition);
+        Vector2 delta = new Vector2(mousePos.x - originPos.x, mousePos.y - originPos.y);
+
+        float targetAngle = Mathf.Acos(delta.normalized.x) * Mathf.Rad2Deg * Mathf.Sign(delta.y);
+        transform.localRotation = Quaternion.Euler(0, 0, targetAngle);
+    }
 
     /*
      * Create a new projectile, move it to the launchPoint
@@ -46,6 +60,10 @@ public class RangedWeapon : AbstractWeapon
         Projectile newProj = Instantiate(projectilePrototype);
         newProj.gameObject.SetActive(true);
         newProj.transform.position = launchPoint.transform.position;
+        newProj.transform.localRotation = transform.localRotation;
+        newProj.setBearing(new Vector3(launchPoint.transform.position.x - transform.position.x,
+                                       launchPoint.transform.position.y - transform.position.y,
+                                       0));
     }
 
     /*
