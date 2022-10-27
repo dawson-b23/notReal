@@ -30,7 +30,6 @@ public abstract class AbstractWeapon : MonoBehaviour
     private int damage;
     [SerializeField]
     protected float cooldown;
-    [SerializeField]
     private SkillTree upgrade;
 
     private float lastAttackTime;
@@ -43,6 +42,7 @@ public abstract class AbstractWeapon : MonoBehaviour
     {
         lastAttackTime = Time.fixedTime;
         gameObject.SetActive(false);
+        upgrade = (SkillTree) FindObjectOfType(typeof(SkillTree));
     }
 
     /*
@@ -76,8 +76,8 @@ public abstract class AbstractWeapon : MonoBehaviour
      */
     protected void processHit(GameObject enemy) 
     {
-        EnemyTracking enemyScript;
-        if(enemy.TryGetComponent<EnemyTracking>(out enemyScript)) 
+        Enemy enemyScript;
+        if(enemy.TryGetComponent<Enemy>(out enemyScript)) 
         {
             // enemyScript.takeDamage(damage);
             Destroy(enemyScript.gameObject);

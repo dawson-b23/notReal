@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1da05c5b1261c954b9582d06920e00b8, type: 3}
+  m_Name: WeaponRegistry
+  m_EditorClassIdentifier: 
+  inputWeapons:
+  - weaponID: basicRange
+    weapon: {fileID: 8507486459402833133, guid: 0c073f0646550e24d98a1b383385a7f3, type: 3}
+  - weaponID: basicMelee
+    weapon: {fileID: 2800971576619628798, guid: 4324e22debb383c418faa758b0301639, type: 3}

@@ -26,6 +26,8 @@ public class Dialogue : MonoBehaviour
     //Writing speed 
     public float writingSpeed;
 
+
+
     private void Awake()
     {
         ToggleIndicator(false);
@@ -36,10 +38,12 @@ public class Dialogue : MonoBehaviour
     {
         window.SetActive(show);
     }
+
     public void ToggleIndicator(bool show)
     {
         indicator.SetActive(show);
     }
+
     public void StartDialogue()
     {
         if (started)
@@ -71,8 +75,13 @@ public class Dialogue : MonoBehaviour
     //End Dialogue
     public void EndDialogue()
     {
+        //diable started and waitfornext
+        started = false;
+        WaitForNext = false;
+        //stop all IENumerators
+        StopAllCoroutines();
             //hide window
-            ToggleWindow(false);
+        ToggleWindow(false);
     }
 
     IEnumerator Writing()
@@ -111,6 +120,7 @@ public class Dialogue : MonoBehaviour
             }
             else
             {
+                ToggleIndicator(true);
                 EndDialogue();
             }
 
