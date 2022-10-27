@@ -25,7 +25,7 @@ using UnityEngine;
 public class MeleeWeapon : AbstractWeapon 
 {
     private ContactFilter2D contFilter;
-    private bool attacking;
+    protected bool attacking;
 
     /* 
      * If the weapon is currently attacking, check if the other object is an enemy
@@ -81,7 +81,7 @@ public class MeleeWeapon : AbstractWeapon
      * Visually display an attack.
      * Rotate the weapon 360 degrees around the player
      */
-    private IEnumerator visualAttack() 
+    protected virtual IEnumerator visualAttack() 
     {
         attacking = true;
         // round up to the nearest multiple of fixedDeltaTime to guarantee a full rotation
@@ -99,7 +99,7 @@ public class MeleeWeapon : AbstractWeapon
      * Shrink the weapon, then grow it back to regular size
      * Currently, this should never be called, since the attack length is equal to the cooldown
      */
-    private IEnumerator visualCooldown() 
+    protected virtual IEnumerator visualCooldown() 
     {
         for(int i = 0; i < 20; i++) 
         {
