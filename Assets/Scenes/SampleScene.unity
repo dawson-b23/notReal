@@ -2058,7 +2058,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 280419921658052934, guid: 429f87a3ce0885c4d9974a8aa6bca264, type: 3}
       propertyPath: writingSpeed
-      value: 0.1
+      value: 0.03
       objectReference: {fileID: 0}
     - target: {fileID: 280419921658052934, guid: 429f87a3ce0885c4d9974a8aa6bca264, type: 3}
       propertyPath: dialogues.Array.size
@@ -2066,15 +2066,16 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 280419921658052934, guid: 429f87a3ce0885c4d9974a8aa6bca264, type: 3}
       propertyPath: dialogues.Array.data[0]
-      value: Hey i'm Queen BC!
+      value: Hello little Bee, I am your Queen BC!
       objectReference: {fileID: 0}
     - target: {fileID: 280419921658052934, guid: 429f87a3ce0885c4d9974a8aa6bca264, type: 3}
       propertyPath: dialogues.Array.data[1]
-      value: You need to go kill some dudes!
+      value: Outsiders have invaded the hive, and I need your help to drive them
+        out!
       objectReference: {fileID: 0}
     - target: {fileID: 280419921658052934, guid: 429f87a3ce0885c4d9974a8aa6bca264, type: 3}
       propertyPath: dialogues.Array.data[2]
-      value: Good LUCK!
+      value: Protect our home and good luck!
       objectReference: {fileID: 0}
     - target: {fileID: 769199791861972388, guid: 429f87a3ce0885c4d9974a8aa6bca264, type: 3}
       propertyPath: m_Name
