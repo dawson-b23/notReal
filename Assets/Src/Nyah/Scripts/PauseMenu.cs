@@ -14,6 +14,8 @@ using UnityEngine.SceneManagement;
  * member variables:
  * pauseGame() - open pause menu and pause game
  * resumeGame() - close pause menu and resume game
+ * openInventory() - open inventory menu, close pause game menu
+ * returnToMain() - return to main menu scene
  */
 public class PauseMenu : MenuManager
 {
@@ -36,5 +38,21 @@ public class PauseMenu : MenuManager
         // resume game
         Time.timeScale = 1f;
         Debug.Log("close pause menu");
+    }
+
+    // add inventory stuff
+
+    // if inventory button is clicked open inventory
+    public void openInventory()
+    {
+        closeMenu(Menu.PauseMenu);
+        openMenu(Menu.InventoryMenu);
+
+    }
+
+    // if return to main menu button is clicked, load main menu scene
+    public void returnToMain()
+    {
+        SceneManager.LoadScene(0);
     }
 }

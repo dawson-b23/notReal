@@ -24,7 +24,7 @@ public class MainMenu : MenuManager
     // scene to go to when starting the game
     // number in build settings
     // main menu = 0, first game room = 1
-    public int gameStartScene;
+    [SerializeField] int gameStartScene;
 
     // load first game scene
     public void startGame()
