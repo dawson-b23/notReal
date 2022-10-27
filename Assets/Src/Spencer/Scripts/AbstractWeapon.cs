@@ -76,8 +76,8 @@ public abstract class AbstractWeapon : MonoBehaviour
      */
     protected void processHit(GameObject enemy) 
     {
-        EnemyTracking enemyScript;
-        if(enemy.TryGetComponent<EnemyTracking>(out enemyScript)) 
+        Enemy enemyScript;
+        if(enemy.TryGetComponent<Enemy>(out enemyScript)) 
         {
             // enemyScript.takeDamage(damage);
             Destroy(enemyScript.gameObject);
