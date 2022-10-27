@@ -26,8 +26,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2800971576619628786}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+<<<<<<< HEAD:Assets/Prefabs/Spencer/WeaponHolder.prefab
+  m_LocalPosition: {x: -38.889698, y: 85.99, z: 11.098664}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+=======
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 3, y: 3, z: 1}
+>>>>>>> 05527321a8887875deff282ee2f82936677a6b5a:Assets/Prefabs/Spencer/Stinger.prefab
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2800971577486836051}
