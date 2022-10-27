@@ -474,6 +474,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6350623747820201899, guid: e181c2d3a198a8b44b99b2ea2e1c201a, type: 3}
+      propertyPath: dialogueScript
+      value: 
+      objectReference: {fileID: 3950227816395635033}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e181c2d3a198a8b44b99b2ea2e1c201a, type: 3}
 --- !u!4 &166579521 stripped
@@ -1250,7 +1254,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 16dd2a279713941679f0b652e874e999, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  mainMenu: {fileID: 0}
   pauseMenu: {fileID: 434421320}
+  optionsMenu: {fileID: 0}
+  inventoryMenu: {fileID: 0}
 --- !u!114 &1163588564
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2068,6 +2075,26 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 166579521}
     m_Modifications:
+    - target: {fileID: 280419921658052934, guid: 429f87a3ce0885c4d9974a8aa6bca264, type: 3}
+      propertyPath: writingSpeed
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 280419921658052934, guid: 429f87a3ce0885c4d9974a8aa6bca264, type: 3}
+      propertyPath: dialogues.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 280419921658052934, guid: 429f87a3ce0885c4d9974a8aa6bca264, type: 3}
+      propertyPath: dialogues.Array.data[0]
+      value: Hey i'm Queen BC!
+      objectReference: {fileID: 0}
+    - target: {fileID: 280419921658052934, guid: 429f87a3ce0885c4d9974a8aa6bca264, type: 3}
+      propertyPath: dialogues.Array.data[1]
+      value: You need to go kill some dudes!
+      objectReference: {fileID: 0}
+    - target: {fileID: 280419921658052934, guid: 429f87a3ce0885c4d9974a8aa6bca264, type: 3}
+      propertyPath: dialogues.Array.data[2]
+      value: Good LUCK!
+      objectReference: {fileID: 0}
     - target: {fileID: 769199791861972388, guid: 429f87a3ce0885c4d9974a8aa6bca264, type: 3}
       propertyPath: m_Name
       value: Dialogue
@@ -2126,22 +2153,16 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9109889014629742585, guid: 429f87a3ce0885c4d9974a8aa6bca264, type: 3}
       propertyPath: m_Name
-      value: RegularIndicator
+      value: Indicator
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 429f87a3ce0885c4d9974a8aa6bca264, type: 3}
---- !u!1 &3950227816395635031 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 769199791861972388, guid: 429f87a3ce0885c4d9974a8aa6bca264, type: 3}
+--- !u!114 &3950227816395635033 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 280419921658052934, guid: 429f87a3ce0885c4d9974a8aa6bca264, type: 3}
   m_PrefabInstance: {fileID: 3950227816395635030}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &3950227816395635032
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3950227816395635031}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d8803edf42f9ad24e90e1d91d9ea06f6, type: 3}

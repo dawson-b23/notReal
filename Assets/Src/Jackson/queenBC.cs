@@ -4,35 +4,33 @@ using UnityEngine;
 
 public class queenBC : MonoBehaviour
 {
-    // Start is called before the first frame update
-  private bool playerInRange;
+    public Dialogue dialogueScript;
+    private bool playerInRange;
 
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+          if(collision.CompareTag("Player"))
+          {
+            playerInRange = true;
+            dialogueScript.ToggleIndicator(playerInRange);
+          }
+    }
 
-    // Update is called once per frame
-    void Update()
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+          if(collision.CompareTag("Player"))
+          {
+            playerInRange = false;
+            dialogueScript.ToggleIndicator(playerInRange);
+          }
+    }
+
+    private void Update()
     {
         if(playerInRange && Input.GetKeyDown(KeyCode.E))
         {
-            // Move console msg to trigger once to prevent spamming the console - JacobW
-            //play sound?
-            //enter shop/dialogue
-            //print("Hello!! I'm Queen BC! Yep! Thats it!");
+            dialogueScript.StartDialogue();
         }
-    }
-    private void OnTriggerEnter2D(Collider2D other)
-    {
-          if(other.CompareTag("Player"))
-          {
-            playerInRange = true;
-            print("Hello!! I'm Queen BC! Yep! Thats it!");
-        }
-    }
 
-    private void OnTriggerExit2D(Collider2D other)
-    {
-          if(other.CompareTag("Player"))
-          {
-            playerInRange = false;
-          }
     }
 }
