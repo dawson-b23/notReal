@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 9035259595231318606}
   - component: {fileID: 2063872270272434701}
   m_Layer: 0
-  m_Name: WallObject_1
+  m_Name: WallObject_5
   m_TagString: WallObjects
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -74,7 +74,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 3c05cb029f528f8448d4612574c913f1, type: 3}
+  m_Sprite: {fileID: 21300000, guid: a734fa08f739e5b459cb4f533e715051, type: 3}
   m_Color: {r: 0.8867924, g: 0.78875375, b: 0.36391956, a: 1}
   m_FlipX: 0
   m_FlipY: 0
