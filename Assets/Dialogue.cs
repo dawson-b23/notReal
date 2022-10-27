@@ -15,5 +15,5 @@ public class Dialogue : MonoBehaviour
     private int index;
     /// <summary>
     /// <summary>
-    private intt charIndex;
+    private int charIndex;
 }
