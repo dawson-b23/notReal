@@ -84,18 +84,12 @@ public class MeleeWeapon : AbstractWeapon
     private IEnumerator visualAttack() 
     {
         attacking = true;
-        float totalTime = cooldown;
-        float lastRotationTime;
-        for(double i = Time.fixedDeltaTime; i < totalTime; i += Time.fixedDeltaTime) 
+        // round up to the nearest multiple of fixedDeltaTime to guarantee a full rotation
+        float totalTime = Mathf.Ceil(cooldown / Time.fixedDeltaTime) * Time.fixedDeltaTime;
+        for(double i = 0; i + Time.fixedDeltaTime / 2 < totalTime; i += Time.fixedDeltaTime) 
         {
             transform.localRotation *= Quaternion.AngleAxis((Time.fixedDeltaTime / totalTime) * 360, Vector3.forward);
-
-            // The for loop is based around fixed timesteps, so yield until the next fixed step
-            lastRotationTime = Time.fixedTime;
-            while(Time.fixedTime == lastRotationTime) 
-            {
-                yield return null;
-            }
+            yield return new WaitForFixedUpdate(); 
         }
         attacking = false;
     }
