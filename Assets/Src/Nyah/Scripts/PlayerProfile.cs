@@ -16,7 +16,16 @@ using UnityEngine.UI;
  * PlayerProfile class to display player information
  * 
  * member variables:
+ * PlayerProfile Instance - singleton
+ * TextMeshProUGUI objects for health, money, level, and inventory text
+ * int values for health, money, level, and inventory
  * 
+ * member functions:
+ * Awake() - thread safe check
+ * updateHealth() - update health value
+ * updateMoney() - update money value
+ * updateLevel() - update level value
+ * updateInventory() - update inventory value
  */
 public class PlayerProfile : MonoBehaviour
 {
@@ -24,9 +33,6 @@ public class PlayerProfile : MonoBehaviour
     // other scripts can still use the singleton, but
     // only this class can get and set the singleton instance
     public static PlayerProfile Instance { get; private set; }
-
-    public TextMeshProUGUI healthText, moneyText, levelText, inventoryText;
-    public int healthValue = 0, moneyValue = 0, levelValue = 0, inventoryValue = 0;
 
     private void Awake()
     {
@@ -42,50 +48,40 @@ public class PlayerProfile : MonoBehaviour
         }
     }
 
+    public TextMeshProUGUI healthText, moneyText, levelText, inventoryText;
+    public int healthValue = 0, moneyValue = 0, levelValue = 0, inventoryValue = 0;
+
+    // put in start or awake?
     public void Start()
     {
         updateHealth(0);
         updateMoney(0);
         updateLevel(0);
         updateInventory(0);
-
-        //StartCoroutine(Profile());
-
     }
 
-    /*public IEnumerator Profile()
-    {
-        UpdateHealth(5);
-        UpdateMoney(5);
-        UpdateLevel(5);
-        UpdateInventory(5);
-
-        yield return new WaitForSeconds(1f);
-
-        UpdateHealth(-1);
-        UpdateMoney(-1);
-        UpdateLevel(-1);
-        UpdateInventory(-1);
-    }*/
-
+    // update health value in HUD
     public void updateHealth(int updateAmount)
     {
         healthValue += updateAmount;
         healthText.text = "Health: " + healthValue;
     }
 
+    // update money value in HUD
     public void updateMoney(int updateAmount)
     {
         moneyValue += updateAmount;
         moneyText.text = "Money: " + moneyValue;
     }
 
+    // update level in HUD
     public void updateLevel(int updateAmount)
     {
         levelValue += updateAmount;
         levelText.text = "Level: " + levelValue;
     }
 
+    // update inventory in HUD
     public void updateInventory(int updateAmount)
     {
         inventoryValue += updateAmount;
@@ -95,6 +91,4 @@ public class PlayerProfile : MonoBehaviour
     // to access : PlayerProfile.Instance.[public variable or public method]
 
     // game object in HUD canvas: panel with text
-
-    // float healthbarvalue = Singleton.Instance.playerhealth;
 }

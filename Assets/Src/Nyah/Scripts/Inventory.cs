@@ -14,11 +14,10 @@ using System.Linq;
 /*
  * Inventory class to update the inventory list
  * 
- * member variables:
+ * member variables and functions:
  * maxInventory - maximum value for inventory list
  * inventoryItems - inventory list
  * Inventory() - constructor to create a new list
- * createItem() - create and return a new item to add to inventory
  * addInventory(Item item) - add item to list
  * removeInventory() - remove item from list
  * isFull() - check if inventory is full
@@ -32,49 +31,29 @@ public class Inventory : MonoBehaviour
     public Inventory()
     {
         inventoryItems = new List<Item>(maxInventory);
-        //Debug.Log("Inventory initialized"); // works
-    }
-
-    //public Item CreateItem(ItemType itemtype)
-    /* 
-     * create a new item to be added to inventory
-     * return the item
-     */
-    public Item createItem()
-    {
-        //Item item = new Item { itemType = itemtype, itemAmount = 1 };
-        Item item = new Item { itemAmount = 1 };
-
-        return item;
+        Debug.Log("Inventory initialized"); // works
     }
 
     // add an item to inventory list
-    public void addInventory(Item item)
+    public void addInventory()
     {
+
         // check if inventory is full 
         if (!isFull())
         {
             //Debug.Log("inventory not full; adding item");
+            // create a new itm
+            Item item = new Item { itemAmount = 1 };
+            // add item to list
             inventoryItems.Add(item);
+            // update inventory value on player profile
+            PlayerProfile.Instance.updateInventory(1);
+            // figure out how to update inventory menu (for each weapon individually)
         }
         else
         {
-            //Debug.Log("inventory full; cant add item");
+            Debug.Log("inventory full; cant add item");
         }
-        // check if weapon exists as a type
-        /*if (WeaponExists(item))
-        {
-            // check if inventory is full 
-            if (!IsFull())
-            {
-                //Debug.Log("inventory not full; adding item");
-                inventoryItems.Add(item);
-            }
-            else
-            {
-                //Debug.Log("inventory full; cant add item");
-            }
-        }*/
     }
 
     // remove an item from inventory list
@@ -83,22 +62,13 @@ public class Inventory : MonoBehaviour
         // if there is at least one item in inventory, you can remove it
         if (inventoryItems.Count > 0)
         {
+            // retrieve the last item in the list (the one that will be removed)
             Item lastItem = inventoryItems.Last();
+            // remove item from list
             inventoryItems.Remove(lastItem);
+            // update inventory value on player profile
+            PlayerProfile.Instance.updateInventory(-1);
         }
-        /*if (inventoryItems.Count > 0)
-        {
-            Item lastItem = inventoryItems.Last();
-            // if weapon exists as a weapon
-            if (WeaponExists(lastItem))
-            {
-                // check inventory for this weapon
-                if (CheckInventory(lastItem))
-                {
-                    inventoryItems.Remove(lastItem);
-                }
-            }
-        }*/
     }
 
     /*
@@ -119,42 +89,5 @@ public class Inventory : MonoBehaviour
             return true;
         }
     }
-
-    /* do i need this?
-     * public int ItemCount()
-    {
-        return inventoryItems.Count;
-    }*/
-
-    // check if weapon exists as a type 
-    /*public bool WeaponExists(Item item)
-    {
-        if (item.itemType == ItemType.Melee || item.itemType == ItemType.Gun)
-        {
-            //Debug.Log(item.itemType);
-            return true;
-        }
-        else
-        {
-            //Debug.Log("weapon does not exist");
-            return false;
-        }
-    }*/
-
-    // check if a weapon exists in inventory to use it
-    /*public bool CheckInventory(Item item)
-    {
-        // check if it is in inventory (if the amount is greater than 0)
-        if (item.itemAmount > 0)
-        {
-            //Debug.Log(item.itemAmount);
-            return true;
-        }
-        else
-        {
-            //Debug.Log("you do not have this weapon in inventory");
-            return false;
-        }
-    } */
 
 }

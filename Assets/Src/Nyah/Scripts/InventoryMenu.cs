@@ -5,12 +5,13 @@
  */
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 /*
  * InventoryMenu class to access the inventory menu
  * 
- * member variables:
+ * member functions:
  * openInventory() - open menu
  * closeInventory() - close menu
  * pauseGame() - pause game after menu is opened
@@ -18,6 +19,32 @@ using UnityEngine.SceneManagement;
  */
 public class InventoryMenu : MenuManager
 {
+    public static InventoryMenu Instance { get; private set; }
+
+    private void Awake()
+    {
+        // check if there is only one instance
+        // if there is an instance, and it isn't this, delete it
+        if (Instance != null && Instance != this)
+        {
+            Destroy(this);
+        }
+        else
+        {
+            Instance = this;
+        }
+    }
+
+    public void Start()
+    {
+        // initialize menu items to zero
+        updateMelee(0);
+        updateRange(0);
+    }
+
+    public TextMeshProUGUI meleeText, rangeText;
+    public int meleeValue, rangeValue;
+
     // inventory display in HUD 
     public void openInventory()
     {
@@ -53,5 +80,19 @@ public class InventoryMenu : MenuManager
         // resume game
         Time.timeScale = 1f;
         Debug.Log("close inventory menu");
+    }
+
+    // update melee value in inventory menu
+    public void updateMelee(int updateAmount)
+    {
+        meleeValue += updateAmount;
+        meleeText.text = "x " + meleeValue;
+    }
+
+    // update ranged weapon value in inventory menu
+    public void updateRange(int updateAmount)
+    {
+        rangeValue += updateAmount;
+        rangeText.text = "x " + rangeValue;
     }
 }
