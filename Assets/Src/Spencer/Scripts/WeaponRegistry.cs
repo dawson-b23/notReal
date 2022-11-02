@@ -6,6 +6,7 @@
 
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 /*
@@ -19,9 +20,11 @@ using UnityEngine;
  * member functions:
  * OnEnable() - initialize singleton
  * OnValidate() - populate weapons from inputWeapons
+ * count() - returns the length of the registry
  * getWeaponRegistry() - return the singleton
  * getSpecificWeapon() - returns a specific weapon, requested by id
- * getWeapons() - UNIMPLEMENTED, will return the specified number of random weapons
+ * getWeapon() - returns a single random weapon
+ * getWeapons() - returns the specified number of random weapons
  */
 [CreateAssetMenu(fileName = "WeaponRegistry", menuName="ScriptableObject/WeaponRegistry")]
 public class WeaponRegistry : ScriptableObject 
@@ -84,6 +87,13 @@ public class WeaponRegistry : ScriptableObject
     {
         return singleton;
     }
+    
+    /*
+     * Returns the number of weapons in the registry
+     */
+    public int length() {
+        return weapons.Count;
+    }
 
     /*
      * Return a specific requested weapon
@@ -102,13 +112,35 @@ public class WeaponRegistry : ScriptableObject
     }
 
     /*
-     * Unimplemented
-     * Will return a specified number of random weapons from the registry
+     * Returns a single random weapon from the registry
      */
-    public AbstractWeapon[] getWeapons(int number) 
+    public AbstractWeapon getWeapon() 
     {
-        //TODO: implement random weapon retrieval
-        return null;
+        return weapons.ElementAt(Random.Range(0, weapons.Count)).Value;
+    }
+
+    /*
+     * Returns a specified number of random weapons from the registry
+     * To avoid unnecessary duplicates, it first creates a list of all the possible numerical indices of weapons
+     * It randomly samples from that list, removing the indices it chooses
+     * If more weapons were requested than the total number contained, the list is repopulated
+     */
+    public AbstractWeapon[] getWeapons(int numberDesired) 
+    {
+        AbstractWeapon[] returnedWeapons = new AbstractWeapon[numberDesired];
+        List<int> possibleIndices = new List<int>(weapons.Count);
+        int currentRandom;
+        for(int i = 0; i < numberDesired; i++) {
+            if(possibleIndices.Count == 0) {
+                for(int j = 0; j < weapons.Count; j++) {
+                    possibleIndices.Add(j);
+                }
+            }
+            currentRandom = Random.Range(0, possibleIndices.Count);
+            returnedWeapons[i] = weapons.ElementAt(possibleIndices[currentRandom]).Value;
+            possibleIndices.RemoveAt(currentRandom);
+        }
+        return returnedWeapons;
     }
 
 }
