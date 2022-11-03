@@ -98,8 +98,10 @@ public class LevelGeneration : MonoBehaviour
                 // ensure bottom opening 
                if(nextPosition.x > maxX)
                 {
-
+                  
                     rand = 4;
+                   
+                    
                    // int randBottomRoom = 4; //force room to have all four openings to deal with edge case
                    // Instantiate(rooms[randBottomRoom], transform.position, Quaternion.identity);
                 }
@@ -148,7 +150,10 @@ public class LevelGeneration : MonoBehaviour
                
                 if (nextPosition.x < minX)
                 {
+                   
                     rand = 4;
+                   
+                    
                     //int randBottomRoom = 4; //force room to have all four openings to deal with edge case
                     //Instantiate(rooms[randBottomRoom], transform.position, Quaternion.identity);
                 }
@@ -172,6 +177,7 @@ public class LevelGeneration : MonoBehaviour
             }
             else
             {//moved down if left boundary is reached
+               
                 direction = 5;
             }
 
@@ -202,7 +208,7 @@ public class LevelGeneration : MonoBehaviour
                     //added to give a room with a top opening
 
                     rand = 4;
-         //rand = Random.Range(3, 5);
+                    //rand = Random.Range(3, 5);
                     
                     
                     //int rand = Random.Range(3, 5);

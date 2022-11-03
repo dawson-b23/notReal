@@ -18,7 +18,7 @@ public class RoomDetection: MonoBehaviour
         Collider2D roomDetection = Physics2D.OverlapCircle(transform.position, 1, isRoom);
         if (roomDetection == null && levelGen.stopGeneration == true)
         {
-            Instantiate(levelGen.rooms[5], transform.position, Quaternion.identity);
+            Instantiate(levelGen.rooms[Random.Range(1,5)], transform.position, Quaternion.identity);
             Destroy(gameObject);
         }
     }
