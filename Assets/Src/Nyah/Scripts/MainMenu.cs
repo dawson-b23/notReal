@@ -53,4 +53,16 @@ public class MainMenu : MenuManager
         Application.Quit();
         Debug.Log("Quitting Game");
     }
+
+    public void openHelp()
+    {
+        Debug.Log("Opening help menu");
+        openMenu(Menu.HelpMenu);
+    }
+
+    public void closeHelp()
+    {
+        Debug.Log("Closing help menu");
+        closeMenu(Menu.HelpMenu);
+    }
 }

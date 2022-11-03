@@ -21,7 +21,7 @@ public class MenuManager : MonoBehaviour
     
     // reference to the menu objects
     [SerializeField]
-    GameObject mainMenu, pauseMenu, optionsMenu, inventoryMenu;
+    GameObject mainMenu, pauseMenu, optionsMenu, inventoryMenu, helpMenu;
 
     // public void OpenMenu(Menu menu, GameObject callingMenu)
     // functions to open a menu
@@ -41,6 +41,9 @@ public class MenuManager : MonoBehaviour
                 break;
             case Menu.InventoryMenu:
                 inventoryMenu.SetActive(true);
+                break;
+            case Menu.HelpMenu:
+                helpMenu.SetActive(true);
                 break;
         }
     }
@@ -64,6 +67,9 @@ public class MenuManager : MonoBehaviour
                 break;
             case Menu.InventoryMenu:
                 inventoryMenu.SetActive(false);
+                break;
+            case Menu.HelpMenu:
+                helpMenu.SetActive(false);
                 break;
         }
     }
