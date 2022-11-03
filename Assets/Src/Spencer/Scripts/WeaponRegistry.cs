@@ -52,6 +52,7 @@ public class WeaponRegistry : ScriptableObject
     {
         if(singleton == null) 
         {
+            //Debug.Log("setting reg singleton");
             singleton = this;
         } else if(singleton != this) 
         {
@@ -85,6 +86,7 @@ public class WeaponRegistry : ScriptableObject
      */
     public static WeaponRegistry getWeaponRegistry() 
     {
+        //Debug.Log("returning reg singleton");
         return singleton;
     }
     
@@ -103,7 +105,7 @@ public class WeaponRegistry : ScriptableObject
     {
         if(weapons.ContainsKey(weaponID)) 
         {
-            return(weapons[weaponID]);
+            return(Instantiate(weapons[weaponID]));
         } else 
         {
             Debug.LogError("Invalid weaponID: " + weaponID);
@@ -116,7 +118,7 @@ public class WeaponRegistry : ScriptableObject
      */
     public AbstractWeapon getWeapon() 
     {
-        return weapons.ElementAt(Random.Range(0, weapons.Count)).Value;
+        return Instantiate(weapons.ElementAt(Random.Range(0, weapons.Count)).Value);
     }
 
     /*
@@ -137,7 +139,7 @@ public class WeaponRegistry : ScriptableObject
                 }
             }
             currentRandom = Random.Range(0, possibleIndices.Count);
-            returnedWeapons[i] = weapons.ElementAt(possibleIndices[currentRandom]).Value;
+            returnedWeapons[i] = Instantiate(weapons.ElementAt(possibleIndices[currentRandom]).Value);
             possibleIndices.RemoveAt(currentRandom);
         }
         return returnedWeapons;
