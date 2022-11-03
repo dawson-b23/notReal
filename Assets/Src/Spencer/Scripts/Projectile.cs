@@ -27,8 +27,8 @@ public class Projectile : MonoBehaviour
     [SerializeField]
     private float speed;
     [SerializeField]
-    private RangedWeapon source;
-    private Vector3 bearing;
+    protected RangedWeapon source;
+    protected Vector3 bearing;
     
     /*
      * Moves the projectile

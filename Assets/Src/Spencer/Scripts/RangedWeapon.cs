@@ -26,9 +26,9 @@ using UnityEngine;
 public class RangedWeapon : AbstractWeapon 
 {
     [SerializeField]
-    private Projectile projectilePrototype;
+    protected Projectile projectilePrototype;
     [SerializeField]
-    private SimpleParticle cooldownParticlePrototype = null;
+    protected SimpleParticle cooldownParticlePrototype = null;
     [SerializeField]
     private GameObject launchPoint;
 

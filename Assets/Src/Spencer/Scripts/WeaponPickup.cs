@@ -32,6 +32,7 @@ public class WeaponPickup : MonoBehaviour
     {
         if(other.gameObject.tag == "Player") 
         {
+            //TODO -- make this add the new weapon to the inventory, not the player directly
             PlayerController playerScript;
             if(other.gameObject.TryGetComponent<PlayerController>(out playerScript)) 
             {

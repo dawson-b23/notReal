@@ -1,7 +1,7 @@
 /*
  * MeleeStinger.cs
  * Spencer Butler
- * Animation override for certain melee weapons
+ * Animation override for certain melee weapons, giving a small rotation arc
  */
 
 using System.Collections;
