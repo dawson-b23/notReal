@@ -26,6 +26,12 @@ public class MainMenu : MenuManager
     // main menu = 0, first game room = 1
     [SerializeField] int gameStartScene;
 
+    //Created by Jackson Baldwin (with permission from BC) to start the main menu theme...no changes are made to Nyah's code
+    void Start()
+    {
+        AudioManager.instance.PlayMusic("mainMenu");
+    }
+
     // load first game scene
     public void startGame()
     {

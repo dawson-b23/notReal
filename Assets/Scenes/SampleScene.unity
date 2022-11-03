@@ -1236,7 +1236,7 @@ MonoBehaviour:
   sfx_getXP: {fileID: 0}
   sfx_meleeAttack: {fileID: 0}
   sfx_rangedAttack: {fileID: 0}
-  music_mainMenu: {fileID: 0}
+  music_mainMenu: {fileID: 8300000, guid: ef5a1917360a30d43b49f0b513043425, type: 3}
   music_upgradeUI: {fileID: 0}
   currentMusicObject: {fileID: 0}
   soundObject: {fileID: 0}
