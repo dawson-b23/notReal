@@ -1,3 +1,12 @@
+/**************************************
+ * Jackson Baldwin - 11/2/2022        *
+ * Dialogue.cs - NotReal              *
+ *                                    *
+ * Prefab to handle dialogue boxes    *
+ * for NPC's...updated to randomize   *
+ * dialogue and sprites               *
+ *                                    *
+***************************************/
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
