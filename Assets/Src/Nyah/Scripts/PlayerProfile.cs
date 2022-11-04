@@ -32,19 +32,19 @@ public class PlayerProfile : MonoBehaviour
     // thread safe singleton
     // other scripts can still use the singleton, but
     // only this class can get and set the singleton instance
-    public static PlayerProfile Instance { get; private set; }
+    public static PlayerProfile profileInstance { get; private set; }
 
     private void Awake()
     {
         // check if there is only one instance
         // if there is an instance, and it isn't this, delete it
-        if (Instance != null && Instance != this)
+        if (profileInstance != null && profileInstance != this)
         {
             Destroy(this);
         }
         else
         {
-            Instance = this;
+            profileInstance = this;
         }
     }
 
@@ -52,11 +52,13 @@ public class PlayerProfile : MonoBehaviour
     public int healthValue = 0, moneyValue = 0, levelValue = 0, inventoryValue = 0;
 
     // put in start or awake?
+    // constructor?
     public void Start()
     {
-        updateHealth(0);
+        // initalize the values in the player profile
+        updateHealth(10);
         updateMoney(0);
-        updateLevel(0);
+        updateLevel(1);
         updateInventory(0);
     }
 
@@ -64,28 +66,28 @@ public class PlayerProfile : MonoBehaviour
     public void updateHealth(int updateAmount)
     {
         healthValue += updateAmount;
-        healthText.text = "Health: " + healthValue;
+        healthText.text = "HEALTH: " + healthValue;
     }
 
     // update money value in HUD
     public void updateMoney(int updateAmount)
     {
         moneyValue += updateAmount;
-        moneyText.text = "Money: " + moneyValue;
+        moneyText.text = "MONEY: " + moneyValue;
     }
 
     // update level in HUD
     public void updateLevel(int updateAmount)
     {
         levelValue += updateAmount;
-        levelText.text = "Level: " + levelValue;
+        levelText.text = "LEVEL: " + levelValue;
     }
 
     // update inventory in HUD
     public void updateInventory(int updateAmount)
     {
         inventoryValue += updateAmount;
-        inventoryText.text = "Inventory: " + inventoryValue;
+        inventoryText.text = "INVENTORY: " + inventoryValue;
     }
 
     // to access : PlayerProfile.Instance.[public variable or public method]
