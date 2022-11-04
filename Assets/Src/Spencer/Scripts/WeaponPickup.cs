@@ -61,7 +61,7 @@ public class WeaponPickup : MonoBehaviour
     /*
      * Initialize values for a newly created pickup for a given weapon
      */
-    private void initializeDynamic(AbstractWeapon inputWeapon) 
+    protected void initializeDynamic(AbstractWeapon inputWeapon) 
     {
         attachedWeapon = inputWeapon;
         gameObject.transform.localScale = attachedWeapon.transform.localScale;
