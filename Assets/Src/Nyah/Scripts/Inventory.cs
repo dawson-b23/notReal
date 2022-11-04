@@ -7,16 +7,19 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using static Item;
 using static UnityEditor.Progress;
 using System.Linq;
 
 /*
  * Inventory class to update the inventory list
  * 
- * member variables and functions:
+ * member variables:
  * maxInventory - maximum value for inventory list
- * inventoryItems - inventory list
+ * inventoryList - inventory list
+ * full[] - array to keep track of whether the slots of inventory are full or not
+ * slots[] - array to keep track of the slots for inventory
+ * 
+ * member functions:
  * Inventory() - constructor to create a new list
  * addInventory(Item item) - add item to list
  * removeInventory() - remove item from list
@@ -24,50 +27,68 @@ using System.Linq;
  */
 public class Inventory : MonoBehaviour
 {
-    private int maxInventory = 20; // make private after test
-    private List<Item> inventoryItems;
+    // inventory singleton
+    public static Inventory inventoryInstance { get; private set; }
+
+    // thread safe singleton implementation
+    private void Awake()
+    {
+        // check if there is only one instance
+        // if there is an instance, and it isn't this, delete it
+        if (inventoryInstance != null && inventoryInstance != this)
+        {
+            Destroy(this);
+            Debug.Log("error: extra Inventory instance");
+        }
+        else
+        {
+            inventoryInstance = this;
+        }
+    }
+
+    private int maxInventory = 3;
+    private List<AbstractWeapon> weaponList;
+
+    public bool[] full;
+    public GameObject[] slots;
 
     // constructor initializes list
     public Inventory()
     {
-        inventoryItems = new List<Item>(maxInventory);
-        Debug.Log("Inventory initialized"); // works
+        weaponList = new List<AbstractWeapon>(maxInventory);
     }
 
-    // add an item to inventory list
-    public void addInventory()
+    /*
+     * add an abstract weapon to the list
+     * first check if inventory is full
+     * if it isn't then add weapon to inventory list,
+     * update player profile
+     * update inventory menu for each individual weapon
+     * 
+     */
+    //public void addWeapon(AbstractWeapon weaponToBeAdded, GameObject weaponButton)
+    public void addWeapon(AbstractWeapon abstractWeapon)
     {
-
-        // check if inventory is full 
         if (!isFull())
         {
-            //Debug.Log("inventory not full; adding item");
-            // create a new itm
-            Item item = new Item { itemAmount = 1 };
-            // add item to list
-            inventoryItems.Add(item);
-            // update inventory value on player profile
-            PlayerProfile.Instance.updateInventory(1);
-            // figure out how to update inventory menu (for each weapon individually)
+            weaponList.Add(abstractWeapon);
+            PlayerProfile.profileInstance.updateInventory(1);
         }
-        else
-        {
-            Debug.Log("inventory full; cant add item");
-        }
+        
     }
 
-    // remove an item from inventory list
-    public void removeInventory()
+    /*
+     * remove an  abstract weapon from inventory after a request is made
+     * check if the inventory list is not empty
+     * check what weapon the request was for
+     * remove the weapon if it exists in the inventory list
+     * 
+     */
+    public void removeWeapon(AbstractWeapon weaponToBeRemoved)
     {
-        // if there is at least one item in inventory, you can remove it
-        if (inventoryItems.Count > 0)
+        if (inventoryAmount() < maxInventory)
         {
-            // retrieve the last item in the list (the one that will be removed)
-            Item lastItem = inventoryItems.Last();
-            // remove item from list
-            inventoryItems.Remove(lastItem);
-            // update inventory value on player profile
-            PlayerProfile.Instance.updateInventory(-1);
+            weaponList.Remove(weaponToBeRemoved);
         }
     }
 
@@ -78,7 +99,7 @@ public class Inventory : MonoBehaviour
      */
     public bool isFull()
     {
-        if (inventoryItems.Count < maxInventory)
+        if (weaponList.Count < maxInventory)
         {
             //Debug.Log("inventory not full");
             return false;
@@ -90,4 +111,32 @@ public class Inventory : MonoBehaviour
         }
     }
 
+    /*
+     * check if inventory is empty (zero weapons)
+     * return true if it is empty
+     * return false if it is not empty
+     */
+    public bool isEmpty()
+    {
+        if (weaponList.Count == 0)
+            return true;
+        else
+            return false;
+    }
+
+    /*
+     * return the single instance of inventory
+     */
+    public static Inventory getInventory()
+    {
+        return inventoryInstance;
+    }
+
+    /*
+     * return the amount of weapons in the list
+     */
+    public int inventoryAmount()
+    {
+        return weaponList.Count;
+    }
 }
