@@ -180,7 +180,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ecf131fe7bc4e0f4bbd34ad53de49399, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerexp: 0
   playerSpeed: 4
+  exp: 0
   jumpForce: 12
   mainAttackCooldown: 0.25
   dashCooldown: 0.25
@@ -202,7 +204,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &4360026289507819887
 Transform:
   m_ObjectHideFlags: 0
