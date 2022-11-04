@@ -32,17 +32,20 @@ public class WeaponPickup : MonoBehaviour
     {
         if(other.gameObject.tag == "Player") 
         {
-            //TODO -- make this add the new weapon to the inventory, not the player directly
-            //INVENTORYREFERENCE.addWeapon(attachedWeapon);
-            PlayerController playerScript;
-            if(other.gameObject.TryGetComponent<PlayerController>(out playerScript)) 
-            {
-                playerScript.equipWeapon(attachedWeapon);
-            } else 
-            {
-                Debug.Log("Unable to find player script.");
-            }
+            Inventory.inventoryInstance.addWeapon(attachedWeapon);
             Destroy(gameObject);
+
+            //Deprecated -- directly equipped the weapon rather than adding it to the inventory
+            /*
+            * PlayerController playerScript;
+            * if(other.gameObject.TryGetComponent<PlayerController>(out playerScript)) 
+            * {
+            *     playerScript.equipWeapon(attachedWeapon);
+            * } else 
+            * {
+            *     Debug.Log("Unable to find player script.");
+            * }
+            */
         }
  
     }
