@@ -33,14 +33,11 @@ public class WeaponPickup : MonoBehaviour
         if(other.gameObject.tag == "Player") 
         {
             //TODO -- make this add the new weapon to the inventory, not the player directly
+            //INVENTORYREFERENCE.addWeapon(attachedWeapon);
             PlayerController playerScript;
             if(other.gameObject.TryGetComponent<PlayerController>(out playerScript)) 
             {
-                playerScript.CurrentWeapon = attachedWeapon; 
-                attachedWeapon.transform.parent = other.gameObject.transform;
-                attachedWeapon.transform.position = other.gameObject.transform.position; 
-                attachedWeapon.gameObject.SetActive(true);
-                Debug.Log("status: " + attachedWeapon.gameObject.activeSelf);
+                playerScript.equipWeapon(attachedWeapon);
             } else 
             {
                 Debug.Log("Unable to find player script.");
@@ -70,8 +67,8 @@ public class WeaponPickup : MonoBehaviour
         gameObject.transform.localScale = attachedWeapon.transform.localScale;
 
         SpriteRenderer attachedSR = gameObject.GetComponent<SpriteRenderer>();
-        CircleCollider2D attachedCC = gameObject.GetComponent<CircleCollider2D>();
         attachedSR.sprite = attachedWeapon.gameObject.GetComponentInChildren<SpriteRenderer>().sprite;
+        CircleCollider2D attachedCC = gameObject.GetComponent<CircleCollider2D>();
         attachedCC.isTrigger = true;
 
         float x = attachedSR.sprite.bounds.extents.x;

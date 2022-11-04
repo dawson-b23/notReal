@@ -52,7 +52,7 @@ public class WeaponRegistry : ScriptableObject
     {
         if(singleton == null) 
         {
-            //Debug.Log("setting reg singleton");
+            Debug.Log("Loading WeaponRegistry");
             singleton = this;
         } else if(singleton != this) 
         {

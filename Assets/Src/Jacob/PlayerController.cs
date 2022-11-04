@@ -34,6 +34,7 @@ public class PlayerController : MonoBehaviour
     // References to objects
     private Rigidbody2D rigidBody = null;
     private AbstractWeapon currentWeapon = null;
+    //NOTE deprecated, left in for compatibility. Use equipWeapon(), not the setter -- Spencer
     public AbstractWeapon CurrentWeapon { get => currentWeapon; set => currentWeapon = value; }
 
     // Misc private variables
@@ -155,6 +156,31 @@ public class PlayerController : MonoBehaviour
         currentPlayerState = stateToSwitch;
 
         // TODO: Add functionality for states
+    }
+
+
+    /*
+     * Function added by Spencer Butler
+     * Takes in an AbstractWeapon, equips it, and returns the old weapon
+     * Can return null, if there is no previously equipped weapon
+     */
+    public AbstractWeapon equipWeapon(AbstractWeapon newWeapon) 
+    {
+        AbstractWeapon oldWeapon = currentWeapon;
+        currentWeapon = newWeapon;
+
+        //Set the new weapon's transform parent to the player and move it to the player's location
+        currentWeapon.transform.parent = transform;
+        currentWeapon.transform.position = transform.position;
+        currentWeapon.gameObject.SetActive(true);
+
+        //Deactivate the old weapon so it doesn't render
+        //Return it so the old weapon can be readded to the inventory
+        if(oldWeapon != null) 
+        {
+            oldWeapon.gameObject.SetActive(false);
+        }
+        return oldWeapon;
     }
 
     #region Coroutines
