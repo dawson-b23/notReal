@@ -34,7 +34,7 @@ public class LevelGeneration : MonoBehaviour
     public float maxX;
     public float minY;
     public bool stopGeneration;
-
+    
     private int direction;    
     private float timeBetweenRoom;
     private bool hasShop;
@@ -99,7 +99,7 @@ public class LevelGeneration : MonoBehaviour
                 // ensure bottom opening 
                if(nextPosition.x > maxX)
                 {
-                  
+                 
                     rand = 4;
                    
                     
@@ -132,6 +132,7 @@ public class LevelGeneration : MonoBehaviour
             }
             else
             {//moved down if right boundary is reached
+          
                 direction = 5;
             }
         }
@@ -151,26 +152,23 @@ public class LevelGeneration : MonoBehaviour
                
                 if (nextPosition.x < minX)
                 {
-                   
+                
                     rand = 4;
                    
                     
-                    //int randBottomRoom = 4; //force room to have all four openings to deal with edge case
-                    //Instantiate(rooms[randBottomRoom], transform.position, Quaternion.identity);
+                  
                 }
                 else if (direction == 5)
                 {
                     rand = 4;
-                    //int randBottomRoom = 4;//force room to have all four openings to deal with edge case
-                    //Instantiate(rooms[randBottomRoom], transform.position, Quaternion.identity);
+                   
                 }
                 else {
 
                     //added to give a room with a right opening
                     
                     rand = Random.Range(1, 4);
-                    //int rand = Random.Range(1, rooms.Length);
-                    //Instantiate(rooms[rand], transform.position, Quaternion.identity);
+                    
                 }
                 Instantiate(rooms[rand], transform.position, Quaternion.identity);
 
@@ -207,9 +205,8 @@ public class LevelGeneration : MonoBehaviour
                 else
                 {
                     //added to give a room with a top opening
-
                     rand = 4;
-                    //rand = Random.Range(3, 5);
+                   
                     
 
                 }
@@ -218,12 +215,44 @@ public class LevelGeneration : MonoBehaviour
             else
             {
                 //stop generation
+               //Adds an exit room under the last room before stop generation
+               
+               
                
                 Vector2 newPosition = new Vector2(transform.position.x, transform.position.y - moveAmount);
                 transform.position = newPosition;
                 Instantiate(rooms[6], transform.position, Quaternion.identity);
              
-                stopGeneration = true;
+                //stopGeneration = true;
+               
+
+               //Added to guerantee that a solid room will spawn on the bottom after
+               // the exit room has spawned in
+                Vector2 bottomPosition = new Vector2(transform.position.x - moveAmount, transform.position.y);
+                transform.position = bottomPosition;
+                
+                
+                // adds rooms to the left of exit room
+                while(transform.position.x > minX+5){
+                    
+                    Instantiate(rooms[5], transform.position, Quaternion.identity);
+                    Vector2 nextPosition = new Vector2(transform.position.x - moveAmount, transform.position.y);
+                    transform.position = nextPosition;
+                }
+
+                transform.position = newPosition;
+                Vector2 rightbottomPosition = new Vector2(transform.position.x + moveAmount, transform.position.y);
+                transform.position = rightbottomPosition;
+                
+                //adds rooms to the right of exit room 
+                while(transform.position.x < maxX+5){
+                   
+                    Instantiate(rooms[5], transform.position, Quaternion.identity);
+                    Vector2 nextPosition = new Vector2(transform.position.x + moveAmount, transform.position.y);
+                    transform.position = nextPosition;
+                }
+                  stopGeneration = true;
+        
             }
         }
                       

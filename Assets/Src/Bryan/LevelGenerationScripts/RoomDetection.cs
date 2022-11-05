@@ -20,8 +20,8 @@ public class RoomDetection: MonoBehaviour
         if (roomDetection == null && levelGen.stopGeneration == true)
         {
         
-            //Instantiate(levelGen.rooms[Random.Range(1,5)], transform.position, Quaternion.identity);
-            Instantiate(levelGen.rooms[5], transform.position, Quaternion.identity);
+            Instantiate(levelGen.rooms[Random.Range(1,5)], transform.position, Quaternion.identity);
+            //Instantiate(levelGen.rooms[5], transform.position, Quaternion.identity);
          
             Destroy(gameObject);
         }
