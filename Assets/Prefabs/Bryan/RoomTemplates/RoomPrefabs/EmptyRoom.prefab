@@ -567,6 +567,9 @@ MonoBehaviour:
   maxX: 0
   minY: 0
   stopGeneration: 0
+  room:
+    serializedVersion: 2
+    m_Bits: 128
 --- !u!1001 &15814697345691979
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -98,7 +98,7 @@ PrefabInstance:
     - target: {fileID: 5805296117400553408, guid: 062c32dd41483d24b88e59c9692d417c, type: 3}
       propertyPath: objects.Array.data[1]
       value: 
-      objectReference: {fileID: 7296305706753414678, guid: c08e34581d482274b982c9e8c51ecd72, type: 3}
+      objectReference: {fileID: 5199883001929114538, guid: 28f92b50bf6811b4a9babce6c26038c4, type: 3}
     - target: {fileID: 7961203391675850940, guid: 062c32dd41483d24b88e59c9692d417c, type: 3}
       propertyPath: m_Name
       value: SpawnWallObject (139)
@@ -172,7 +172,7 @@ PrefabInstance:
     - target: {fileID: 5805296117400553408, guid: 062c32dd41483d24b88e59c9692d417c, type: 3}
       propertyPath: objects.Array.data[1]
       value: 
-      objectReference: {fileID: 7296305706753414678, guid: c08e34581d482274b982c9e8c51ecd72, type: 3}
+      objectReference: {fileID: 5199883001929114538, guid: 28f92b50bf6811b4a9babce6c26038c4, type: 3}
     - target: {fileID: 7961203391675850940, guid: 062c32dd41483d24b88e59c9692d417c, type: 3}
       propertyPath: m_Name
       value: SpawnWallObject (138)
@@ -246,7 +246,7 @@ PrefabInstance:
     - target: {fileID: 5805296117400553408, guid: 062c32dd41483d24b88e59c9692d417c, type: 3}
       propertyPath: objects.Array.data[1]
       value: 
-      objectReference: {fileID: 7296305706753414678, guid: c08e34581d482274b982c9e8c51ecd72, type: 3}
+      objectReference: {fileID: 5199883001929114538, guid: 28f92b50bf6811b4a9babce6c26038c4, type: 3}
     - target: {fileID: 7961203391675850940, guid: 062c32dd41483d24b88e59c9692d417c, type: 3}
       propertyPath: m_Name
       value: SpawnWallObject (137)
@@ -320,7 +320,7 @@ PrefabInstance:
     - target: {fileID: 5805296117400553408, guid: 062c32dd41483d24b88e59c9692d417c, type: 3}
       propertyPath: objects.Array.data[1]
       value: 
-      objectReference: {fileID: 7296305706753414678, guid: c08e34581d482274b982c9e8c51ecd72, type: 3}
+      objectReference: {fileID: 5199883001929114538, guid: 28f92b50bf6811b4a9babce6c26038c4, type: 3}
     - target: {fileID: 7961203391675850940, guid: 062c32dd41483d24b88e59c9692d417c, type: 3}
       propertyPath: m_Name
       value: SpawnWallObject (136)
@@ -394,7 +394,7 @@ PrefabInstance:
     - target: {fileID: 5805296117400553408, guid: 062c32dd41483d24b88e59c9692d417c, type: 3}
       propertyPath: objects.Array.data[1]
       value: 
-      objectReference: {fileID: 7296305706753414678, guid: c08e34581d482274b982c9e8c51ecd72, type: 3}
+      objectReference: {fileID: 5199883001929114538, guid: 28f92b50bf6811b4a9babce6c26038c4, type: 3}
     - target: {fileID: 7961203391675850940, guid: 062c32dd41483d24b88e59c9692d417c, type: 3}
       propertyPath: m_Name
       value: SpawnWallObject (140)

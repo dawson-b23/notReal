@@ -54,14 +54,7 @@ public class Room : MonoBehaviour
             
             return enemyAmount;
         }
-        int setEnemylvl(int playerlvl)
-        {
-            return enemyLevel;
-        }
-        int setLootlvl(int playerlvl)
-        {
-            return lootLevel;
-        }
+        
     
         public void RoomDestruction()
     {

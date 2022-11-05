@@ -27,7 +27,7 @@ using UnityEngine;
 public class LevelGeneration : MonoBehaviour
 {
     public Transform[] worldStartingPositions;
-    public GameObject[] rooms; //ROOM OPENINGS 0 = spawnroom 1 = left/right, 2 left/right/bottom, 3 left/right/top, 4 left/right/top/bottom, 5 none
+    public GameObject[] rooms; //ROOM OPENINGS 0 = spawnroom 1 = left/right, 2 left/right/bottom, 3 left/right/top, 4 left/right/top/bottom, 5 Empty, 6 Exit
     public float moveAmount;
     public float startTime = 0.25f;
     public float minX;
@@ -37,7 +37,8 @@ public class LevelGeneration : MonoBehaviour
 
     private int direction;    
     private float timeBetweenRoom;
-
+    private bool hasShop;
+    
 
     // Start is called before the first frame update
     void Start()
@@ -198,9 +199,9 @@ public class LevelGeneration : MonoBehaviour
 
                 if (direction == 5)
                 {
+                    //spawn an exit room point
                     rand = 4;
-                   // int randBottomRoom = 4;
-                   // Instantiate(rooms[randBottomRoom], transform.position, Quaternion.identity);
+                   
 
                 }
                 else
@@ -210,17 +211,18 @@ public class LevelGeneration : MonoBehaviour
                     rand = 4;
                     //rand = Random.Range(3, 5);
                     
-                    
-                    //int rand = Random.Range(3, 5);
-                    //Instantiate(rooms[rand], transform.position, Quaternion.identity);
 
                 }
                 Instantiate(rooms[rand], transform.position, Quaternion.identity);
             }
             else
-            {//stop generation
-             //add end room here
-             // add check for boss or no
+            {
+                //stop generation
+               
+                Vector2 newPosition = new Vector2(transform.position.x, transform.position.y - moveAmount);
+                transform.position = newPosition;
+                Instantiate(rooms[6], transform.position, Quaternion.identity);
+             
                 stopGeneration = true;
             }
         }
