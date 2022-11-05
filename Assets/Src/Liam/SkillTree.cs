@@ -10,9 +10,45 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
+/* Pattern integration outline
+   Create new class of player that inherits from PlayerController
+   Create class of upgrades, linked to new player class
+   Upgrade classes will be linked to original
+
+
+//now all methods and attributes are inherited from the PlayerController
+//we only care about attributes, since that's what we'll be adjusting 
+//though there are some methods such as LevelUp() which exist in PlayerController
+//that we will want to access here
+
+private class FullPlayer : PlayerController{
+
+
+
+}
+
+private class Upgrade : PlayerController{
+
+}
+
+private class AttackUpgrade : Upgrade{
+
+}
+
+private class StaminaUpgrade : Upgrade{
+
+}
+
+private class MovementUpgrade : Upgrade{
+
+}
+
+*/
+
+
 /*
  * SkillTree class
- * Class behavior goes here
  * 
  * member variables:
  * PlayerController - will hold reference to Player
