@@ -20,10 +20,14 @@ using UnityEngine;
  */
 public class SkillTreeMenu : MonoBehaviour
 {
-    public static bool IsActive = false;
-    //public GameObject skillTreeUI; (create this)
+    //public static bool IsActive = false;
+    [SerializeField] GameObject skillTreeUI;
 
+    void Start(){
+        skillTreeUI.SetActive(false);
+    }
     // Update is called once per frame
+    /*
     void Update()
     {
         if(Input.GetKeyDown(KeyCode.Q)){
@@ -34,15 +38,19 @@ public class SkillTreeMenu : MonoBehaviour
             }
 
         }
-    }
+    }*/
 
     //Resume game
-    void MakeInactive(){
-
+    public void MakeInactive(){
+        skillTreeUI.SetActive(false);
+        Time.timeScale = 1f;
+        //IsActive = false;
     }
 
     //pause game
-    void MakeActive(){
-
+    public void MakeActive(){
+        skillTreeUI.SetActive(true);
+        Time.timeScale = 0f;
+        //IsActive = true;
     }
 }
