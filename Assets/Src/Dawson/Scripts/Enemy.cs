@@ -27,6 +27,7 @@ public class Enemy : MonoBehaviour
         Swarm();
         if(health <= 0)
         {
+            
             Destroy(this);
         }
     }

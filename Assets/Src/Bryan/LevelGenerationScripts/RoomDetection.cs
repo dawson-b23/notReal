@@ -19,13 +19,16 @@ public class RoomDetection: MonoBehaviour
         Collider2D roomDetection = Physics2D.OverlapCircle(transform.position, 1, isRoom);
         if (roomDetection == null && levelGen.stopGeneration == true)
         {
+            //chack if shop has spawned in main path
+            //if hasShop is false then spawn one shop and set hasShop to true
             if(levelGen.hasShop == false){
                 Instantiate(levelGen.rooms[7], transform.position, Quaternion.identity);
                 levelGen.hasShop = true;
             }else{
+                //continue spawning rooms to fill empty spots in level
             Instantiate(levelGen.rooms[Random.Range(1,5)], transform.position, Quaternion.identity);
-            //Instantiate(levelGen.rooms[5], transform.position, Quaternion.identity);
             }
+            
             Destroy(gameObject);
         }
     }

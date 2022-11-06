@@ -31,21 +31,29 @@ public class LevelGeneration : MonoBehaviour
          //ROOM OPENINGS 0 = spawnroom 1 = left/right, 2 left/right/bottom, 3 left/right/top, 4 left/right/top/bottom
          // 5 EmptyRoom, 6 ExitRoom, 7 Shop Room
 
-    public float moveAmount;
-    public float startTime = 0.25f;
-    public float minX;
-    public float maxX;
-    public float minY;
-    public bool stopGeneration;
+    public bool stopGeneration;   
     public bool hasShop;
 
+
+    [SerializeField]
+    private float moveAmount;
+    [SerializeField]
+    private float startTime = 0.25f;
+    [SerializeField]
+    private float minX;
+    [SerializeField]
+    private float maxX;
+    [SerializeField]
+    private float minY;
+   
+    
+    
     private int direction;    
     private float timeBetweenRoom;
-    //private bool hasShop;
     private int shopIter = 0;
     private int spawnShop;
     
-
+   
     // Start is called before the first frame update
     void Start()
     {
@@ -69,11 +77,17 @@ public class LevelGeneration : MonoBehaviour
             timeBetweenRoom -= Time.deltaTime;
         }
 
+   
+       
+    
     }
 
     /*move()
      * funciton to move and spawn a room in a determined direction
-     * 
+     * Right(1||2)
+     * Left(3||4)
+     * Down(5)
+     *
      */
     private void move()
     {
