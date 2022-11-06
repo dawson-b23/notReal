@@ -46,21 +46,16 @@ public class PlayerProfile : MonoBehaviour
         {
             profileInstance = this;
         }
+
+        // initialize values in HUD
+        updateHealth(10);
+        updateMoney(0);
+        updateLevel(1);
+        updateInventory(0); 
     }
 
     public TextMeshProUGUI healthText, moneyText, levelText, inventoryText;
     public int healthValue = 0, moneyValue = 0, levelValue = 0, inventoryValue = 0;
-
-    // put in start or awake?
-    // constructor?
-    public void Start()
-    {
-        // initalize the values in the player profile
-        updateHealth(10);
-        updateMoney(0);
-        updateLevel(1);
-        updateInventory(0);
-    }
 
     // update health value in HUD
     public void updateHealth(int updateAmount)

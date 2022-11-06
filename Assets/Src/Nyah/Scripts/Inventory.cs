@@ -3,10 +3,12 @@
  * Nyah Nelson
  * Manage the Inventory List
  */
+
 using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using static UnityEditor.Progress;
 using System.Linq;
 
@@ -25,6 +27,9 @@ using System.Linq;
  * removeInventory() - remove item from list
  * isFull() - check if inventory is full
  */
+
+
+// need to make inventory abstract to work for the observe? try it without the abstract
 public class Inventory : MonoBehaviour
 {
     // inventory singleton
@@ -46,16 +51,69 @@ public class Inventory : MonoBehaviour
         }
     }
 
+    // observer list to keep track of which classes are observers
+    private List<Observer> observers = new List<Observer>();
+
+    /*
+     * adds an observer to the list
+     */
+    public void Attach(Observer observer)
+    {
+        observers.Add(observer);
+    }
+
+    /*
+     * removes an observer from the list
+     */
+    public void Detach(Observer observer)
+    {
+        observers.Remove(observer);
+    }
+
+    /*
+     * update the observers depending on the notification type
+     */
+    public void Notify()
+    {
+        // when an item is removed or added notify
+        // check if inventory amount is full or not
+        if (inventoryAmount() < 3) // not full
+        {
+            // notify observers that it is not full
+            foreach (Observer observer in observers)
+            {
+                observer.notFullUpdate();
+            }
+        }
+        else // inventory full
+        {
+            // notify observers that it is full
+            foreach (Observer observer in observers)
+            {
+                observer.fullUpdate();
+            }
+
+        }
+    }
+
     private int maxInventory = 3;
     private List<AbstractWeapon> weaponList;
 
+    // used to check if there is an item in one of the inventory menu slots(buttons)
     public bool[] full;
-    public GameObject[] slots;
+    // keeps hold of the weapons
+    public AbstractWeapon[] slots;
 
-    // constructor initializes list
+    /*
+     * constructor initializes the weaponlist and attached the observers
+     */
     public Inventory()
     {
+        // initializes list
         weaponList = new List<AbstractWeapon>(maxInventory);
+        // attach observers to this instance of the inventory
+        Attach(new PlayerProfileObserver(this));
+        Attach(new InventoryMenuObserver(this));
     }
 
     /*
@@ -66,38 +124,86 @@ public class Inventory : MonoBehaviour
      * update inventory menu for each individual weapon
      * 
      */
-    //public void addWeapon(AbstractWeapon weaponToBeAdded, GameObject weaponButton)
     public void addWeapon(AbstractWeapon abstractWeapon)
     {
+        // check if inventory is not full
         if (!isFull())
         {
-            weaponList.Add(abstractWeapon);
-            PlayerProfile.profileInstance.updateInventory(1);
+            for (int i = 0; i < maxInventory; i++)
+            {
+                if (full[i] == false) // one of the slots is empty
+                {
+                    // add the weapon to the correct index of the list
+                    // weaponList.Insert(i, abstractWeapon);
+                    weaponList.Add(abstractWeapon);
+                    PlayerProfile.profileInstance.updateInventory(1);
+                    Debug.Log("weapon added at index " + i);
+                    // activate the correct button on the menu
+                    InventoryMenu.inventoryMenuInstance.activateButton(i);
+                    // slot is now full
+                    full[i] = true;
+                    slots[i] = abstractWeapon;
+                    break;
+                }
+            }
+
+            // check if inventory is full after adding a weapon
+            if (isFull())
+            {
+                // inventory is full so notify observers
+                Notify();
+            }
         }
-        
+        else // inventory is full
+        {
+            Debug.Log("Inventory is full");
+        }
+
     }
 
     /*
+     * called when the inventory button is clicked
      * remove an  abstract weapon from inventory after a request is made
      * check if the inventory list is not empty
      * check what weapon the request was for
      * remove the weapon if it exists in the inventory list
      * 
      */
-    public void removeWeapon(AbstractWeapon weaponToBeRemoved)
+    public void removeWeapon(int indexOfWeapon)
     {
-        if (inventoryAmount() < maxInventory)
+        // check if inventory is not empty
+        if (!isEmpty())
         {
-            weaponList.Remove(weaponToBeRemoved);
+            // retrieve the correct weapon
+            AbstractWeapon weaponToBeRemoved = slots[indexOfWeapon];
+            Debug.Log("index of weapon to be removed is " + indexOfWeapon);
+            // if inventory is full (then the displays are red), then change them back to initial color after removing a weapon
+            if (isFull())
+            {
+                weaponList.Remove(weaponToBeRemoved);
+                full[indexOfWeapon] = false;
+                PlayerProfile.profileInstance.updateInventory(-1);
+                Notify();
+            }
+            else // inventory is not full, so no need to notify the observers
+            {
+                weaponList.Remove(weaponToBeRemoved);
+                full[indexOfWeapon] = false;
+                PlayerProfile.profileInstance.updateInventory(-1);
+            }
+        }
+        else
+        {
+            Debug.Log("Inventory is empty; you cannot remove anything");
         }
     }
 
-    /*
-     * check if inventory is full
-     * return true if it is full
-     * return false if it is not full
-     */
-    public bool isFull()
+/*
+ * check if inventory is full
+ * return true if it is full
+ * return false if it is not full
+ */
+public bool isFull()
     {
         if (weaponList.Count < maxInventory)
         {

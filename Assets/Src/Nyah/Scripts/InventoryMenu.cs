@@ -7,6 +7,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 /*
  * InventoryMenu class to access the inventory menu
@@ -19,80 +20,104 @@ using UnityEngine.SceneManagement;
  */
 public class InventoryMenu : MenuManager
 {
-    public static InventoryMenu Instance { get; private set; }
+    // inventory menu (on the HUD) singleton
+    public static InventoryMenu inventoryMenuInstance { get; private set; }
 
     private void Awake()
     {
         // check if there is only one instance
         // if there is an instance, and it isn't this, delete it
-        if (Instance != null && Instance != this)
+        if (inventoryMenuInstance != null && inventoryMenuInstance != this)
         {
             Destroy(this);
         }
         else
         {
-            Instance = this;
+            inventoryMenuInstance = this;
         }
+
+        // initially disable all inventory buttons (since there is nothing in inventory at the beginning of the game)
+        inventoryButton1.gameObject.SetActive(false);
+        inventoryButton2.gameObject.SetActive(false);
+        inventoryButton3.gameObject.SetActive(false);
     }
+
+    // references to the inventory menu background 
+    public GameObject menuBackground;
+    public Image menuBackgroundColor;
+    public Button inventoryButton1;
+    public Button inventoryButton2;
+    public Button inventoryButton3;
 
     public void Start()
     {
-        // initialize menu items to zero
-        updateMelee(0);
-        updateRange(0);
+        // get the image of the inventory menu to edit it later
+        menuBackgroundColor = menuBackground.GetComponent<Image>();
+
     }
 
-    public TextMeshProUGUI meleeText, rangeText;
-    public int meleeValue, rangeValue;
-
-    // inventory display in HUD 
-    public void openInventory()
+    public void activateButton(int buttonNumber)
     {
-        Debug.Log("Opening inventory menu");
-        openMenu(Menu.InventoryMenu);
-        pauseGame();
+        switch(buttonNumber)
+        {
+            case 0:
+                inventoryButton1.gameObject.SetActive(true);
+                break;
+            case 1:
+                inventoryButton2.gameObject.SetActive(true);
+                break;
+            case 2:
+                inventoryButton3.gameObject.SetActive(true);
+                break;
+        }
     }
 
-    // close inventory display in HUD
-    public void closeInventory()
+    public void deactivateButton(int buttonNumber)
     {
-        Debug.Log("Closing inventory menu");
-        closeMenu(Menu.InventoryMenu);
-        resumeGame();
-    } 
-
-    // pause game 
-    public void pauseGame()
-    {
-        // open inventory menu
-        openMenu(Menu.InventoryMenu);
-        // pause/stop game
-        Time.timeScale = 0f;
-        Debug.Log("open inventory menu");
+        switch (buttonNumber)
+        {
+            case 0:
+                inventoryButton1.gameObject.SetActive(false);
+                break;
+            case 1:
+                inventoryButton2.gameObject.SetActive(false);
+                break;
+            case 2:
+                inventoryButton3.gameObject.SetActive(false);
+                break;
+        }
     }
 
-    // protected override void ResumeGame()
-    // resume game
-    public void resumeGame()
+    public void weaponButtonClick(Button clickedButton)
     {
-        // close inventory menu
-        closeMenu(Menu.InventoryMenu);
-        // resume game
-        Time.timeScale = 1f;
-        Debug.Log("close inventory menu");
+        if (clickedButton == inventoryButton1)
+        {
+            Debug.Log("first button is clicked");
+            // remove weapon that is in the first index of the array
+            Inventory.inventoryInstance.removeWeapon(0);
+            // deactivate the button
+            deactivateButton(0);
+        }
+        else if (clickedButton == inventoryButton2)
+        {
+            Debug.Log("second button is clicked");
+            // remove the weapon that is in the second index of the array
+            Inventory.inventoryInstance.removeWeapon(1);
+            // deactivate the button
+            deactivateButton(1);
+        }
+        else if (clickedButton == inventoryButton3)
+        {
+            Debug.Log("third button is clicked");
+            // remove the weapon that is in the third index of the array
+            Inventory.inventoryInstance.removeWeapon(2);
+            // deactivate the button
+            deactivateButton(2);
+        }
+        else
+        {
+            Debug.Log("button clicked was not in the inventory menu!!");
+        }
     }
 
-    // update melee value in inventory menu
-    public void updateMelee(int updateAmount)
-    {
-        meleeValue += updateAmount;
-        meleeText.text = "x " + meleeValue;
-    }
-
-    // update ranged weapon value in inventory menu
-    public void updateRange(int updateAmount)
-    {
-        rangeValue += updateAmount;
-        rangeText.text = "x " + rangeValue;
-    }
 }

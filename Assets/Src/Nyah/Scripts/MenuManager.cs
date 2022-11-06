@@ -12,7 +12,13 @@ using UnityEngine.SceneManagement;
  * MenuManager class to manage basic functions for all menus
  * 
  * member variables:
- * menu game objects
+ * mainMenu - main menu game object
+ * pauseMenu - pause menu game object
+ * optionsMenu - options menu game object
+ * inventoryMenu - inventory menu game object
+ * helpMenu - help menu game object
+ * 
+ * member functions:
  * openMenu(Menu menu) - open a menu
  * closeMenu(Menu menu) - close a menu
  */
@@ -58,8 +64,6 @@ public class MenuManager : MonoBehaviour
                 mainMenu.SetActive(false);
                 break;
             case Menu.PauseMenu:
-                // figure out how to pause game
-                //ResumeGame();
                 pauseMenu.SetActive(false);
                 break;
             case Menu.OptionsMenu:

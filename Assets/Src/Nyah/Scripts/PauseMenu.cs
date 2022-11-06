@@ -50,6 +50,21 @@ public class PauseMenu : MenuManager
 
     }
 
+    public void openHelp()
+    {
+        Debug.Log("Opening help menu");
+        closeMenu(Menu.PauseMenu);
+        openMenu(Menu.HelpMenu);
+    }
+
+    public void closeHelp()
+    {
+        Debug.Log("Closing help menu");
+        closeMenu(Menu.HelpMenu);
+        openMenu(Menu.PauseMenu);
+
+    }
+
     // if return to main menu button is clicked, load main menu scene
     public void returnToMain()
     {
