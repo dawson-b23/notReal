@@ -27,28 +27,35 @@ using UnityEngine;
 public class LevelGeneration : MonoBehaviour
 {
     public Transform[] worldStartingPositions;
-    public GameObject[] rooms; //ROOM OPENINGS 0 = spawnroom 1 = left/right, 2 left/right/bottom, 3 left/right/top, 4 left/right/top/bottom, 5 Empty, 6 Exit
+    public GameObject[] rooms; 
+         //ROOM OPENINGS 0 = spawnroom 1 = left/right, 2 left/right/bottom, 3 left/right/top, 4 left/right/top/bottom
+         // 5 EmptyRoom, 6 ExitRoom, 7 Shop Room
+
     public float moveAmount;
     public float startTime = 0.25f;
     public float minX;
     public float maxX;
     public float minY;
     public bool stopGeneration;
-    
+    public bool hasShop;
+
     private int direction;    
     private float timeBetweenRoom;
-    private bool hasShop;
+    //private bool hasShop;
+    private int shopIter = 0;
+    private int spawnShop;
     
 
     // Start is called before the first frame update
     void Start()
     {
+
         int randStartingPos = Random.Range(0, worldStartingPositions.Length);
         transform.position = worldStartingPositions[randStartingPos].position;
         Instantiate(rooms[0], transform.position, Quaternion.identity);
 
         direction = Random.Range(1, 6);
-
+        spawnShop = Random.Range(1,5);
     }
     private void Update()
     {
@@ -128,7 +135,16 @@ public class LevelGeneration : MonoBehaviour
                     //Instantiate(rooms[rand], transform.position, Quaternion.identity);
                    
                 }
+
+                //spawn shop
+                if(hasShop == false && spawnShop == shopIter){
+                    Instantiate(rooms[7], transform.position, Quaternion.identity);
+                   hasShop = true;
+                }//spawn rand room
+                else{
                 Instantiate(rooms[rand], transform.position, Quaternion.identity);
+                shopIter = shopIter + 1;
+                }
             }
             else
             {//moved down if right boundary is reached
@@ -170,7 +186,14 @@ public class LevelGeneration : MonoBehaviour
                     rand = Random.Range(1, 4);
                     
                 }
+                if(hasShop == false && spawnShop == shopIter){
+                    Instantiate(rooms[7], transform.position, Quaternion.identity);
+                    hasShop = true;
+                }//spawn rand room
+                else{
                 Instantiate(rooms[rand], transform.position, Quaternion.identity);
+                shopIter = shopIter + 1;
+                }
 
 
             }
@@ -211,20 +234,20 @@ public class LevelGeneration : MonoBehaviour
 
                 }
                 Instantiate(rooms[rand], transform.position, Quaternion.identity);
+                
+                if(spawnShop != shopIter)
+                {
+                shopIter = shopIter + 1;
+                }
             }
             else
             {
-                //stop generation
-               //Adds an exit room under the last room before stop generation
                
-               
-               
+               //Adds an exit room under the last room before stop generation                                     
                 Vector2 newPosition = new Vector2(transform.position.x, transform.position.y - moveAmount);
                 transform.position = newPosition;
                 Instantiate(rooms[6], transform.position, Quaternion.identity);
-             
-                //stopGeneration = true;
-               
+              
 
                //Added to guerantee that a solid room will spawn on the bottom after
                // the exit room has spawned in
@@ -233,7 +256,8 @@ public class LevelGeneration : MonoBehaviour
                 
                 
                 // adds rooms to the left of exit room
-                while(transform.position.x > minX+5){
+                // subtract 5 from minX because of cases where it wasnt catching the edge
+                while(transform.position.x > minX-5){
                     
                     Instantiate(rooms[5], transform.position, Quaternion.identity);
                     Vector2 nextPosition = new Vector2(transform.position.x - moveAmount, transform.position.y);
@@ -245,12 +269,17 @@ public class LevelGeneration : MonoBehaviour
                 transform.position = rightbottomPosition;
                 
                 //adds rooms to the right of exit room 
+                // add 5 to maxX to get edge case 
                 while(transform.position.x < maxX+5){
                    
                     Instantiate(rooms[5], transform.position, Quaternion.identity);
                     Vector2 nextPosition = new Vector2(transform.position.x + moveAmount, transform.position.y);
                     transform.position = nextPosition;
                 }
+
+                    // path is full and left and right exit is filled
+                    // stop generation
+                    //
                   stopGeneration = true;
         
             }
