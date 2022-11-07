@@ -26,8 +26,7 @@ public class MenuManager : MonoBehaviour
 {
     
     // reference to the menu objects
-    [SerializeField]
-    GameObject mainMenu, pauseMenu, optionsMenu, inventoryMenu, helpMenu;
+    public GameObject mainMenu, pauseMenu, optionsMenu, inventoryMenu, helpMenu, skillTreeMenu;
 
     // public void OpenMenu(Menu menu, GameObject callingMenu)
     // functions to open a menu
@@ -50,6 +49,9 @@ public class MenuManager : MonoBehaviour
                 break;
             case Menu.HelpMenu:
                 helpMenu.SetActive(true);
+                break;
+            case Menu.SkillTreeMenu:
+                skillTreeMenu.SetActive(true);
                 break;
         }
     }
@@ -75,6 +77,9 @@ public class MenuManager : MonoBehaviour
             case Menu.HelpMenu:
                 helpMenu.SetActive(false);
                 break;
+            case Menu.SkillTreeMenu:
+                skillTreeMenu.SetActive(false);
+                break;
         }
     }
 
@@ -94,5 +99,17 @@ public class MenuManager : MonoBehaviour
         Debug.Log("resume game");
     } */
 
-    
+    public virtual void pauseGame()
+    {
+        Time.timeScale = 0f;
+        Debug.Log("paused game, no menu opened");
+    }
+
+    public virtual void resumeGame()
+    {
+        Time.timeScale = 1f;
+        Debug.Log("resume game, no menu closed");
+    }
+
+
 }

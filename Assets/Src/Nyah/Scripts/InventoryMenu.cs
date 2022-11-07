@@ -18,7 +18,7 @@ using UnityEngine.SceneManagement;
  * pauseGame() - pause game after menu is opened
  * resumeGame() - resume game after menu is opened
  */
-public class InventoryMenu : MenuManager
+public class InventoryMenu : MonoBehaviour
 {
     // inventory menu (on the HUD) singleton
     public static InventoryMenu inventoryMenuInstance { get; private set; }

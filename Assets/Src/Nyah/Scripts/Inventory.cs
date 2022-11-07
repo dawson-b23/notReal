@@ -132,7 +132,7 @@ public class Inventory : MonoBehaviour
     {
         if (abstractWeapon == null)
         {
-            Debug.Log("weapontobeadded is null");
+            Debug.Log("abstract weapon to be added is null");
         }
         else
         {

@@ -18,7 +18,7 @@ using UnityEngine;
  * MakeInactive() - set IsActive to false, closing the menu
  * MakeActive() - activate the menu when the IsActive is set to true
  */
-public class SkillTreeMenu : MonoBehaviour
+public class SkillTreeMenu : MenuManager
 {
     //public static bool IsActive = false;
     [SerializeField] GameObject skillTreeUI;
@@ -49,6 +49,19 @@ public class SkillTreeMenu : MonoBehaviour
 
     //pause game
     public void MakeActive(){
+        /*
+         * added by Nyah Nelson
+         * checks if the pause menu is open when the skill tree button is clicked
+         * then closes the pause menu before the skill tree menu is opened
+         */
+        // if the pause menu is open, close it before opening the pause menu
+        if (pauseMenu.activeSelf)
+        {
+            closeMenu(Menu.PauseMenu);
+        }
+        // can also use the next two lines below instead of the line 64 and 65 (since you are now inheriting from MenuManager class)
+        // openMenu(Menu.SkillTreeMenu);
+        // pauseGame();
         skillTreeUI.SetActive(true);
         Time.timeScale = 0f;
         //IsActive = true;

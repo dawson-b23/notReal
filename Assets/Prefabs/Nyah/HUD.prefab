@@ -1228,6 +1228,7 @@ MonoBehaviour:
   optionsMenu: {fileID: 0}
   inventoryMenu: {fileID: 3966226063676632653}
   helpMenu: {fileID: 4069322676854790928}
+  skillTreeMenu: {fileID: 0}
 --- !u!1 &3966226063676632653
 GameObject:
   m_ObjectHideFlags: 0
@@ -1703,6 +1704,7 @@ MonoBehaviour:
   - {fileID: 1981322296803130508}
   - {fileID: 7462596170519184819}
   - {fileID: 1487790556399123369}
+  playerObject: {fileID: 0}
 --- !u!114 &7862691063729529624
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1720,6 +1722,7 @@ MonoBehaviour:
   optionsMenu: {fileID: 0}
   inventoryMenu: {fileID: 0}
   helpMenu: {fileID: 0}
+  skillTreeMenu: {fileID: 0}
   menuBackground: {fileID: 4080201968681340070}
   menuBackgroundColor: {fileID: 0}
   inventoryButton1: {fileID: 5416311482720984184}
@@ -3499,6 +3502,7 @@ MonoBehaviour:
   optionsMenu: {fileID: 0}
   inventoryMenu: {fileID: 3966226063676632653}
   helpMenu: {fileID: 0}
+  skillTreeMenu: {fileID: 0}
   menuBackground: {fileID: 0}
   menuBackgroundColor: {fileID: 0}
   inventoryButton1: {fileID: 0}

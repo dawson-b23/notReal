@@ -20,8 +20,13 @@ using UnityEngine.SceneManagement;
 public class PauseMenu : MenuManager
 {
     // function to open pause menu and pause game
-    public void pauseGame()
+    public override void pauseGame()
     {
+        // if the skill tree menu is open, close it before opening the pause menu
+        /*if (skillTreeMenu.activeSelf)
+        {
+            closeMenu(Menu.SkillTreeMenu);
+        }*/
         // open pause menu
         openMenu(Menu.PauseMenu);
         // pause/stop game
@@ -31,7 +36,7 @@ public class PauseMenu : MenuManager
 
     // protected override void ResumeGame()
     // function to close pause menu and resume game
-    public void resumeGame()
+    public override void resumeGame()
     {
         // close pause menu
         closeMenu(Menu.PauseMenu);

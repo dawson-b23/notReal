@@ -16,5 +16,6 @@ public enum Menu
     PauseMenu = 1,
     OptionsMenu = 2,
     InventoryMenu = 3,
-    HelpMenu = 4
+    HelpMenu = 4,
+    SkillTreeMenu = 5
 };

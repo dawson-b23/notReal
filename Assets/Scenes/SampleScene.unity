@@ -330,6 +330,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.x
       value: -1.4000244
       objectReference: {fileID: 0}
+    - target: {fileID: 3966226063668617257, guid: 565fefe30185a47269ae8fb970557c56, type: 3}
+      propertyPath: skillTreeMenu
+      value: 
+      objectReference: {fileID: 1180067688}
     - target: {fileID: 3966226063676632653, guid: 565fefe30185a47269ae8fb970557c56, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -1175,6 +1179,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 636833a1803471c47b66ad1fc85fb8c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  mainMenu: {fileID: 0}
+  pauseMenu: {fileID: 0}
+  optionsMenu: {fileID: 0}
+  inventoryMenu: {fileID: 0}
+  helpMenu: {fileID: 0}
+  skillTreeMenu: {fileID: 0}
   skillTreeUI: {fileID: 1180067688}
 --- !u!1001 &885068478
 PrefabInstance:
@@ -1809,6 +1819,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 636833a1803471c47b66ad1fc85fb8c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  mainMenu: {fileID: 0}
+  pauseMenu: {fileID: 1418981571}
+  optionsMenu: {fileID: 0}
+  inventoryMenu: {fileID: 0}
+  helpMenu: {fileID: 0}
+  skillTreeMenu: {fileID: 0}
   skillTreeUI: {fileID: 1180067688}
 --- !u!1 &1362725212
 GameObject:
@@ -1978,6 +1994,11 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &1418981571 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3966226063682549188, guid: 565fefe30185a47269ae8fb970557c56, type: 3}
+  m_PrefabInstance: {fileID: 84526567}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1694226533
 GameObject:
   m_ObjectHideFlags: 0
