@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: WeaponRegistry
   m_EditorClassIdentifier: 
   inputWeapons:
-  - weaponID: basicRange
+  - weaponID: basicRanged
     weapon: {fileID: 8507486459402833133, guid: 0c073f0646550e24d98a1b383385a7f3, type: 3}
   - weaponID: basicMelee
     weapon: {fileID: 2800971576619628798, guid: 4324e22debb383c418faa758b0301639, type: 3}

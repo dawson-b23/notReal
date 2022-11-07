@@ -1,17 +1,20 @@
 /*
  * PickupRandom.cs
  * Spencer Butler
- * Logic for a pickup that uses a random weapon
+ * Logic for a pickup that uses a specific weapon
  */
 
 using UnityEngine;
 
 
 /*
- * Logic for a pickup that sets its own weapon to a random weapon from the registry
+ * Logic for a pickup that sets its own weapon to a specific weapon from the registry
+ *
+ * member variables:
+ * weaponID - the ID of the weapon to be retrieved from the registry
  *
  * member functions:
- * Awake() - get a weapon, initialize pickup values
+ * Awake() - gets the weapon, initialize pickup values
  */
 public class PickupSpecific : WeaponPickup
 {

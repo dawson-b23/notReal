@@ -20,7 +20,6 @@ using UnityEngine;
  */
 public class WeaponPickup : MonoBehaviour 
 {
-    [SerializeField]
     private AbstractWeapon attachedWeapon;
 
     /*
