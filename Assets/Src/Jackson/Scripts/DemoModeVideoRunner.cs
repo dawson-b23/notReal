@@ -22,7 +22,7 @@ public class DemoModeExampleScript : MonoBehaviour
     void Start()
     {
         videoPlayer.SetActive(true);
-        menuHUD.SetActive(true);
+        menuHUD.SetActive(false);
     }
 
     //Use fixed update because its called every fixed framerate frame
@@ -50,7 +50,7 @@ public class DemoModeExampleScript : MonoBehaviour
         if (time == idleTime)
         {
          videoPlayer.SetActive(true);
-         //menuHUD.SetActive(false);
+         menuHUD.SetActive(false);
         }
 
     }
