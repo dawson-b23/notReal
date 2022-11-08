@@ -17,3 +17,13 @@ MonoBehaviour:
     weapon: {fileID: 8507486459402833133, guid: 0c073f0646550e24d98a1b383385a7f3, type: 3}
   - weaponID: basicMelee
     weapon: {fileID: 2800971576619628798, guid: 4324e22debb383c418faa758b0301639, type: 3}
+  - weaponID: circleMelee
+    weapon: {fileID: 1721919038123008645, guid: 604c17eeea840624bb7610b513981ea0, type: 3}
+  - weaponID: circleMeleeAdvanced
+    weapon: {fileID: 4031497635674934593, guid: df1947b9cccbe6741ad27addc444b942, type: 3}
+  - weaponID: stabMelee
+    weapon: {fileID: 3515491648379806504, guid: 6cb2b59b55eac34499b416d18b9daf9b, type: 3}
+  - weaponID: sniperRanged
+    weapon: {fileID: 4584753820443919968, guid: ffea40824ec6f2f45be53c7d0af83433, type: 3}
+  - weaponID: scytheMelee
+    weapon: {fileID: 7811358309963347309, guid: 144615d0f5837d844bb84f867bab1e9d, type: 3}

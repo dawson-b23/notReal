@@ -79,6 +79,7 @@ public abstract class AbstractWeapon : MonoBehaviour
         Enemy enemyScript;
         if(enemy.TryGetComponent<Enemy>(out enemyScript)) 
         {
+            //TODO: Make processHit call takeDamage on the enemy
             // enemyScript.takeDamage(damage);
             Destroy(enemyScript.gameObject);
             upgrade.Upgrade();
