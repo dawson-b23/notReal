@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: -87342410102166920}
   - component: {fileID: -9162145899108523871}
   m_Layer: 0
-  m_Name: New Prefab
+  m_Name: largeRangedEnemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
