@@ -2,9 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class queenBC : MonoBehaviour
+public class friendlyNPC : MonoBehaviour
 {
-    public setDialogue dialogueScript;
+    public randomDialogue dialogueScript;
 
 
     private bool playerInRange;

@@ -9,9 +9,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4116388310890168249}
-  - component: {fileID: 280419921658052934}
+  - component: {fileID: 3391798362805069667}
   m_Layer: 0
-  m_Name: Dialogue
+  m_Name: ManualDialogue
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -34,7 +34,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &280419921658052934
+--- !u!114 &3391798362805069667
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -43,7 +43,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 769199791861972388}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d8803edf42f9ad24e90e1d91d9ea06f6, type: 3}
+  m_Script: {fileID: 11500000, guid: 579c53ecbcd9cbd4392deb9256e52e67, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   indicator: {fileID: 9109889014629742585}
@@ -75,7 +75,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1952129782971892970}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 1.42, y: -0.12, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:

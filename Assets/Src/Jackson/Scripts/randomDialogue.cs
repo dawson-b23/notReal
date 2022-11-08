@@ -4,7 +4,7 @@
  *                                    *
  * Prefab to handle dialogue boxes    *
  * for NPC's...updated to randomize   *
- * dialogue and sprites               *
+ * dialogue                           *
  *                                    *
 ***************************************/
 using System.Collections;
@@ -13,7 +13,7 @@ using TMPro;
 using UnityEngine;
 
 
-public class Dialogue : MonoBehaviour
+public class randomDialogue : MonoBehaviour
 {
     //Fields
     //Indicator
@@ -21,7 +21,7 @@ public class Dialogue : MonoBehaviour
     //Window
     public GameObject window;
     //Dialogues List
-    public List<string> dialogues;
+    private List<string> dialogues;
     //character index;
     private int charIndex;
     //Index on dialogue
@@ -89,7 +89,7 @@ public class Dialogue : MonoBehaviour
         WaitForNext = false;
         //stop all IENumerators
         StopAllCoroutines();
-            //hide window
+        //hide window
         ToggleWindow(false);
     }
 

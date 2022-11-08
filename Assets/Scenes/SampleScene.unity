@@ -664,6 +664,28 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1874228650640527280, guid: e181c2d3a198a8b44b99b2ea2e1c201a, type: 3}
+      propertyPath: dialogues.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1874228650640527280, guid: e181c2d3a198a8b44b99b2ea2e1c201a, type: 3}
+      propertyPath: dialogues.Array.data[0]
+      value: Hello little bee, I am your Queen BC!
+      objectReference: {fileID: 0}
+    - target: {fileID: 1874228650640527280, guid: e181c2d3a198a8b44b99b2ea2e1c201a, type: 3}
+      propertyPath: dialogues.Array.data[1]
+      value: Various creatures are invading the hive, and I need your help to protect
+        it!
+      objectReference: {fileID: 0}
+    - target: {fileID: 1874228650640527280, guid: e181c2d3a198a8b44b99b2ea2e1c201a, type: 3}
+      propertyPath: dialogues.Array.data[2]
+      value: You just picked up a ranged weapon called the Minibee. Try it out on
+        some enemies by selecting it from your inventory.
+      objectReference: {fileID: 0}
+    - target: {fileID: 1874228650640527280, guid: e181c2d3a198a8b44b99b2ea2e1c201a, type: 3}
+      propertyPath: dialogues.Array.data[3]
+      value: Good luck little Bee; our colony depends on you!
+      objectReference: {fileID: 0}
     - target: {fileID: 4277482150060571805, guid: e181c2d3a198a8b44b99b2ea2e1c201a, type: 3}
       propertyPath: m_Name
       value: Queen BC
@@ -735,7 +757,7 @@ PrefabInstance:
     - target: {fileID: 6350623747820201899, guid: e181c2d3a198a8b44b99b2ea2e1c201a, type: 3}
       propertyPath: dialogueScript
       value: 
-      objectReference: {fileID: 3950227816395635033}
+      objectReference: {fileID: 341323774}
     - target: {fileID: 6833140501161534854, guid: e181c2d3a198a8b44b99b2ea2e1c201a, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -758,11 +780,17 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e181c2d3a198a8b44b99b2ea2e1c201a, type: 3}
---- !u!4 &166579521 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 4715440400243645493, guid: e181c2d3a198a8b44b99b2ea2e1c201a, type: 3}
+--- !u!114 &341323774 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1874228650640527280, guid: e181c2d3a198a8b44b99b2ea2e1c201a, type: 3}
   m_PrefabInstance: {fileID: 166579520}
   m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 579c53ecbcd9cbd4392deb9256e52e67, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &347384334 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4841496444139184106, guid: d894e1c138246924ca03385e8153d1fe, type: 3}
@@ -2515,139 +2543,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cefe1aa2e8f7f274390e4dce33ca7554, type: 3}
---- !u!1001 &3950227816395635030
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 166579521}
-    m_Modifications:
-    - target: {fileID: 280419921658052934, guid: 429f87a3ce0885c4d9974a8aa6bca264, type: 3}
-      propertyPath: writingSpeed
-      value: 0.03
-      objectReference: {fileID: 0}
-    - target: {fileID: 280419921658052934, guid: 429f87a3ce0885c4d9974a8aa6bca264, type: 3}
-      propertyPath: dialogues.Array.size
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 280419921658052934, guid: 429f87a3ce0885c4d9974a8aa6bca264, type: 3}
-      propertyPath: dialogues.Array.data[0]
-      value: Hello little Bee, I am your Queen BC!
-      objectReference: {fileID: 0}
-    - target: {fileID: 280419921658052934, guid: 429f87a3ce0885c4d9974a8aa6bca264, type: 3}
-      propertyPath: dialogues.Array.data[1]
-      value: Outsiders have invaded the hive, and I need your help to drive them
-        out!
-      objectReference: {fileID: 0}
-    - target: {fileID: 280419921658052934, guid: 429f87a3ce0885c4d9974a8aa6bca264, type: 3}
-      propertyPath: dialogues.Array.data[2]
-      value: Protect our home and good luck!
-      objectReference: {fileID: 0}
-    - target: {fileID: 769199791861972388, guid: 429f87a3ce0885c4d9974a8aa6bca264, type: 3}
-      propertyPath: m_Name
-      value: Dialogue
-      objectReference: {fileID: 0}
-    - target: {fileID: 4116388310890168249, guid: 429f87a3ce0885c4d9974a8aa6bca264, type: 3}
-      propertyPath: m_RootOrder
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4116388310890168249, guid: 429f87a3ce0885c4d9974a8aa6bca264, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.44743815
-      objectReference: {fileID: 0}
-    - target: {fileID: 4116388310890168249, guid: 429f87a3ce0885c4d9974a8aa6bca264, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.44743815
-      objectReference: {fileID: 0}
-    - target: {fileID: 4116388310890168249, guid: 429f87a3ce0885c4d9974a8aa6bca264, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 0.44743815
-      objectReference: {fileID: 0}
-    - target: {fileID: 4116388310890168249, guid: 429f87a3ce0885c4d9974a8aa6bca264, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 1.321
-      objectReference: {fileID: 0}
-    - target: {fileID: 4116388310890168249, guid: 429f87a3ce0885c4d9974a8aa6bca264, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0.108
-      objectReference: {fileID: 0}
-    - target: {fileID: 4116388310890168249, guid: 429f87a3ce0885c4d9974a8aa6bca264, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4116388310890168249, guid: 429f87a3ce0885c4d9974a8aa6bca264, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4116388310890168249, guid: 429f87a3ce0885c4d9974a8aa6bca264, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4116388310890168249, guid: 429f87a3ce0885c4d9974a8aa6bca264, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4116388310890168249, guid: 429f87a3ce0885c4d9974a8aa6bca264, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4116388310890168249, guid: 429f87a3ce0885c4d9974a8aa6bca264, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4116388310890168249, guid: 429f87a3ce0885c4d9974a8aa6bca264, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4116388310890168249, guid: 429f87a3ce0885c4d9974a8aa6bca264, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5725645602982245576, guid: 429f87a3ce0885c4d9974a8aa6bca264, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -2.97
-      objectReference: {fileID: 0}
-    - target: {fileID: 5725645602982245576, guid: 429f87a3ce0885c4d9974a8aa6bca264, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 1.08
-      objectReference: {fileID: 0}
-    - target: {fileID: 7372802160219180932, guid: 429f87a3ce0885c4d9974a8aa6bca264, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.6479101
-      objectReference: {fileID: 0}
-    - target: {fileID: 7372802160219180932, guid: 429f87a3ce0885c4d9974a8aa6bca264, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.6479101
-      objectReference: {fileID: 0}
-    - target: {fileID: 7372802160219180932, guid: 429f87a3ce0885c4d9974a8aa6bca264, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 0.6479101
-      objectReference: {fileID: 0}
-    - target: {fileID: 7372802160219180932, guid: 429f87a3ce0885c4d9974a8aa6bca264, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -0.55
-      objectReference: {fileID: 0}
-    - target: {fileID: 7372802160219180932, guid: 429f87a3ce0885c4d9974a8aa6bca264, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -0.07
-      objectReference: {fileID: 0}
-    - target: {fileID: 9109889014629742585, guid: 429f87a3ce0885c4d9974a8aa6bca264, type: 3}
-      propertyPath: m_Name
-      value: Indicator
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 429f87a3ce0885c4d9974a8aa6bca264, type: 3}
---- !u!114 &3950227816395635033 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 280419921658052934, guid: 429f87a3ce0885c4d9974a8aa6bca264, type: 3}
-  m_PrefabInstance: {fileID: 3950227816395635030}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d8803edf42f9ad24e90e1d91d9ea06f6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &5190131204750836092
 PrefabInstance:
   m_ObjectHideFlags: 0
