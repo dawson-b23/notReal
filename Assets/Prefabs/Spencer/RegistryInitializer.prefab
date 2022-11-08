@@ -44,4 +44,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bbafb87b5bc6b3847bd8300e3bac2981, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  RegistryToBeInitialized: {fileID: 11400000, guid: 2bf05fe761b6717419cdc2dec80a25a4, type: 2}
+  registryToBeInitialized: {fileID: 11400000, guid: 2bf05fe761b6717419cdc2dec80a25a4, type: 2}
