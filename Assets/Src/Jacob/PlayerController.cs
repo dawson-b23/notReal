@@ -77,6 +77,7 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         currentHealth = maxHealth;
+        PlayerProfile.profileInstance.updateHealth(maxHealth - 10);
         if(!this.TryGetComponent<Rigidbody2D>(out rigidBody))
         {
             Debug.LogError("Player does not have a valid Rigidbody2D attached to it");
@@ -210,6 +211,7 @@ public class PlayerController : MonoBehaviour
         if(!takingDamage) 
         {
             currentHealth -= damageTaken;
+            PlayerProfile.profileInstance.updateHealth(damageTaken * -1);
             if(currentHealth <= 0)
             {
                 //TODO: Call death screen/menu
@@ -227,6 +229,7 @@ public class PlayerController : MonoBehaviour
      */
     public void healFully() 
     {
+        PlayerProfile.profileInstance.updateHealth(maxHealth - currentHealth);
         currentHealth = maxHealth;
     }
 
@@ -236,6 +239,7 @@ public class PlayerController : MonoBehaviour
      */
     public void addHoney(int honeyAdded) 
     {
+        PlayerProfile.profileInstance.updateMoney(honeyAdded);
         lifetimeHoney += honeyAdded;
         currentHoney += honeyAdded;
     }
@@ -246,6 +250,7 @@ public class PlayerController : MonoBehaviour
      */
     public void removeHoney(int honeyRemoved) 
     {
+        PlayerProfile.profileInstance.updateMoney(honeyRemoved * -1);
         currentHoney -= honeyRemoved;
     }
 
