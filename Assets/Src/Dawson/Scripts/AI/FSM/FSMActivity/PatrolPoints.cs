@@ -6,8 +6,8 @@ namespace AI.FSM
 { 
     public class PatrolPoints : MonoBehaviour
     {
-        public List<Vector2> points;
-        private Vector2 targetPoint;
+        public List<Vector3> points;
+        private Vector3 targetPoint;
         private int index;
 
 
@@ -20,7 +20,7 @@ namespace AI.FSM
 
         public bool HasReachedPoint()
         {
-            return(Vector2.Distance(transform.position, targetPoint) <= 0.5f);
+            return(Vector3.Distance(transform.position, targetPoint) <= 0.5f);
         }
 
 
@@ -31,7 +31,7 @@ namespace AI.FSM
         }
 
 
-        public Vector2 GetTargetPointDirection()
+        public Vector3 GetTargetPointDirection()
         {
             return(targetPoint - transform.position).normalized;
         }
