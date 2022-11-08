@@ -11,6 +11,22 @@ public class PlayerController : MonoBehaviour
     private float playerSpeed = 1.0f;
     public float PlayerSpeed { get => playerSpeed; set => playerSpeed = value; }
 
+    /* variables added by Spencer Butler */
+    [SerializeField]
+    private int maxHealth;
+    private int currentHealth;
+
+    //cooldown on damage taken, to prevent rapidly repeating contact with an enemy causing instant death
+    [SerializeField]
+    private float damageCooldown;
+    private bool takingDamage = false;
+
+    private int lifetimeHoney = 0;
+    private int currentHoney = 0;
+
+    /* end of spencer-variables section */
+
+
     //TEMP
     public int exp = 0;
 
@@ -60,6 +76,7 @@ public class PlayerController : MonoBehaviour
 
     void Start()
     {
+        currentHealth = maxHealth;
         if(!this.TryGetComponent<Rigidbody2D>(out rigidBody))
         {
             Debug.LogError("Player does not have a valid Rigidbody2D attached to it");
@@ -182,8 +199,100 @@ public class PlayerController : MonoBehaviour
         }
         return oldWeapon;
     }
+    
+    /*
+     * Function added by Spencer Butler
+     * Takes in an int, subtracts that much from the player's health
+     * Checks if the player has run out of health and died
+     */
+    public void takeDamage(int damageTaken)
+    {
+        if(!takingDamage) 
+        {
+            currentHealth -= damageTaken;
+            if(currentHealth <= 0)
+            {
+                //TODO: Call death screen/menu
+            } else 
+            {
+                StartCoroutine(damageIndicator());
+                Debug.Log("Damage taken, new player health: " + currentHealth);
+            }
+        }
+    }
+
+    /*
+     * Function added by Spencer Butler
+     * Fully heals the player
+     */
+    public void healFully() 
+    {
+        currentHealth = maxHealth;
+    }
+
+    /*
+     * Function added by Spencer Butler
+     * Adds honey to both the current and lifetime trackers
+     */
+    public void addHoney(int honeyAdded) 
+    {
+        lifetimeHoney += honeyAdded;
+        currentHoney += honeyAdded;
+    }
+
+    /*
+     * Function added by Spencer Butler
+     * Removes honey from the current balance
+     */
+    public void removeHoney(int honeyRemoved) 
+    {
+        currentHoney -= honeyRemoved;
+    }
+
+    /*
+     * Function added by Spencer Butler
+     * Returns the current honey balance
+     */
+    public int getHoney() 
+    {
+        return currentHoney;
+    }
+
+    /*
+     * Function added by Spencer Butler
+     * Returns the total honey accumulated so far
+     */
+    public int getLifetimeHoney() 
+    {
+        return lifetimeHoney;
+    }
 
     #region Coroutines
+
+    /*
+     * Function added by Spencer Butler
+     * Makes the player sprite briefly go red and then back to normal color
+     */
+    private IEnumerator damageIndicator()
+    {
+        takingDamage = true;
+        SpriteRenderer img = this.GetComponent<SpriteRenderer>();
+        float totalTime = Mathf.Ceil((1.0f / 2.0f) * damageCooldown / Time.fixedDeltaTime) * Time.fixedDeltaTime;
+        float currentMultiplier = 1.0f;
+        for(double i = 0; i + Time.fixedDeltaTime / 2 < totalTime; i += Time.fixedDeltaTime)
+        {
+            currentMultiplier -= 0.75f * (Time.fixedDeltaTime / totalTime);
+            img.color = new Color(img.color.r, currentMultiplier, currentMultiplier);
+            yield return new WaitForFixedUpdate();
+        }
+        for(double i = 0; i + Time.fixedDeltaTime / 2 < totalTime; i += Time.fixedDeltaTime)
+        {
+            currentMultiplier += 0.75f * (Time.fixedDeltaTime / totalTime);
+            img.color = new Color(img.color.r, currentMultiplier, currentMultiplier);
+            yield return new WaitForFixedUpdate();
+        }
+        takingDamage = false;
+    }
 
     private IEnumerator AttackCooldown()
     {
