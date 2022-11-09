@@ -7534,6 +7534,31 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6943650127987828617}
     m_Modifications:
+    - target: {fileID: 1874228650640527280, guid: e181c2d3a198a8b44b99b2ea2e1c201a, type: 3}
+      propertyPath: dialogues.Array.size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1874228650640527280, guid: e181c2d3a198a8b44b99b2ea2e1c201a, type: 3}
+      propertyPath: dialogues.Array.data[0]
+      value: Hello little Bee, I am your Queen BC!
+      objectReference: {fileID: 0}
+    - target: {fileID: 1874228650640527280, guid: e181c2d3a198a8b44b99b2ea2e1c201a, type: 3}
+      propertyPath: dialogues.Array.data[1]
+      value: Invaders are attacking the hive, and its up to you to defend it!
+      objectReference: {fileID: 0}
+    - target: {fileID: 1874228650640527280, guid: e181c2d3a198a8b44b99b2ea2e1c201a, type: 3}
+      propertyPath: dialogues.Array.data[2]
+      value: Go ahead and pickup the weapon in front of you.
+      objectReference: {fileID: 0}
+    - target: {fileID: 1874228650640527280, guid: e181c2d3a198a8b44b99b2ea2e1c201a, type: 3}
+      propertyPath: dialogues.Array.data[3]
+      value: The minibee is a balanced, ranged weapon that should serve you well
+        on your quest.
+      objectReference: {fileID: 0}
+    - target: {fileID: 1874228650640527280, guid: e181c2d3a198a8b44b99b2ea2e1c201a, type: 3}
+      propertyPath: dialogues.Array.data[4]
+      value: Protect the colony at all costs, and good luck!
+      objectReference: {fileID: 0}
     - target: {fileID: 4277482150060571805, guid: e181c2d3a198a8b44b99b2ea2e1c201a, type: 3}
       propertyPath: m_Name
       value: Queen BC
@@ -7582,6 +7607,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6350623747820201899, guid: e181c2d3a198a8b44b99b2ea2e1c201a, type: 3}
+      propertyPath: dialogueScript
+      value: 
+      objectReference: {fileID: 7280686589686080535}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e181c2d3a198a8b44b99b2ea2e1c201a, type: 3}
 --- !u!4 &4501406000715528082 stripped
@@ -7589,6 +7618,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4715440400243645493, guid: e181c2d3a198a8b44b99b2ea2e1c201a, type: 3}
   m_PrefabInstance: {fileID: 9153751956990831527}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &7280686589686080535 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1874228650640527280, guid: e181c2d3a198a8b44b99b2ea2e1c201a, type: 3}
+  m_PrefabInstance: {fileID: 9153751956990831527}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 579c53ecbcd9cbd4392deb9256e52e67, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &9222789927183754141
 PrefabInstance:
   m_ObjectHideFlags: 0
