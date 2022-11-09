@@ -66,7 +66,7 @@ public class LevelGeneration : MonoBehaviour
         Instantiate(rooms[0], transform.position, Quaternion.identity);
 
         direction = Random.Range(1, 6);
-        spawnShop = Random.Range(1,5);
+        spawnShop = Random.Range(1,6);
     }
     private void Update()
     {
@@ -123,46 +123,35 @@ public class LevelGeneration : MonoBehaviour
                
                 // ensure bottom opening 
                if(nextPosition.x > maxX)
-                {
-                 
-                    rand = 4;
-                   
-                    
-                   // int randBottomRoom = 4; //force room to have all four openings to deal with edge case
-                   // Instantiate(rooms[randBottomRoom], transform.position, Quaternion.identity);
+                {                 
+                    rand = 4;                                    
                 }
                 else if (direction == 5)
-                    {
-
-                    rand = 4;
-                  // int randBottomRoom = Random.Range(2, 5);
-                   
-                    /*
-                    if (rand == 3)
-                    {
-                        rand = 2;
-                    }
-                    */
-
-                    //Instantiate(rooms[randBottomRoom], transform.position, Quaternion.identity);
+                {
+                    rand = 4;                  
                 }
                 else
-                {
+                {   //spawn shop
+                    if(hasShop == false && spawnShop == shopIter){
+                        rand = 7;
+                        hasShop = true;
+                    }else{
+                    
                     //added to give a room with a left opening
                     rand = Random.Range(1, 4);
-                    //Instantiate(rooms[rand], transform.position, Quaternion.identity);
-                   
+                    }
                 }
-
+/*
                 //spawn shop
                 if(hasShop == false && spawnShop == shopIter){
                     Instantiate(rooms[7], transform.position, Quaternion.identity);
                    hasShop = true;
                 }//spawn rand room
                 else{
+  */
                 Instantiate(rooms[rand], transform.position, Quaternion.identity);
                 shopIter = shopIter + 1;
-                }
+                
             }
             else
             {//moved down if right boundary is reached
@@ -180,17 +169,16 @@ public class LevelGeneration : MonoBehaviour
                 Vector2 newPosition = new Vector2(transform.position.x - moveAmount, transform.position.y);
                 transform.position = newPosition;
                 Vector2 nextPosition = new Vector2(transform.position.x - moveAmount, transform.position.y);
-
-                direction = Random.Range(3, 6);// force direction to be left or down to prevent overlap
+                
+                // force direction to be left or down to prevent overlap
+                direction = Random.Range(3, 6);
                 int rand;
                
                 if (nextPosition.x < minX)
                 {
                 
                     rand = 4;
-                   
-                    
-                  
+                            
                 }
                 else if (direction == 5)
                 {
@@ -199,19 +187,25 @@ public class LevelGeneration : MonoBehaviour
                 }
                 else {
 
+                    //spawn shop
+                     if(hasShop == false && spawnShop == shopIter){
+                        rand = 7;
+                        hasShop = true;
+                    }else{
                     //added to give a room with a right opening
-                    
                     rand = Random.Range(1, 4);
-                    
+                    }
                 }
+                /*
                 if(hasShop == false && spawnShop == shopIter){
                     Instantiate(rooms[7], transform.position, Quaternion.identity);
                     hasShop = true;
                 }//spawn rand room
                 else{
+                    */
                 Instantiate(rooms[rand], transform.position, Quaternion.identity);
                 shopIter = shopIter + 1;
-                }
+                
 
 
             }
