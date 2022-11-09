@@ -6,6 +6,7 @@ TagManager:
   tags:
   - WallObjects
   - Enemy
+  - InventoryMenuBackground
   layers:
   - Default
   - TransparentFX
@@ -13,7 +14,7 @@ TagManager:
   - 
   - Water
   - UI
-  - 
+  - RoomObject
   - Room
   - Player
   - Projectiles

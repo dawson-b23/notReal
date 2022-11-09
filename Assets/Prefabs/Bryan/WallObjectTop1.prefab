@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 6979451785075221592}
   - component: {fileID: 9035259595231318606}
   - component: {fileID: 2063872270272434701}
-  - component: {fileID: -913643869383242640}
+  - component: {fileID: 2885991228819336038}
   m_Layer: 6
   m_Name: WallObjectTop1
   m_TagString: WallObjects
@@ -112,7 +112,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 4, y: 3.8}
   m_EdgeRadius: 0
---- !u!50 &-913643869383242640
+--- !u!50 &2885991228819336038
 Rigidbody2D:
   serializedVersion: 4
   m_ObjectHideFlags: 0
