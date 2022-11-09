@@ -58,6 +58,8 @@ public class SkillTree2{
    }
 */
 
+//TEMPORARY NAME, WILL BE SKILL TREE WHEN TEMP 
+//CLASS IS ERASED
 public SkillTree2(){
     boost = new upPlayer();
 }
@@ -72,8 +74,13 @@ public SkillTree2(){
     boost = new HealthUpgrade(boost);
    }
 
+   public void updateMovement(){
+    boost = new MovementUpgrade(boost);
+   }
+
     public int getAttack(){return boost.getAttack();}
     public int getHealth(){return boost.getHealth();}
+    public int getSpeed(){return boost.getSpeed();}
 
     //anwhere call
     //public int getAttackVal{return boost.getAttack();}
@@ -93,6 +100,7 @@ public abstract class FullPlayer{
     //incomplete class, will be finished in decorators/FullPlayer
     abstract public int getAttack();
     abstract public int getHealth();
+    abstract public int getSpeed();
 }
 
 //
@@ -101,6 +109,7 @@ public class upPlayer : FullPlayer{
     
     override public int getHealth(){return 10;}
 
+    override public int getSpeed(){return 10;}
 }
 
 //Upgrade class acts as concrete Decorator
@@ -112,6 +121,8 @@ public class Upgrade : FullPlayer{
     override public int getAttack(){return wrappee.getAttack();}
 
     override public int getHealth(){return wrappee.getHealth();}
+
+    override public int getSpeed(){return wrappee.getSpeed();}
 }
 
 //implementation of
@@ -127,68 +138,5 @@ public class HealthUpgrade : Upgrade{
 
 public class MovementUpgrade : Upgrade{
     public MovementUpgrade(FullPlayer newwrappee){wrappee = newwrappee;}
+    override public int getSpeed(){return wrappee.getSpeed() + 2;}
 }
-
-
-
-
-/*
- * SkillTree class
- * 
- * member variables:
- * PlayerController - will hold reference to Player
- * Start() - initalize player
- * GetPlayer() - allows us to initialize Player in other files associated with this one
- * upgradeval - contains current amount of exp player holds
- * requiredexp - cost of an upgrade
- * Upgrade() - check if player has enough exp, apply if true, otherwise do nothing
-
-public class SkillTree : MonoBehaviour
-{
-    //create a variable of PlayerController type to hold 
-    //Player item from PlayerController.cs (Assets -> Src -> Jacob)
-    private PlayerController player = null;
-    
-    //Intializes variables/method calls upon start of program
-    private void Start(){
-        //Initialize PlayerController variable with player from PlayerController file
-        player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
-    }
-
-    //Allows us to initalize Player in files linked to this file, check to see if player
-    //variable is not null, initialize if true, and return the value of player
-    public PlayerController GetPlayer(){
-        if(player == null){
-            player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
-        }
-        //returns initalized player variable
-        return player;
-    }
-
-    //how much is added to a selected Player
-    //stat when upgrading
-    int upgradeval = 10;
-
-    //cost of upgrade
-    int requiredexp = 5;
-
-    //Checks if Player has sufficient exp, 
-    //if true selected stat is upgraded by upgradeval
-    //cost amt is subtracted from Player exp
-    //If Player does not have enough exp, do nothing
-    public void Upgrade(){
-        Debug.Log("Current Exp: " + player.exp);
-        if(player.exp >= requiredexp){
-            player.PlayerSpeed += upgradeval;
-            player.exp -= requiredexp;
-    
-            Debug.Log("exp = " + player.exp);
-            Debug.Log("Upgrading");
-
-            player.LevelUp();
-        }else{
-            Debug.Log("Not enough exp!");
-        }
-    }
-}
-*/

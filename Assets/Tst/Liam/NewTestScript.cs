@@ -106,20 +106,27 @@ public class NewTestScript
         //Debug.Log("Health value: " + sk.getHealth());
         Assert.That(sk.getHealth() == 10);
         Assert.That(sk.getAttack() == 10);
+        Assert.That(sk.getSpeed() == 10);
 
         sk.updateHealth();
         Assert.That(sk.getHealth() == 12);
         Assert.That(sk.getAttack() == 10);
+        Assert.That(sk.getSpeed() == 10);
 
         sk.updateHealth();
         Assert.That(sk.getHealth() == 14);
         Assert.That(sk.getAttack() == 10);
+        Assert.That(sk.getSpeed() == 10);
 
         sk.updateAttack();
         Assert.That(sk.getHealth() == 14);
         Assert.That(sk.getAttack() == 12);
+        Assert.That(sk.getSpeed() == 10);
 
-
+        sk.updateMovement();
+        Assert.That(sk.getHealth() == 14);
+        Assert.That(sk.getAttack() == 12);
+        Assert.That(sk.getSpeed() == 12);
 
     }
 
