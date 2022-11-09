@@ -26,8 +26,10 @@ public class PlayerController : MonoBehaviour
     private int currentHoney = 0;
 
     /* end of spencer-variables section */
-
-
+    
+    //playerLevel added by Bryan Frahm
+    public static int playerLevel = 0;
+  
     //TEMP
     public int exp = 0;
 

@@ -27,11 +27,11 @@ public class EnemySpawner : MonoBehaviour
     {   
        
         
-        if(LevelGeneration.playerLevel <= 1){
+        if(PlayerController.playerLevel <= 1){
             enemyComposition = 0;
-        }else if(LevelGeneration.playerLevel > 1 && LevelGeneration.playerLevel <= 3){
+        }else if(PlayerController.playerLevel > 1 && LevelGeneration.playerLevel <= 3){
             enemyComposition = 2;
-        }else if(LevelGeneration.playerLevel > 3 && LevelGeneration.playerLevel <=5){
+        }else if(PlayerController.playerLevel > 3 && LevelGeneration.playerLevel <=5){
             enemyComposition = 4;
         }else{
             enemyComposition = 6;
@@ -83,7 +83,9 @@ public class EnemySpawner : MonoBehaviour
           
 
     }
-
+    /*Despawns an object passed to the function 
+        and sets it back into the pool
+    
     public void DespawnEnemy(GameObject enemy){
 
     
@@ -93,5 +95,5 @@ public class EnemySpawner : MonoBehaviour
         enemy.SetActive(false); 
     }
     }
-
+*/
 }

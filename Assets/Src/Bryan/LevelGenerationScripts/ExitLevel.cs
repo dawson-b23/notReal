@@ -15,7 +15,7 @@ public class ExitLevel : MonoBehaviour
     if(col.CompareTag("Player")){
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         // adds 1 to playerLevel everytime a world is completed
-        LevelGeneration.playerLevel += 1;
+        PlayerController.playerLevel += 1;
     }
  
   }
