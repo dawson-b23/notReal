@@ -33,13 +33,14 @@ using System.Linq;
 public class Inventory : MonoBehaviour
 {
     private int maxInventory = 3;
-    private List<AbstractWeapon> weaponList;
+    public List<AbstractWeapon> weaponList;
     // used to check if there is an item in one of the inventory menu slots(buttons)
     public bool[] full;
     // keeps hold of the weapons
     public AbstractWeapon[] slots;
     // reference to the player
     public GameObject playerObject;
+    // reference to inventory menu
 
     // inventory singleton
     public static Inventory inventoryInstance { get; private set; }
@@ -60,7 +61,7 @@ public class Inventory : MonoBehaviour
         }
 
         // get player object
-        playerObject = GameObject.FindWithTag("Player");
+        // playerObject = GameObject.FindWithTag("Player");
     }
 
     // observer list to keep track of which classes are observers
@@ -118,6 +119,7 @@ public class Inventory : MonoBehaviour
         // attach observers to this instance of the inventory
         Attach(new PlayerProfileObserver(this));
         Attach(new InventoryMenuObserver(this));
+        Attach(new FullInventoryObserver(this));
     }
 
     /*
@@ -143,13 +145,13 @@ public class Inventory : MonoBehaviour
                 {
                     if (full[i] == false) // one of the slots is empty
                     {
-                        // add the weapon to the correct index of the list
-                        // weaponList.Insert(i, abstractWeapon);
                         weaponList.Add(abstractWeapon);
                         PlayerProfile.profileInstance.updateInventory(1);
                         Debug.Log("weapon added at index " + i);
                         // activate the correct button on the menu
+                        //inventoryMenuReference.activateButton(i);
                         InventoryMenu.inventoryMenuInstance.activateButton(i);
+
                         // slot is now full
                         full[i] = true;
                         slots[i] = abstractWeapon;
@@ -180,9 +182,17 @@ public class Inventory : MonoBehaviour
      * remove the weapon if it exists in the inventory list
      * 
      */
-    public void removeWeapon(int indexOfWeapon)
+    public bool removeWeapon(int indexOfWeapon)
     {
-        AbstractWeapon readdedWeapon;
+        bool weaponReturn = false;
+
+        // check if player object is null
+        if (playerObject == null)
+        {
+            playerObject = GameObject.FindWithTag("Player");
+
+        }
+
         // check if inventory is not empty
         if (!isEmpty())
         {
@@ -195,29 +205,46 @@ public class Inventory : MonoBehaviour
             else
             {
                 Debug.Log("index of weapon to be removed is " + indexOfWeapon);
-                // if inventory is full (then the displays are red), then change them back to initial color after removing a weapon
+                // if inventory is full (then the displays are green), then change them back to initial color after removing a weapon by notifying observers
                 if (isFull())
                 {
                     weaponList.Remove(weaponToBeRemoved);
-                    readdedWeapon = playerObject.GetComponent<PlayerController>().equipWeapon(weaponToBeRemoved);
-                    // add the old item back to inventory
-                    //weaponList.Add(readdedWeapon);
-                    //slots[indexOfWeapon] = readdedWeapon;
-                    // if item is not added back to inventory
-                    //full[indexOfWeapon] = false;
-                    //PlayerProfile.profileInstance.updateInventory(-1);
+                    AbstractWeapon readdedWeapon = playerObject.GetComponent<PlayerController>().equipWeapon(weaponToBeRemoved);
+                    if (readdedWeapon != null)
+                    {
+                        // add the old item back to inventory
+                        weaponList.Add(readdedWeapon);
+                        slots[indexOfWeapon] = readdedWeapon;
+                        // a weapon was returned so don't deactiviate button
+                        weaponReturn = true;
+                        Debug.Log("readded weapon to index " + indexOfWeapon);
+                    }
+                    else // there was no weapon returned, so decrease the value in inventory and change the slot to empty
+                    {
+                        full[indexOfWeapon] = false;
+                        PlayerProfile.profileInstance.updateInventory(-1);
+                    }
+                    // notify observers
                     Notify();
                 }
                 else // inventory is not full, so no need to notify the observers
                 {
                     weaponList.Remove(weaponToBeRemoved);
-                    readdedWeapon = playerObject.GetComponent<PlayerController>().equipWeapon(weaponToBeRemoved);
-                    // add the old item back to inventory
-                    //weaponList.Add(readdedWeapon);
-                    //slots[indexOfWeapon] = readdedWeapon;
-                    // if weapon is not added back to inventory:
-                    //full[indexOfWeapon] = false;
-                    //PlayerProfile.profileInstance.updateInventory(-1);
+                    AbstractWeapon readdedWeapon = playerObject.GetComponent<PlayerController>().equipWeapon(weaponToBeRemoved);
+                    if (readdedWeapon != null)
+                    {
+                        // add the old item back to inventory
+                        weaponList.Add(readdedWeapon);
+                        slots[indexOfWeapon] = readdedWeapon;
+                        // a weapon was returned so don't deactiviate button
+                        weaponReturn = true;
+                        Debug.Log("readded weapon to index " + indexOfWeapon);
+                    }
+                    else // there was no weapon returned, so decrease the value in inventory and change the slot to empty
+                    {
+                        full[indexOfWeapon] = false;
+                        PlayerProfile.profileInstance.updateInventory(-1);
+                    }
                 }
             }
         }
@@ -225,14 +252,73 @@ public class Inventory : MonoBehaviour
         {
             Debug.Log("Inventory is empty; you cannot remove anything");
         }
+
+        return weaponReturn;
     }
 
-/*
- * check if inventory is full
- * return true if it is full
- * return false if it is not full
- */
-public bool isFull()
+
+    /*
+     * remove a weapon but do not equip it 
+     */
+    public bool removeWeaponOnly(int indexOfWeapon)
+    {
+        Debug.Log("removeweapononly function called");
+
+        bool weaponReturn = false;
+
+        // check if player object is null
+        if (playerObject == null)
+        {
+            playerObject = GameObject.FindWithTag("Player");
+
+        }
+
+        // check if inventory is not empty
+        if (!isEmpty())
+        {
+            // retrieve the correct weapon
+            AbstractWeapon weaponToBeRemoved = slots[indexOfWeapon];
+            if (weaponToBeRemoved == null)
+            {
+                Debug.Log("weapon is null");
+            }
+            else
+            {
+                Debug.Log("index of weapon to be removed is " + indexOfWeapon);
+                // if inventory is full (then the displays are green), then change them back to initial color after removing a weapon by notifying observers
+                if (isFull())
+                {
+                    // remove weapon from list 
+                    weaponList.Remove(weaponToBeRemoved);
+                    // decrease the value in inventory and change the slot to empty
+                    full[indexOfWeapon] = false;
+                    PlayerProfile.profileInstance.updateInventory(-1);
+                    // notify observers
+                    Notify();
+                }
+                else // inventory is not full, so no need to notify the observers
+                {
+                    weaponList.Remove(weaponToBeRemoved);
+                    // decrease the value in inventory and change the slot to empty
+                    full[indexOfWeapon] = false;
+                    PlayerProfile.profileInstance.updateInventory(-1);
+                }
+            }
+        }
+        else
+        {
+            Debug.Log("Inventory is empty; you cannot remove anything");
+        }
+
+        return weaponReturn;
+    }
+
+    /*
+     * check if inventory is full
+     * return true if it is full
+     * return false if it is not full
+     */
+    public bool isFull()
     {
         if (weaponList.Count < maxInventory)
         {

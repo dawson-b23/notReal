@@ -49,6 +49,10 @@ public class MainMenu : MenuManager
     public void startGame()
     {
         SceneManager.LoadScene(gameStartScene);
+        if (Time.timeScale == 0f)
+        {
+            resumeGame();
+        }
     }
 
     /*

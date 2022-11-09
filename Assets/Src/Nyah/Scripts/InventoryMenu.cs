@@ -18,8 +18,19 @@ using UnityEngine.SceneManagement;
  * pauseGame() - pause game after menu is opened
  * resumeGame() - resume game after menu is opened
  */
-public class InventoryMenu : MonoBehaviour
+public class InventoryMenu : MenuManager
 {
+    // references to the inventory menu background 
+    public GameObject menuBackground;
+    public Image menuBackgroundColor;
+    public Button inventoryButton1;
+    public Button inventoryButton2;
+    public Button inventoryButton3;
+    public Button removeButton1;
+    public Button removeButton2;
+    public Button removeButton3;
+    // public Button removeButton;
+
     // inventory menu (on the HUD) singleton
     public static InventoryMenu inventoryMenuInstance { get; private set; }
 
@@ -30,6 +41,7 @@ public class InventoryMenu : MonoBehaviour
         if (inventoryMenuInstance != null && inventoryMenuInstance != this)
         {
             Destroy(this);
+            Debug.Log("error: extra Inventory menu instance");
         }
         else
         {
@@ -40,14 +52,10 @@ public class InventoryMenu : MonoBehaviour
         inventoryButton1.gameObject.SetActive(false);
         inventoryButton2.gameObject.SetActive(false);
         inventoryButton3.gameObject.SetActive(false);
+        removeButton1.gameObject.SetActive(false);
+        removeButton2.gameObject.SetActive(false);
+        removeButton3.gameObject.SetActive(false);
     }
-
-    // references to the inventory menu background 
-    public GameObject menuBackground;
-    public Image menuBackgroundColor;
-    public Button inventoryButton1;
-    public Button inventoryButton2;
-    public Button inventoryButton3;
 
     public void Start()
     {
@@ -88,31 +96,38 @@ public class InventoryMenu : MonoBehaviour
         }
     }
 
-    public void weaponButtonClick(Button clickedButton)
+    //public void weaponButtonClick(Button clickedButton)
+    public virtual void weaponButtonClick(Button clickedButton)
     {
         if (clickedButton == inventoryButton1)
         {
             Debug.Log("first button is clicked");
             // remove weapon that is in the first index of the array
-            Inventory.inventoryInstance.removeWeapon(0);
-            // deactivate the button
-            deactivateButton(0);
+            if (!Inventory.inventoryInstance.removeWeapon(0))
+            {
+                // deactivate the button if no weapon was readded to inventory (so if removeweapon returns false)
+                deactivateButton(0);
+            }
         }
         else if (clickedButton == inventoryButton2)
         {
             Debug.Log("second button is clicked");
             // remove the weapon that is in the second index of the array
-            Inventory.inventoryInstance.removeWeapon(1);
-            // deactivate the button
-            deactivateButton(1);
+            if (!Inventory.inventoryInstance.removeWeapon(1))
+            {
+                // deactivate the button if no weapon was readded to inventory (so if removeweapon returns false)
+                deactivateButton(1);
+            }
         }
         else if (clickedButton == inventoryButton3)
         {
             Debug.Log("third button is clicked");
             // remove the weapon that is in the third index of the array
-            Inventory.inventoryInstance.removeWeapon(2);
-            // deactivate the button
-            deactivateButton(2);
+            if (!Inventory.inventoryInstance.removeWeapon(2))
+            {
+                // deactivate the button if no weapon was readded to inventory (so if removeweapon returns false)
+                deactivateButton(2);
+            }
         }
         else
         {

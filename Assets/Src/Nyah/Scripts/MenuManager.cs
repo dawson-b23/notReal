@@ -83,22 +83,6 @@ public class MenuManager : MonoBehaviour
         }
     }
 
-    /* or make them abstract???
-     * protected virtual void PauseGame();
-     * protected virtual void ResumeGame();
-    */
-    /*protected virtual void PauseGame()
-    {
-        Time.timeScale = 0f;
-        Debug.Log("pause game");
-    }
-
-    protected virtual void ResumeGame()
-    {
-        Time.timeScale = 1f;
-        Debug.Log("resume game");
-    } */
-
     public virtual void pauseGame()
     {
         Time.timeScale = 0f;
