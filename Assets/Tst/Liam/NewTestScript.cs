@@ -24,7 +24,7 @@ using UnityEngine.TestTools;
  * EXPTestAbove() - above test, checks exp exchange with high amount
  * EXPTestBelow() - below test, checks exp exchange with a low amount
  * NewTestScriptWithEnumeratorPasses() - for PlayMode tests, unecessary here
- */
+ 
 public class NewTestScript
 {
     [Test]
@@ -95,4 +95,32 @@ public class NewTestScript
             skillTree.Upgrade();
             Assert.That(player.exp == 4);
         }   
+}
+*/
+
+public class NewTestScript
+{
+    [Test]
+    public void testUpgrades(){ 
+        SkillTree2 sk = new SkillTree2();
+        //Debug.Log("Health value: " + sk.getHealth());
+        Assert.That(sk.getHealth() == 10);
+        Assert.That(sk.getAttack() == 10);
+
+        sk.updateHealth();
+        Assert.That(sk.getHealth() == 12);
+        Assert.That(sk.getAttack() == 10);
+
+        sk.updateHealth();
+        Assert.That(sk.getHealth() == 14);
+        Assert.That(sk.getAttack() == 10);
+
+        sk.updateAttack();
+        Assert.That(sk.getHealth() == 14);
+        Assert.That(sk.getAttack() == 12);
+
+
+
+    }
+
 }

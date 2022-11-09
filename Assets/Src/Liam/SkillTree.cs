@@ -11,10 +11,10 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
-/* Pattern integration outline
-   Create new class of player that inherits from PlayerController
-   Create class of upgrades, linked to new player class
-   Upgrade classes will be linked to original
+   //Pattern integration outline
+   //Create new class of player that inherits from PlayerController
+   //Create class of upgrades, linked to new player class
+   //Upgrade classes will be linked to original
 
 
 //now all methods and attributes are inherited from the PlayerController
@@ -22,29 +22,114 @@ using UnityEngine;
 //though there are some methods such as LevelUp() which exist in PlayerController
 //that we will want to access here
 
-private class FullPlayer : PlayerController{
+/* to use SkillTree, use 
+   FullPlayer boost;
+   public void Start(){
+    boost = new upPlayer();
+   }
+  
+   void updateAttack(){}
+   void updateHealth(){
+    boost = new HealthUpgrade(boost);
+   }
 
-
-
-}
-
-private class Upgrade : PlayerController{
-
-}
-
-private class AttackUpgrade : Upgrade{
-
-}
-
-private class StaminaUpgrade : Upgrade{
-
-}
-
-private class MovementUpgrade : Upgrade{
-
-}
-
+    //anwhere call
+        boost.getAttack();
+        boost.getHealth();
+        boost.getSpeed();
 */
+
+//GET RID OF THIS !! ============================================/
+public class SkillTree : MonoBehaviour{
+    //DELETE ME
+    //DO NOT USE! MUST BE REMOVED FROM YOUR CODE
+    //IF YOU USED IT PREVIOUSLY
+    public void Upgrade(){}
+
+}
+
+
+public class SkillTree2{ 
+   FullPlayer boost;
+ 
+ /*
+   public void Start(){
+    boost = new upPlayer();
+   }
+*/
+
+public SkillTree2(){
+    boost = new upPlayer();
+}
+
+   //USE THESE INSTEAD  |
+   //                   V
+   public void updateAttack(){
+    boost = new AttackUpgrade(boost);
+   }
+
+   public void updateHealth(){
+    boost = new HealthUpgrade(boost);
+   }
+
+    public int getAttack(){return boost.getAttack();}
+    public int getHealth(){return boost.getHealth();}
+
+    //anwhere call
+    //public int getAttackVal{return boost.getAttack();}
+    //public int getHealthVal{return boost.getHealth();}
+    //int getSpeedVal{}
+        //boost.getAttack();
+        //boost.getHealth();
+        //boost.getSpeed();
+}
+
+//interface, links concrete 
+public abstract class FullPlayer{
+//player varibles (speed, health, damage, etc)
+  //only allows for changes in subclasses
+  //protected FullPlayer wrappee; 
+
+    //incomplete class, will be finished in decorators/FullPlayer
+    abstract public int getAttack();
+    abstract public int getHealth();
+}
+
+//
+public class upPlayer : FullPlayer{
+    override public int getAttack(){return 10;}
+    
+    override public int getHealth(){return 10;}
+
+}
+
+//Upgrade class acts as concrete Decorator
+public class Upgrade : FullPlayer{
+    //public Upgrade(FullPlayer newwrappee){wrappee = newwrappee;}
+
+    protected FullPlayer wrappee; 
+
+    override public int getAttack(){return wrappee.getAttack();}
+
+    override public int getHealth(){return wrappee.getHealth();}
+}
+
+//implementation of
+public class AttackUpgrade : Upgrade{
+    public AttackUpgrade(FullPlayer newwrappee){wrappee = newwrappee;}
+    override public int getAttack(){return wrappee.getAttack() + 2;} 
+}
+
+public class HealthUpgrade : Upgrade{
+    public HealthUpgrade(FullPlayer newwrappee){wrappee = newwrappee;}
+    override public int getHealth(){return wrappee.getHealth() + 2;}
+}
+
+public class MovementUpgrade : Upgrade{
+    public MovementUpgrade(FullPlayer newwrappee){wrappee = newwrappee;}
+}
+
+
 
 
 /*
@@ -57,7 +142,7 @@ private class MovementUpgrade : Upgrade{
  * upgradeval - contains current amount of exp player holds
  * requiredexp - cost of an upgrade
  * Upgrade() - check if player has enough exp, apply if true, otherwise do nothing
- */
+
 public class SkillTree : MonoBehaviour
 {
     //create a variable of PlayerController type to hold 
@@ -106,3 +191,4 @@ public class SkillTree : MonoBehaviour
         }
     }
 }
+*/
