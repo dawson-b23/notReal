@@ -13,13 +13,16 @@ using UnityEngine;
  * member variables:
  * damage - the amount of damage to deal to an enemy this weapon hits
  * cooldown - the interval in seconds that determines how fast this weapon can attack
+ * displayName - the name of the weapon for use in shops
  * upgrade - the SkillTree that is called when the weapon kills an enemy
  * lastAttackTime - the time the weapon last attacked
  *
  * member functions:
  * Start() - initializes the weapon
+ * getDisplayName() - getter for displayName
  * lastAttack() - getter for lastAttackTime
  * attack(out int) - processes an attack
+ * effectiveCooldown() - returns the upgrade-adjusted cooldown of the weapon
  * processHit(GameObject) - damages an enemy
  * attackAnimation() - abstract, visually displays an attack and hits enemies
  * cooldownAnimation() - abstract, visually displays that the weapon is on cooldown
@@ -30,6 +33,8 @@ public abstract class AbstractWeapon : MonoBehaviour
     private int damage;
     [SerializeField]
     private float cooldown;
+    [SerializeField]
+    private string displayName;
     private SkillTree upgrade;
 
     private float lastAttackTime;
@@ -46,15 +51,9 @@ public abstract class AbstractWeapon : MonoBehaviour
     }
 
     /*
-     * Returns the effective cooldown of the weapon
-     * Effective cooldown is based on the prefab-defined cooldown and a runtime multiplier from the skill tree
-     * Rounds up to the nearest multiple of the fixed frame rate
+     * Returns the display name of the weapon
      */
-    protected float effectiveCooldown() 
-    {
-        //TODO: Get cooldown multiplier from skill tree
-        return cooldown;
-    }
+    public string getDisplayName(){return displayName;}
 
     /*
      * Returns the last time this weapon attacked.
@@ -78,6 +77,17 @@ public abstract class AbstractWeapon : MonoBehaviour
         {
             cooldownAnimation();
         }
+    }
+
+    /*
+     * Returns the effective cooldown of the weapon
+     * Effective cooldown is based on the prefab-defined cooldown and a runtime multiplier from the skill tree
+     * Rounds up to the nearest multiple of the fixed frame rate
+     */
+    protected float effectiveCooldown() 
+    {
+        //TODO: Get cooldown multiplier from skill tree
+        return cooldown;
     }
 
     /*

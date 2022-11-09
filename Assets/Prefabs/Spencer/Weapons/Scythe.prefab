@@ -69,6 +69,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 40
   cooldown: 0.42
+  displayName: Scythe
 --- !u!1 &7811358310167760065
 GameObject:
   m_ObjectHideFlags: 0

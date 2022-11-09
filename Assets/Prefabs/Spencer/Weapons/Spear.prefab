@@ -188,3 +188,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 25
   cooldown: 0.36
+  displayName: Spear

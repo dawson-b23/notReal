@@ -48,6 +48,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 75
   cooldown: 0.85
+  displayName: Laser Rifle
   projectilePrototype: {fileID: 4584753820785682927}
   cooldownParticlePrototype: {fileID: 0}
   launchPoint: {fileID: 4584753820654139272}

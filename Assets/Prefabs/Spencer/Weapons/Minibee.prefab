@@ -260,7 +260,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 25
   cooldown: 0.35
-  upgrade: {fileID: 0}
+  displayName: Minibee
   projectilePrototype: {fileID: 8507486459207459682}
   cooldownParticlePrototype: {fileID: 0}
   launchPoint: {fileID: 8507486459345665285}

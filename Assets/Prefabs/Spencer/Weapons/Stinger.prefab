@@ -69,6 +69,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 25
   cooldown: 0.25
+  displayName: Oversized Stinger
 --- !u!1 &2800971577486836050
 GameObject:
   m_ObjectHideFlags: 0
