@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &1210248627030458147
+--- !u!1 &7961203391675850940
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,44 +8,42 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 9031830861921468049}
-  - component: {fileID: -9214283820427352878}
+  - component: {fileID: 5149961382022733862}
+  - component: {fileID: 5805296117400553408}
   m_Layer: 0
-  m_Name: LRB_RoomTemplate
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
+  m_Name: SpawnNPC
+  m_TagString: WallObjects
+  m_Icon: {fileID: 4422084297763085224, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &9031830861921468049
+--- !u!4 &5149961382022733862
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1210248627030458147}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_GameObject: {fileID: 7961203391675850940}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: -5, z: -1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &-9214283820427352878
+--- !u!114 &5805296117400553408
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1210248627030458147}
+  m_GameObject: {fileID: 7961203391675850940}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e1e5fabf61789a841bf6b9036728aaf0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   objects:
-  - {fileID: 8432775190027671361, guid: c19e9816eae43c24e9d0968b9f273194, type: 3}
-  - {fileID: 8432775190027671361, guid: b8cda2cf8e507594ea63e9941e43267b, type: 3}
-  - {fileID: 8432775190027671361, guid: 1edb3b7ccec75f34fb3f88c424e64671, type: 3}
-  - {fileID: 8432775190027671361, guid: 858632bbbeae4924fb4abd3411e5b022, type: 3}
+  - {fileID: 5643332822353983324, guid: b272eafccc9fa584bac72b00443ed8f6, type: 3}
+  - {fileID: 5643332822353983324, guid: d8a07de717deb5f4891d13f42da56f98, type: 3}
