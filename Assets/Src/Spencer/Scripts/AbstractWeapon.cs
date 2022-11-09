@@ -92,8 +92,10 @@ public abstract class AbstractWeapon : MonoBehaviour
         {
             //TODO: Make processHit call takeDamage on the enemy
             //TODO: Get damage multiplier from skill tree
-            // enemyScript.takeDamage(damage);
+            // enemyScript.takeDamage(damage);                     
+          
             Destroy(enemyScript.gameObject);
+         
             upgrade.Upgrade();
         } else 
         {

@@ -45,6 +45,8 @@ public class LevelGeneration : MonoBehaviour
     private float maxX;
     [SerializeField]
     private float minY;
+
+    public static int playerLevel = 0;
    
     
     
@@ -57,7 +59,8 @@ public class LevelGeneration : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
+       
+ 
         int randStartingPos = Random.Range(0, worldStartingPositions.Length);
         transform.position = worldStartingPositions[randStartingPos].position;
         Instantiate(rooms[0], transform.position, Quaternion.identity);
@@ -82,6 +85,8 @@ public class LevelGeneration : MonoBehaviour
     
     }
 
+
+
     /*move()
      * funciton to move and spawn a room in a determined direction
      * Right(1||2)
@@ -95,7 +100,6 @@ public class LevelGeneration : MonoBehaviour
         //move right
         if (direction == 1 || direction == 2)
         {
-            Debug.Log("direction = " + direction);
             if (transform.position.x < maxX)
             {
                 
@@ -170,7 +174,7 @@ public class LevelGeneration : MonoBehaviour
         //move left
         else if (direction == 3 || direction == 4)
         {
-            Debug.Log("direction = " + direction);
+        
             if (transform.position.x > minX)
             {
                 Vector2 newPosition = new Vector2(transform.position.x - moveAmount, transform.position.y);
@@ -223,7 +227,7 @@ public class LevelGeneration : MonoBehaviour
         //move down
         else if (direction == 5)
         {
-            Debug.Log("direction = " + direction);
+           
             if (transform.position.y > minY)
             {
                 Vector2 newPosition = new Vector2(transform.position.x, transform.position.y - moveAmount);

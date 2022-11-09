@@ -12,28 +12,49 @@ using UnityEngine;
 public class EnemySpawner : MonoBehaviour
 {
     [SerializeField]
-    private float timeBetweenEnemy;
+    private float timeBetweenEnemy = 0.0f;
     [SerializeField]
-    private float enemyStartTime = 5.0f;
+    private float enemyStartTime = 8.0f;
     
+     
+  
+    //Based on playerLevel which is set in LevelGeneration: 
+    // enemyComposition will spawn enemies faster
+    private int enemyComposition;
    
     // Start is called before the first frame update
     void Start()
-    {
-        //player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
+    {   
+       
+        
+        if(LevelGeneration.playerLevel <= 1){
+            enemyComposition = 0;
+        }else if(LevelGeneration.playerLevel > 1 && LevelGeneration.playerLevel <= 3){
+            enemyComposition = 2;
+        }else if(LevelGeneration.playerLevel > 3 && LevelGeneration.playerLevel <=5){
+            enemyComposition = 4;
+        }else{
+            enemyComposition = 6;
+        }
+
+       
     }
 
     // Update is called once per frame
     void Update(){
-          if (timeBetweenEnemy <= 0)
-        {
-            SpawnEnemy();
-            timeBetweenEnemy = enemyStartTime;
-        }
-        else
-        {
-            timeBetweenEnemy -= Time.deltaTime;
-        }
+
+       
+            if (timeBetweenEnemy <= 0)
+            {
+
+                SpawnEnemy();
+                timeBetweenEnemy = enemyStartTime - enemyComposition;
+            }
+            else
+            {
+                timeBetweenEnemy -= Time.deltaTime;
+            }
+        
     }
     /*SpawnEnemy
      Pulls an enemy initialized from EnemyPooler.cs
@@ -55,15 +76,22 @@ public class EnemySpawner : MonoBehaviour
             GameObject enemy = EnemyPooler.SharedInstance.GetPooledObject(); 
             if (enemy != null) {
             enemy.transform.position = spawnPoint;
-   
+
             enemy.SetActive(true);
         }
        
-       //Instantiate(enemy[0], spawnPoint, Quaternion.identity);
           
 
     }
 
+    public void DespawnEnemy(GameObject enemy){
 
+    
+    if(enemy != null){
+    //if( enemy.activeInHierarchy){
+
+        enemy.SetActive(false); 
+    }
+    }
 
 }

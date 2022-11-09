@@ -2034,8 +2034,9 @@ MonoBehaviour:
   enemyToPool:
   - {fileID: 1110951169297176416, guid: 52f4f61f5a5e545f8baa75c22efbc856, type: 3}
   - {fileID: 8966597880274237430, guid: 161bcc5f7bff04bc7904682d16826646, type: 3}
-  amountToPool: 10
-  playerLevel: 10
+  - {fileID: 7244372534119998315, guid: 9f8062afa19b94bffbfef312693e445d, type: 3}
+  - {fileID: 7026112525570796650, guid: 16fbebfb5818949ea8bd33cc05fa1d84, type: 3}
+  amountToPool: 30
 --- !u!114 &1229808488
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2049,7 +2050,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timeBetweenEnemy: 0
-  enemyStartTime: 5
+  enemyStartTime: 8
+  playerLevel: 10
 --- !u!4 &1239622559 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1516420043183095713, guid: bec76d3809bc62149a125bcf38892c6d, type: 3}
@@ -2152,6 +2154,10 @@ PrefabInstance:
     - target: {fileID: 1969736052633067254, guid: 565fefe30185a47269ae8fb970557c56, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0.39900208
+      objectReference: {fileID: 0}
+    - target: {fileID: 3038936716490449781, guid: 565fefe30185a47269ae8fb970557c56, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -0.39996338
       objectReference: {fileID: 0}
     - target: {fileID: 3966226063579996259, guid: 565fefe30185a47269ae8fb970557c56, type: 3}
       propertyPath: m_Name
