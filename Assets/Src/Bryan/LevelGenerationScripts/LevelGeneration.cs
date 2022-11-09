@@ -45,10 +45,6 @@ public class LevelGeneration : MonoBehaviour
     private float maxX;
     [SerializeField]
     private float minY;
-
-    public static int playerLevel = 0;
-   
-    
     
     private int direction;    
     private float timeBetweenRoom;

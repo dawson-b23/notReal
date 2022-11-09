@@ -75,7 +75,7 @@ public class EnemyPooler : MonoBehaviour
     return null;
     }
 
-        /*Despawns an object passed to the function 
+    /*Despawns an object passed to the function 
         and sets it back into the pool
     */
     public void DespawnEnemy(GameObject enemy){

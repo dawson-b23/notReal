@@ -1,6 +1,7 @@
 /*
  * Room.cs
  * Bryan Frahm
+ * Obsolete/Not Used
  * Sets contents of rooms
  */
 

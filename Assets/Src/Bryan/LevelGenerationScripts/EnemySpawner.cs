@@ -11,17 +11,16 @@ using UnityEngine;
 
 public class EnemySpawner : MonoBehaviour
 {
-    [SerializeField]
-    private float timeBetweenEnemy = 0.0f;
+
     [SerializeField]
     private float enemyStartTime = 8.0f;
-    
-     
   
     //Based on playerLevel which is set in LevelGeneration: 
     // enemyComposition will spawn enemies faster
     private int enemyComposition;
-   
+    private float timeBetweenEnemy = 0.0f;
+
+    public float spawnCollisionRadius;   
     // Start is called before the first frame update
     void Start()
     {   
@@ -29,9 +28,9 @@ public class EnemySpawner : MonoBehaviour
         
         if(PlayerController.playerLevel <= 1){
             enemyComposition = 0;
-        }else if(PlayerController.playerLevel > 1 && LevelGeneration.playerLevel <= 3){
+        }else if(PlayerController.playerLevel > 1 && PlayerController.playerLevel <= 3){
             enemyComposition = 2;
-        }else if(PlayerController.playerLevel > 3 && LevelGeneration.playerLevel <=5){
+        }else if(PlayerController.playerLevel > 3 && PlayerController.playerLevel <=5){
             enemyComposition = 4;
         }else{
             enemyComposition = 6;
@@ -60,40 +59,42 @@ public class EnemySpawner : MonoBehaviour
      Pulls an enemy initialized from EnemyPooler.cs
     */
     public void SpawnEnemy(){
+    
+       
        int range = Random.Range(0,2);
        float x;
-       
+       float y = Random.Range(0,2);
         if(range == 0){
-            x = -1.0f;
+            x = -.1f;
       
         }else{
-            x = 1.0f;
+            x = 1.1f;
       
         }
         //Grab the position of the camera and change it by x
-       Vector3 spawnPoint = Camera.main.ViewportToWorldPoint(new Vector3(x, .5f, 0));
+     
+        Vector3 spawnPoint = Camera.main.ViewportToWorldPoint(new Vector3(x,y,0));
        
+      
             GameObject enemy = EnemyPooler.SharedInstance.GetPooledObject(); 
             if (enemy != null) {
-            enemy.transform.position = spawnPoint;
+ 
+ 
+               if(!Physics.CheckSphere(spawnPoint, spawnCollisionRadius)){
+     
 
-            enemy.SetActive(true);
+                    enemy.transform.position = spawnPoint;
+                    enemy.SetActive(true);
+                }else{
+                     Debug.Log("collisiondetected");
+                    SpawnEnemy();
+                }
+
+
         }
        
           
 
     }
-    /*Despawns an object passed to the function 
-        and sets it back into the pool
-    
-    public void DespawnEnemy(GameObject enemy){
 
-    
-    if(enemy != null){
-    //if( enemy.activeInHierarchy){
-
-        enemy.SetActive(false); 
-    }
-    }
-*/
 }
