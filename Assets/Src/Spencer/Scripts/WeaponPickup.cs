@@ -29,7 +29,7 @@ public class WeaponPickup : MonoBehaviour
      */
     private void OnTriggerEnter2D(Collider2D other) 
     {
-        if(other.gameObject.tag == "Player") 
+        if(other.gameObject.tag == "Player" && !Inventory.inventoryInstance.isFull()) 
         {
             Inventory.inventoryInstance.addWeapon(attachedWeapon);
             Destroy(gameObject);

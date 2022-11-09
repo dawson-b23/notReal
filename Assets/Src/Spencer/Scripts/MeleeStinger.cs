@@ -21,15 +21,15 @@ public class MeleeStinger : MeleeWeapon
      */
     protected override IEnumerator visualAttack() 
     {
-        attacking = true;
+
         float totalTime;
-        totalTime = Mathf.Ceil((1.0f / 4.0f) * cooldown / Time.fixedDeltaTime) * Time.fixedDeltaTime;
+        totalTime = Mathf.Ceil((1.0f / 4.0f) * effectiveCooldown() / Time.fixedDeltaTime) * Time.fixedDeltaTime;
         for(double i = 0; i + Time.fixedDeltaTime / 2 < totalTime; i += Time.fixedDeltaTime) {
             yield return new WaitForFixedUpdate();
             transform.localRotation *= Quaternion.AngleAxis((Time.fixedDeltaTime / totalTime) * 90, Vector3.forward);
         }
 
-        totalTime *= 3;
+        totalTime *= 3.0f;
         for(double i = 0; i + Time.fixedDeltaTime / 2 < totalTime; i += Time.fixedDeltaTime) {
             yield return new WaitForFixedUpdate();
             transform.localRotation *= Quaternion.AngleAxis((Time.fixedDeltaTime / totalTime) * -90, Vector3.forward);

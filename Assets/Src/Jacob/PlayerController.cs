@@ -9,6 +9,7 @@ public class PlayerController : MonoBehaviour
     [Header("Player Settings")]
     [SerializeField]
     private float playerSpeed = 1.0f;
+    //TODO: Integrate skill tree upgrades to this getter
     public float PlayerSpeed { get => playerSpeed; set => playerSpeed = value; }
 
     /* variables added by Spencer Butler */
@@ -106,6 +107,7 @@ public class PlayerController : MonoBehaviour
 
             // TODO: Switch state to moving
 
+            //TODO: Integrate skill tree upgrades to speed for motion
             this.transform.localPosition += new Vector3(movementInput * playerSpeed * Time.fixedDeltaTime, 0.0f, 0.0f);
         }
     }
@@ -156,7 +158,7 @@ public class PlayerController : MonoBehaviour
     private void PlayerAttack()
     {
         // TODO: remove null check
-        if(canAttack && currentWeapon != null)
+        if(currentWeapon != null)
         {
             canAttack = false;
             SwitchPlayerState(PlayerState.Attacking);
@@ -208,7 +210,8 @@ public class PlayerController : MonoBehaviour
      */
     public void takeDamage(int damageTaken)
     {
-        if(!takingDamage) 
+        //TODO: Integrate skill tree damage taken multiplier
+        if(damageTaken > 0 && !takingDamage) 
         {
             currentHealth -= damageTaken;
             PlayerProfile.profileInstance.updateHealth(damageTaken * -1);

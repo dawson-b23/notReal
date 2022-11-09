@@ -18,13 +18,13 @@ using UnityEngine;
 public class MeleeStabber : MeleeWeapon 
 {
     /*
-     * Move locally left 1.5 units, then take 5 times that time to move back
+     * Move locally right 0.5 units, then take 5 times that time to move back
      */
     protected override IEnumerator visualAttack()
     {
-        attacking = true;
+
         float totalTime;
-        totalTime = Mathf.Ceil((1.0f / 6.0f) * cooldown / Time.fixedDeltaTime) * Time.fixedDeltaTime;
+        totalTime = Mathf.Ceil((1.0f / 6.0f) * effectiveCooldown() / Time.fixedDeltaTime) * Time.fixedDeltaTime;
         for(double i = 0; i + Time.fixedDeltaTime / 2 < totalTime; i += Time.fixedDeltaTime) {
             yield return new WaitForFixedUpdate();
             transform.localPosition += transform.right * (Time.fixedDeltaTime / totalTime) * 0.5f;

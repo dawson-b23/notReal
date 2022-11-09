@@ -29,7 +29,7 @@ public abstract class AbstractWeapon : MonoBehaviour
     [SerializeField]
     private int damage;
     [SerializeField]
-    protected float cooldown;
+    private float cooldown;
     private SkillTree upgrade;
 
     private float lastAttackTime;
@@ -46,6 +46,17 @@ public abstract class AbstractWeapon : MonoBehaviour
     }
 
     /*
+     * Returns the effective cooldown of the weapon
+     * Effective cooldown is based on the prefab-defined cooldown and a runtime multiplier from the skill tree
+     * Rounds up to the nearest multiple of the fixed frame rate
+     */
+    protected float effectiveCooldown() 
+    {
+        //TODO: Get cooldown multiplier from skill tree
+        return cooldown;
+    }
+
+    /*
      * Returns the last time this weapon attacked.
      */
     public float lastAttack(){return lastAttackTime;}
@@ -59,7 +70,7 @@ public abstract class AbstractWeapon : MonoBehaviour
     public void attack(out int expGained) 
     {
         expGained = 0;
-        if ((Time.fixedTime - lastAttackTime) > cooldown) 
+        if ((Time.fixedTime - lastAttackTime) > effectiveCooldown()) 
         {
             lastAttackTime = Time.fixedTime;
             attackAnimation();
@@ -80,6 +91,7 @@ public abstract class AbstractWeapon : MonoBehaviour
         if(enemy.TryGetComponent<Enemy>(out enemyScript)) 
         {
             //TODO: Make processHit call takeDamage on the enemy
+            //TODO: Get damage multiplier from skill tree
             // enemyScript.takeDamage(damage);
             Destroy(enemyScript.gameObject);
             upgrade.Upgrade();

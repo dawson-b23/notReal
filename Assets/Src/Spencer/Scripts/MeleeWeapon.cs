@@ -14,18 +14,37 @@ using UnityEngine;
  * member variables:
  * contFilter - contact filter used for detecting collisions at the start of an attack
  * attacking - boolean keeping track of whether an attack is in progress
+ * normalPosition - local position of the weapon when no animation is in progress
+ * normalRotation - local rotation of the weapon when no animation is in progress
+ * normalScale - global scale of the weapon when no animation is in progress
  *
  * member functions:
- * OnTriggerEnter2D - process collisions with enemies
+ * Start() - store initial values of position/rotation/scale
+ * OnTriggerEnter2D() - process collisions with enemies
+ * OnDisable() - resets values if the weapon is unequipped in the middle of an attack
  * attackAnimation() - start an attack
  * cooldownAnimation() - show that the weapon is on cooldown
+ * attackGate() - delays the start of an attack if the last one is still in progress
  * visualAttack() - logic for the actual visuals of an attack
- * visualCooldown() - logic for the actual visuals of a cooldown
+ * visualCooldown() - logic for the actual visuals of a cooldown, largely unused
  */
 public class MeleeWeapon : AbstractWeapon 
 {
     private ContactFilter2D contFilter;
     protected bool attacking;
+
+    private Vector3 normalPosition;
+    private Quaternion normalRotation;
+    private Vector3 normalScale;
+
+    new private void Start()
+    {
+        base.Start();
+        attacking = false;
+        normalPosition = transform.localPosition;
+        normalRotation = transform.localRotation;
+        normalScale = transform.lossyScale;
+    }
 
     /* 
      * If the weapon is currently attacking, check if the other object is an enemy
@@ -43,6 +62,23 @@ public class MeleeWeapon : AbstractWeapon
     }
 
     /*
+     * Reset values, in case the player unequips a weapon in the middle of an attack
+     */
+    private void OnDisable()
+    {
+        if(attacking)
+        {
+            attacking = false;
+            transform.localPosition = normalPosition;
+            transform.localRotation = normalRotation;
+            transform.localScale = new Vector3(normalScale.x / transform.parent.lossyScale.x,
+                                               normalScale.y / transform.parent.lossyScale.y,
+                                               normalScale.z / transform.parent.lossyScale.z);
+
+        }
+    }
+
+    /*
      * Begin the visual attack sequence.
      * Additionally, check if the weapon is currently in contact with any enemies
      * If it is, call processHit to damage them, since they won't be caught by OnTriggerEnter
@@ -50,7 +86,7 @@ public class MeleeWeapon : AbstractWeapon
     protected override void attackAnimation() 
     {
         // Debug.Log("Weapon attack.");
-        StartCoroutine(visualAttack());
+        StartCoroutine(attackGate());
 
         Collider2D[] collidersHit = new Collider2D[16];
         gameObject.GetComponentInChildren<Collider2D>().OverlapCollider(contFilter.NoFilter(), collidersHit);
@@ -62,7 +98,6 @@ public class MeleeWeapon : AbstractWeapon
                 processHit(col.gameObject);
             }
         }
-
     }
 
     /*
@@ -78,14 +113,29 @@ public class MeleeWeapon : AbstractWeapon
     }
 
     /*
+     * Wait to begin an attack if the weapon is currently attacking
+     */
+    private IEnumerator attackGate()
+    {
+        // Verify that another attack isn't still in progress
+        // The rounding-up to multiples of fixedDeltaTime can cause an attack to be called while the
+        // last one is still in progress, which causes animation glitchiness
+        while(attacking)
+        {
+            yield return new WaitForFixedUpdate();
+        }
+        attacking = true;
+        StartCoroutine(visualAttack());
+    }
+
+    /*
      * Visually display an attack.
      * Rotate the weapon 360 degrees around the player
      */
     protected virtual IEnumerator visualAttack() 
     {
-        attacking = true;
         // round up to the nearest multiple of fixedDeltaTime to guarantee a full rotation
-        float totalTime = Mathf.Ceil(cooldown / Time.fixedDeltaTime) * Time.fixedDeltaTime;
+        float totalTime = Mathf.Ceil(effectiveCooldown() / Time.fixedDeltaTime) * Time.fixedDeltaTime;
         for(double i = 0; i + Time.fixedDeltaTime / 2 < totalTime; i += Time.fixedDeltaTime) 
         {
             transform.localRotation *= Quaternion.AngleAxis((Time.fixedDeltaTime / totalTime) * 360, Vector3.forward);
@@ -96,22 +146,23 @@ public class MeleeWeapon : AbstractWeapon
     
     /*
      * Visually display the cooldown.
-     * Shrink the weapon, then grow it back to regular size
      * Currently, this should never be called, since the attack length is equal to the cooldown
      */
     protected virtual IEnumerator visualCooldown() 
     {
-        for(int i = 0; i < 20; i++) 
-        {
-            transform.localScale -= new Vector3(0.05f, 0.05f, 0f);
-            yield return null;
-        }
+        Debug.Log("Displaying melee cooldown.....");
+        yield return null;
+        //for(int i = 0; i < 20; i++) 
+        //{
+        //    transform.localScale -= new Vector3(0.05f, 0.05f, 0f);
+        //    yield return null;
+        //}
 
-        for(int i = 0; i < 20; i++) 
-        {
-            transform.localScale += new Vector3(0.05f, 0.05f, 0f);
-            yield return null;
-        }
+        //for(int i = 0; i < 20; i++) 
+        //{
+        //    transform.localScale += new Vector3(0.05f, 0.05f, 0f);
+        //    yield return null;
+        //}
     }
 
 }
