@@ -1,16 +1,23 @@
+/*
+ * PlayerProfileObserver.cs
+ * Nyah Nelson
+ * Observer for when inventory is full to change the inventory text on the HUD to green
+ */
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/*
+ * PlayerProfileObserver class to change the color of the inventory text when inventory is full
+ * Inherits from Observer class to override functions
+ * 
+ * member functions:
+ * fullUpdate() - change text color of inventory value in the player profile to green
+ * notFullUpdate() - change text color of inventory value in the player profile to white
+ */
 public class PlayerProfileObserver : Observer
 {
-    // constructor attaches the observer to the subject
-    /*public PlayerProfileObserver(Subject subject)
-    {
-        this.subject = subject;
-        this.subject.Attach(this);
-    }*/
-
     public PlayerProfileObserver(Inventory inventory)
     {
         this.inventory = inventory;

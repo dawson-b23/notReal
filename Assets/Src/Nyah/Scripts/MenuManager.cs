@@ -1,5 +1,5 @@
 /*
- * MenuManage.cs
+ * MenuManager.cs
  * Nyah Nelson
  * Basic functions for all menus
  */

@@ -1,7 +1,21 @@
+/*
+ * InventoryMenuObserver.cs
+ * Nyah Nelson
+ * Observer for when inventory is full to change the inventory menu background to green
+ */
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/*
+ * InventoryMenuObserver class to change the color of the inventory menu when inventory is full
+ * Inherits from Observer class to override functions
+ * 
+ * member functions:
+ * fullUpdate() - change background color of inventory menu to green
+ * notFullUpdate() - change background color of inventory menu to black
+ */
 public class InventoryMenuObserver : Observer
 {
     public InventoryMenuObserver(Inventory inventory)

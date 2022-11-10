@@ -1,3 +1,9 @@
+/*
+ * EndGameMenu.cs
+ * Nyah Nelson
+ * End Scene functions
+ */
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,6 +11,22 @@ using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using TMPro;
 
+/*
+ * EndGameMenu class to display the Game Over Scene/Menu
+ * 
+ * member variables:
+ * exitText, honeyText, timeText, levelText - references to the TMP objects
+ * honeyValue , timeValue , levelValue - integer values for the display
+ * playerObject - reference to the player controller script
+ * 
+ * member functions:
+ * Start() - call functions to display ending scores
+ * returnToMainMenu() - return to the main menu scene
+ * updateExitText() - update the exit status
+ * updateHoneyText() - update the honey value
+ * updateTimeText() - update the time value
+ * updateLevelText() - update the level value
+ */
 public class EndGameMenu : MenuManager
 {
     public TextMeshProUGUI exitText, honeyText, timeText, levelText;

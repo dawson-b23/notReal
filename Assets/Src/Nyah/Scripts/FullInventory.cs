@@ -1,8 +1,22 @@
+/*
+ * FullInventory.cs
+ * Nyah Nelson
+ * conditions for when inventory is full and the 'x' is clicked
+ */
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+/*
+ * FullInventory class to handle situations when the inventory is full and the user wants to remove one weapon, but not equip it
+ * Inherits from InventoryMenu to override the weaponButtonClick function
+ * 
+ * member functions:
+ * Awake() - checks to make sure there is not more than one instance of the singleton
+ * weaponButtonClick(Button clickedButton) - function called when a red x button is clicked on the inventory menu
+ */
 public class FullInventory : InventoryMenu
 {
     private void Awake()

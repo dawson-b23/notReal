@@ -12,23 +12,31 @@ using UnityEngine.UI;
 using System.Linq;
 
 /*
- * Inventory class to update the inventory list
+ * Inventory class to store, add, and remove weapons from the inventory
+ * Inventory acts as the subject for the observer patterns
+ * the observers observe when inventory is full or not
  * 
  * member variables:
  * maxInventory - maximum value for inventory list
- * inventoryList - inventory list
- * full[] - array to keep track of whether the slots of inventory are full or not
- * slots[] - array to keep track of the slots for inventory
+ * weaponList - weapon list
+ * full[] - array to keep track of whether the "slots" of inventory are full or not
+ * slots[] - array to keep track of the weapons in each slot
+ * playerObject - player reference
+ * inventoryInstance - inventory singleton
+ * observers - observer list (for the observer pattern)
  * 
  * member functions:
- * Inventory() - constructor to create a new list
- * addInventory(Item item) - add item to list
- * removeInventory() - remove item from list
- * isFull() - check if inventory is full
+ * Attach(Observer observer) - add observers to the list
+ * Detach(Observer observer) - remove observers from the list
+ * Notify() - notify observers when a state is changed (when inventory is full or not)
+ * addWeapon(AbstractWeapon abstractWeapon) - add a weapon to the list
+ * removeWeapon(int indexOfWeapon) - remove and equip a weapon
+ * removeWeaponOnly(int indexOfWeapon) - remove but do not equip a weapon
+ * isFull() - returns true if inventory is full
+ * isEmpty() - returns true if inventory is empty 
+ * getInventory() - returns the inventory instance 
+ * inventoryAmount() - returns the current amount in inventory
  */
-
-
-// need to make inventory abstract to work for the observe? try it without the abstract
 public class Inventory : MonoBehaviour
 {
     private int maxInventory = 3;
@@ -40,6 +48,9 @@ public class Inventory : MonoBehaviour
     // reference to the player
     public GameObject playerObject;
     // reference to inventory menu
+
+    // observer list to keep track of which classes are observers
+    private List<Observer> observers = new List<Observer>();
 
     // inventory singleton
     public static Inventory inventoryInstance { get; private set; }
@@ -62,9 +73,6 @@ public class Inventory : MonoBehaviour
         // get player object
         // playerObject = GameObject.FindWithTag("Player");
     }
-
-    // observer list to keep track of which classes are observers
-    private List<Observer> observers = new List<Observer>();
 
     /*
      * adds an observer to the list
@@ -148,7 +156,6 @@ public class Inventory : MonoBehaviour
                         PlayerProfile.profileInstance.updateInventory(1);
                         Debug.Log("weapon added at index " + i);
                         // activate the correct button on the menu
-                        //inventoryMenuReference.activateButton(i);
                         InventoryMenu.inventoryMenuInstance.activateButton(i);
 
                         // slot is now full

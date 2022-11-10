@@ -1,22 +1,29 @@
 /*
  * InventoryMenu.cs
  * Nyah Nelson
- * Inventory Menu functions (open and close)
+ * Inventory Menu functions 
  */
+
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+
 /*
- * InventoryMenu class to access the inventory menu
+ * InventoryMenu class to handle the inventory menu buttons
+ * 
+ * member variables:
+ * menuBackground - object reference to the inventory menu background 
+ * menuBackgroundColor - image reference to the inventory menu background color
+ * inventoryButton (s) - 3 buttons to store the weapons
+ * removeButton (s) - 3 buttons to remove a weapon and not equip it
  * 
  * member functions:
- * openInventory() - open menu
- * closeInventory() - close menu
- * pauseGame() - pause game after menu is opened
- * resumeGame() - resume game after menu is opened
+ * activateButton(int buttonNumber) - activate a buttons
+ * deactivateButton(int buttonNumber) - deactivate a button
+ * weaponButtonClick(Button clickedButton) - call the remove weapon function for the correct index based on the button clicked
  */
 public class InventoryMenu : MenuManager
 {

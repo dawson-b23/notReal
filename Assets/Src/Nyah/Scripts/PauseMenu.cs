@@ -11,14 +11,16 @@ using UnityEngine.SceneManagement;
 /*
  * PauseMenu class to open/close menu and pause/resume game
  * 
- * member variables:
+ * member functions:
  * pauseGame() - open pause menu and pause game
  * resumeGame() - close pause menu and resume game
- * openInventory() - open inventory menu, close pause game menu
+ * openHelp() - open help menu
+ * closeHelp() - close help menu
  * returnToMain() - return to main menu scene
  */
 public class PauseMenu : MenuManager
 {
+    Timer timerReference;
     // function to open pause menu and pause game
     // public  void pauseGame()
     public override void pauseGame()
@@ -32,10 +34,11 @@ public class PauseMenu : MenuManager
         openMenu(Menu.PauseMenu);
         // pause/stop game
         Time.timeScale = 0f;
+        // pause timer
+        timerReference.stopTimer();
         Debug.Log("open pause menu");
     }
 
-    // protected override void ResumeGame()
     // function to close pause menu and resume game
     //public void resumeGame()
     public override void resumeGame()
@@ -44,17 +47,9 @@ public class PauseMenu : MenuManager
         closeMenu(Menu.PauseMenu);
         // resume game
         Time.timeScale = 1f;
+        // resume timer
+        timerReference.startTimer();
         Debug.Log("close pause menu");
-    }
-
-    // add inventory stuff
-
-    // if inventory button is clicked open inventory
-    public void openInventory()
-    {
-        closeMenu(Menu.PauseMenu);
-        openMenu(Menu.InventoryMenu);
-
     }
 
     public void openHelp()
