@@ -5,7 +5,9 @@
  */
 
 using System.Collections;
+#if UNITY_EDITOR
 using UnityEditor;
+#endif
 using UnityEngine;
 
 
@@ -49,7 +51,9 @@ public class ProjectileSpeedTestManager : MonoBehaviour
     private void OnTriggerEnter2D() 
     {
         Debug.Log("Final speed: " + speed);
+        #if UNITY_EDITOR
         UnityEditor.EditorApplication.isPlaying = false;
+        #endif
     }
 
     /*
