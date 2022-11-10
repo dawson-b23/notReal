@@ -14,11 +14,13 @@ using UnityEngine;
  * damage - the amount of damage to deal to an enemy this weapon hits
  * cooldown - the interval in seconds that determines how fast this weapon can attack
  * displayName - the name of the weapon for use in shops
+ * price - the price of the weapon for use in shops
  * lastAttackTime - the time the weapon last attacked
  *
  * member functions:
  * Start() - initializes the weapon
  * getDisplayName() - getter for displayName
+ * getPrice() - getter for price
  * lastAttack() - getter for lastAttackTime
  * attack(out int) - processes an attack
  * effectiveCooldown() - returns the upgrade-adjusted cooldown of the weapon
@@ -34,6 +36,8 @@ public abstract class AbstractWeapon : MonoBehaviour
     private float cooldown;
     [SerializeField]
     private string displayName;
+    [SerializeField]
+    private int price;
 
     private float lastAttackTime;
 
@@ -51,6 +55,11 @@ public abstract class AbstractWeapon : MonoBehaviour
      * Returns the display name of the weapon
      */
     public string getDisplayName(){return displayName;}
+    
+    /*
+     * Returns the price of the weapon
+     */
+    public int getPrice(){return price;}
 
     /*
      * Returns the last time this weapon attacked.

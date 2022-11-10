@@ -167,6 +167,7 @@ MonoBehaviour:
   damage: 20
   cooldown: 1
   displayName: Diamond Sword
+  price: 54
 --- !u!50 &1419025417
 Rigidbody2D:
   serializedVersion: 4
