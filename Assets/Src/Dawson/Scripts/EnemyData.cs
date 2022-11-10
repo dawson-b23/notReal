@@ -7,6 +7,7 @@ public class EnemyData : ScriptableObject
 {
     public int health;
     public int damage;
+    public int honeyAmt;
     // public int detectionRange;
     //public int attackRange;
     public float speed; 

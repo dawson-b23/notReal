@@ -22,9 +22,11 @@ public class Enemy : MonoBehaviour
     private float speed = 1.5f;
 
     [SerializeField]
+    private int honeyAmt = 0;
+
+    [SerializeField]
     private EnemyData data;
 
-    PlayerController player;
 
     // rigid body and sprite for death
 
@@ -38,15 +40,7 @@ public class Enemy : MonoBehaviour
     {
         if(health <= 0)
         {
-            Destroy(GetComponent<Rigidbody2D>());
-            Destroy(GetComponent<SpriteRenderer>());
-            Destroy(GetComponent<BoxCollider2D>());
-            MonoBehaviour[] scripts = gameObject.GetComponents<MonoBehaviour>();
-            foreach(MonoBehaviour script in scripts)
-            {
-                script.enabled = false;
-            }
-            Destroy(this);
+            enemyDeath();
         }
     }
 
@@ -56,6 +50,7 @@ public class Enemy : MonoBehaviour
         damage = data.damage;
         health = data.health;
         speed = data.speed;
+        honeyAmt = data.honeyAmt;
     }
 
 
@@ -68,7 +63,24 @@ public class Enemy : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collider)
     {
+        GameObject playerObject = GameObject.FindWithTag("Player");
         health -= 50;
-        player.GetComponent<PlayerController>().takeDamage(20);
+        playerObject.GetComponent<PlayerController>().takeDamage(8);
+    }
+
+
+    private void enemyDeath()
+    {
+        GameObject playerObject = GameObject.FindWithTag("Player");
+        playerObject.GetComponent<PlayerController>().addHoney(5);
+        Destroy(GetComponent<Rigidbody2D>());
+        Destroy(GetComponent<SpriteRenderer>());
+        Destroy(GetComponent<BoxCollider2D>());
+        MonoBehaviour[] scripts = gameObject.GetComponents<MonoBehaviour>();
+        foreach(MonoBehaviour script in scripts)
+        {
+            script.enabled = false;
+        }
+        Destroy(this);
     }
 }
