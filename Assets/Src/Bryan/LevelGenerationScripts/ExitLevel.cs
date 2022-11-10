@@ -16,6 +16,11 @@ public class ExitLevel : MonoBehaviour
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         // adds 1 to playerLevel everytime a world is completed
         PlayerController.playerLevel += 1;
+
+        /* added by Nyah Nelson
+         * update the player profile level value on the HUD
+         */
+        PlayerProfile.profileInstance.updateLevel(1);
     }
  
   }

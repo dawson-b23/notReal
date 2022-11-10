@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
@@ -219,7 +220,11 @@ public class PlayerController : MonoBehaviour
             PlayerProfile.profileInstance.updateHealth(damageTaken * -1);
             if(currentHealth <= 0)
             {
-                //TODO: Call death screen/menu
+                /*
+                 * added by Nyah Nelson
+                 * loads scene 2, which is the game over scene
+                 */
+                SceneManager.LoadScene(2);
             } else 
             {
                 StartCoroutine(damageIndicator());
