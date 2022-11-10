@@ -24,20 +24,24 @@ public class Enemy : MonoBehaviour
     [SerializeField]
     private EnemyData data;
 
-    private GameObject player;
+    private PlayerController player;
+
+
+    // rigid body and sprite for death
 
     void Start()
     {
-        player = GameObject.FindGameObjectWithTag("Player");
         InitEnemy();
     }
 
 
     void Update()
     {
-        Swarm();
         if(health <= 0)
         {
+            Destroy(GetComponent<Rigidbody2D>());
+            Destroy(GetComponent<SpriteRenderer>());
+            Destroy(GetComponent<BoxCollider2D>());
             Destroy(this);
         }
     }
@@ -50,11 +54,6 @@ public class Enemy : MonoBehaviour
         speed = data.speed;
     }
 
-
-    private void Swarm()
-    {
-        transform.position = Vector2.MoveTowards(transform.position, player.transform.position, speed * Time.deltaTime);
-    }
 
 
     public void takeDamage(int damage) 
