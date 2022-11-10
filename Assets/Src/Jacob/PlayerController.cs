@@ -82,7 +82,7 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         currentHealth = effectiveMaxHealth();
-        PlayerProfile.profileInstance.updateHealth(effectiveMaxHealth() - 10);
+        PlayerProfile.profileInstance.updateHealth(effectiveMaxHealth());
         if(!this.TryGetComponent<Rigidbody2D>(out rigidBody))
         {
             Debug.LogError("Player does not have a valid Rigidbody2D attached to it");
