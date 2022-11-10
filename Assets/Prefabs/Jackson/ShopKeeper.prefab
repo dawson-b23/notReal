@@ -284,7 +284,7 @@ PrefabInstance:
     - target: {fileID: 6567647461503996633, guid: 8cf22dcc0569a1f44bd017130fbc46bb, type: 3}
       propertyPath: m_fontAsset
       value: 
-      objectReference: {fileID: 11400000, guid: 5302535af1044152a457ed104f1f4b91, type: 2}
+      objectReference: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
     - target: {fileID: 6567647461503996633, guid: 8cf22dcc0569a1f44bd017130fbc46bb, type: 3}
       propertyPath: m_fontStyle
       value: 1
@@ -308,7 +308,7 @@ PrefabInstance:
     - target: {fileID: 6567647461503996633, guid: 8cf22dcc0569a1f44bd017130fbc46bb, type: 3}
       propertyPath: m_sharedMaterial
       value: 
-      objectReference: {fileID: 2164040, guid: 5302535af1044152a457ed104f1f4b91, type: 2}
+      objectReference: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
     - target: {fileID: 6567647461503996633, guid: 8cf22dcc0569a1f44bd017130fbc46bb, type: 3}
       propertyPath: m_fontColor32.rgba
       value: 4282243049
@@ -321,6 +321,14 @@ PrefabInstance:
       propertyPath: m_margin.z
       value: -158.71692
       objectReference: {fileID: 0}
+    - target: {fileID: 8441082325324477366, guid: 8cf22dcc0569a1f44bd017130fbc46bb, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+    - target: {fileID: 8441082325324477366, guid: 8cf22dcc0569a1f44bd017130fbc46bb, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
     - target: {fileID: 8884973294934658652, guid: 8cf22dcc0569a1f44bd017130fbc46bb, type: 3}
       propertyPath: m_Type
       value: 0
@@ -515,6 +523,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4116388310890168249, guid: 429f87a3ce0885c4d9974a8aa6bca264, type: 3}
   m_PrefabInstance: {fileID: 8285904508191445864}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &5509907917602412207 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4506504747683071431, guid: 429f87a3ce0885c4d9974a8aa6bca264, type: 3}
+  m_PrefabInstance: {fileID: 8285904508191445864}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9541d86e2fd84c1d9990edf0852d74ab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7631958209335334786 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1952129782971892970, guid: 429f87a3ce0885c4d9974a8aa6bca264, type: 3}
@@ -543,5 +562,5 @@ MonoBehaviour:
   dialogues:
   - Hey, ya like....bossa?
   - What can I get for ya?
-  dialogueText: {fileID: 0}
-  writingSpeed: 0
+  dialogueText: {fileID: 5509907917602412207}
+  writingSpeed: 0.03
