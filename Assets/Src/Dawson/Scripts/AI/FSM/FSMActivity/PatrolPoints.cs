@@ -1,3 +1,9 @@
+/*
+ *  PatrolPoints.cs
+ *  Dawson Burgess
+ *  Logic for assigning patrol points on a list to be used in PatrolActivity.cs
+ */
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;

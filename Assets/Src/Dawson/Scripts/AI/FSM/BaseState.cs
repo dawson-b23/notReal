@@ -1,3 +1,9 @@
+/*
+ *  BaseState.cs
+ *  Dawson Burgess
+ *  Logic for creating scriptable BaseState objects
+ */
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;

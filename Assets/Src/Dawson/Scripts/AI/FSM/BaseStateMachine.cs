@@ -1,3 +1,9 @@
+/*
+ *  BaseStateMachine.cs
+ *  Dawson Burgess
+ *  Logic for the enemy Finite State Machine - will execute initial state and update after
+ */
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;

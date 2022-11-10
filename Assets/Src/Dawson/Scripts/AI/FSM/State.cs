@@ -1,3 +1,9 @@
+/*
+ *  State.cs
+ *  Dawson Burgess
+ *  Logic for creating a state that the FSM can transition to 
+ */
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;

@@ -1,3 +1,9 @@
+/*
+ *  Activity.cs
+ *  Dawson Burgess
+ *  Logic for creating scriptable activity objects
+ */
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;

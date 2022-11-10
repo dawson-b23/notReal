@@ -1,3 +1,9 @@
+/*
+ *  DistanceDecision.cs
+ *  Dawson Burgess
+ *  Logic for creating deciding what distance to stop running at the player
+ */
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;

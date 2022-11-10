@@ -1,3 +1,9 @@
+/*
+ *  InLineOfSight.cs
+ *  Dawson Burgess
+ *  Logic for deciding if the player is in enemy line of sight
+ */
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;

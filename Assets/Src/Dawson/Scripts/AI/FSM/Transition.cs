@@ -1,3 +1,9 @@
+/*
+ *  Transition.cs
+ *  Dawson Burgess
+ *  Logic for creating scriptable Transition objects
+ */
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;

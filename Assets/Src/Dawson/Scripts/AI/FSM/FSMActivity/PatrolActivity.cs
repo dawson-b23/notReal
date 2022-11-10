@@ -1,3 +1,9 @@
+/*
+ *  PatrolActivity.cs
+ *  Dawson Burgess
+ *  Logic for enemy going on patrols between two set points 
+ */
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;

@@ -1,3 +1,9 @@
+/*
+ *  WaitTimeDecision.cs
+ *  Dawson Burgess
+ *  Logic for waiting between patrols
+ */
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;

@@ -1,3 +1,9 @@
+/*
+ *  ChaseActivity.cs
+ *  Dawson Burgess
+ *  Logic for enemy chasing the player 
+ */
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;

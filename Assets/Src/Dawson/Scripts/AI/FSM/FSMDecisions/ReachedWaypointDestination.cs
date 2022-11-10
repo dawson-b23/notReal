@@ -1,3 +1,9 @@
+/*
+ *  ReachedWaypointDestination.cs
+ *  Dawson Burgess
+ *  Logic for deciding when waypoint is reached, invoking a transition to another state
+ */
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
