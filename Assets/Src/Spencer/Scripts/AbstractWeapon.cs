@@ -14,7 +14,6 @@ using UnityEngine;
  * damage - the amount of damage to deal to an enemy this weapon hits
  * cooldown - the interval in seconds that determines how fast this weapon can attack
  * displayName - the name of the weapon for use in shops
- * upgrade - the SkillTree that is called when the weapon kills an enemy
  * lastAttackTime - the time the weapon last attacked
  *
  * member functions:
@@ -35,7 +34,6 @@ public abstract class AbstractWeapon : MonoBehaviour
     private float cooldown;
     [SerializeField]
     private string displayName;
-    private SkillTree upgrade;
 
     private float lastAttackTime;
 
@@ -47,7 +45,6 @@ public abstract class AbstractWeapon : MonoBehaviour
     {
         lastAttackTime = Time.fixedTime;
         gameObject.SetActive(false);
-        upgrade = (SkillTree) FindObjectOfType(typeof(SkillTree));
     }
 
     /*
@@ -102,11 +99,10 @@ public abstract class AbstractWeapon : MonoBehaviour
         {
             //TODO: Make processHit call takeDamage on the enemy
             //TODO: Get damage multiplier from skill tree
-            // enemyScript.takeDamage(damage);                     
+            // enemyScript.takeDamage(damage + SkillTree.getInstance().getAttack());                     
           
             Destroy(enemyScript.gameObject);
          
-            upgrade.Upgrade();
         } else 
         {
             Debug.Log("Unable to find enemy script in enemy hit.");
