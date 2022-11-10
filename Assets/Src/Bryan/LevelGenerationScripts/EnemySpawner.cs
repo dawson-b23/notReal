@@ -73,7 +73,7 @@ public class EnemySpawner : MonoBehaviour
         }
         //Grab the position of the camera and change it by x
      
-        Vector3 spawnPoint = Camera.main.ViewportToWorldPoint(new Vector3(x,y,0));
+        Vector3 spawnPoint = Camera.main.ViewportToWorldPoint(new Vector3(x,y,1));
        
       
             GameObject enemy = EnemyPooler.SharedInstance.GetPooledObject(); 
