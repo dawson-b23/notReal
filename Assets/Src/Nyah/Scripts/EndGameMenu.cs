@@ -29,7 +29,7 @@ using TMPro;
  */
 public class EndGameMenu : MenuManager
 {
-    public TextMeshProUGUI exitText, honeyText, timeText, levelText;
+    public TextMeshProUGUI honeyText, timeText, levelText;
     private int honeyValue = 0, timeValue = 0, levelValue = 0; 
     PlayerController playerObject;
 
@@ -38,24 +38,15 @@ public class EndGameMenu : MenuManager
 
     public void Start()
     {
-        updateExitText();
         updateHoneyText();
         updateTimeText();
         updateLevelText();
-
     }
 
     public void returnToMainMenu()
     {
+        // restart all values back to zero
         SceneManager.LoadScene(mainMenuScene);
-    }
-
-    public void updateExitText()
-    {
-        // if the user exited the hive (how to tell if this is true)
-        exitText.text = "YOU EXITED THE HIVE!";
-        // else the user did not exit the hive
-        //exitText.text = "YOU DIDN'T EXIT THE HIVE!";
     }
 
     public void updateHoneyText()

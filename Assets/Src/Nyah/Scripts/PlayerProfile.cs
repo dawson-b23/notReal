@@ -47,7 +47,6 @@ public class PlayerProfile : MonoBehaviour
         }
 
         // initialize values in HUD
-        //updateHealth(4);
         updateMoney(0);
         updateLevel(0);
         updateInventory(0); 
@@ -67,7 +66,7 @@ public class PlayerProfile : MonoBehaviour
     public void updateMoney(int updateAmount)
     {
         moneyValue += updateAmount;
-        moneyText.text = "MONEY: " + moneyValue;
+        moneyText.text = "HONEY: " + moneyValue;
     }
 
     // update level in HUD

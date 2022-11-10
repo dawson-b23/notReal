@@ -226,7 +226,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.2654478, y: 0.526}
   m_AnchorMax: {x: 0.731, y: 0.62349945}
-  m_AnchoredPosition: {x: 1.4553986, y: -1}
+  m_AnchoredPosition: {x: 1.4553833, y: -1}
   m_SizeDelta: {x: -4.1651993, y: -0.72249985}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &127721670
@@ -359,10 +359,10 @@ RectTransform:
   m_Father: {fileID: 1870030774}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.28255653, y: 0.1923326}
-  m_AnchorMax: {x: 0.72, y: 0.33100003}
-  m_AnchoredPosition: {x: -1, y: 2.4999847}
-  m_SizeDelta: {x: 1.0787964, y: 2.0220947}
+  m_AnchorMin: {x: 0.22550002, y: 0.19900002}
+  m_AnchorMax: {x: 0.771891, y: 0.33100003}
+  m_AnchoredPosition: {x: 1.1860046, y: -0.5}
+  m_SizeDelta: {x: -1.6977005, y: 5.0221}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &283713077
 MonoBehaviour:
@@ -418,7 +418,7 @@ MonoBehaviour:
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
-  m_HorizontalAlignment: 1
+  m_HorizontalAlignment: 2
   m_VerticalAlignment: 256
   m_textAlignment: 65535
   m_characterSpacing: 0
@@ -771,7 +771,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.322887, y: 0.33100003}
   m_AnchorMax: {x: 0.6808871, y: 0.4263337}
-  m_AnchoredPosition: {x: -1.5446014, y: 0}
+  m_AnchoredPosition: {x: -1.5446167, y: 0}
   m_SizeDelta: {x: 0.8450012, y: 0.27749634}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1097234866
@@ -1046,7 +1046,6 @@ MonoBehaviour:
   inventoryMenu: {fileID: 0}
   helpMenu: {fileID: 0}
   skillTreeMenu: {fileID: 0}
-  exitText: {fileID: 1911318180}
   honeyText: {fileID: 127721670}
   timeText: {fileID: 1097234866}
   levelText: {fileID: 893847425}
@@ -1080,7 +1079,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
   m_ReferenceResolution: {x: 800, y: 600}
@@ -1197,7 +1196,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: YOU EXITED THE HIVE!
+  m_text: YOU DIDN'T EXIT THE HIVE!
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8a89fa14b10d46a99122fd4f73fca9a2, type: 2}
   m_sharedMaterial: {fileID: 2140474, guid: 8a89fa14b10d46a99122fd4f73fca9a2, type: 2}
