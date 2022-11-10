@@ -167,6 +167,7 @@ MonoBehaviour:
   damage: 30
   cooldown: 0.85
   displayName: Bee-mond Sword
+  price: 72
 --- !u!50 &2312525294434661325
 Rigidbody2D:
   serializedVersion: 4

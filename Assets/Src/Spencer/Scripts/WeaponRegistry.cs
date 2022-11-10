@@ -19,8 +19,9 @@ using UnityEngine;
  *
  * member functions:
  * OnEnable() - initialize singleton
- * OnValidate() - populate weapons from inputWeapons
- * count() - returns the length of the registry
+ * OnValidate() - call initializeDictionary
+ * initializeDictionary() - populate weapons from inputWeapons
+ * length() - returns the length of the registry
  * getWeaponRegistry() - return the singleton
  * getSpecificWeapon() - returns a specific weapon, requested by id
  * getWeapon() - returns a single random weapon
@@ -58,13 +59,24 @@ public class WeaponRegistry : ScriptableObject
         {
             Debug.LogError("Extra WeaponRegistry -- there should be only one.");
         }
+        //Debug.Log("registry loaded, singleton: " + singleton);
+        initializeDictionary();
     }
+
+    /*
+     * Call the dictionary initializer
+     */
+    private void OnValidate()
+    {
+        initializeDictionary();
+    }
+
 
     /*
      * Convert the array inputWeapons into a dictionary
      * Log any duplicate IDs as an error
      */
-    private void OnValidate() 
+    private void initializeDictionary() 
     {
         //Debug.Log("WeaponRegistry converting entered weapon list to dictionary.");
         weapons.Clear();
@@ -81,12 +93,13 @@ public class WeaponRegistry : ScriptableObject
         //Debug.Log("WeaponRegistry conversion finished.");
     }
 
+
     /*
      * Static getter allowing other classes to access the singleton
      */
     public static WeaponRegistry getWeaponRegistry() 
     {
-        //Debug.Log("returning reg singleton");
+        Debug.Log("returning reg singleton, singleton value: " + singleton);
         return singleton;
     }
     

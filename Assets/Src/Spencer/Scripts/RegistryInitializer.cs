@@ -19,6 +19,8 @@ using UnityEngine;
  */
 public class RegistryInitializer : MonoBehaviour
 {
+    //ScriptableAsset's built in enable/awake methods are dicey in terms of when they get called
+    //Having a reference to an asset on a gameobject means the enable method will be called when the scene is loaded
     [SerializeField]
     private WeaponRegistry registryToBeInitialized;
 }

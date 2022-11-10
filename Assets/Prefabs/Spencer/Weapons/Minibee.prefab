@@ -261,6 +261,7 @@ MonoBehaviour:
   damage: 25
   cooldown: 0.35
   displayName: Minibee
+  price: 30
   projectilePrototype: {fileID: 8507486459207459682}
   cooldownParticlePrototype: {fileID: 0}
   launchPoint: {fileID: 8507486459345665285}

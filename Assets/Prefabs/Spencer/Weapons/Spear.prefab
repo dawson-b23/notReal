@@ -189,3 +189,4 @@ MonoBehaviour:
   damage: 25
   cooldown: 0.36
   displayName: Spear
+  price: 30
