@@ -147,7 +147,7 @@ GameObject:
   - component: {fileID: 5502660873952356803}
   - component: {fileID: 5502660873952356800}
   m_Layer: 5
-  m_Name: B
+  m_Name: B Title
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -417,7 +417,7 @@ GameObject:
   - component: {fileID: 5502660873981813294}
   - component: {fileID: 5502660873981813295}
   m_Layer: 5
-  m_Name: R
+  m_Name: R Title
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -692,7 +692,7 @@ GameObject:
   - component: {fileID: 5502660874153144847}
   - component: {fileID: 5502660874153144844}
   m_Layer: 5
-  m_Name: Title 2
+  m_Name: Upper Main Body Title
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -827,7 +827,7 @@ GameObject:
   - component: {fileID: 5502660874202869322}
   - component: {fileID: 5502660874202869323}
   m_Layer: 5
-  m_Name: 'bottom bar '
+  m_Name: 'Left Bottom Bar '
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1118,7 +1118,7 @@ GameObject:
   - component: {fileID: 5502660874772787534}
   - component: {fileID: 5502660874772787535}
   m_Layer: 5
-  m_Name: top bar
+  m_Name: 'Top Bar '
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1272,7 +1272,7 @@ GameObject:
   - component: {fileID: 5502660874947058361}
   - component: {fileID: 5502660874947058342}
   m_Layer: 5
-  m_Name: Title
+  m_Name: Upper Main Body Title
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1526,6 +1526,7 @@ MonoBehaviour:
   optionsMenu: {fileID: 5502660874894068832}
   inventoryMenu: {fileID: 0}
   helpMenu: {fileID: 5502660874687207300}
+  skillTreeMenu: {fileID: 0}
   gameStartScene: 1
 --- !u!1 &5502660875371302451
 GameObject:
@@ -1539,7 +1540,7 @@ GameObject:
   - component: {fileID: 5502660875371302452}
   - component: {fileID: 5502660875371302453}
   m_Layer: 5
-  m_Name: bottom bar  2
+  m_Name: 'Right Bottom Bar '
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1622,6 +1623,10 @@ PrefabInstance:
       propertyPath: m_sharedMaterial
       value: 
       objectReference: {fileID: 8616586655887831604, guid: 4c38beaedeb67449c8b5dd0f05435723, type: 2}
+    - target: {fileID: 6726106471443683078, guid: cb1a7b2783a914df39716927616789b9, type: 3}
+      propertyPath: m_Name
+      value: Help Button Text (TMP)
+      objectReference: {fileID: 0}
     - target: {fileID: 6726106471782801532, guid: cb1a7b2783a914df39716927616789b9, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -1748,6 +1753,10 @@ PrefabInstance:
       propertyPath: m_sharedMaterial
       value: 
       objectReference: {fileID: 8616586655887831604, guid: 4c38beaedeb67449c8b5dd0f05435723, type: 2}
+    - target: {fileID: 6726106471443683078, guid: cb1a7b2783a914df39716927616789b9, type: 3}
+      propertyPath: m_Name
+      value: Quit Button Text (TMP)
+      objectReference: {fileID: 0}
     - target: {fileID: 6726106471782801532, guid: cb1a7b2783a914df39716927616789b9, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -2008,6 +2017,10 @@ PrefabInstance:
       propertyPath: m_sharedMaterial
       value: 
       objectReference: {fileID: 8616586655887831604, guid: 4c38beaedeb67449c8b5dd0f05435723, type: 2}
+    - target: {fileID: 6726106471443683078, guid: cb1a7b2783a914df39716927616789b9, type: 3}
+      propertyPath: m_Name
+      value: Options Button Text (TMP)
+      objectReference: {fileID: 0}
     - target: {fileID: 6726106471782801532, guid: cb1a7b2783a914df39716927616789b9, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -2134,6 +2147,10 @@ PrefabInstance:
       propertyPath: m_sharedMaterial
       value: 
       objectReference: {fileID: 8616586655887831604, guid: 4c38beaedeb67449c8b5dd0f05435723, type: 2}
+    - target: {fileID: 6726106471443683078, guid: cb1a7b2783a914df39716927616789b9, type: 3}
+      propertyPath: m_Name
+      value: Start Button Text (TMP)
+      objectReference: {fileID: 0}
     - target: {fileID: 6726106471782801532, guid: cb1a7b2783a914df39716927616789b9, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 

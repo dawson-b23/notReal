@@ -16,6 +16,7 @@ public class FullInventory : InventoryMenu
         }
     }
 
+    //public void weaponButtonClick(Button clickedButton)
     public override void weaponButtonClick(Button clickedButton)
     {
         if (clickedButton == removeButton1)
@@ -55,54 +56,5 @@ public class FullInventory : InventoryMenu
             Debug.Log("button clicked was not in the inventory menu!!");
         }
     }
-
-    // remove weapon but do not equip weapon
-    /*public  void removeWeapon2(int indexOfWeapon)
-    {
-        // bool weaponReturn = false;
-
-        // retrieve the correct weapon
-        AbstractWeapon weaponToBeRemoved = slots[indexOfWeapon];
-        if (weaponToBeRemoved == null)
-        {
-            Debug.Log("weapon is null");
-        }
-        else
-        {
-            Debug.Log("index of weapon to be removed is " + indexOfWeapon);
-            // if inventory is full (then the displays are red), then change them back to initial color after removing a weapon
-            if (isFull())
-            {
-                weaponList.Remove(weaponToBeRemoved);
-                // slot is now open
-                full[indexOfWeapon] = false;
-                PlayerProfile.profileInstance.updateInventory(-1);
-                //weaponReturn = false;
-                Notify();
-            }
-            else // inventory is not full, but it should be
-            {
-                Debug.Log("error: trying to remove a weapon and not equip it when inventory is not full");
-            }
-        }
-    }
-
-    public void removeButtonClick()
-    {
-        // deactivate normal buttons
-        deactivateButton(0);
-        deactivateButton(1);
-        deactivateButton(2);
-
-        // activate full buttons
-        activateButton(3);
-        activateButton(4);
-        activateButton(5);
-
-        // pause game so player can choose a weapon with time
-        pauseGame();
-    }
-
-     */
 
 }
