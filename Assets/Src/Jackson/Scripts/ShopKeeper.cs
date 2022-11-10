@@ -7,7 +7,7 @@ public class ShopKeeper : MonoBehaviour
 
     [SerializeField] private UI_Shop uiShop;
 
-    public randomDialogue dialogueScript;
+    public setDialogue dialogueScript;
 
     private bool playerInRange;
 
