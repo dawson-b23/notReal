@@ -17,6 +17,7 @@ using UnityEngine;
 public class setDialogue : MonoBehaviour
 {
     //Fields
+    [SerializeField] private UI_Shop uiShop;
     //Indicator
     public GameObject indicator;
     //Window
@@ -132,6 +133,7 @@ public class setDialogue : MonoBehaviour
             {
                 ToggleIndicator(true);
                 EndDialogue();
+                uiShop.ToggleUI_Shop(true);
             }
 
         }
