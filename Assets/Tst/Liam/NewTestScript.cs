@@ -102,32 +102,42 @@ public class NewTestScript
 {
     [Test]
     public void testUpgrades(){
-        SkillTree sk = SkillTree.checkDuplicate(); 
+        SkillTree sk = SkillTree.makeSkillTree(); 
         //SkillTree sk = SkillTree;
         //Debug.Log("Health value: " + sk.getHealth());
-        Assert.That(sk.getHealth() == 10);
-        Assert.That(sk.getAttack() == 10);
-        Assert.That(sk.getSpeed() == 10);
+
+        float initHealth = sk.getHealth();
+        float initAttack = sk.getAttack();
+        float initSpeed = sk.getSpeed();
+
+        float upHealth = initHealth;
+        float upAttack = initAttack;
+        float upSpeed = initSpeed;
+
+        //sk.getTrait -> initTrait
+        //Assert.That(initHealth == 1);
+        //Assert.That(initAttack == 1);
+        //Assert.That(initSpeed == 1);
 
         sk.updateHealth();
-        Assert.That(sk.getHealth() == 12);
-        Assert.That(sk.getAttack() == 10);
-        Assert.That(sk.getSpeed() == 10);
+        Assert.That(sk.getHealth() == (1.15f*initHealth));
+        Assert.That(sk.getAttack() == initAttack);
+        Assert.That(upSpeed == initSpeed);
 
         sk.updateHealth();
-        Assert.That(sk.getHealth() == 14);
-        Assert.That(sk.getAttack() == 10);
-        Assert.That(sk.getSpeed() == 10);
+        Assert.That(sk.getHealth() == (1.15f*1.15f*initHealth));
+        Assert.That(sk.getAttack() == initAttack);
+        Assert.That(sk.getSpeed() == initSpeed);
 
         sk.updateAttack();
-        Assert.That(sk.getHealth() == 14);
-        Assert.That(sk.getAttack() == 12);
-        Assert.That(sk.getSpeed() == 10);
+        Assert.That(sk.getHealth() == (1.15f*1.15f*initHealth));
+        Assert.That(sk.getAttack() == (1.15f*initAttack));
+        Assert.That(sk.getSpeed() == initSpeed);
 
         sk.updateMovement();
-        Assert.That(sk.getHealth() == 14);
-        Assert.That(sk.getAttack() == 12);
-        Assert.That(sk.getSpeed() == 12);
+        Assert.That(sk.getHealth() == (1.15f*1.15f*initHealth));
+        Assert.That(sk.getAttack() == (1.15f*initAttack));
+        Assert.That(sk.getSpeed() == (1.15f*initSpeed));
 
     }
 
