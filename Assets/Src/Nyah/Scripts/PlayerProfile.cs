@@ -49,7 +49,7 @@ public class PlayerProfile : MonoBehaviour
         // initialize values in HUD
         updateHealth(10);
         updateMoney(0);
-        updateLevel(1);
+        updateLevel(0);
         updateInventory(0); 
     }
 

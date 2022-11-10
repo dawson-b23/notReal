@@ -14,6 +14,7 @@ using UnityEngine;
  * member variables:
  * contFilter - contact filter used for detecting collisions at the start of an attack
  * attacking - boolean keeping track of whether an attack is in progress
+ * attackQueued - boolean indicating whether an attack is already scheduled after the current one finishes
  * normalPosition - local position of the weapon when no animation is in progress
  * normalRotation - local rotation of the weapon when no animation is in progress
  * normalScale - global scale of the weapon when no animation is in progress
@@ -32,6 +33,7 @@ public class MeleeWeapon : AbstractWeapon
 {
     private ContactFilter2D contFilter;
     protected bool attacking;
+    private bool attackQueued;
 
     private Vector3 normalPosition;
     private Quaternion normalRotation;
@@ -41,6 +43,7 @@ public class MeleeWeapon : AbstractWeapon
     {
         base.Start();
         attacking = false;
+        attackQueued = false;
         normalPosition = transform.localPosition;
         normalRotation = transform.localRotation;
         normalScale = transform.lossyScale;
@@ -69,6 +72,7 @@ public class MeleeWeapon : AbstractWeapon
         if(attacking)
         {
             attacking = false;
+            attackQueued = false;
             transform.localPosition = normalPosition;
             transform.localRotation = normalRotation;
             transform.localScale = new Vector3(normalScale.x / transform.parent.lossyScale.x,
@@ -120,10 +124,18 @@ public class MeleeWeapon : AbstractWeapon
         // Verify that another attack isn't still in progress
         // The rounding-up to multiples of fixedDeltaTime can cause an attack to be called while the
         // last one is still in progress, which causes animation glitchiness
+        if(attackQueued)
+        {
+            // immediately end the coroutine if another attack is waiting to begin
+            // prevent attacks from infinitely queueing up if the user holds the mouse down
+            yield break;
+        }
+        attackQueued = true;
         while(attacking)
         {
             yield return new WaitForFixedUpdate();
         }
+        attackQueued = false;
         attacking = true;
         StartCoroutine(visualAttack());
     }

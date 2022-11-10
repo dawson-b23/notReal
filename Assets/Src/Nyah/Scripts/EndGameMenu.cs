@@ -7,12 +7,21 @@ using TMPro;
 
 public class EndGameMenu : MenuManager
 {
-    public TextMeshProUGUI exitText, honeyText, timeText;
-    private int honeyValue = 0, timeValue = 0; 
+    public TextMeshProUGUI exitText, honeyText, timeText, levelText;
+    private int honeyValue = 0, timeValue = 0, levelValue = 0; 
     PlayerController playerObject;
 
     // main menu scene is scene 0 in build settings
     [SerializeField] int mainMenuScene;
+
+    public void Start()
+    {
+        updateExitText();
+        updateHoneyText();
+        updateTimeText();
+        updateLevelText();
+
+    }
 
     public void returnToMainMenu()
     {
@@ -39,5 +48,17 @@ public class EndGameMenu : MenuManager
         timeText.text = "YOUR TIME " + timeValue;
     }
 
+    public void updateLevelText()
+    {
+        levelValue = PlayerController.playerLevel;
+        if (levelValue == 1)
+        {
+            levelText.text = "YOU MADE IT THROUGH " + levelValue + " LEVEL";
+        }
+        else
+        {
+            levelText.text = "YOU MADE IT THROUGH " + levelValue + " LEVELS";
+        }
+    }
 
 }
