@@ -91,8 +91,9 @@ public class UI_Shop : MonoBehaviour
 
         
         totalHoney = playerObject.GetComponent<PlayerController>().getHoney();
-        
-        itemCost = weapon.getPrice();
+
+        itemCost = 0; // weapon.getPrice(); making items free for demo
+
         
         if((itemCost <= totalHoney) && !Inventory.inventoryInstance.isFull())
         {
