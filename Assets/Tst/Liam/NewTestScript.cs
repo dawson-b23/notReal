@@ -101,8 +101,9 @@ public class NewTestScript
 public class NewTestScript
 {
     [Test]
-    public void testUpgrades(){ 
-        SkillTree2 sk = new SkillTree2();
+    public void testUpgrades(){
+        SkillTree sk = SkillTree.checkDuplicate(); 
+        //SkillTree sk = SkillTree;
         //Debug.Log("Health value: " + sk.getHealth());
         Assert.That(sk.getHealth() == 10);
         Assert.That(sk.getAttack() == 10);

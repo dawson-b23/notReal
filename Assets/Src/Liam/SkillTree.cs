@@ -39,17 +39,26 @@ using UnityEngine;
         boost.getSpeed();
 */
 
-//GET RID OF THIS !! ============================================/
+/*GET RID OF THIS !! ============================================/
 public class SkillTree : MonoBehaviour{
     //DELETE ME
     //DO NOT USE! MUST BE REMOVED FROM YOUR CODE
     //IF YOU USED IT PREVIOUSLY
     public void Upgrade(){}
 
-}
+}*/
 
 
-public class SkillTree2{ 
+public class SkillTree{
+   public static SkillTree Instance; //{get; private set;}
+
+     public static SkillTree checkDuplicate(){
+       if(Instance == null){
+        Instance = new SkillTree();
+       }
+       return Instance;  
+     }  
+
    FullPlayer boost;
  
  /*
@@ -60,7 +69,7 @@ public class SkillTree2{
 
 //TEMPORARY NAME, WILL BE SKILL TREE WHEN TEMP 
 //CLASS IS ERASED
-public SkillTree2(){
+private SkillTree(){
     boost = new upPlayer();
 }
 
