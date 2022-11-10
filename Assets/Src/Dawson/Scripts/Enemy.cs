@@ -65,14 +65,14 @@ public class Enemy : MonoBehaviour
     {
         GameObject playerObject = GameObject.FindWithTag("Player");
         health -= 50;
-        playerObject.GetComponent<PlayerController>().takeDamage(8);
+        playerObject.GetComponent<PlayerController>().takeDamage(damage);
     }
 
 
     private void enemyDeath()
     {
         GameObject playerObject = GameObject.FindWithTag("Player");
-        playerObject.GetComponent<PlayerController>().addHoney(5);
+        playerObject.GetComponent<PlayerController>().addHoney(honeyAmt);
         Destroy(GetComponent<Rigidbody2D>());
         Destroy(GetComponent<SpriteRenderer>());
         Destroy(GetComponent<BoxCollider2D>());
