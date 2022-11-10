@@ -79,7 +79,6 @@ public abstract class AbstractWeapon : MonoBehaviour
     /*
      * Returns the effective cooldown of the weapon
      * Effective cooldown is based on the prefab-defined cooldown and a runtime multiplier from the skill tree
-     * Rounds up to the nearest multiple of the fixed frame rate
      */
     protected float effectiveCooldown() 
     {
@@ -98,8 +97,7 @@ public abstract class AbstractWeapon : MonoBehaviour
         if(enemy.TryGetComponent<Enemy>(out enemyScript)) 
         {
             //TODO: Make processHit call takeDamage on the enemy
-            //TODO: Get damage multiplier from skill tree
-            // enemyScript.takeDamage(damage + SkillTree.getInstance().getAttack());                     
+            // enemyScript.takeDamage(damage * SkillTree.makeSkillTree().getAttack());                     
           
             Destroy(enemyScript.gameObject);
          
