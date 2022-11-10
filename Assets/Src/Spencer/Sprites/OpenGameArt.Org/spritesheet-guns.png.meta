@@ -1,0 +1,848 @@
+fileFormatVersion: 2
+guid: 811a27b33671d834b8842fc24e68ac51
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMasterTextureLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 0
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Glock
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 532
+        width: 128
+        height: 87
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 23ac6337a5b1c9142ade63f441c1703e
+      internalID: 407822494
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Taurus
+      rect:
+        serializedVersion: 2
+        x: 129
+        y: 529
+        width: 125
+        height: 93
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7a242935568566d49824e646a155e89c
+      internalID: -356738599
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 57
+      rect:
+        serializedVersion: 2
+        x: 265
+        y: 537
+        width: 110
+        height: 77
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 31834f2921bfeb348872ef5ccdfccc43
+      internalID: 1058373449
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Makarov
+      rect:
+        serializedVersion: 2
+        x: 391
+        y: 531
+        width: 114
+        height: 90
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7e44e28e720908c41b211508d95a31c6
+      internalID: -813667292
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Luger
+      rect:
+        serializedVersion: 2
+        x: 513
+        y: 538
+        width: 125
+        height: 76
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: be82e87915abf594c8b20ed4dacd7e2d
+      internalID: -395199473
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tokarev
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 410
+        width: 119
+        height: 76
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eeca83c029f6fb748acb75e3a90de65a
+      internalID: -1385878026
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Walther
+      rect:
+        serializedVersion: 2
+        x: 129
+        y: 406
+        width: 125
+        height: 83
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8fe2d35341e4d3e4fad5e69ccde601f6
+      internalID: 1965760331
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: M1895
+      rect:
+        serializedVersion: 2
+        x: 258
+        y: 415
+        width: 124
+        height: 65
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 530733e9c0ff6044681995526b55da57
+      internalID: 1523862437
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPAS
+      rect:
+        serializedVersion: 2
+        x: 386
+        y: 428
+        width: 124
+        height: 39
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dc12aa1e00f823940a3f468c08c22633
+      internalID: -1161098127
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MP5
+      rect:
+        serializedVersion: 2
+        x: 514
+        y: 415
+        width: 123
+        height: 65
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: adbd85a427f1f5f41bf0c8946dc6ff9a
+      internalID: -613731765
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UMP
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 291
+        width: 125
+        height: 60
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1fd2ba4694cab8f4fbf48f9f3b933c6b
+      internalID: 1144896300
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Uzi
+      rect:
+        serializedVersion: 2
+        x: 129
+        y: 290
+        width: 126
+        height: 60
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: db2bf350b66bd954db25b6f4250c0e47
+      internalID: -793480231
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: P90
+      rect:
+        serializedVersion: 2
+        x: 273
+        y: 302
+        width: 95
+        height: 42
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0f3851d0eb48671499404314c648619a
+      internalID: -1798637041
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bizon
+      rect:
+        serializedVersion: 2
+        x: 385
+        y: 301
+        width: 126
+        height: 37
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 61a03cff22cc0ac40afb4f52c8d73837
+      internalID: 1950032176
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Aug
+      rect:
+        serializedVersion: 2
+        x: 514
+        y: 299
+        width: 124
+        height: 42
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ca660ab4e1107474abf64ba50bc7b7de
+      internalID: -1872595664
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: M4
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 170
+        width: 120
+        height: 43
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4dd627583fc2a9c4ca7f36f66fd0c9d5
+      internalID: 1724704461
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AK
+      rect:
+        serializedVersion: 2
+        x: 135
+        y: 176
+        width: 113
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4f74b0d6bde256e4b835d889af51996e
+      internalID: 266409122
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Scar
+      rect:
+        serializedVersion: 2
+        x: 257
+        y: 174
+        width: 125
+        height: 35
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 88c07bacee5e7d6438dba7eaea2849ae
+      internalID: -336847801
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mosin
+      rect:
+        serializedVersion: 2
+        x: 387
+        y: 183
+        width: 122
+        height: 18
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5259ee606115ae240a7bce0dad67f5af
+      internalID: -288779147
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AWP
+      rect:
+        serializedVersion: 2
+        x: 513
+        y: 181
+        width: 126
+        height: 25
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9d4b7f3138fbe6245938eac6e9dff6e7
+      internalID: 1809354497
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Steyr SSG
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 51
+        width: 126
+        height: 26
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f96d4a5effd8cef47b0d568eecc6514e
+      internalID: -1501697535
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dragunov
+      rect:
+        serializedVersion: 2
+        x: 129
+        y: 51
+        width: 125
+        height: 25
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c3209e7ff8739eb4c847f2dd5be0bd98
+      internalID: -236916070
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 50cal
+      rect:
+        serializedVersion: 2
+        x: 257
+        y: 51
+        width: 126
+        height: 28
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 66af8d4d14bf22a4c8a5193dddc252c1
+      internalID: 1034563774
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RPG
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 52
+        width: 127
+        height: 23
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0577f70c9030ef5468dbb823b5c55ece
+      internalID: -1602158916
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: M79
+      rect:
+        serializedVersion: 2
+        x: 514
+        y: 43
+        width: 123
+        height: 41
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aa067e9fc08adca43b3ed9bf49dbf609
+      internalID: -412594635
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      spritesheet-guns_47: -695852771
+      spritesheet-guns_0: 1414018312
+      spritesheet-guns_126: 622735997
+      spritesheet-guns_51: 1912053246
+      spritesheet-guns_68: 1477194095
+      spritesheet-guns_172: 1938744345
+      spritesheet-guns_33: -987863246
+      spritesheet-guns_170: 1835024567
+      spritesheet-guns_154: -1064701256
+      spritesheet-guns_72: 428664528
+      spritesheet-guns_19: 1011816711
+      spritesheet-guns_77: 349604956
+      spritesheet-guns_69: -1497027080
+      spritesheet-guns_162: 1143286016
+      spritesheet-guns_10: -1409488354
+      spritesheet-guns_134: 1774964942
+      spritesheet-guns_86: 766762337
+      spritesheet-guns_179: -488525487
+      spritesheet-guns_63: -29374833
+      spritesheet-guns_16: 1421691214
+      spritesheet-guns_101: 173592469
+      spritesheet-guns_13: 2122467498
+      spritesheet-guns_23: 1835592593
+      spritesheet-guns_129: 624026020
+      spritesheet-guns_153: -1517403771
+      spritesheet-guns_135: 1714340569
+      spritesheet-guns_14: 388819742
+      M4: 1724704461
+      spritesheet-guns_66: 506659533
+      M79: -412594635
+      spritesheet-guns_38: 1990750320
+      spritesheet-guns_167: -2015094725
+      spritesheet-guns_79: 1822927409
+      spritesheet-guns_174: -59291396
+      Taurus: -356738599
+      spritesheet-guns_27: -1738513358
+      spritesheet-guns_103: 572536373
+      Mosin: -288779147
+      spritesheet-guns_41: 438265009
+      spritesheet-guns_44: 1372645324
+      spritesheet-guns_84: 1494214284
+      spritesheet-guns_37: -1556323743
+      Bizon: 1950032176
+      spritesheet-guns_130: -761222413
+      spritesheet-guns_43: 1711699719
+      spritesheet-guns_108: 1249468846
+      spritesheet-guns_166: -1296955331
+      spritesheet-guns_85: 2067590264
+      spritesheet-guns_115: -1238962338
+      spritesheet-guns_141: -685079820
+      Dragunov: -236916070
+      spritesheet-guns_119: 1165786856
+      spritesheet-guns_53: -418040357
+      spritesheet-guns_132: -416666458
+      spritesheet-guns_113: 771354337
+      spritesheet-guns_178: -611499024
+      spritesheet-guns_82: -460307135
+      AK: 266409122
+      spritesheet-guns_138: 2066837361
+      spritesheet-guns_168: 1171520383
+      spritesheet-guns_50: 1512600910
+      spritesheet-guns_6: 983027985
+      spritesheet-guns_143: 56345468
+      spritesheet-guns_142: -688595188
+      Luger: -395199473
+      spritesheet-guns_52: -1915102122
+      spritesheet-guns_171: -717994883
+      spritesheet-guns_109: -1934385699
+      spritesheet-guns_80: -259832007
+      spritesheet-guns_100: 1457994079
+      spritesheet-guns_175: -986340838
+      spritesheet-guns_70: -2063095351
+      spritesheet-guns_118: 1965297796
+      Tokarev: -1385878026
+      spritesheet-guns_29: -1802875771
+      Steyr SSG: -1501697535
+      spritesheet-guns_144: 1703895523
+      spritesheet-guns_45: 984411889
+      spritesheet-guns_62: 286956485
+      Scar: -336847801
+      Aug: -1872595664
+      spritesheet-guns_57: -1345267693
+      spritesheet-guns_75: -1894146366
+      spritesheet-guns_157: 204989753
+      spritesheet-guns_48: -873512625
+      spritesheet-guns_91: 457031766
+      spritesheet-guns_87: 2107944445
+      spritesheet-guns_24: 460136616
+      spritesheet-guns_177: 998178083
+      spritesheet-guns_160: -1611215029
+      spritesheet-guns_71: 89256957
+      spritesheet-guns_90: 1677531393
+      spritesheet-guns_111: -846920894
+      spritesheet-guns_32: -77180702
+      spritesheet-guns_181: 1419330016
+      spritesheet-guns_65: -1147183328
+      spritesheet-guns_159: -1570803692
+      spritesheet-guns_164: 883173785
+      spritesheet-guns_110: -143003625
+      spritesheet-guns_58: -1086386477
+      spritesheet-guns_26: 1398309199
+      spritesheet-guns_104: -41723412
+      spritesheet-guns_60: 619379930
+      spritesheet-guns_88: 1598108417
+      P90: -1798637041
+      spritesheet-guns_140: -1378633260
+      Makarov: -813667292
+      spritesheet-guns_147: 662262308
+      spritesheet-guns_9: 1022371900
+      spritesheet-guns_105: 1521282932
+      spritesheet-guns_12: 566697628
+      spritesheet-guns_30: 1336495908
+      spritesheet-guns_116: -1430215180
+      spritesheet-guns_61: 539667689
+      spritesheet-guns_22: -396129564
+      spritesheet-guns_99: -394886748
+      spritesheet-guns_35: 2002783959
+      spritesheet-guns_49: 976376360
+      spritesheet-guns_102: -2094348965
+      spritesheet-guns_64: 1859875167
+      spritesheet-guns_161: 1641978745
+      UMP: 1144896300
+      spritesheet-guns_28: -712762300
+      spritesheet-guns_131: -629584565
+      spritesheet-guns_40: -1743589488
+      SPAS: -1161098127
+      Uzi: -793480231
+      spritesheet-guns_127: 188188905
+      M1895: 1523862437
+      spritesheet-guns_145: 288076488
+      spritesheet-guns_76: -359903337
+      spritesheet-guns_78: -1306427483
+      spritesheet-guns_158: -774411672
+      spritesheet-guns_107: 789166835
+      MP5: -613731765
+      AWP: 1809354497
+      spritesheet-guns_74: 663557631
+      spritesheet-guns_133: 1826327915
+      spritesheet-guns_21: 1164750042
+      spritesheet-guns_180: -1509537178
+      Walther: 1965760331
+      spritesheet-guns_67: -771360554
+      spritesheet-guns_112: 40330408
+      spritesheet-guns_156: 652375562
+      spritesheet-guns_18: 1804031236
+      spritesheet-guns_73: 1388758947
+      spritesheet-guns_98: 788788198
+      spritesheet-guns_39: -352669921
+      spritesheet-guns_8: 360668744
+      spritesheet-guns_34: -1527068657
+      spritesheet-guns_36: -964579117
+      spritesheet-guns_114: -1811348209
+      spritesheet-guns_46: -61147014
+      spritesheet-guns_92: -2099722603
+      spritesheet-guns_83: 1887538165
+      Glock: 407822494
+      spritesheet-guns_182: -105217150
+      spritesheet-guns_20: 370973278
+      spritesheet-guns_59: -258206212
+      RPG: -1602158916
+      spritesheet-guns_5: -1705068597
+      spritesheet-guns_11: -831413517
+      spritesheet-guns_15: 22419151
+      spritesheet-guns_120: 2070271793
+      spritesheet-guns_117: -818259118
+      57: 1058373449
+      spritesheet-guns_137: 1592217576
+      spritesheet-guns_55: -132111389
+      spritesheet-guns_173: -13401478
+      spritesheet-guns_7: -756032920
+      spritesheet-guns_42: -1803218849
+      spritesheet-guns_54: 707692766
+      spritesheet-guns_56: -2106236534
+      spritesheet-guns_89: -534690971
+      spritesheet-guns_155: -432096219
+      50cal: 1034563774
+      spritesheet-guns_81: 904348443
+      spritesheet-guns_128: -965065858
+      spritesheet-guns_163: -332866101
+      spritesheet-guns_176: -1476261103
+      spritesheet-guns_106: -74563735
+      spritesheet-guns_136: 1471141376
+      spritesheet-guns_25: 1908148137
+      spritesheet-guns_31: 639432536
+      spritesheet-guns_165: -721543041
+      spritesheet-guns_17: -1329364480
+      spritesheet-guns_139: -874538317
+      spritesheet-guns_146: -565122584
+      spritesheet-guns_169: -1133101389
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

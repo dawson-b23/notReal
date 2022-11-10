@@ -27,3 +27,11 @@ MonoBehaviour:
     weapon: {fileID: 4584753820443919968, guid: ffea40824ec6f2f45be53c7d0af83433, type: 3}
   - weaponID: scytheMelee
     weapon: {fileID: 7811358309963347309, guid: 144615d0f5837d844bb84f867bab1e9d, type: 3}
+  - weaponID: autoRanged
+    weapon: {fileID: 6367378702000997994, guid: 9127435b535d2e548aafa4434295f8ca, type: 3}
+  - weaponID: tripleRanged
+    weapon: {fileID: 3119856474336602785, guid: e5ac5f7c49f3f6845bb62873d0fdf1a4, type: 3}
+  - weaponID: clusterRanged
+    weapon: {fileID: 7020604410804413501, guid: e7af88d361b13714a862f5d4248b63b4, type: 3}
+  - weaponID: explosiveRanged
+    weapon: {fileID: 8500081953661713960, guid: 299aa290e318a054988342a7adb187c0, type: 3}

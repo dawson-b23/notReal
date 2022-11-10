@@ -1,0 +1,4 @@
+guns from
+    https://opengameart.org/content/pixel-art-guns-128x128
+farm tools from
+    https://opengameart.org/content/farming-tool-icons
