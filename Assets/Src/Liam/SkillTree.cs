@@ -39,17 +39,26 @@ using UnityEngine;
         boost.getSpeed();
 */
 
-//GET RID OF THIS !! ============================================/
+/*GET RID OF THIS !! ============================================/
 public class SkillTree : MonoBehaviour{
     //DELETE ME
     //DO NOT USE! MUST BE REMOVED FROM YOUR CODE
     //IF YOU USED IT PREVIOUSLY
     public void Upgrade(){}
 
-}
+}*/
 
 
-public class SkillTree2{ 
+public class SkillTree{
+   public static SkillTree Instance; //{get; private set;}
+
+     public static SkillTree makeSkillTree(){
+       if(Instance == null){
+        Instance = new SkillTree();
+       }
+       return Instance;  
+     }  
+
    FullPlayer boost;
  
  /*
@@ -60,7 +69,7 @@ public class SkillTree2{
 
 //TEMPORARY NAME, WILL BE SKILL TREE WHEN TEMP 
 //CLASS IS ERASED
-public SkillTree2(){
+private SkillTree(){
     boost = new upPlayer();
 }
 
@@ -78,9 +87,10 @@ public SkillTree2(){
     boost = new MovementUpgrade(boost);
    }
 
-    public int getAttack(){return boost.getAttack();}
-    public int getHealth(){return boost.getHealth();}
-    public int getSpeed(){return boost.getSpeed();}
+    //changing to multiplier, int -> float
+    public float getAttack(){return boost.getAttack();}
+    public float getHealth(){return boost.getHealth();}
+    public float getSpeed(){return boost.getSpeed();}
 
     //anwhere call
     //public int getAttackVal{return boost.getAttack();}
@@ -98,18 +108,19 @@ public abstract class FullPlayer{
   //protected FullPlayer wrappee; 
 
     //incomplete class, will be finished in decorators/FullPlayer
-    abstract public int getAttack();
-    abstract public int getHealth();
-    abstract public int getSpeed();
+    abstract public float getAttack();
+    abstract public float getHealth();
+    abstract public float getSpeed();
 }
 
 //
 public class upPlayer : FullPlayer{
-    override public int getAttack(){return 10;}
+    //changing to multiplier, return 1
+    override public float getAttack(){return 1;}
     
-    override public int getHealth(){return 10;}
+    override public float getHealth(){return 1;}
 
-    override public int getSpeed(){return 10;}
+    override public float getSpeed(){return 1;}
 }
 
 //Upgrade class acts as concrete Decorator
@@ -118,25 +129,25 @@ public class Upgrade : FullPlayer{
 
     protected FullPlayer wrappee; 
 
-    override public int getAttack(){return wrappee.getAttack();}
+    override public float getAttack(){return wrappee.getAttack();}
 
-    override public int getHealth(){return wrappee.getHealth();}
+    override public float getHealth(){return wrappee.getHealth();}
 
-    override public int getSpeed(){return wrappee.getSpeed();}
+    override public float getSpeed(){return wrappee.getSpeed();}
 }
 
 //implementation of
 public class AttackUpgrade : Upgrade{
     public AttackUpgrade(FullPlayer newwrappee){wrappee = newwrappee;}
-    override public int getAttack(){return wrappee.getAttack() + 2;} 
+    override public float getAttack(){return wrappee.getAttack() + (wrappee.getAttack() * 0.15f);} 
 }
 
 public class HealthUpgrade : Upgrade{
     public HealthUpgrade(FullPlayer newwrappee){wrappee = newwrappee;}
-    override public int getHealth(){return wrappee.getHealth() + 2;}
+    override public float getHealth(){return wrappee.getHealth() + (wrappee.getHealth() * 0.15f);}
 }
 
 public class MovementUpgrade : Upgrade{
     public MovementUpgrade(FullPlayer newwrappee){wrappee = newwrappee;}
-    override public int getSpeed(){return wrappee.getSpeed() + 2;}
+    override public float getSpeed(){return wrappee.getSpeed() + (wrappee.getSpeed() * 0.15f);}
 }

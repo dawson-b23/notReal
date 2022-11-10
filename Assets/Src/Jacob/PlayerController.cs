@@ -9,12 +9,13 @@ public class PlayerController : MonoBehaviour
     [Header("Player Settings")]
     [SerializeField]
     private float playerSpeed = 1.0f;
-    //TODO: Integrate skill tree upgrades to this getter
-    public float PlayerSpeed { get => playerSpeed; set => playerSpeed = value; }
+    private float effectiveSpeed() { return playerSpeed * SkillTree.makeSkillTree().getSpeed(); } //speed multiplied by the skill tree's speed upgrades -- spencer
+    public float PlayerSpeed { get => effectiveSpeed(); set => playerSpeed = value; }
 
     /* variables added by Spencer Butler */
     [SerializeField]
     private int maxHealth;
+    private int effectiveMaxHealth() { return Mathf.FloorToInt(maxHealth * SkillTree.makeSkillTree().getHealth()); }
     private int currentHealth;
 
     //cooldown on damage taken, to prevent rapidly repeating contact with an enemy causing instant death
@@ -79,8 +80,8 @@ public class PlayerController : MonoBehaviour
 
     void Start()
     {
-        currentHealth = maxHealth;
-        PlayerProfile.profileInstance.updateHealth(maxHealth - 10);
+        currentHealth = effectiveMaxHealth();
+        PlayerProfile.profileInstance.updateHealth(effectiveMaxHealth() - 10);
         if(!this.TryGetComponent<Rigidbody2D>(out rigidBody))
         {
             Debug.LogError("Player does not have a valid Rigidbody2D attached to it");
@@ -109,8 +110,7 @@ public class PlayerController : MonoBehaviour
 
             // TODO: Switch state to moving
 
-            //TODO: Integrate skill tree upgrades to speed for motion
-            this.transform.localPosition += new Vector3(movementInput * playerSpeed * Time.fixedDeltaTime, 0.0f, 0.0f);
+            this.transform.localPosition += new Vector3(movementInput * effectiveSpeed() * Time.fixedDeltaTime, 0.0f, 0.0f);
         }
     }
 
@@ -234,8 +234,8 @@ public class PlayerController : MonoBehaviour
      */
     public void healFully() 
     {
-        PlayerProfile.profileInstance.updateHealth(maxHealth - currentHealth);
-        currentHealth = maxHealth;
+        PlayerProfile.profileInstance.updateHealth(effectiveMaxHealth() - currentHealth);
+        currentHealth = effectiveMaxHealth();
     }
 
     /*
