@@ -57,9 +57,9 @@ public class Enemy : MonoBehaviour
     }
 
 
-    private void takeDamage() 
+    public void takeDamage(int damage) 
     {
-
+        health = health - damage;
     }
 
 
