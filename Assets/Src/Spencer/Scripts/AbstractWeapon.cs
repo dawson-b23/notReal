@@ -105,11 +105,7 @@ public abstract class AbstractWeapon : MonoBehaviour
         Enemy enemyScript;
         if(enemy.TryGetComponent<Enemy>(out enemyScript)) 
         {
-            //TODO: Make processHit call takeDamage on the enemy
-            // enemyScript.takeDamage(damage * SkillTree.makeSkillTree().getAttack());                     
-          
-            Destroy(enemyScript.gameObject);
-         
+            enemyScript.takeDamage(Mathf.FloorToInt(damage * SkillTree.makeSkillTree().getAttack()));
         } else 
         {
             Debug.Log("Unable to find enemy script in enemy hit.");

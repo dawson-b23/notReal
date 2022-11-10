@@ -99,7 +99,7 @@ public class WeaponRegistry : ScriptableObject
      */
     public static WeaponRegistry getWeaponRegistry() 
     {
-        Debug.Log("returning reg singleton, singleton value: " + singleton);
+        // Debug.Log("returning reg singleton, singleton value: " + singleton);
         return singleton;
     }
     

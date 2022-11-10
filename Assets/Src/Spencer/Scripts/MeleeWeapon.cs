@@ -158,11 +158,11 @@ public class MeleeWeapon : AbstractWeapon
     
     /*
      * Visually display the cooldown.
-     * Currently, this should never be called, since the attack length is equal to the cooldown
+     * Currently, this does nothing, since attack animations are scaled to match the length of the cooldown period
      */
     protected virtual IEnumerator visualCooldown() 
     {
-        Debug.Log("Displaying melee cooldown.....");
+        //Debug.Log("Displaying melee cooldown.....");
         yield return null;
         //for(int i = 0; i < 20; i++) 
         //{
