@@ -1,3 +1,13 @@
+/**************************************
+ * Jackson Baldwin - 11/9/2022        *
+ * UI_Shop.cs - NotReal               *
+ *                                    *
+ * Shop and UI for the ShopKeeper     *   
+ * Builds a shop from 3 random weapons*
+ * and includes one healing item      *
+***************************************/
+
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -8,6 +18,7 @@ using TMPro;
 public class UI_Shop : MonoBehaviour
 {
     private int totalHoney = 0, itemCost = 0;
+
     private GameObject playerObject;
     private Transform container;
     private Transform shopItemTemplate;
@@ -21,6 +32,7 @@ public class UI_Shop : MonoBehaviour
         shopItemTemplate.gameObject.SetActive(false);
     }
 
+    //simple toggle method to be used from other scripts
     public void ToggleUI_Shop(bool show)
     {
         gameObject.SetActive(show);
@@ -28,8 +40,11 @@ public class UI_Shop : MonoBehaviour
 
     private void Start()
     {
+        //find our player...need to reference current honey
         playerObject = GameObject.FindGameObjectWithTag("Player");
-        //Call Spencers code to populate the shop
+
+
+        //Call Spencers code to populate the shop...getting an array of 3 weapons
         AbstractWeapon[] weapon = WeaponRegistry.getWeaponRegistry().getWeapons(3);
       
         //first weapon
@@ -48,13 +63,16 @@ public class UI_Shop : MonoBehaviour
         ToggleUI_Shop(false);
         
     }
-
+    /*Creates an Instance of our ShopTemplate and populates it with the itemSprite, itemName, cost, and position for the UI.
+    * The weapon itself is passed in to be sent to the shop
+    */
     private void CreateItemInShop(AbstractWeapon weapon, Sprite itemSprite, string itemName, int itemCost, int positionIndex)
     {
         Transform shopItemTransform = Instantiate(shopItemTemplate, container);
         shopItemTransform.gameObject.SetActive(true);
         RectTransform shopItemRectTransform = shopItemTransform.GetComponent<RectTransform>();
 
+        // Set the first Item in the shop and build the others below
         float shopItemHeight = 90f;
         shopItemRectTransform.anchoredPosition = new Vector2(0, -shopItemHeight * positionIndex);
 
@@ -67,14 +85,15 @@ public class UI_Shop : MonoBehaviour
         
     }
 
+    //Essentially the entire shop...very proud of how sleek this came out
     public void TryBuyItem(AbstractWeapon weapon)
     {
 
-        Debug.Log("At least i got here");
+        
         totalHoney = playerObject.GetComponent<PlayerController>().getHoney();
-        Debug.Log("total honey is" + totalHoney);
-        itemCost = 0; //weapon.getPrice();
-        Debug.Log("Item cost is:" + itemCost);
+        
+        itemCost = weapon.getPrice();
+        
         if((itemCost <= totalHoney) && !Inventory.inventoryInstance.isFull())
         {
             playerObject.GetComponent<PlayerController>().removeHoney(itemCost);
