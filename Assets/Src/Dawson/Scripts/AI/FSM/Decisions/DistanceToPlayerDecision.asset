@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: DistanceToPlayerDecision
   m_EditorClassIdentifier: 
   targetTag: Player
-  distanceThreshold: 5
+  distanceThreshold: 15

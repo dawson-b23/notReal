@@ -24,8 +24,7 @@ public class Enemy : MonoBehaviour
     [SerializeField]
     private EnemyData data;
 
-    private PlayerController player;
-
+    PlayerController player;
 
     // rigid body and sprite for death
 
@@ -42,6 +41,11 @@ public class Enemy : MonoBehaviour
             Destroy(GetComponent<Rigidbody2D>());
             Destroy(GetComponent<SpriteRenderer>());
             Destroy(GetComponent<BoxCollider2D>());
+            MonoBehaviour[] scripts = gameObject.GetComponents<MonoBehaviour>();
+            foreach(MonoBehaviour script in scripts)
+            {
+                script.enabled = false;
+            }
             Destroy(this);
         }
     }
@@ -64,7 +68,7 @@ public class Enemy : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collider)
     {
-        health = health - 50;
-        player.takeDamage(10);
+        health -= 50;
+        player.GetComponent<PlayerController>().takeDamage(20);
     }
 }

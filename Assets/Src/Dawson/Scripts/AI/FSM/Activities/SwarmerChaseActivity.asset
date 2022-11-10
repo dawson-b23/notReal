@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: SwarmerChaseActivity
   m_EditorClassIdentifier: 
   targetTag: Player
-  speed: 4
+  speed: 3

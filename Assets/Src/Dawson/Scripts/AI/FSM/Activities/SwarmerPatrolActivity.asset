@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 42a81ce68ebe4467fab17ee37443445c, type: 3}
   m_Name: SwarmerPatrolActivity
   m_EditorClassIdentifier: 
-  speed: 2
+  speed: 1
