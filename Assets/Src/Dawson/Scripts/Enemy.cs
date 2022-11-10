@@ -65,14 +65,7 @@ public class Enemy : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collider)
     {
-        //  [[ Still working on this, player needs health value]]
-        if(collider.CompareTag("Player"))
-        {
-            //if(collider.GetComponent<PlayerController>().Health != null)
-            //{
-                //collider.GetComponent<PlayerController>().Damage(damage);
-                health = health - 100000;
-            //}
-        }
+        health = health - 50;
+        player.takeDamage(10);
     }
 }
