@@ -1,7 +1,7 @@
 /*
  *  WaitActivity.cs
  *  Dawson Burgess
- *  Logic for creating scriptable Decision objects
+ *  Logic for waiting between patrols
  */
 
 using System.Collections;
