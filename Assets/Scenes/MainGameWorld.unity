@@ -2032,10 +2032,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pooledEnemies: []
   enemyToPool:
-  - {fileID: 1110951169297176416, guid: 52f4f61f5a5e545f8baa75c22efbc856, type: 3}
-  - {fileID: 8966597880274237430, guid: 161bcc5f7bff04bc7904682d16826646, type: 3}
-  - {fileID: 7244372534119998315, guid: 9f8062afa19b94bffbfef312693e445d, type: 3}
+  - {fileID: 3497047227624451588, guid: 2561cd3dd5f3f428981b7e5041b1f137, type: 3}
+  - {fileID: 4059422493050940973, guid: 978833bb12727425085dba9171da4358, type: 3}
+  - {fileID: 895371430418400608, guid: 7e759d703d0804172ad24cf8cdb73923, type: 3}
+  - {fileID: 8214993368079303298, guid: 9bc5dff01e63b413397bee6ccc03d581, type: 3}
+  - {fileID: 6347849930230570985, guid: 5b1f5c462ecbb414a9762d551e604daf, type: 3}
+  - {fileID: 4096067943879289269, guid: 6899f6816667f46868a2e340bc9cc1de, type: 3}
+  - {fileID: 7460242825749188986, guid: 9eab68ff1d7ae4697843fba30b512116, type: 3}
+  - {fileID: 4578853291510522008, guid: 4ccd25da415804df0a670bbd21acba09, type: 3}
+  - {fileID: 3066370135435365634, guid: 459f516c22a814d0eae7362a96ca252f, type: 3}
   - {fileID: 7026112525570796650, guid: 16fbebfb5818949ea8bd33cc05fa1d84, type: 3}
+  - {fileID: 5628269839758669658, guid: 998b9febef2a94309aa5c1998d45b88e, type: 3}
   amountToPool: 40
 --- !u!114 &1229808488
 MonoBehaviour:
@@ -2049,7 +2056,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cf636523bdbce9d4aa964e5774153cc1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyStartTime: 8
+  enemyStartTime: 5
   spawnCollisionRadius: 1
 --- !u!4 &1239622559 stripped
 Transform:
@@ -2141,6 +2148,10 @@ PrefabInstance:
     - target: {fileID: 332457804081194947, guid: 565fefe30185a47269ae8fb970557c56, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 14.89563
+      objectReference: {fileID: 0}
+    - target: {fileID: 332457804179366905, guid: 565fefe30185a47269ae8fb970557c56, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -0.84308434
       objectReference: {fileID: 0}
     - target: {fileID: 332457804574900364, guid: 565fefe30185a47269ae8fb970557c56, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -3728,7 +3739,7 @@ PrefabInstance:
     - target: {fileID: 3777797514785590492, guid: 2b90bdfa1dae07a439c52df904e67599, type: 3}
       propertyPath: rooms.Array.data[7]
       value: 
-      objectReference: {fileID: 8432775190027671361, guid: 6b69e51296fd4674f8562c60ffcebcc7, type: 3}
+      objectReference: {fileID: 8432775190027671361, guid: 50b497ffc77a24d42b0d66099cde3dfc, type: 3}
     - target: {fileID: 3777797514785590492, guid: 2b90bdfa1dae07a439c52df904e67599, type: 3}
       propertyPath: worldStartingPositions.Array.size
       value: 5
