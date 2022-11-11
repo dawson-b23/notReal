@@ -27,13 +27,13 @@ public class MeleeStabber : MeleeWeapon
         totalTime = Mathf.Ceil((1.0f / 6.0f) * effectiveCooldown() / Time.fixedDeltaTime) * Time.fixedDeltaTime;
         for(double i = 0; i + Time.fixedDeltaTime / 2 < totalTime; i += Time.fixedDeltaTime) {
             yield return new WaitForFixedUpdate();
-            transform.localPosition += transform.right * (Time.fixedDeltaTime / totalTime) * 0.5f;
+            transform.position += transform.right * (Time.fixedDeltaTime / totalTime) * 0.5f;
         }
 
         totalTime *= 5;
         for(double i = 0; i + Time.fixedDeltaTime / 2 < totalTime; i += Time.fixedDeltaTime) {
             yield return new WaitForFixedUpdate();
-            transform.localPosition += transform.right * (Time.fixedDeltaTime / totalTime) * -0.5f;
+            transform.position += transform.right * (Time.fixedDeltaTime / totalTime) * -0.5f;
         }
         attacking = false;
     }

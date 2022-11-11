@@ -27,6 +27,8 @@ public class PlayerController : MonoBehaviour
     private int lifetimeHoney = 0;
     private int currentHoney = 0;
 
+    private int facing = 1;
+
     /* end of spencer-variables section */
     
     //playerLevel added by Bryan Frahm
@@ -110,6 +112,13 @@ public class PlayerController : MonoBehaviour
         {
 
             // TODO: Switch state to moving
+            
+            if(((int)Mathf.Sign(movementInput)) != facing)
+            {
+                facing = (int)Mathf.Sign(movementInput);
+                this.transform.localRotation *= Quaternion.AngleAxis(180, Vector3.up);
+
+            }
 
             this.transform.localPosition += new Vector3(movementInput * effectiveSpeed() * Time.fixedDeltaTime, 0.0f, 0.0f);
         }

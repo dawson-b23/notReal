@@ -50,12 +50,39 @@ public class RangedWeapon : AbstractWeapon
      */
     private void FixedUpdate() 
     {
+        // get the angle pointing towards the mouse from the weapon's position
+        // this sets targetAngle to a value from -180 to 180 where 0 points to the right
         Vector3 originPos = Camera.main.WorldToViewportPoint(transform.position);
         Vector3 mousePos = Camera.main.ScreenToViewportPoint(Input.mousePosition);
         Vector2 delta = new Vector2(mousePos.x - originPos.x, mousePos.y - originPos.y);
-
         float targetAngle = Mathf.Acos(delta.normalized.x) * Mathf.Rad2Deg * Mathf.Sign(delta.y);
-        transform.localRotation = Quaternion.Euler(0, 0, targetAngle);
+
+        // constrain targetAngle to a 240 degree arc centered on the current player direction
+        // also flip the sprite if the player's facing left, to prevent weapons from being upside down when they shouldn't be
+        float pary = transform.parent.rotation.eulerAngles.y;
+        Transform child = transform.GetChild(0);
+        if(pary < 1) // pary should always be 180 or 0, but equality checks with low-precision floats often fail
+        {
+            targetAngle = Mathf.Clamp(targetAngle, -120, 120);
+            child.localScale = new Vector3(1, 1, 1);
+        } else
+        {
+            if(-60 < targetAngle && targetAngle <= 0)
+            {
+                targetAngle = -60;
+            }
+            if(0 < targetAngle && targetAngle < 60)
+            {
+                targetAngle = 60;
+            }
+            // some sprites are rotated -90 degrees about the z axis to change from facing up to facing right
+            // this flips them by the proper axis -- y if they're not rotated, x if they are
+            float childz = child.transform.localRotation.eulerAngles.z * Mathf.Deg2Rad;
+            child.localScale = new Vector3(1 + 2 * Mathf.Sin(childz), 1 - 2 * Mathf.Cos(childz), 1);
+        } 
+        
+        // face the desired direction
+        transform.localRotation = Quaternion.Euler(0, pary, targetAngle);
     }
 
     /*
@@ -66,7 +93,7 @@ public class RangedWeapon : AbstractWeapon
         Projectile newProj = Instantiate(projectilePrototype);
         newProj.gameObject.SetActive(true);
         newProj.transform.position = launchPoint.transform.position;
-        newProj.transform.localRotation = transform.localRotation;
+        newProj.transform.localRotation = transform.rotation;
         newProj.setBearing(new Vector3(launchPoint.transform.position.x - transform.position.x,
                                        launchPoint.transform.position.y - transform.position.y,
                                        0));

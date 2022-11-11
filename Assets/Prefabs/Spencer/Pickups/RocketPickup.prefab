@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 2726317173033137874}
   - component: {fileID: 3898290230672490316}
   m_Layer: 0
-  m_Name: SpecificPickup
+  m_Name: RocketPickup
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

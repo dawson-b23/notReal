@@ -32,7 +32,7 @@ public class RangedMulti : RangedWeapon
             Projectile newProj = Instantiate(projectilePrototype);
             newProj.gameObject.SetActive(true);
             newProj.transform.position = launchPoint.transform.position;
-            newProj.transform.localRotation = transform.localRotation;
+            newProj.transform.localRotation = transform.rotation;
             newProj.setBearing(new Vector3(launchPoint.transform.position.x - transform.position.x,
                                            launchPoint.transform.position.y - transform.position.y,
                                            0));
