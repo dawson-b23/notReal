@@ -9,9 +9,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 402056969571850421}
-  - component: {fileID: 402056969571850426}
+  - component: {fileID: 8341955283177213675}
   m_Layer: 8
-  m_Name: TargetIndicator
+  m_Name: TargetIndicator(Shop)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -33,7 +33,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &402056969571850426
+--- !u!114 &8341955283177213675
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -42,10 +42,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 402056969571850420}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c8ab1884d7b2a774f90768cb91542a10, type: 3}
+  m_Script: {fileID: 11500000, guid: 1ce921f990adbff4db9e442824eedebd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  exit: {fileID: 7941932419017143064, guid: b27f45707631c0642a857b04b89fa43c, type: 3}
+  shop: {fileID: 5643332822353983324, guid: eab4a0271331f594a8bf397599f7b787, type: 3}
 --- !u!1 &402056970090237820
 GameObject:
   m_ObjectHideFlags: 0
@@ -119,12 +119,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: 21300000, guid: 00a207c3ac9c4ee4dace348664be562d, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 6db02e523c8bcf74c855378e05c6792d, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 0.64, y: 0.64}
+  m_Size: {x: 0.5416667, y: 0.8333333}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
