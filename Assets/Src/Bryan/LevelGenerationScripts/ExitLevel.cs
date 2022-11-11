@@ -25,7 +25,7 @@ public class ExitLevel : MonoBehaviour
          * Added by Nyah Nelson
          * makes sure that the same HUD will be on every scene with the same time, weapons, honey
          */
-         DontDestroyOnLoad(GameObject.Find("HUD"));
+         //DontDestroyOnLoad(GameObject.Find("HUD"));
     }
  
   }
