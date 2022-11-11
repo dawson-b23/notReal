@@ -14,13 +14,14 @@ public class Timer : MonoBehaviour
     private bool timerActive;
 
     // Start is called before the first frame update
-    void Start()
+    public void Start()
     {
         timerActive = true;
+
     }
 
     // Update is called once per frame
-    void Update()
+    public void Update()
     {
         if (timerActive)
         {

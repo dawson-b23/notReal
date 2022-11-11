@@ -21,6 +21,11 @@ public class ExitLevel : MonoBehaviour
          * update the player profile level value on the HUD
          */
         PlayerProfile.profileInstance.updateLevel(1);
+        /*
+         * Added by Nyah Nelson
+         * makes sure that the same HUD will be on every scene with the same time, weapons, honey
+         */
+         DontDestroyOnLoad(GameObject.Find("HUD"));
     }
  
   }
