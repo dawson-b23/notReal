@@ -30,7 +30,8 @@ using TMPro;
 public class EndGameMenu : MenuManager
 {
     public TextMeshProUGUI honeyText, timeText, levelText;
-    private int honeyValue = 0, timeValue = 0, levelValue = 0; 
+    private int honeyValue = 0, levelValue = 0;
+    private float timeValue = 0;
     PlayerController playerObject;
 
     // main menu scene is scene 0 in build settings
@@ -45,20 +46,24 @@ public class EndGameMenu : MenuManager
 
     public void returnToMainMenu()
     {
-        // restart all values back to zero
+        resetValues();
         SceneManager.LoadScene(mainMenuScene);
     }
 
     public void updateHoneyText()
     {
-        honeyValue = playerObject.GetComponent<PlayerController>().getLifetimeHoney();
+        honeyValue = PlayerProfile.moneyValue;
         honeyText.text = "YOU COLLECTED " + honeyValue + " IN HONEY";
     }
 
     public void updateTimeText()
     {
-        // timeValue = get time value somehow
-        timeText.text = "YOUR TIME " + timeValue;
+        timeValue = Timer.currentTime;
+
+        float minutes = Mathf.FloorToInt(timeValue / 60);
+        float seconds = Mathf.FloorToInt(timeValue % 60);
+
+        timeText.text = "YOUR TIME " + string.Format("{0:00} : {1:00}", minutes, seconds);
     }
 
     public void updateLevelText()
@@ -72,6 +77,17 @@ public class EndGameMenu : MenuManager
         {
             levelText.text = "YOU MADE IT THROUGH " + levelValue + " LEVELS";
         }
+    }
+
+    public void resetValues()
+    {
+        // restart all values back to zero
+        Timer.currentTime = 0f;
+        PlayerProfile.moneyValue = 0;
+        PlayerProfile.levelValue = 0;
+        PlayerController.playerLevel = 0;
+        PlayerProfile.healthValue = 0;
+        PlayerProfile.inventoryValue = 0;
     }
 
 }

@@ -8,8 +8,8 @@ public class Timer : MonoBehaviour
     [Header("Component")]
     public TextMeshProUGUI timerText;
 
-    [Header("Timer Settings")]
-    public float currentTime;
+    //[Header("Timer Settings")]
+    public static float currentTime;
 
     private bool timerActive;
 
@@ -38,7 +38,6 @@ public class Timer : MonoBehaviour
 
         timerText.text = currentTime.ToString("0");
         timerText.text = string.Format("{0:00} : {1:00}", minutes, seconds);
-            //currentTime.ToString("0");
     }
 
     public void stopTimer()

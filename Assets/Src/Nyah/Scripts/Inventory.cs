@@ -42,12 +42,11 @@ public class Inventory : MonoBehaviour
     private int maxInventory = 3;
     public List<AbstractWeapon> weaponList;
     // used to check if there is an item in one of the inventory menu slots(buttons)
-    public bool[] full;
+    public bool[] full = {false, false, false};
     // keeps hold of the weapons
-    public AbstractWeapon[] slots;
+    public AbstractWeapon[] slots = {null, null, null};
     // reference to the player
     public GameObject playerObject;
-    // reference to inventory menu
 
     // observer list to keep track of which classes are observers
     private List<Observer> observers = new List<Observer>();
@@ -69,9 +68,6 @@ public class Inventory : MonoBehaviour
         {
             inventoryInstance = this;
         }
-
-        // get player object
-        // playerObject = GameObject.FindWithTag("Player");
     }
 
     /*
@@ -155,12 +151,14 @@ public class Inventory : MonoBehaviour
                         weaponList.Add(abstractWeapon);
                         PlayerProfile.profileInstance.updateInventory(1);
                         Debug.Log("weapon added at index " + i);
-                        // activate the correct button on the menu
-                        InventoryMenu.inventoryMenuInstance.activateButton(i);
 
                         // slot is now full
                         full[i] = true;
+                        // add to abstract weapon array
                         slots[i] = abstractWeapon;
+
+                        // activate the correct button on the menu
+                        InventoryMenu.inventoryMenuInstance.activateButton(i);
                         break;
                     }
                 }

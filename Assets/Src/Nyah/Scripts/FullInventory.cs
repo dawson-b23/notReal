@@ -28,12 +28,17 @@ public class FullInventory : InventoryMenu
             Destroy(this);
             Debug.Log("error: extra Inventory menu instance");
         }
+        else
+        {
+            //DontDestroyOnLoad(this.gameObject);
+        }
     }
 
     //public void weaponButtonClick(Button clickedButton)
     public override void weaponButtonClick(Button clickedButton)
     {
-        if (clickedButton == removeButton1)
+        //if (clickedButton == removeButton1)
+        if (clickedButton == inventoryButton1)
         {
             Debug.Log("first full button is clicked");
             // remove weapon that is in the first index of the array
@@ -43,7 +48,8 @@ public class FullInventory : InventoryMenu
                 deactivateButton(0);
             }
         }
-        else if (clickedButton == removeButton2)
+        //else if (clickedButton == removeButton2)
+        if (clickedButton == inventoryButton2)
         {
             Debug.Log("second full button is clicked");
             // remove the weapon that is in the second index of the array
@@ -54,7 +60,8 @@ public class FullInventory : InventoryMenu
             }
 
         }
-        else if (clickedButton == removeButton3)
+        //else if (clickedButton == removeButton3)
+        if (clickedButton == inventoryButton3)
         {
             Debug.Log("third full button is clicked");
             // remove the weapon that is in the third index of the array

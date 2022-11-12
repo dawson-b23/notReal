@@ -44,6 +44,7 @@ public class PlayerProfile : MonoBehaviour
         else
         {
             profileInstance = this;
+            //DontDestroyOnLoad(this.gameObject);
         }
 
         // initialize values in HUD
@@ -53,7 +54,8 @@ public class PlayerProfile : MonoBehaviour
     }
 
     public TextMeshProUGUI healthText, moneyText, levelText, inventoryText;
-    public int healthValue = 0, moneyValue = 0, levelValue = 0, inventoryValue = 0;
+    public static int healthValue = 0, moneyValue = 0, levelValue = 0, inventoryValue = 0;
+    //public int inventoryValue = 0;
 
     // update health value in HUD
     public void updateHealth(int updateAmount)
@@ -81,6 +83,21 @@ public class PlayerProfile : MonoBehaviour
     {
         inventoryValue += updateAmount;
         inventoryText.text = "INVENTORY: " + inventoryValue;
+    }
+
+    public int getHealthValue()
+    {
+        return healthValue;
+    }
+
+    public int getLevelValue()
+    {
+        return levelValue;
+    }
+
+    public int getMoneyValue()
+    {
+        return moneyValue;
     }
 
     // to access : PlayerProfile.Instance.[public variable or public method]

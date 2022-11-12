@@ -25,7 +25,7 @@ using UnityEngine.SceneManagement;
  * deactivateButton(int buttonNumber) - deactivate a button
  * weaponButtonClick(Button clickedButton) - call the remove weapon function for the correct index based on the button clicked
  */
-public class InventoryMenu : MenuManager
+public class InventoryMenu : MonoBehaviour
 {
     // references to the inventory menu background 
     public GameObject menuBackground;
@@ -33,10 +33,12 @@ public class InventoryMenu : MenuManager
     public Button inventoryButton1;
     public Button inventoryButton2;
     public Button inventoryButton3;
+    public Image inventoryButton1Image, inventoryButton2Image, inventoryButton3Image;
     public Button removeButton1;
     public Button removeButton2;
     public Button removeButton3;
-    // public Button removeButton;
+    private Transform buttonTransform;
+    private Sprite weaponSprite;
 
     // inventory menu (on the HUD) singleton
     public static InventoryMenu inventoryMenuInstance { get; private set; }
@@ -47,12 +49,13 @@ public class InventoryMenu : MenuManager
         // if there is an instance, and it isn't this, delete it
         if (inventoryMenuInstance != null && inventoryMenuInstance != this)
         {
-            Destroy(this);
+            Destroy(this.gameObject);
             Debug.Log("error: extra Inventory menu instance");
         }
         else
         {
             inventoryMenuInstance = this;
+            GameObject.DontDestroyOnLoad(this.gameObject);
         }
 
         // initially disable all inventory buttons (since there is nothing in inventory at the beginning of the game)
@@ -62,26 +65,36 @@ public class InventoryMenu : MenuManager
         removeButton1.gameObject.SetActive(false);
         removeButton2.gameObject.SetActive(false);
         removeButton3.gameObject.SetActive(false);
+
     }
 
     public void Start()
     {
         // get the image of the inventory menu to edit it later
         menuBackgroundColor = menuBackground.GetComponent<Image>();
-
+        inventoryButton1Image = inventoryButton1.GetComponent<Image>();
+        inventoryButton2Image = inventoryButton2.GetComponent<Image>();
+        inventoryButton3Image = inventoryButton3.GetComponent<Image>();
     }
 
     public void activateButton(int buttonNumber)
     {
-        switch(buttonNumber)
+        // get the sprite of the weapon
+        weaponSprite = Inventory.inventoryInstance.slots[buttonNumber].gameObject.GetComponentInChildren<SpriteRenderer>().sprite;
+
+        switch (buttonNumber)
         {
             case 0:
+                //buttonTransform.Find("WeaponButton1").GetComponent<Image>().sprite = weaponSprite;
+                inventoryButton1Image.sprite = weaponSprite;
                 inventoryButton1.gameObject.SetActive(true);
                 break;
             case 1:
+                inventoryButton2Image.sprite = weaponSprite;
                 inventoryButton2.gameObject.SetActive(true);
                 break;
             case 2:
+                inventoryButton3Image.sprite = weaponSprite;
                 inventoryButton3.gameObject.SetActive(true);
                 break;
         }
