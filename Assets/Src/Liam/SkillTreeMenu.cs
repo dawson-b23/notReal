@@ -8,6 +8,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using TMPro;
 
 /*
  * SkillTreeMenu class
@@ -20,11 +22,23 @@ using UnityEngine;
  */
 public class SkillTreeMenu : MenuManager
 {
+    //public TMP_Text DisplayNumber1;
+    //public TMP_Text DisplayNumber2;
+    //public TMP_Text DisplayNumber3;
+
+    private int count1;
+    private int count2;
+    private int count3;
+
     //public static bool IsActive = false;
     [SerializeField] GameObject skillTreeUI;
 
     void Start(){
         skillTreeUI.SetActive(false);
+        //DisplayNumber1.text = "Count: " + count1.ToString() + "/5";
+        //DisplayNumber2.text = "Count: " + count2.ToString() + "/5";
+        //DisplayNumber3.text = "Count: " + count3.ToString() + "/5";
+
     }
     // Update is called once per frame
     /*
