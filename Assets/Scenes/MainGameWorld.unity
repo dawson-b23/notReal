@@ -1121,15 +1121,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 636833a1803471c47b66ad1fc85fb8c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mainMenu: {fileID: 0}
-  pauseMenu: {fileID: 0}
-  optionsMenu: {fileID: 0}
-  inventoryMenu: {fileID: 0}
-  helpMenu: {fileID: 0}
-  skillTreeMenu: {fileID: 0}
   DisplayNumber1: {fileID: 650523485}
   DisplayNumber2: {fileID: 471993062}
   DisplayNumber3: {fileID: 1489702046}
+  pauseMenu: {fileID: 0}
   skillTreeUI: {fileID: 0}
 --- !u!114 &471993062
 MonoBehaviour:
@@ -1563,15 +1558,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 636833a1803471c47b66ad1fc85fb8c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mainMenu: {fileID: 0}
+  DisplayNumber1: {fileID: 650523485}
+  DisplayNumber2: {fileID: 471993062}
+  DisplayNumber3: {fileID: 1489702046}
   pauseMenu: {fileID: 1187513360}
-  optionsMenu: {fileID: 0}
-  inventoryMenu: {fileID: 0}
-  helpMenu: {fileID: 0}
-  skillTreeMenu: {fileID: 0}
-  DisplayNumber1: {fileID: 0}
-  DisplayNumber2: {fileID: 0}
-  DisplayNumber3: {fileID: 0}
   skillTreeUI: {fileID: 1376610908}
 --- !u!1001 &546486563
 PrefabInstance:
@@ -1941,15 +1931,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 636833a1803471c47b66ad1fc85fb8c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mainMenu: {fileID: 0}
-  pauseMenu: {fileID: 0}
-  optionsMenu: {fileID: 0}
-  inventoryMenu: {fileID: 0}
-  helpMenu: {fileID: 0}
-  skillTreeMenu: {fileID: 0}
   DisplayNumber1: {fileID: 650523485}
   DisplayNumber2: {fileID: 471993062}
   DisplayNumber3: {fileID: 1489702046}
+  pauseMenu: {fileID: 0}
   skillTreeUI: {fileID: 0}
 --- !u!4 &653602392 stripped
 Transform:
@@ -3927,15 +3912,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 636833a1803471c47b66ad1fc85fb8c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mainMenu: {fileID: 0}
-  pauseMenu: {fileID: 0}
-  optionsMenu: {fileID: 0}
-  inventoryMenu: {fileID: 0}
-  helpMenu: {fileID: 0}
-  skillTreeMenu: {fileID: 0}
   DisplayNumber1: {fileID: 650523485}
   DisplayNumber2: {fileID: 471993062}
   DisplayNumber3: {fileID: 1489702046}
+  pauseMenu: {fileID: 0}
   skillTreeUI: {fileID: 0}
 --- !u!114 &1489702046
 MonoBehaviour:
@@ -4450,15 +4430,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 636833a1803471c47b66ad1fc85fb8c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mainMenu: {fileID: 0}
-  pauseMenu: {fileID: 1187513360}
-  optionsMenu: {fileID: 0}
-  inventoryMenu: {fileID: 0}
-  helpMenu: {fileID: 0}
-  skillTreeMenu: {fileID: 0}
   DisplayNumber1: {fileID: 0}
   DisplayNumber2: {fileID: 0}
   DisplayNumber3: {fileID: 0}
+  pauseMenu: {fileID: 0}
   skillTreeUI: {fileID: 1376610908}
 --- !u!114 &1588718171
 MonoBehaviour:

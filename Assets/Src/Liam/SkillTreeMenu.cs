@@ -20,15 +20,21 @@ using TMPro;
  * MakeInactive() - set IsActive to false, closing the menu
  * MakeActive() - activate the menu when the IsActive is set to true
  */
-public class SkillTreeMenu : MenuManager
+public class SkillTreeMenu : MonoBehaviour
 {
-      public TMP_Text DisplayNumber1;
+    public TMP_Text DisplayNumber1;
       public TMP_Text DisplayNumber2;
       public TMP_Text DisplayNumber3;
 
     private int count1;
     private int count2;
     private int count3;
+
+    /*
+     * Added By Nyah Nelson
+     * object reference to the pause menu
+     */
+    public GameObject pauseMenu;
 
     //public static bool IsActive = false;
     [SerializeField] GameObject skillTreeUI;
@@ -68,14 +74,11 @@ public class SkillTreeMenu : MenuManager
          * checks if the pause menu is open when the skill tree button is clicked
          * then closes the pause menu before the skill tree menu is opened
          */
-        // if the pause menu is open, close it before opening the pause menu
+        // if the pause menu is open, close it before opening the skill tree menu
         if (pauseMenu.activeSelf)
         {
-            closeMenu(Menu.PauseMenu);
+            pauseMenu.SetActive(false);
         }
-        // can also use the next two lines below instead of the line 64 and 65 (since you are now inheriting from MenuManager class)
-        // openMenu(Menu.SkillTreeMenu);
-        // pauseGame();
         skillTreeUI.SetActive(true);
         Time.timeScale = 0f;
         //IsActive = true;
