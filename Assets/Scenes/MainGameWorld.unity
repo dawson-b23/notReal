@@ -211,6 +211,10 @@ PrefabInstance:
       value: SPEED (10 EXP)
       objectReference: {fileID: 0}
     - target: {fileID: 1182408409192587275, guid: 9378227700721ab48aa2824fc1af0a53, type: 3}
+      propertyPath: m_Navigation.m_Mode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1182408409192587275, guid: 9378227700721ab48aa2824fc1af0a53, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
       value: 1
       objectReference: {fileID: 0}
@@ -1460,7 +1464,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 3
+    m_Mode: 0
     m_WrapAround: 0
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
@@ -3370,6 +3374,10 @@ PrefabInstance:
       value: HEALTH (10 EXP)
       objectReference: {fileID: 0}
     - target: {fileID: 1182408409192587275, guid: 9378227700721ab48aa2824fc1af0a53, type: 3}
+      propertyPath: m_Navigation.m_Mode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1182408409192587275, guid: 9378227700721ab48aa2824fc1af0a53, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 999842453}
@@ -4430,7 +4438,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 3
+    m_Mode: 0
     m_WrapAround: 0
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
@@ -5215,6 +5223,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1376610909}
     m_Modifications:
+    - target: {fileID: 1182408409192587275, guid: 9378227700721ab48aa2824fc1af0a53, type: 3}
+      propertyPath: m_Navigation.m_Mode
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1182408409192587275, guid: 9378227700721ab48aa2824fc1af0a53, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
