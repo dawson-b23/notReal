@@ -22,9 +22,9 @@ using TMPro;
  */
 public class SkillTreeMenu : MenuManager
 {
-    //public TMP_Text DisplayNumber1;
-    //public TMP_Text DisplayNumber2;
-    //public TMP_Text DisplayNumber3;
+      public TMP_Text DisplayNumber1;
+      public TMP_Text DisplayNumber2;
+      public TMP_Text DisplayNumber3;
 
     private int count1;
     private int count2;
@@ -35,9 +35,9 @@ public class SkillTreeMenu : MenuManager
 
     void Start(){
         skillTreeUI.SetActive(false);
-        //DisplayNumber1.text = "Count: " + count1.ToString() + "/5";
-        //DisplayNumber2.text = "Count: " + count2.ToString() + "/5";
-        //DisplayNumber3.text = "Count: " + count3.ToString() + "/5";
+        DisplayNumber1.text = "LEVEL: " + count1.ToString() + "/5";
+        DisplayNumber2.text = "LEVEL: " + count2.ToString() + "/5";
+        DisplayNumber3.text = "LEVEL: " + count3.ToString() + "/5";
 
     }
     // Update is called once per frame
@@ -79,5 +79,30 @@ public class SkillTreeMenu : MenuManager
         skillTreeUI.SetActive(true);
         Time.timeScale = 0f;
         //IsActive = true;
+    }
+
+    public void IncreaseCount1(){
+        if(count1 < 5){
+            count1++;
+            DisplayNumber1.text = "LEVEL: " + count1.ToString() + "/5"; 
+            Debug.Log("count1: " + count1);
+            
+        }
+    }
+
+    public void IncreaseCount2(){
+        if(count2 < 5){
+            count2++;
+            DisplayNumber2.text = "LEVEL: " + count2.ToString() + "/5"; 
+            Debug.Log("count2: " + count2);
+        }
+    }
+
+    public void IncreaseCount3(){
+        if(count3 < 5){
+            count3++;
+            DisplayNumber3.text = "LEVEL: " + count3.ToString() + "/5"; 
+            Debug.Log("count3: " + count3);
+        }
     }
 }
