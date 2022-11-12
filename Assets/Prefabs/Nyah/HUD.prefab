@@ -803,7 +803,7 @@ MonoBehaviour:
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
   m_Interactable: 1
-  m_TargetGraphic: {fileID: 0}
+  m_TargetGraphic: {fileID: 8165301457570766806}
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
@@ -1071,7 +1071,7 @@ MonoBehaviour:
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
   m_Interactable: 1
-  m_TargetGraphic: {fileID: 0}
+  m_TargetGraphic: {fileID: 4135450706307798116}
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
@@ -1907,10 +1907,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   weaponList: []
   full: 000000
-  slots:
-  - {fileID: 1981322296803130508}
-  - {fileID: 7462596170519184819}
-  - {fileID: 1487790556399123369}
+  slots: []
   playerObject: {fileID: 0}
 --- !u!114 &7862691063729529624
 MonoBehaviour:
@@ -2418,7 +2415,7 @@ MonoBehaviour:
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
   m_Interactable: 1
-  m_TargetGraphic: {fileID: 0}
+  m_TargetGraphic: {fileID: 8611123009880637377}
   m_OnClick:
     m_PersistentCalls:
       m_Calls:

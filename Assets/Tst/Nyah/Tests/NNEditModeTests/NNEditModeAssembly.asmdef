@@ -1,11 +1,10 @@
 {
-    "name": "NNTests",
+    "name": "NNEditModeAssembly",
     "rootNamespace": "",
     "references": [
         "UnityEngine.TestRunner",
         "UnityEditor.TestRunner",
-        "NewAssembly",
-        "Unity.TextMeshPro"
+        "NewAssembly"
     ],
     "includePlatforms": [
         "Editor"
@@ -14,8 +13,7 @@
     "allowUnsafeCode": false,
     "overrideReferences": true,
     "precompiledReferences": [
-        "nunit.framework.dll",
-        ""
+        "nunit.framework.dll"
     ],
     "autoReferenced": false,
     "defineConstraints": [

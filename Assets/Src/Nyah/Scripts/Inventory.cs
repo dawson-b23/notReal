@@ -44,7 +44,8 @@ public class Inventory : MonoBehaviour
     // used to check if there is an item in one of the inventory menu slots(buttons)
     public bool[] full = {false, false, false};
     // keeps hold of the weapons
-    public AbstractWeapon[] slots = {null, null, null};
+    //public AbstractWeapon[] slots = {null, null, null};
+    public AbstractWeapon[] slots;
     // reference to the player
     public GameObject playerObject;
 
@@ -68,6 +69,8 @@ public class Inventory : MonoBehaviour
         {
             inventoryInstance = this;
         }
+
+        slots = new AbstractWeapon[3];
     }
 
     /*
@@ -149,6 +152,11 @@ public class Inventory : MonoBehaviour
                     if (full[i] == false) // one of the slots is empty
                     {
                         weaponList.Add(abstractWeapon);
+                        if (PlayerProfile.profileInstance == null)
+                        {
+                            Debug.Log("addweapon function: PlayerProfile.profileInstance is null");
+                            return;
+                        }
                         PlayerProfile.profileInstance.updateInventory(1);
                         Debug.Log("weapon added at index " + i);
 

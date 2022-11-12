@@ -55,7 +55,7 @@ public class InventoryMenu : MonoBehaviour
         else
         {
             inventoryMenuInstance = this;
-            GameObject.DontDestroyOnLoad(this.gameObject);
+            //GameObject.DontDestroyOnLoad(this.gameObject);
         }
 
         // initially disable all inventory buttons (since there is nothing in inventory at the beginning of the game)
@@ -85,7 +85,6 @@ public class InventoryMenu : MonoBehaviour
         switch (buttonNumber)
         {
             case 0:
-                //buttonTransform.Find("WeaponButton1").GetComponent<Image>().sprite = weaponSprite;
                 inventoryButton1Image.sprite = weaponSprite;
                 inventoryButton1.gameObject.SetActive(true);
                 break;
