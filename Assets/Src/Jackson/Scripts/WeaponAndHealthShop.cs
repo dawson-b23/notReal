@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Shop : MonoBehaviour
 {
-   // private PlayerController player = null;
+    // private PlayerController player = null;
 
     int playerHoney = 0;
 
@@ -12,28 +12,28 @@ public class Shop : MonoBehaviour
     private void Start()
     {
 
-       // player = GameObject.FindGameObjectWithTag("Player");
+        // player = GameObject.FindGameObjectWithTag("Player");
     }
 
 
     public int BuyWeapon(int playerHoney)
     {
         int requiredHoney = 20;
-        
-        if (playerHoney >= requiredHoney && (playerHoney-requiredHoney) >= 0)
+
+        if (playerHoney >= requiredHoney && (playerHoney - requiredHoney) >= 0)
         {
             playerHoney -= requiredHoney;
             Debug.Log("Got weapon!");
 
             Debug.Log(playerHoney);
 
-            
+
         }
         else
         {
 
             Debug.Log("Not enough honey :(");
-            
+
         }
 
         return playerHoney;
@@ -46,13 +46,13 @@ public class Shop : MonoBehaviour
         {
             playerHoney -= requiredHoney;
             Debug.Log("Got Health!");
-            
+
         }
         else
         {
-            
+
             Debug.Log("Not enough honey :(");
-            
+
         }
 
         return playerHoney;
@@ -60,4 +60,3 @@ public class Shop : MonoBehaviour
     }
 
 }
-
