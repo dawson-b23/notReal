@@ -70,6 +70,7 @@ MonoBehaviour:
   damage: 25
   cooldown: 0.25
   displayName: Oversized Stinger
+  attackSound: meleeAttack
   price: 30
 --- !u!1 &2800971577486836050
 GameObject:

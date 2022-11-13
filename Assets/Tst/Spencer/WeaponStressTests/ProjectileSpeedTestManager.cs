@@ -34,8 +34,6 @@ public class ProjectileSpeedTestManager : MonoBehaviour
     public float launchInterval;
     public float speedInterval;
 
-    private int wastebin;
-
     /*
      * calls launch to fire the first projectile
      */
@@ -64,7 +62,7 @@ public class ProjectileSpeedTestManager : MonoBehaviour
     {
         launcher.gameObject.SetActive(true);
         launched.setSpeed(speed);
-        launcher.attack(out wastebin);
+        launcher.attack();
         speed += speedInterval;
         yield return new WaitForSeconds(launchInterval);
         StartCoroutine(launch());

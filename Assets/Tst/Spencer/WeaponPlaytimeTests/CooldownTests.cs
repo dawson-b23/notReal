@@ -29,13 +29,12 @@ public class CooldownTests
     public void attackBeforeCooldown() 
     {
         AbstractWeapon testWeapon = getTestWeapon();
-        int trash;
         float lastAttack;
-        testWeapon.attack(out trash);
+        testWeapon.attack();
         lastAttack = testWeapon.lastAttack();
         for(int i = 0; i < 5; i++) 
         {
-            testWeapon.attack(out trash);
+            testWeapon.attack();
             Assert.That(lastAttack == testWeapon.lastAttack());
         }
     }
@@ -48,15 +47,14 @@ public class CooldownTests
     public IEnumerator attackAfterCooldown() 
     {
         AbstractWeapon testWeapon = getTestWeapon();
-        int trash;
         float lastAttack;
-        testWeapon.attack(out trash);
+        testWeapon.attack();
         lastAttack = testWeapon.lastAttack();
         for(int i = 0; i < 3; i++) 
         {
             yield return new WaitForSeconds(0.5f);
             testWeapon.gameObject.SetActive(true);
-            testWeapon.attack(out trash);
+            testWeapon.attack();
             Assert.That(lastAttack != testWeapon.lastAttack());
             lastAttack = testWeapon.lastAttack();
         }

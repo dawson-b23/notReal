@@ -37,6 +37,8 @@ public abstract class AbstractWeapon : MonoBehaviour
     [SerializeField]
     private string displayName;
     [SerializeField]
+    private string attackSound;
+    [SerializeField]
     private int price;
 
     private float lastAttackTime;
@@ -68,16 +70,13 @@ public abstract class AbstractWeapon : MonoBehaviour
 
     /*
      * Processes an attack
-     *
-     * expGained is a deprecated reference to the player's exp
      */
-    //TODO: Reintegrate exp gain on killing an enemy
-    public void attack(out int expGained) 
+    public void attack() 
     {
-        expGained = 0;
         if ((Time.fixedTime - lastAttackTime) > effectiveCooldown()) 
         {
             lastAttackTime = Time.fixedTime;
+            AudioManager.instance.PlaySFX(attackSound);
             attackAnimation();
         } else 
         {
@@ -87,11 +86,10 @@ public abstract class AbstractWeapon : MonoBehaviour
 
     /*
      * Returns the effective cooldown of the weapon
-     * Effective cooldown is based on the prefab-defined cooldown and a runtime multiplier from the skill tree
+     * References to cooldown use this to support potential future implementation of things (e.g. upgrades or powerups) modifying cooldown
      */
     protected float effectiveCooldown() 
     {
-        //TODO: Get cooldown multiplier from skill tree
         return cooldown;
     }
 

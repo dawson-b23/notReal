@@ -49,6 +49,7 @@ MonoBehaviour:
   damage: 15
   cooldown: 0.4
   displayName: Triple Phaser
+  attackSound: rangedAttack
   price: 72
   projectilePrototype: {fileID: 3119856475704003958}
   cooldownParticlePrototype: {fileID: 0}

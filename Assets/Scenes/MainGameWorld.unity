@@ -4201,6 +4201,57 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f42d75d9672dca948849170bb448f434, type: 3}
+--- !u!1 &1535258409
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1535258411}
+  - component: {fileID: 1535258410}
+  m_Layer: 0
+  m_Name: AudioManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1535258410
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1535258409}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6fa3983956b7aa74b8350330c4236b44, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sfx_getXP: {fileID: 0}
+  sfx_meleeAttack: {fileID: 0}
+  sfx_rangedAttack: {fileID: 0}
+  music_mainMenu: {fileID: 8300000, guid: ef5a1917360a30d43b49f0b513043425, type: 3}
+  music_upgradeUI: {fileID: 0}
+  currentMusicObject: {fileID: 0}
+  soundObject: {fileID: 5606137210040466403, guid: c51730e977c27ce44823bc787acfde23, type: 3}
+--- !u!4 &1535258411
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1535258409}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -2.563618, y: 0.109074056, z: -0.042279623}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1542332924
 PrefabInstance:
   m_ObjectHideFlags: 0

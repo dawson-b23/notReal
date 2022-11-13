@@ -167,6 +167,7 @@ MonoBehaviour:
   damage: 20
   cooldown: 1
   displayName: Diamond Sword
+  attackSound: meleeAttack
   price: 54
 --- !u!50 &1419025417
 Rigidbody2D:

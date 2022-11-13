@@ -335,6 +335,7 @@ MonoBehaviour:
   damage: 60
   cooldown: 1.2
   displayName: Rocket Launcher
+  attackSound: rangedAttack
   price: 72
   projectilePrototype: {fileID: 7352446581772111264}
   cooldownParticlePrototype: {fileID: 0}

@@ -134,6 +134,7 @@ MonoBehaviour:
   damage: 25
   cooldown: 0.15
   displayName: P90
+  attackSound: rangedAttack
   price: 72
   projectilePrototype: {fileID: 6367378702950562977}
   cooldownParticlePrototype: {fileID: 0}

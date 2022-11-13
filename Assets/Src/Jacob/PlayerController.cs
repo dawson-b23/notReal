@@ -84,6 +84,7 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         currentHealth = effectiveMaxHealth();
+        PlayerProfile.healthValue = 0;
         PlayerProfile.profileInstance.updateHealth(effectiveMaxHealth());
         if(!this.TryGetComponent<Rigidbody2D>(out rigidBody))
         {
@@ -174,9 +175,7 @@ public class PlayerController : MonoBehaviour
         {
             canAttack = false;
             SwitchPlayerState(PlayerState.Attacking);
-            int expGained = 0;
-            currentWeapon.attack(out expGained);
-            exp += expGained;
+            currentWeapon.attack();
             StartCoroutine(AttackCooldown());
 
             // Need to switch state back after attack
