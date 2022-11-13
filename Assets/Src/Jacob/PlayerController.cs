@@ -201,9 +201,18 @@ public class PlayerController : MonoBehaviour
         AbstractWeapon oldWeapon = currentWeapon;
         currentWeapon = newWeapon;
 
-        //Set the new weapon's transform parent to the player and move it to the player's location
-        currentWeapon.transform.parent = transform;
-        currentWeapon.transform.position = transform.position;
+        //Move the new weapon's transform to the parent location
+        Transform cwt = currentWeapon.transform;
+        cwt.position = transform.position;
+        //When a transform's parent is changed, unity automatically changes the local rotation of the child
+        //It does this to make the child look the same as before it was assigned to the parent, since children are affected by parent rotations
+        //In our case, we want the child to be flipped when the parent is flipped, so the weapon shows up on the right side when the player turns
+        //So if the new weapon is not already set to have the player as its parent, set it, and adjust the rotation to undo unity's anti-flipping
+        if(cwt.parent != transform) 
+        {
+            cwt.parent = transform;
+            cwt.localEulerAngles = new Vector3(cwt.localEulerAngles.x, cwt.localEulerAngles.y + transform.localEulerAngles.y, cwt.localEulerAngles.z);
+        }
         currentWeapon.gameObject.SetActive(true);
 
         //Deactivate the old weapon so it doesn't render

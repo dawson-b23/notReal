@@ -44,6 +44,7 @@ public class RangedWeapon : AbstractWeapon
             cooldownParticlePrototype.gameObject.SetActive(false);
         }
     }
+
     
     /*
      * Turns the weapon to face the mouse
@@ -51,11 +52,12 @@ public class RangedWeapon : AbstractWeapon
     private void FixedUpdate() 
     {
         // get the angle pointing towards the mouse from the weapon's position
-        // this sets targetAngle to a value from -180 to 180 where 0 points to the right
-        Vector3 originPos = Camera.main.WorldToViewportPoint(transform.position);
-        Vector3 mousePos = Camera.main.ScreenToViewportPoint(Input.mousePosition);
+        // this sets targetAngle to a value from -180 to 180 where 0 points to the right, 90 points up, etc
+        Vector3 originPos = transform.position; 
+        Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         Vector2 delta = new Vector2(mousePos.x - originPos.x, mousePos.y - originPos.y);
         float targetAngle = Mathf.Acos(delta.normalized.x) * Mathf.Rad2Deg * Mathf.Sign(delta.y);
+
 
         // constrain targetAngle to a 240 degree arc centered on the current player direction
         // also flip the sprite if the player's facing left, to prevent weapons from being upside down when they shouldn't be
@@ -73,12 +75,18 @@ public class RangedWeapon : AbstractWeapon
             }
             if(0 < targetAngle && targetAngle < 60)
             {
+
                 targetAngle = 60;
             }
             // some sprites are rotated -90 degrees about the z axis to change from facing up to facing right
             // this flips them by the proper axis -- y if they're not rotated, x if they are
-            float childz = child.transform.localRotation.eulerAngles.z * Mathf.Deg2Rad;
-            child.localScale = new Vector3(1 + 2 * Mathf.Sin(childz), 1 - 2 * Mathf.Cos(childz), 1);
+            if(child.localRotation.eulerAngles.z > 1)
+            {
+                child.localScale = new Vector3(-1, 1, 1);
+            } else
+            {
+                child.localScale = new Vector3(1, -1, 1);
+            }
         } 
         
         // face the desired direction
