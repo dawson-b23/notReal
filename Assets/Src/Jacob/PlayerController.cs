@@ -230,7 +230,10 @@ public class PlayerController : MonoBehaviour
      */
     public void takeDamage(int damageTaken)
     {
-        //TODO: Integrate skill tree damage taken multiplier
+        if(DRBCMode.active)
+        {
+            damageTaken = 0;
+        }
         if(damageTaken > 0 && !takingDamage) 
         {
             currentHealth -= damageTaken;
