@@ -42,12 +42,12 @@ public class Inventory : MonoBehaviour
     private int maxInventory = 3;
     public List<AbstractWeapon> weaponList;
     // used to check if there is an item in one of the inventory menu slots(buttons)
-    public bool[] full;
+    public bool[] full = {false, false, false};
     // keeps hold of the weapons
+    //public AbstractWeapon[] slots = {null, null, null};
     public AbstractWeapon[] slots;
     // reference to the player
     public GameObject playerObject;
-    // reference to inventory menu
 
     // observer list to keep track of which classes are observers
     private List<Observer> observers = new List<Observer>();
@@ -70,8 +70,7 @@ public class Inventory : MonoBehaviour
             inventoryInstance = this;
         }
 
-        // get player object
-        // playerObject = GameObject.FindWithTag("Player");
+        slots = new AbstractWeapon[3];
     }
 
     /*
@@ -153,14 +152,21 @@ public class Inventory : MonoBehaviour
                     if (full[i] == false) // one of the slots is empty
                     {
                         weaponList.Add(abstractWeapon);
+                        if (PlayerProfile.profileInstance == null)
+                        {
+                            Debug.Log("addweapon function: PlayerProfile.profileInstance is null");
+                            return;
+                        }
                         PlayerProfile.profileInstance.updateInventory(1);
                         Debug.Log("weapon added at index " + i);
-                        // activate the correct button on the menu
-                        InventoryMenu.inventoryMenuInstance.activateButton(i);
 
                         // slot is now full
                         full[i] = true;
+                        // add to abstract weapon array
                         slots[i] = abstractWeapon;
+
+                        // activate the correct button on the menu
+                        InventoryMenu.inventoryMenuInstance.activateButton(i);
                         break;
                     }
                 }

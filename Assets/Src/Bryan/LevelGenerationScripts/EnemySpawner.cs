@@ -63,7 +63,7 @@ public class EnemySpawner : MonoBehaviour
        
        int range = Random.Range(0,2);
        float x;
-       float y = Random.Range(0,2);
+       float y = .5f;
         if(range == 0){
             x = -.1f;
       

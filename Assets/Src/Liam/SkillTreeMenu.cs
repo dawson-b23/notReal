@@ -8,6 +8,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using TMPro;
 
 /*
  * SkillTreeMenu class
@@ -18,27 +20,31 @@ using UnityEngine;
  * MakeInactive() - set IsActive to false, closing the menu
  * MakeActive() - activate the menu when the IsActive is set to true
  */
-public class SkillTreeMenu : MenuManager
+public class SkillTreeMenu : MonoBehaviour
 {
+    [SerializeField] GameObject pause;
+    //AudioManager stMusic = new AudioManager();
+    //SkillTree skilltree = GameObject.GetComponent<SkillTree>;
+
+      public TMP_Text DisplayNumber1;
+      public TMP_Text DisplayNumber2;
+      public TMP_Text DisplayNumber3;
+
+    private int count1;
+    private int count2;
+    private int count3;
+
     //public static bool IsActive = false;
     [SerializeField] GameObject skillTreeUI;
 
-    void Start(){
+    public void Start(){
         skillTreeUI.SetActive(false);
-    }
-    // Update is called once per frame
-    /*
-    void Update()
-    {
-        if(Input.GetKeyDown(KeyCode.Q)){
-            if(IsActive){
-                MakeInactive();
-            }else{
-                MakeActive();
-            }
+        DisplayNumber1.text = "LEVEL: " + count1.ToString() + "/5";
+        DisplayNumber2.text = "LEVEL: " + count2.ToString() + "/5";
+        DisplayNumber3.text = "LEVEL: " + count3.ToString() + "/5";
 
-        }
-    }*/
+    }
+    
 
     //Resume game
     public void MakeInactive(){
@@ -49,21 +55,45 @@ public class SkillTreeMenu : MenuManager
 
     //pause game
     public void MakeActive(){
-        /*
-         * added by Nyah Nelson
-         * checks if the pause menu is open when the skill tree button is clicked
-         * then closes the pause menu before the skill tree menu is opened
-         */
-        // if the pause menu is open, close it before opening the pause menu
-        if (pauseMenu.activeSelf)
-        {
-            closeMenu(Menu.PauseMenu);
+        if(pause.activeSelf){
+            pause.SetActive(false);
         }
-        // can also use the next two lines below instead of the line 64 and 65 (since you are now inheriting from MenuManager class)
-        // openMenu(Menu.SkillTreeMenu);
-        // pauseGame();
+
         skillTreeUI.SetActive(true);
         Time.timeScale = 0f;
+
+
+        //FindObjectOfType<AudioManager>().PlayMusic("upgradeUI");
+
+        //AudioManager.instance.PlayMusic("upgradeUI");
+        //AudioManager.instance.PlaySound("name_of_Sound");
         //IsActive = true;
+    }
+
+
+    public void IncreaseCount1(){
+        if(count1 < 5){
+            count1++;
+            DisplayNumber1.text = "LEVEL: " + count1.ToString() + "/5"; 
+            //skilltree.updateAttack;
+            //Debug.Log("count1: " + count1);
+            
+        }
+    }
+
+    public void IncreaseCount2(){
+        if(count2 < 5){
+            count2++;
+            DisplayNumber2.text = "LEVEL: " + count2.ToString() + "/5"; 
+            //Debug.Log("count2: " + count2);
+        }
+    }
+
+    public void IncreaseCount3(){
+        if(count3 < 5){
+            count3++;
+            DisplayNumber3.text = "LEVEL: " + count3.ToString() + "/5"; 
+            //Debug.Log("count3: " + count3);
+        }
     }
 }

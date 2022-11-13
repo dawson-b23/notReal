@@ -17,4 +17,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/HUD.unity
     guid: 2cda990e2423bbf4892e6590ba056729
+  - enabled: 1
+    path: Assets/Scenes/NyahTestScene.unity
+    guid: 29d1af66692b1469fb379cccdc44df1d
   m_configObjects: {}

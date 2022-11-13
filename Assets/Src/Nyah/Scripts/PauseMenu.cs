@@ -70,6 +70,19 @@ public class PauseMenu : MenuManager
     // if return to main menu button is clicked, load main menu scene
     public void returnToMain()
     {
+        resetValues();
         SceneManager.LoadScene(0);
+    }
+
+    public void resetValues()
+    {
+        // restart all values back to zero
+        Timer.currentTime = 0f;
+        PlayerProfile.moneyValue = 0;
+        PlayerProfile.levelValue = 0;
+        PlayerController.playerLevel = 0;
+        PlayerProfile.healthValue = 0;
+        PlayerProfile.inventoryValue = 0;
+
     }
 }

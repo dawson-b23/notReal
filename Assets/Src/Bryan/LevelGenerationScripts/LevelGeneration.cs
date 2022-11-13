@@ -8,6 +8,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
 /*
  * 
  * worldStartingPositions - gives position of where to start generating
@@ -59,8 +60,14 @@ public class LevelGeneration : MonoBehaviour
  
         int randStartingPos = Random.Range(0, worldStartingPositions.Length);
         transform.position = worldStartingPositions[randStartingPos].position;
-        Instantiate(rooms[0], transform.position, Quaternion.identity);
-
+        
+        if(PlayerController.playerLevel == 0){
+            //Spawn StartRoom
+            Instantiate(rooms[0], transform.position, Quaternion.identity);
+        }else{
+            //Spawn StartRoomSecondary
+            Instantiate(rooms[8], transform.position, Quaternion.identity);
+        }
         direction = Random.Range(1, 6);
         spawnShop = Random.Range(1,6);
     }
