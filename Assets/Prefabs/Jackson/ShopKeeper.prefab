@@ -159,7 +159,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 904199182871790741, guid: 8cf22dcc0569a1f44bd017130fbc46bb, type: 3}
       propertyPath: m_Name
-      value: Canvas
+      value: UI_Shop_Canvas
       objectReference: {fileID: 0}
     - target: {fileID: 3162340462481496593, guid: 8cf22dcc0569a1f44bd017130fbc46bb, type: 3}
       propertyPath: m_AnchorMax.x

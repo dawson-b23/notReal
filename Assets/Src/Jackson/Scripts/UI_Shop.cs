@@ -17,7 +17,7 @@ using TMPro;
 
 public class UI_Shop : MonoBehaviour
 {
-    private int totalHoney = 0, itemCost = 0;
+    private int totalHoney = 0, itemShopPrice = 0;
 
     private GameObject playerObject;
     private Transform container;
@@ -47,18 +47,26 @@ public class UI_Shop : MonoBehaviour
         //Call Spencers code to populate the shop...getting an array of 3 weapons
         AbstractWeapon[] weapon = WeaponRegistry.getWeaponRegistry().getWeapons(3);
       
-        //first weapon
+        //first weapon...get item's name, correct sprite, and associated cost
         string itemName = weapon[0].getDisplayName();
         Sprite itemSprite = weapon[0].gameObject.GetComponentInChildren<SpriteRenderer>().sprite;
-        CreateItemInShop(weapon[0], itemSprite, itemName, 0, 0);
+        int itemCost1 = weapon[0].getPrice();
+        CreateItemInShop(weapon[0], itemSprite, itemName, itemCost1, 0);
         //second weapon
         string itemName2 = weapon[1].getDisplayName();
         Sprite itemSprite2 = weapon[1].gameObject.GetComponentInChildren<SpriteRenderer>().sprite;
-        CreateItemInShop(weapon[1], itemSprite2, itemName2, 0, 1);
+        int itemCost2 = weapon[1].getPrice();
+        CreateItemInShop(weapon[1], itemSprite2, itemName2, itemCost2, 1);
         //third weapon
         string itemName3 = weapon[2].getDisplayName();
         Sprite itemSprite3 = weapon[2].gameObject.GetComponentInChildren<SpriteRenderer>().sprite;
-        CreateItemInShop(weapon[2], itemSprite3, itemName3, 0, 2);
+        int itemCost3 = weapon[2].getPrice();
+        CreateItemInShop(weapon[2], itemSprite3, itemName3, itemCost3, 2);
+
+        string fullRestoreName = "Full Restore";
+        Sprite fullRestoreSprite = weapon[2].gameObject.GetComponentInChildren<SpriteRenderer>().sprite;
+        CreateHealthItemInShop(fullRestoreSprite, fullRestoreName, 100, 3);
+
 
         ToggleUI_Shop(false);
         
@@ -92,12 +100,12 @@ public class UI_Shop : MonoBehaviour
         
         totalHoney = playerObject.GetComponent<PlayerController>().getHoney();
 
-        itemCost = 0; // weapon.getPrice(); making items free for demo
+        itemShopPrice = weapon.getPrice(); 
 
-        
-        if((itemCost <= totalHoney) && !Inventory.inventoryInstance.isFull())
+        //if the price is less than total player Honey (can afford the item), and player doesnt currently have a full inventory
+            if ((itemShopPrice <= totalHoney) && !Inventory.inventoryInstance.isFull())
         {
-            playerObject.GetComponent<PlayerController>().removeHoney(itemCost);
+            playerObject.GetComponent<PlayerController>().removeHoney(itemShopPrice);
             Inventory.inventoryInstance.addWeapon(weapon);
             Debug.Log("Bought an Item");
             //add item to user
@@ -107,5 +115,47 @@ public class UI_Shop : MonoBehaviour
             Debug.Log("Error/insufficient funds");
             //display error
         }
+    }
+
+    private void CreateHealthItemInShop(Sprite itemSprite, string itemName, int itemCost, int positionIndex)
+    {
+        Transform shopItemTransform = Instantiate(shopItemTemplate, container);
+        shopItemTransform.gameObject.SetActive(true);
+        RectTransform shopItemRectTransform = shopItemTransform.GetComponent<RectTransform>();
+
+        // Set the first Item in the shop and build the others below
+        float shopItemHeight = 90f;
+        shopItemRectTransform.anchoredPosition = new Vector2(0, -shopItemHeight * positionIndex);
+
+        shopItemTransform.Find("nameText").GetComponent<TextMeshProUGUI>().SetText(itemName);
+        shopItemTransform.Find("priceText").GetComponent<TextMeshProUGUI>().SetText(itemCost.ToString());
+        shopItemTransform.Find("itemImage").GetComponent<Image>().sprite = itemSprite;
+
+        //when clicked, try and purchase the weapon
+        shopItemTransform.GetComponent<Button>().onClick.AddListener(() => TryBuyHealth());
+    }
+
+    public void TryBuyHealth()
+    {
+
+
+        totalHoney = playerObject.GetComponent<PlayerController>().getHoney();
+
+        itemShopPrice = 100; //set price for a full restore...100 gold
+
+        //if the price is less than total player Honey (can afford the item), and player doesnt currently have full health
+        //still working on this idea... if ((itemShopPrice <= totalHoney) && !(playerObject.GetComponent<PlayerController>().currentHealth() == playerObject.GetComponent<PlayerController>().effectiveMaxHealth()))
+        if ((itemShopPrice <= totalHoney))
+            {
+                playerObject.GetComponent<PlayerController>().removeHoney(itemShopPrice);
+            playerObject.GetComponent<PlayerController>().healFully();
+                Debug.Log("Bought a Health Item");
+                //add item to user
+            }
+            else
+            {
+                Debug.Log("Error/insufficient funds");
+                //display error
+            }
     }
 }
