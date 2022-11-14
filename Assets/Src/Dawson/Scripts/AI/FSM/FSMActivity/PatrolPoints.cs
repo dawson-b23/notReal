@@ -21,8 +21,8 @@ namespace AI.FSM
         private void Start()
         {
             index = 0;
-            point1 = new Vector3(transform.position.x + 5, transform.position.y, transform.position.z);
-            point2 = new Vector3(transform.position.x - 5, transform.position.y, transform.position.z);
+            point1 = new Vector3(transform.position.x + 10, transform.position.y, transform.position.z);
+            point2 = new Vector3(transform.position.x - 10, transform.position.y, transform.position.z);
             points.Add(point1);
             points.Add(point2);
             targetPoint = points[index];
