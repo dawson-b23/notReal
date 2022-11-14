@@ -15,7 +15,7 @@ using UnityEngine;
  * launchPoints - an array of empties containing all the locations to spawn new projectiles
  *
  * member functions:
- * attackAnimation - fire projectiles from all launch points
+ * attackAnimation() - fire projectiles from all launch points
  */
 public class RangedMulti : RangedWeapon
 {

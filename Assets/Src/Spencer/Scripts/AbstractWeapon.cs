@@ -51,6 +51,7 @@ public abstract class AbstractWeapon : MonoBehaviour
     {
         lastAttackTime = Time.fixedTime;
         gameObject.SetActive(false);
+        DontDestroyOnLoad(gameObject);
     }
 
     /*
@@ -77,6 +78,18 @@ public abstract class AbstractWeapon : MonoBehaviour
         {
             lastAttackTime = Time.fixedTime;
             AudioManager.instance.PlaySFX(attackSound);
+
+            // This comment section left-in for oral exam polymorphism demonstrations
+            // Debug.Log("Dynamic Type of Equipped Weapon: " + this.GetType());
+            // if(typeof(RangedWeapon).IsInstanceOfType(this))
+            // {
+            //    ((RangedWeapon) this).simpleFunction();
+            //    if(typeof(RangedMulti).IsInstanceOfType(this))
+            //    {
+            //        ((RangedMulti) this).simpleFunction();
+            //     } 
+            // }
+
             attackAnimation();
         } else 
         {
