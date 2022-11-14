@@ -20,7 +20,7 @@ public class EnemyPooler : MonoBehaviour
     public GameObject[] enemyToPool;
 
     //setMaxPoolSize(in size)
-    public int amountToPool;
+    public static int amountToPool;
 
     
 
@@ -40,7 +40,11 @@ public class EnemyPooler : MonoBehaviour
             pooledEnemies.Add(obj);
             
         }
-            
+            if(ExitLevel.amountNavigated >= 1){
+        
+            Debug.Log("init");
+           amountToPool = 20;
+        }
     }
 
     // grabs enemy as it is set to active

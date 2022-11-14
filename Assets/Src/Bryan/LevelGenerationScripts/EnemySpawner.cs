@@ -14,23 +14,25 @@ public class EnemySpawner : MonoBehaviour
 
     [SerializeField]
     private float enemyStartTime = 8.0f;
+    private EnemyPooler enemyPool;
   
     //Based on playerLevel which is set in LevelGeneration: 
     // enemyComposition will spawn enemies faster
     private int enemyComposition;
     private float timeBetweenEnemy = 0.0f;
-
+   // private ExitLevel exitLevel;
     public float spawnCollisionRadius;   
     // Start is called before the first frame update
     void Start()
     {   
        
         
-        if(PlayerController.playerLevel <= 1){
+        if(ExitLevel.amountNavigated <= 1){
             enemyComposition = 0;
-        }else if(PlayerController.playerLevel > 1 && PlayerController.playerLevel <= 3){
+        }else if(ExitLevel.amountNavigated > 1 && ExitLevel.amountNavigated <= 3){
             enemyComposition = 2;
-        }else if(PlayerController.playerLevel > 3 && PlayerController.playerLevel <=5){
+            
+        }else if(ExitLevel.amountNavigated > 3 && ExitLevel.amountNavigated <=5){
             enemyComposition = 4;
         }else{
             enemyComposition = 6;

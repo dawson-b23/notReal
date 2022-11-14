@@ -2892,7 +2892,6 @@ MonoBehaviour:
   - {fileID: 3066370135435365634, guid: 459f516c22a814d0eae7362a96ca252f, type: 3}
   - {fileID: 7026112525570796650, guid: 16fbebfb5818949ea8bd33cc05fa1d84, type: 3}
   - {fileID: 5628269839758669658, guid: 998b9febef2a94309aa5c1998d45b88e, type: 3}
-  amountToPool: 40
 --- !u!114 &1229808488
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3149,6 +3148,10 @@ PrefabInstance:
     - target: {fileID: 7664338921037904866, guid: 565fefe30185a47269ae8fb970557c56, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0.7877197
+      objectReference: {fileID: 0}
+    - target: {fileID: 8321569393627076251, guid: 565fefe30185a47269ae8fb970557c56, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -0.099975586
       objectReference: {fileID: 0}
     - target: {fileID: 8321569393627076251, guid: 565fefe30185a47269ae8fb970557c56, type: 3}
       propertyPath: m_AnchoredPosition.y
