@@ -69,8 +69,6 @@ public class Inventory : MonoBehaviour
         {
             inventoryInstance = this;
         }
-
-        slots = new AbstractWeapon[3];
     }
 
     /*
@@ -227,6 +225,7 @@ public class Inventory : MonoBehaviour
                         // add the old item back to inventory
                         weaponList.Add(readdedWeapon);
                         slots[indexOfWeapon] = readdedWeapon;
+                        InventoryMenu.inventoryMenuInstance.activateButton(indexOfWeapon);
                         // a weapon was returned so don't deactiviate button
                         weaponReturn = true;
                         Debug.Log("readded weapon to index " + indexOfWeapon);
@@ -248,6 +247,7 @@ public class Inventory : MonoBehaviour
                         // add the old item back to inventory
                         weaponList.Add(readdedWeapon);
                         slots[indexOfWeapon] = readdedWeapon;
+                        InventoryMenu.inventoryMenuInstance.activateButton(indexOfWeapon);
                         // a weapon was returned so don't deactiviate button
                         weaponReturn = true;
                         Debug.Log("readded weapon to index " + indexOfWeapon);

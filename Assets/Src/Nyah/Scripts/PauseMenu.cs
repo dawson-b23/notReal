@@ -82,7 +82,7 @@ public class PauseMenu : MenuManager
         PlayerProfile.levelValue = 0;
         PlayerController.playerLevel = 0;
         PlayerProfile.healthValue = 0;
-        PlayerProfile.inventoryValue = 0;
+        Inventory.inventoryInstance.weaponList.Clear();
 
     }
 }

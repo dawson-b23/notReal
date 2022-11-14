@@ -30,12 +30,17 @@ using TMPro;
 public class EndGameMenu : MenuManager
 {
     public TextMeshProUGUI honeyText, timeText, levelText;
-    private int honeyValue = 0, levelValue = 0;
+    private int honeyValue = 0, endLevelValue = 0;
     private float timeValue = 0;
     PlayerController playerObject;
 
     // main menu scene is scene 0 in build settings
     [SerializeField] int mainMenuScene;
+
+    private void Awake()
+    {
+        Destroy(GameObject.Find("HUD"));
+    }
 
     public void Start()
     {
@@ -68,14 +73,14 @@ public class EndGameMenu : MenuManager
 
     public void updateLevelText()
     {
-        levelValue = PlayerController.playerLevel;
-        if (levelValue == 1)
+        endLevelValue = PlayerProfile.levelValue;
+        if (endLevelValue == 1)
         {
-            levelText.text = "YOU MADE IT THROUGH " + levelValue + " LEVEL";
+            levelText.text = "YOU MADE IT THROUGH " + endLevelValue + " LEVEL";
         }
         else
         {
-            levelText.text = "YOU MADE IT THROUGH " + levelValue + " LEVELS";
+            levelText.text = "YOU MADE IT THROUGH " + endLevelValue + " LEVELS";
         }
     }
 
@@ -87,7 +92,7 @@ public class EndGameMenu : MenuManager
         PlayerProfile.levelValue = 0;
         PlayerController.playerLevel = 0;
         PlayerProfile.healthValue = 0;
-        PlayerProfile.inventoryValue = 0;
+        Inventory.inventoryInstance.weaponList.Clear();
     }
 
 }

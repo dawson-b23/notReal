@@ -49,12 +49,13 @@ public class PlayerProfile : MonoBehaviour
 
         // initialize values in HUD
         updateMoney(0);
-        updateLevel(0);
+        updateLevel(1);
         updateInventory(0); 
     }
 
     public TextMeshProUGUI healthText, moneyText, levelText, inventoryText;
-    public static int healthValue = 0, moneyValue = 0, levelValue = 0, inventoryValue = 0;
+    public static int healthValue = 0, moneyValue = 0, levelValue = 0;
+    public int inventoryValue = 0;
     //public int inventoryValue = 0;
 
     // update health value in HUD
