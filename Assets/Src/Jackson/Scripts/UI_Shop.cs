@@ -22,6 +22,7 @@ public class UI_Shop : MonoBehaviour
     private GameObject playerObject;
     private Transform container;
     private Transform shopItemTemplate;
+    private Transform itemImage;
 
 
 
@@ -30,6 +31,7 @@ public class UI_Shop : MonoBehaviour
         container = transform.Find("container");
         shopItemTemplate = container.Find("shopItemTemplate");
         shopItemTemplate.gameObject.SetActive(false);
+       // itemImage = transform.Find("itemImage");
     }
 
     //simple toggle method to be used from other scripts
@@ -64,7 +66,7 @@ public class UI_Shop : MonoBehaviour
         CreateItemInShop(weapon[2], itemSprite3, itemName3, itemCost3, 2);
 
         string fullRestoreName = "Full Restore";
-        Sprite fullRestoreSprite = weapon[2].gameObject.GetComponentInChildren<SpriteRenderer>().sprite;
+        Sprite fullRestoreSprite = Resources.Load<Sprite>("Assets/Src/Jackson/Sprites/healthIcon.png");// gameObject.GetComponent<SpriteRenderer>().sprite;
         CreateHealthItemInShop(fullRestoreSprite, fullRestoreName, 100, 3);
 
 
@@ -116,7 +118,9 @@ public class UI_Shop : MonoBehaviour
             //display error
         }
     }
-
+    /*Creates an Instance of our ShopTemplate and populates it with the itemSprite, itemName, cost, and position for the UI.
+    * No weapon is sent in this instance, and ItemCost is set
+    */
     private void CreateHealthItemInShop(Sprite itemSprite, string itemName, int itemCost, int positionIndex)
     {
         Transform shopItemTransform = Instantiate(shopItemTemplate, container);
@@ -135,6 +139,7 @@ public class UI_Shop : MonoBehaviour
         shopItemTransform.GetComponent<Button>().onClick.AddListener(() => TryBuyHealth());
     }
 
+    //very similar, nearly identical to TryBuyItem...uses static values instead of getting weapon prices...if health was made in a separate folder, this could be sleeker
     public void TryBuyHealth()
     {
 

@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 1468725704575546554}
   - component: {fileID: 3616086271394427883}
   - component: {fileID: 1633727015598700665}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: ShopKeeper
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -161,6 +161,26 @@ PrefabInstance:
       propertyPath: m_Name
       value: UI_Shop_Canvas
       objectReference: {fileID: 0}
+    - target: {fileID: 904199182871790741, guid: 8cf22dcc0569a1f44bd017130fbc46bb, type: 3}
+      propertyPath: m_Layer
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1542571755234737005, guid: 8cf22dcc0569a1f44bd017130fbc46bb, type: 3}
+      propertyPath: m_Layer
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2535807990293364028, guid: 8cf22dcc0569a1f44bd017130fbc46bb, type: 3}
+      propertyPath: m_Layer
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2845118121103458510, guid: 8cf22dcc0569a1f44bd017130fbc46bb, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 4a977217a10802645b06e21c39b7f7d3, type: 3}
+    - target: {fileID: 2990421436092622849, guid: 8cf22dcc0569a1f44bd017130fbc46bb, type: 3}
+      propertyPath: m_Layer
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 3162340462481496593, guid: 8cf22dcc0569a1f44bd017130fbc46bb, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0.5
@@ -184,6 +204,10 @@ PrefabInstance:
     - target: {fileID: 3162340462481496593, guid: 8cf22dcc0569a1f44bd017130fbc46bb, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 189
+      objectReference: {fileID: 0}
+    - target: {fileID: 4051356485717339022, guid: 8cf22dcc0569a1f44bd017130fbc46bb, type: 3}
+      propertyPath: m_Layer
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 4692998156673935244, guid: 8cf22dcc0569a1f44bd017130fbc46bb, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -273,6 +297,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6074467355391992902, guid: 8cf22dcc0569a1f44bd017130fbc46bb, type: 3}
+      propertyPath: m_Layer
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 6567647461503996633, guid: 8cf22dcc0569a1f44bd017130fbc46bb, type: 3}
       propertyPath: m_fontSize
       value: 22
@@ -317,6 +345,10 @@ PrefabInstance:
       propertyPath: m_enableVertexGradient
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7503604265528058580, guid: 8cf22dcc0569a1f44bd017130fbc46bb, type: 3}
+      propertyPath: m_Layer
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 8441082325324477366, guid: 8cf22dcc0569a1f44bd017130fbc46bb, type: 3}
       propertyPath: m_margin.z
       value: -158.71692
@@ -329,6 +361,10 @@ PrefabInstance:
       propertyPath: m_sharedMaterial
       value: 
       objectReference: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+    - target: {fileID: 8564525138691597309, guid: 8cf22dcc0569a1f44bd017130fbc46bb, type: 3}
+      propertyPath: m_Layer
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 8884973294934658652, guid: 8cf22dcc0569a1f44bd017130fbc46bb, type: 3}
       propertyPath: m_Type
       value: 0
@@ -364,6 +400,10 @@ PrefabInstance:
     - target: {fileID: 9095575444142848099, guid: 8cf22dcc0569a1f44bd017130fbc46bb, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: -16.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 9128659984272798199, guid: 8cf22dcc0569a1f44bd017130fbc46bb, type: 3}
+      propertyPath: m_Layer
+      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8cf22dcc0569a1f44bd017130fbc46bb, type: 3}

@@ -18,15 +18,15 @@ public class ShopTestScript
         Assert.That(playerHoney == 30);
         Debug.Log("Pass1");
 
-        shop.BuyWeapon(playerHoney);
+        playerHoney = shop.BuyWeapon(playerHoney);
         Assert.That(playerHoney == 10);
         Debug.Log("Pass2");
 
-        shop.BuyWeapon(playerHoney);
+        playerHoney = shop.BuyWeapon(playerHoney);
         Assert.That(playerHoney == 10);
         Debug.Log("Pass3");
 
-        shop.BuyHealth(playerHoney);
+        playerHoney = shop.BuyHealth(playerHoney);
         Assert.That(playerHoney == 5);
         Debug.Log("Pass4");
 
@@ -46,19 +46,19 @@ public class ShopTestScript
         Assert.That(playerHoney == 10);
         Debug.Log("Pass1");
 
-        shop.BuyWeapon(playerHoney);
+        playerHoney = shop.BuyWeapon(playerHoney);
         Assert.That(playerHoney == 10);
         Debug.Log("Pass2");
 
-        shop.BuyHealth(playerHoney);
+        playerHoney = shop.BuyHealth(playerHoney);
         Assert.That(playerHoney == 5);
         Debug.Log("Pass3");
 
-        shop.BuyHealth(playerHoney);
+        playerHoney = shop.BuyHealth(playerHoney);
         Assert.That(playerHoney == 0);
         Debug.Log("Pass4");
 
-        shop.BuyHealth(playerHoney);
+        playerHoney = shop.BuyHealth(playerHoney);
         Assert.That(playerHoney == 0);
         Debug.Log("Pass5");
 
