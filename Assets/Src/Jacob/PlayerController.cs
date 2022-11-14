@@ -274,6 +274,12 @@ public class PlayerController : MonoBehaviour
         currentHoney += honeyAdded;
     }
 
+    public void addExp(int expAmt)
+    {
+        PlayerProfile.profileInstance.updateEXP(expAmt);
+        exp += expAmt;
+    }
+
     /*
      * Function added by Spencer Butler
      * Removes honey from the current balance

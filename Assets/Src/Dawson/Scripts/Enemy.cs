@@ -43,6 +43,9 @@ public class Enemy : MonoBehaviour
     private int honeyAmt = 0;
 
     [SerializeField]
+    private int expAmt = 5;
+
+    [SerializeField]
     private EnemyData data;
 
 
@@ -91,6 +94,7 @@ public class Enemy : MonoBehaviour
     {
         GameObject playerObject = GameObject.FindWithTag("Player");
         playerObject.GetComponent<PlayerController>().addHoney(honeyAmt); // rewards player with honey
+        playerObject.GetComponent<PlayerController>().addExp(expAmt);
 
         // deletes components and scripts associted with enemy   
         Destroy(GetComponent<Rigidbody2D>());
