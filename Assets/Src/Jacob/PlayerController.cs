@@ -274,6 +274,10 @@ public class PlayerController : MonoBehaviour
         currentHoney += honeyAdded;
     }
 
+    /*
+     *  Function added by Dawson Burgess
+     *  Adds exp to player 
+     */
     public void addExp(int expAmt)
     {
         PlayerProfile.profileInstance.updateEXP(expAmt);

@@ -82,11 +82,14 @@ public class Enemy : MonoBehaviour
     }
 
 
-    private void OnTriggerEnter2D(Collider2D collider)
+    private void OnCollisionEnter2D(Collision2D collider)
     {
-        GameObject playerObject = GameObject.FindWithTag("Player");
-        health -= 50;
-        playerObject.GetComponent<PlayerController>().takeDamage(damage);
+        if(collider.gameObject.tag == "Player") 
+        {
+            GameObject playerObject = GameObject.FindWithTag("Player");
+            health -= 10;
+            playerObject.GetComponent<PlayerController>().takeDamage(damage);
+        }
     }
 
 

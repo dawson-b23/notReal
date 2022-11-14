@@ -199,4 +199,5 @@ MonoBehaviour:
   health: 75
   speed: 1.5
   honeyAmt: 20
+  expAmt: 20
   data: {fileID: 0}
