@@ -55,7 +55,10 @@ public class Inventory : MonoBehaviour
     // inventory singleton
     public static Inventory inventoryInstance { get; private set; }
 
-    // thread safe singleton implementation
+    /* thread safe singleton
+     * other scripts can still use the singleton, but
+     * only this class can get and set the singleton instance
+     */
     private void Awake()
     {
         // check if there is only one instance

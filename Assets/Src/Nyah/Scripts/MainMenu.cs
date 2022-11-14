@@ -35,9 +35,18 @@ public class MainMenu : MenuManager
 
 
     //Created by Jackson Baldwin (with permission from BC) to start the main menu theme...no changes are made to Nyah's code
+    /*
+     * plays the background music (Jackson's feature)
+     * destroys the HUD Game Object if it is active
+     */
     void Start()
     {
         AudioManager.instance.PlayMusic("mainMenu");
+
+        if (GameObject.Find("HUD").activeSelf)
+        {
+            Destroy(GameObject.Find("HUD"));
+        }
     }
 
     /* 

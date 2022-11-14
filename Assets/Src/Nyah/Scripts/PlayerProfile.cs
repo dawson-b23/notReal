@@ -1,7 +1,7 @@
 /*
  * PlayerProfile.cs
  * Nyah Nelson
- * Player Profile information
+ * Player Profile information that is displayer on the HUD
  */
 
 using System;
@@ -16,21 +16,22 @@ using UnityEngine.UI;
  * 
  * member variables:
  * PlayerProfile Instance - singleton
- * TextMeshProUGUI objects for health, money, level, and inventory text
- * int values for health, money, level, and inventory
+ * TextMeshProUGUI objects for health, money, EXP, and inventory text
+ * int values for health, money, EXP, and inventory
  * 
  * member functions:
- * Awake() - thread safe check
+ * Awake() - thread safe singleton check
  * updateHealth() - update health value
  * updateMoney() - update money value
- * updateLevel() - update level value
+ * updateEXP() - update EXP value
  * updateInventory() - update inventory value
  */
 public class PlayerProfile : MonoBehaviour
 {
-    // thread safe singleton
-    // other scripts can still use the singleton, but
-    // only this class can get and set the singleton instance
+    /* thread safe singleton
+     * other scripts can still use the singleton, but
+     * only this class can get and set the singleton instance
+     */
     public static PlayerProfile profileInstance { get; private set; }
 
     private void Awake()
@@ -44,64 +45,59 @@ public class PlayerProfile : MonoBehaviour
         else
         {
             profileInstance = this;
-            //DontDestroyOnLoad(this.gameObject);
         }
 
         // initialize values in HUD
         updateMoney(0);
-        updateLevel(1);
+        updateEXP(0);
         updateInventory(0); 
     }
 
-    public TextMeshProUGUI healthText, moneyText, levelText, inventoryText;
-    public static int healthValue = 0, moneyValue = 0, levelValue = 0;
+    public TextMeshProUGUI healthText, moneyText, expText, inventoryText;
+    public static int healthValue = 0, moneyValue = 0, expValue = 0;
     public int inventoryValue = 0;
-    //public int inventoryValue = 0;
 
-    // update health value in HUD
+    /* update health value in HUD
+     * this function is called when the player health increases (shop) or decreases (enemies)
+     * adds the updated amount to the static variable
+     * displays the total updated amount on the HUD
+     */
     public void updateHealth(int updateAmount)
     {
         healthValue += updateAmount;
         healthText.text = "HEALTH: " + healthValue;
     }
 
-    // update money value in HUD
+    /* update money value in HUD
+     * this functin is called when the player defeats an enemy and gains honey
+     * adds the updated amount to the static variable
+     * displays the updated value on the HUD
+     */
     public void updateMoney(int updateAmount)
     {
         moneyValue += updateAmount;
         moneyText.text = "HONEY: " + moneyValue;
     }
 
-    // update level in HUD
-    public void updateLevel(int updateAmount)
+    /* update EXP in HUD
+     * this function is called when the player gains EXP
+     * adds the updated amount to the static variable
+     * displays the updated value on the HUD
+     */
+    public void updateEXP(int updateAmount)
     {
-        levelValue += updateAmount;
-        levelText.text = "LEVEL: " + levelValue;
+        expValue += updateAmount;
+        expText.text = "EXP: " + expValue;
     }
 
-    // update inventory in HUD
+    /* update inventory in HUD
+     * this function when a weapon is added or removed to inventory
+     * adds the amount to the variable
+     * displayes the updates value on the HUD
+     */
     public void updateInventory(int updateAmount)
     {
         inventoryValue += updateAmount;
         inventoryText.text = "INVENTORY: " + inventoryValue;
     }
-
-    public int getHealthValue()
-    {
-        return healthValue;
-    }
-
-    public int getLevelValue()
-    {
-        return levelValue;
-    }
-
-    public int getMoneyValue()
-    {
-        return moneyValue;
-    }
-
-    // to access : PlayerProfile.Instance.[public variable or public method]
-
-    // game object in HUD canvas: panel with text
 }

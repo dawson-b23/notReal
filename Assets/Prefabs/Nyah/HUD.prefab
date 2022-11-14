@@ -2749,6 +2749,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 3966226063579996287}
     m_Modifications:
+    - target: {fileID: 4032334278551382916, guid: 1deb460cd5e3949c0a17bbed072186b4, type: 3}
+      propertyPath: m_text
+      value: 'EXP: 10'
+      objectReference: {fileID: 0}
+    - target: {fileID: 4032334278551382918, guid: 1deb460cd5e3949c0a17bbed072186b4, type: 3}
+      propertyPath: m_Name
+      value: EXP
+      objectReference: {fileID: 0}
     - target: {fileID: 4032334278551382919, guid: 1deb460cd5e3949c0a17bbed072186b4, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: -0.33920288
@@ -2837,6 +2845,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4032334279139724489, guid: 1deb460cd5e3949c0a17bbed072186b4, type: 3}
+      propertyPath: expText
+      value: 
+      objectReference: {fileID: 332457804574900367}
     - target: {fileID: 4032334279139724491, guid: 1deb460cd5e3949c0a17bbed072186b4, type: 3}
       propertyPath: m_Name
       value: 'PlayerProfile '
@@ -2864,6 +2876,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 4032334279139724488, guid: 1deb460cd5e3949c0a17bbed072186b4, type: 3}
   m_PrefabInstance: {fileID: 3704380246486805259}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &332457804574900367 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4032334278551382916, guid: 1deb460cd5e3949c0a17bbed072186b4, type: 3}
+  m_PrefabInstance: {fileID: 3704380246486805259}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &3966226062811573273
 PrefabInstance:
   m_ObjectHideFlags: 0

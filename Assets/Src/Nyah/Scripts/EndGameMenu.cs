@@ -29,8 +29,8 @@ using TMPro;
  */
 public class EndGameMenu : MenuManager
 {
-    public TextMeshProUGUI honeyText, timeText, levelText;
-    private int honeyValue = 0, endLevelValue = 0;
+    public TextMeshProUGUI honeyText, timeText, expText;
+    private int honeyValue = 0, endEXPValue = 0;
     private float timeValue = 0;
     PlayerController playerObject;
 
@@ -46,7 +46,7 @@ public class EndGameMenu : MenuManager
     {
         updateHoneyText();
         updateTimeText();
-        updateLevelText();
+        updateEXPText();
     }
 
     public void returnToMainMenu()
@@ -68,20 +68,13 @@ public class EndGameMenu : MenuManager
         float minutes = Mathf.FloorToInt(timeValue / 60);
         float seconds = Mathf.FloorToInt(timeValue % 60);
 
-        timeText.text = "YOUR TIME " + string.Format("{0:00} : {1:00}", minutes, seconds);
+        timeText.text = "YOUR TIME: " + string.Format("{0:00} : {1:00}", minutes, seconds);
     }
 
-    public void updateLevelText()
+    public void updateEXPText()
     {
-        endLevelValue = PlayerProfile.levelValue;
-        if (endLevelValue == 1)
-        {
-            levelText.text = "YOU MADE IT THROUGH " + endLevelValue + " LEVEL";
-        }
-        else
-        {
-            levelText.text = "YOU MADE IT THROUGH " + endLevelValue + " LEVELS";
-        }
+        endEXPValue = PlayerProfile.expValue;
+        expText.text = "YOUR EXP: " + endEXPValue;
     }
 
     public void resetValues()
@@ -89,7 +82,7 @@ public class EndGameMenu : MenuManager
         // restart all values back to zero
         Timer.currentTime = 0f;
         PlayerProfile.moneyValue = 0;
-        PlayerProfile.levelValue = 0;
+        PlayerProfile.expValue = 0;
         PlayerController.playerLevel = 0;
         PlayerProfile.healthValue = 0;
         Inventory.inventoryInstance.weaponList.Clear();

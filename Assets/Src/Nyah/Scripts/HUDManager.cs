@@ -18,14 +18,5 @@ public class HUDManager : MonoBehaviour
             Debug.Log("error: extra HUDManager instance");
             Destroy(this.gameObject);
         }
-
-        Debug.Log("there are " + Inventory.inventoryInstance.inventoryAmount() + " weapons in inventory");
-        for (int i = 0; i < 3; i++)
-        {
-            if (Inventory.inventoryInstance.slots[i] == null)
-            {
-                Debug.Log("there is nothing in slots[" + i + "]");
-            }
-        }
     }
 }

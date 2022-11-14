@@ -79,10 +79,9 @@ public class PauseMenu : MenuManager
         // restart all values back to zero
         Timer.currentTime = 0f;
         PlayerProfile.moneyValue = 0;
-        PlayerProfile.levelValue = 0;
+        PlayerProfile.expValue = 0;
         PlayerController.playerLevel = 0;
         PlayerProfile.healthValue = 0;
         Inventory.inventoryInstance.weaponList.Clear();
-
     }
 }
