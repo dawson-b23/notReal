@@ -17,15 +17,7 @@ public class ExitLevel : MonoBehaviour
         // adds 1 to playerLevel everytime a world is completed
        // PlayerController.playerLevel += 1;
 
-        /* added by Nyah Nelson
-         * update the player profile level value on the HUD
-         */
-        PlayerProfile.profileInstance.updateLevel(1);
-        /*
-         * Added by Nyah Nelson
-         * makes sure that the same HUD will be on every scene with the same time, weapons, honey
-         */
-         //DontDestroyOnLoad(GameObject.Find("HUD"));
+    
     }
  
   }
