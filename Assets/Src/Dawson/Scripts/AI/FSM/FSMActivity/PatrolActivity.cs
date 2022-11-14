@@ -8,6 +8,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/*
+ *  Description
+ *
+ *  member variables:
+ *
+ *  member functions:
+ */
 namespace AI.FSM.Activities
 {
     [CreateAssetMenu(menuName = "AI/FSM/Activity/PatrolActivity")]

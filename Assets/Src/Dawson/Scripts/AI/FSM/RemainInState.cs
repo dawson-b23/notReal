@@ -9,6 +9,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/*
+ *  Description
+ *
+ *  member variables:
+ *
+ *  member functions:
+ */
 namespace AI.FSM 
 {
     [CreateAssetMenu(menuName = "AI/FSM/RemainInState")]
