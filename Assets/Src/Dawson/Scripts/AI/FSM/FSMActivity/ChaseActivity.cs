@@ -21,7 +21,7 @@ namespace AI.FSM.Activities
         public override void Enter(BaseStateMachine stateMachine)
         {
             target = GameObject.FindWithTag(targetTag);
-            stateMachine.GetComponent<Animator>().SetBool("isWalk", true);
+            //stateMachine.GetComponent<Animator>().SetBool("isWalk", true);
         }
 
 

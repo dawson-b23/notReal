@@ -22,7 +22,7 @@ namespace AI.FSM.Activities
             var SpriteRenderer  = stateMachine.GetComponent<SpriteRenderer>();
             var Animator        = stateMachine.GetComponent<Animator>();
             SpriteRenderer.flipX = (PatrolPoints.GetTargetPointDirection().x > 0) ? true : false;
-            Animator.SetBool("isWalk", true);
+            //Animator.SetBool("isWalk", true);
         }
 
 

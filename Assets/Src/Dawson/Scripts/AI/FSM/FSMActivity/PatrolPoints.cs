@@ -15,11 +15,16 @@ namespace AI.FSM
         public List<Vector3> points;
         private Vector3 targetPoint;
         private int index;
-
+        private Vector3 point1;
+        private Vector3 point2;
 
         private void Start()
         {
             index = 0;
+            point1 = new Vector3(transform.position.x + 5, transform.position.y, transform.position.z);
+            point2 = new Vector3(transform.position.x - 5, transform.position.y, transform.position.z);
+            points.Add(point1);
+            points.Add(point2);
             targetPoint = points[index];
         }
 

@@ -182,9 +182,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 07f741fe06fe04611be0ad0b31d0272e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  points:
-  - {x: 0, y: 0, z: 0}
-  - {x: 0, y: 0, z: 0}
+  points: []
 --- !u!114 &895371430418400543
 MonoBehaviour:
   m_ObjectHideFlags: 0
