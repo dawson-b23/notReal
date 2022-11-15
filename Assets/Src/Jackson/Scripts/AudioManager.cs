@@ -62,7 +62,9 @@ public class AudioManager : MonoBehaviour
         {
             case "mainMenu":
                 MusicObjectCreation(music_mainMenu);
+                break;
             case "mainMusic":
+                break;
                 MusicObjectCreation(music_mainGame);
                 break;
             case "shopKeeper":
