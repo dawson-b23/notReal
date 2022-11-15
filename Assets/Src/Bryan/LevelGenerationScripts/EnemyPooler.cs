@@ -14,18 +14,20 @@ public class EnemyPooler : MonoBehaviour
     public static EnemyPooler SharedInstance;
     //Pool Design Pattern and their class diagram descriptions listed above applicable function/variable
     //static getInstance(): ReusablePool
-    public List<GameObject> pooledEnemies;
 
-    //acquireReusable(): Reusable
+
+    // list of enemies in the pool
+    public List<GameObject> pooledEnemies;
+   
+   // array of enemies to spawn into the pool
     public GameObject[] enemyToPool;
 
-    //setMaxPoolSize(in size)
+    //sets the maximum pool size
+    //currently set to 0 until 2 worlds have been complete
     public static int amountToPool;
 
-    
-
-
     // Start is called before the first frame update
+    //Start sets the pool currently upon world generation
     void Start()
     {
      
@@ -40,10 +42,13 @@ public class EnemyPooler : MonoBehaviour
             pooledEnemies.Add(obj);
             
         }
-            if(ExitLevel.amountNavigated >= 1){
-        
-            Debug.Log("init");
-           amountToPool = 20;
+        /*added to allow dawsons enemies to function properly for the oral exam
+        Takes 2 passes through the world to start enemypool 
+        because amounttoPool= 0 until this point after the first world so no pool is instantiated
+        */
+        if(ExitLevel.amountNavigated >= 1){
+
+            amountToPool = 20;
         }
     }
 
@@ -52,8 +57,12 @@ public class EnemyPooler : MonoBehaviour
         SharedInstance = this;
     }
 
-    /* GetPooledObject() returns an object in the pooledEnemies array
 
+
+    /* GetPooledObject() returns an object in the pooledEnemies array
+    * Used in enemySpawner to return an enemy from the pool and spawn it in a random position nearby
+    * acquireReusable(): Reusable
+    *
     */
     public GameObject GetPooledObject() {
 
@@ -66,6 +75,10 @@ public class EnemyPooler : MonoBehaviour
   
     return null;
     }
+    
+    
+
+
     //Prototype, may not make it to final version
     public GameObject GetSpawnedObject() {
 
@@ -79,14 +92,16 @@ public class EnemyPooler : MonoBehaviour
     return null;
     }
 
+    
+    
     /*Despawns an object passed to the function 
         and sets it back into the pool
     */
     public void DespawnEnemy(GameObject enemy){
 
     
-    if(enemy != null){
-    //if( enemy.activeInHierarchy){
+        if(enemy != null){
+        //if( enemy.activeInHierarchy){
 
         enemy.SetActive(false); 
     }

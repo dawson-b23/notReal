@@ -78,14 +78,15 @@ public class EnemySpawner : MonoBehaviour
      
         Vector3 spawnPoint = Camera.main.ViewportToWorldPoint(new Vector3(x,y,1));
        
-      
+      //grab an enemy from the pool
             GameObject enemy = EnemyPooler.SharedInstance.GetPooledObject(); 
             if (enemy != null) {
  
- 
+                //an attempt to prevent spawning within walls
                if(!Physics.CheckSphere(spawnPoint, spawnCollisionRadius)){
      
-
+                //activate and spawn the enemy grabbed from pool
+                
                     enemy.transform.position = spawnPoint;
                     enemy.SetActive(true);
                 }else{

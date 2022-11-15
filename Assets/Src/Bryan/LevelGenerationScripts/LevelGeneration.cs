@@ -34,7 +34,9 @@ public class LevelGeneration : MonoBehaviour
 
     public bool stopGeneration;   
     public bool hasShop;
-
+    //added to fix majority or outside bounds array error
+    //used in ExitLevel.cs to reset to false
+    public static bool hasLoaded = false;
 
     [SerializeField]
     private float moveAmount;
@@ -51,16 +53,20 @@ public class LevelGeneration : MonoBehaviour
     private float timeBetweenRoom;
     private int shopIter = 0;
     private int spawnShop;
-    
+ 
    
     // Start is called before the first frame update
     void Start()
     {
        
         //causing the error outside bounds off array    
-        int randStartingPos = Random.Range(0, worldStartingPositions.Length);
+        //int randStartingPos = Random.Range(0, worldStartingPositions.Length);
+    // hasLoaded added to fix error in array
+    // seems to stem in how the rooms are spawned after the initial start room spawn    
+    if(hasLoaded == false){
+        int randStartingPos = 0;
  
-
+//causing the error outside bounds off array  
         transform.position = worldStartingPositions[randStartingPos].position;
         
         if(PlayerController.playerLevel == 0){
@@ -72,6 +78,8 @@ public class LevelGeneration : MonoBehaviour
         }
         direction = Random.Range(1, 6);
         spawnShop = Random.Range(1,6);
+        hasLoaded = true;
+    }
     }
     private void Update()
     {
@@ -136,7 +144,7 @@ public class LevelGeneration : MonoBehaviour
                     rand = 4;                  
                 }
                 else
-                {   //spawn shop
+                {   //spawns shop when shopIter == spawnShop
                     if(hasShop == false && spawnShop == shopIter){
                         rand = 7;
                         hasShop = true;
@@ -146,14 +154,7 @@ public class LevelGeneration : MonoBehaviour
                     rand = Random.Range(1, 4);
                     }
                 }
-/*
-                //spawn shop
-                if(hasShop == false && spawnShop == shopIter){
-                    Instantiate(rooms[7], transform.position, Quaternion.identity);
-                   hasShop = true;
-                }//spawn rand room
-                else{
-  */
+                //spawn room with a left opening
                 Instantiate(rooms[rand], transform.position, Quaternion.identity);
                 shopIter = shopIter + 1;
                 
@@ -192,7 +193,7 @@ public class LevelGeneration : MonoBehaviour
                 }
                 else {
 
-                    //spawn shop
+                    //spawn shop same as other direction
                      if(hasShop == false && spawnShop == shopIter){
                         rand = 7;
                         hasShop = true;
@@ -201,13 +202,7 @@ public class LevelGeneration : MonoBehaviour
                     rand = Random.Range(1, 4);
                     }
                 }
-                /*
-                if(hasShop == false && spawnShop == shopIter){
-                    Instantiate(rooms[7], transform.position, Quaternion.identity);
-                    hasShop = true;
-                }//spawn rand room
-                else{
-                    */
+              //spawn either room with right opening or shop depending on value of rand
                 Instantiate(rooms[rand], transform.position, Quaternion.identity);
                 shopIter = shopIter + 1;
                 
@@ -236,12 +231,13 @@ public class LevelGeneration : MonoBehaviour
 
 
                 if (direction == 5)
-                {
-                    //spawn an exit room point
+                {   //Seems redundent but also breaks when else is removed so it stays
+                    //spawn a room with a top opening
                     rand = 4;
                    
 
                 }
+            
                 else
                 {
                     //added to give a room with a top opening
@@ -251,11 +247,12 @@ public class LevelGeneration : MonoBehaviour
 
                 }
                 Instantiate(rooms[rand], transform.position, Quaternion.identity);
-                
+              /*  
                 if(spawnShop != shopIter)
                 {
                 shopIter = shopIter + 1;
                 }
+                */
             }
             else
             {
@@ -298,6 +295,7 @@ public class LevelGeneration : MonoBehaviour
                     // stop generation
                     //
                   stopGeneration = true;
+                 
                 //Added for Jackson
                  AudioManager.instance.PlayMusic("mainGame");
             }

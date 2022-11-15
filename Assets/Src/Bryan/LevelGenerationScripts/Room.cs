@@ -2,6 +2,7 @@
  * Room.cs
  * Bryan Frahm
  * Obsolete/Not Used
+ * Mostly used to test the idea behind setting enemies based on level early on
  * Sets contents of rooms
  */
 

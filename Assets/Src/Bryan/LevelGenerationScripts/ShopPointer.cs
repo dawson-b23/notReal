@@ -17,10 +17,20 @@ private Vector2 shopPosition;
     private void Update()
     {
       shop = GameObject.Find("ShopKeeper");
-      shopPosition = new Vector2(shop.transform.position.x, shop.transform.position.y);
-      var dir = shop.transform.position - transform.position;
+      
+      //added if else statment to catch the null reference error that kept appearing. 
+      if(shop){
+        
+        shopPosition = new Vector2(shop.transform.position.x, shop.transform.position.y);
+        var dir = shop.transform.position - transform.position;
 
-      var angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
-      transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
+        var angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
+        transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
+      
+      }else{
+      
+       //do nothing
+      
+      }
     }
 }

@@ -1,3 +1,10 @@
+/*ExitLevel.cs
+Bryan Frahm
+A script attached to an exit that reloads the scene
+Also keeps track of amountNavigated for EnemySpawner.cs
+as well as hasLoaded
+*/
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -14,7 +21,7 @@ public class ExitLevel : MonoBehaviour
     Debug.Log("collided");
 
     if(col.CompareTag("Player")){
-        
+         LevelGeneration.hasLoaded = false;
           amountNavigated = amountNavigated + 1;
           SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         // adds 1 to playerLevel everytime a world is completed
