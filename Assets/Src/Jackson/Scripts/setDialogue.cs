@@ -67,7 +67,9 @@ public class setDialogue : MonoBehaviour
         ToggleIndicator(false);
         //Start first dialogue
         GetDialogue(0);
-     
+        //call instance of audio manager when first dialogue string is read
+        AudioManager.instance.PlaySFX("interactBC");
+
     }
 
     private void GetDialogue(int i)
@@ -128,6 +130,8 @@ public class setDialogue : MonoBehaviour
             if(index < dialogues.Count)
             {
                 GetDialogue(index);
+                //call instance of audio manager every time a new dialogue box is made. This way, BC will continue to buzz as she talks
+                AudioManager.instance.PlaySFX("interactBC");
             }
             else
             {

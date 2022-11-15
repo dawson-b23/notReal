@@ -132,6 +132,7 @@ public class PlayerController : MonoBehaviour
         if(Input.GetButtonDown("Jump"))
         {
             PlayerJump();
+            
         }
 
         if(Input.GetButton("Fire1"))
@@ -150,6 +151,7 @@ public class PlayerController : MonoBehaviour
             // Zero 'Y' velocity
             rigidBody.velocity = new Vector2(rigidBody.velocity.x, 0.0f);
             rigidBody.AddForce(new Vector2(0.0f, jumpForce), ForceMode2D.Impulse);
+            AudioManager.instance.PlaySFX("playerJump");
 
             // Need to switch state back after jump
         }

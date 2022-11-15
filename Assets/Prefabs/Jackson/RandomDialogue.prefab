@@ -48,8 +48,34 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   indicator: {fileID: 9109889014629742585}
   window: {fileID: 1952129782971892970}
+  dialogues:
+  - Got any...honey?
+  - Buzz Buzz!
+  - Have you checked out the shop? It's got cool weapons and health potions!
+  - Gosh this place is STICKY! Have you tried clinging to the walls?
+  - If you're looking for bee puns, you're in the right place!
+  - NIce weapon! want a new one? Go to the shop!
+  - These enemies are a little freaky, no?
+  - I wish I was not bound to a frozen x and y axis...
+  - BUZZ BUZZ BUZZ!!!!
+  - uhh hey *UwU* you're...kinda c-cute
+  - Did you know Tame Impala is only one guy?
+  - That shop sure does has some jammin tunes
+  - '*ppft* That was gross. I apologize immensely.'
+  - You look familiar! Have I seen you somewhere?
+  - These creatures are scary!!! Please save us!
+  - buzzzzzzzzzZ...
+  - I'm pretty chatty, so talk to me as much as you'd like!
+  - A b-bee?! I've only seen witches and trolls all day!
+  - You look pretty strong...have you tried using the "Upgrade Tab"  yet?
+  - Does Queen BC scare you? I've heard she's pretty powerful!
+  - The shopKeeper reminds me of some celebrity. I think his name was Jerry?
+  - Buzzz...buzz buzz!!
+  - AAAAAH!!!! Oh it's just you. Hello!
+  - NIGHTMARE NIGHTMARE NIGHTMARE
+  - Do you like my hat? I'm a lil' Cowboy!
   dialogueText: {fileID: 4506504747683071431}
-  writingSpeed: 0.3
+  writingSpeed: 0.04
 --- !u!1 &1952129782971892970
 GameObject:
   m_ObjectHideFlags: 0
@@ -412,7 +438,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: f865fc86814f4df4b9fe17c8991c0857, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 5ecca80b4e612e34fbf2b622ad5e8785, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

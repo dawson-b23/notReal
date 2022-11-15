@@ -21,7 +21,7 @@ public class randomDialogue : MonoBehaviour
     //Window
     public GameObject window;
     //Dialogues List
-    private List<string> dialogues;
+    public List<string> dialogues;
     //character index;
     private int charIndex;
     //Index on dialogue
@@ -63,9 +63,11 @@ public class randomDialogue : MonoBehaviour
         ToggleWindow(true);
         //hide indicator
         ToggleIndicator(false);
-        //Start first dialogue
-        GetDialogue(0);
-     
+        //Start a random dialogue
+        int randNum = Random.Range(0, 25);
+        GetDialogue(randNum);
+        AudioManager.instance.PlaySFX("interactNPC");
+
     }
 
     private void GetDialogue(int i)
@@ -123,15 +125,15 @@ public class randomDialogue : MonoBehaviour
         {
             WaitForNext = false;
             index++;
-            if(index < dialogues.Count)
+         /*   if(index < dialogues.Count)
             {
                 GetDialogue(index);
             }
             else
             {
-                ToggleIndicator(true);
+         */       ToggleIndicator(true);
                 EndDialogue();
-            }
+          //  }
 
         }
     }

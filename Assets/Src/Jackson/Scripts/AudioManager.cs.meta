@@ -3,7 +3,15 @@ guid: 6fa3983956b7aa74b8350330c4236b44
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - sfx_getXP: {instanceID: 0}
+  - sfx_meleeAttack: {instanceID: 0}
+  - sfx_rangedAttack: {instanceID: 0}
+  - sfx_playerJump: {fileID: 8300000, guid: 6498bcdced7098946b7c4b69a9d49690, type: 3}
+  - music_mainMenu: {instanceID: 0}
+  - music_upgradeUI: {instanceID: 0}
+  - currentMusicObject: {instanceID: 0}
+  - soundObject: {instanceID: 0}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 
