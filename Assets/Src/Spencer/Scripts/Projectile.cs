@@ -19,13 +19,13 @@ using UnityEngine;
  * startTime - the time the projectile is fired
  *
  * member functions:
- * Sart() - start the automatic despawn timer
+ * Start() - start the automatic despawn timer
  * FixedUpdate() - moves the projectile
  * OnCollisionEnter2D() - destroys the projectile, and if it hit an enemy, damage the enemy
  * timeout() - destroys the projectile after its lifetime is over
- * setSpeed(float) - setter for speed
- * setSpeed(RangedWeapon) - setter for source
- * setBearing(Vector3) - setter for bearing
+ * setSpeed() - setter for speed
+ * setSpeed() - setter for source
+ * setBearing() - setter for bearing
  */
 public class Projectile : MonoBehaviour 
 {
@@ -69,19 +69,6 @@ public class Projectile : MonoBehaviour
     }
 
     /*
-     * Destroy the projectile if it lives too long without hitting anything
-     */
-    private IEnumerator timeout() 
-    {
-        startTime = Time.fixedTime;
-        while(Time.fixedTime < startTime + lifetime)
-        {
-            yield return new WaitForFixedUpdate();
-        }
-        Destroy(gameObject);
-    }
-
-    /*
      * setter for speed
      */
     public void setSpeed(float newSpeed) { speed = newSpeed; }
@@ -96,6 +83,19 @@ public class Projectile : MonoBehaviour
      */
     public void setBearing(Vector3 newBearing) {
         bearing = newBearing.normalized;
+    }
+
+    /*
+     * Destroy the projectile if it lives too long without hitting anything
+     */
+    private IEnumerator timeout() 
+    {
+        startTime = Time.fixedTime;
+        while(Time.fixedTime < startTime + lifetime)
+        {
+            yield return new WaitForFixedUpdate();
+        }
+        Destroy(gameObject);
     }
 
 }

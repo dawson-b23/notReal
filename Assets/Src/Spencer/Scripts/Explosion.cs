@@ -20,6 +20,7 @@ using UnityEngine;
  * Start() - begin the explosion
  * OnTriggerEnter2D() - have the source weapon damage any enemy hit
  * explode() - visually perform the explosion
+ * setSource() - setter for source 
  */
 public class Explosion : MonoBehaviour
 {
@@ -49,6 +50,9 @@ public class Explosion : MonoBehaviour
         }
     }
 
+    // Setter for source
+    public void setSource(RangedWeapon newSource) { source = newSource; }
+
     /*
      * Grow from nothing to the maxSize
      * Then quickly fade out
@@ -74,8 +78,6 @@ public class Explosion : MonoBehaviour
         Destroy(gameObject);
     }
 
-    // Setter for source
-    public void setSource(RangedWeapon newSource) { source = newSource; }
 
 
 }

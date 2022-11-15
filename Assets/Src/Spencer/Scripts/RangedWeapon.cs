@@ -94,6 +94,15 @@ public class RangedWeapon : AbstractWeapon
     }
 
     /*
+     * Wrapper for processHit, enabling the projectile to call it when it hits an enemy
+     */
+    public void processProjectileHit(GameObject enemy) 
+    {
+        processHit(enemy);
+    }
+
+
+    /*
      * Create a new projectile, move it to the launchPoint
      */
     protected override void attackAnimation() 
@@ -121,14 +130,6 @@ public class RangedWeapon : AbstractWeapon
                 newParticle.transform.position = launchPoint.transform.position;
             }
         }
-    }
-
-    /*
-     * Wrapper for processHit, enabling the projectile to call it when it hits an enemy
-     */
-    public void processProjectileHit(GameObject enemy) 
-    {
-        processHit(enemy);
     }
 
 }

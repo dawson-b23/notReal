@@ -71,29 +71,6 @@ public class WeaponRegistry : ScriptableObject
         initializeDictionary();
     }
 
-
-    /*
-     * Convert the array inputWeapons into a dictionary
-     * Log any duplicate IDs as an error
-     */
-    private void initializeDictionary() 
-    {
-        //Debug.Log("WeaponRegistry converting entered weapon list to dictionary.");
-        weapons.Clear();
-        foreach(WeaponListing i in inputWeapons) 
-        {
-            if(weapons.ContainsKey(i.weaponID)) 
-            {
-                Debug.LogError("Duplicate weaponID: " + i.weaponID);
-            } else 
-            {
-                weapons.Add(i.weaponID, i.weapon);
-            }
-        }
-        //Debug.Log("WeaponRegistry conversion finished.");
-    }
-
-
     /*
      * Static getter allowing other classes to access the singleton
      */
@@ -156,6 +133,28 @@ public class WeaponRegistry : ScriptableObject
             possibleIndices.RemoveAt(currentRandom);
         }
         return returnedWeapons;
+    }
+
+
+    /*
+     * Convert the array inputWeapons into a dictionary
+     * Log any duplicate IDs as an error
+     */
+    private void initializeDictionary() 
+    {
+        //Debug.Log("WeaponRegistry converting entered weapon list to dictionary.");
+        weapons.Clear();
+        foreach(WeaponListing i in inputWeapons) 
+        {
+            if(weapons.ContainsKey(i.weaponID)) 
+            {
+                Debug.LogError("Duplicate weaponID: " + i.weaponID);
+            } else 
+            {
+                weapons.Add(i.weaponID, i.weapon);
+            }
+        }
+        //Debug.Log("WeaponRegistry conversion finished.");
     }
 
 }
