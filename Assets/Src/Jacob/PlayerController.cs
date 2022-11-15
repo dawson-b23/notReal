@@ -5,7 +5,6 @@ using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
-    public int playerexp = 0;
 
     [Header("Player Settings")]
     [SerializeField]
@@ -24,7 +23,7 @@ public class PlayerController : MonoBehaviour
     private float damageCooldown;
     private bool takingDamage = false;
 
-    private int lifetimeHoney = 0;
+    private static int lifetimeHoney = 0;
     private int currentHoney = 0;
 
     private int facing = 1;
@@ -34,7 +33,6 @@ public class PlayerController : MonoBehaviour
     //playerLevel added by Bryan Frahm
     public static int playerLevel = 0;
   
-    //TEMP
     public int exp = 0;
 
     [SerializeField]
@@ -86,6 +84,9 @@ public class PlayerController : MonoBehaviour
         currentHealth = effectiveMaxHealth();
         PlayerProfile.healthValue = 0;
         PlayerProfile.profileInstance.updateHealth(effectiveMaxHealth());
+
+        currentHoney = PlayerProfile.moneyValue;
+        exp = PlayerProfile.expValue;
         if(!this.TryGetComponent<Rigidbody2D>(out rigidBody))
         {
             Debug.LogError("Player does not have a valid Rigidbody2D attached to it");
@@ -132,7 +133,6 @@ public class PlayerController : MonoBehaviour
         if(Input.GetButtonDown("Jump"))
         {
             PlayerJump();
-            
         }
 
         if(Input.GetButton("Fire1"))
@@ -152,7 +152,6 @@ public class PlayerController : MonoBehaviour
             rigidBody.velocity = new Vector2(rigidBody.velocity.x, 0.0f);
             rigidBody.AddForce(new Vector2(0.0f, jumpForce), ForceMode2D.Impulse);
             AudioManager.instance.PlaySFX("playerJump");
-
             // Need to switch state back after jump
         }
     }
@@ -220,6 +219,8 @@ public class PlayerController : MonoBehaviour
         //Return it so the old weapon can be readded to the inventory
         if(oldWeapon != null) 
         {
+            oldWeapon.transform.parent = null;
+            DontDestroyOnLoad(oldWeapon.gameObject);
             oldWeapon.gameObject.SetActive(false);
         }
         return oldWeapon;
@@ -309,7 +310,7 @@ public class PlayerController : MonoBehaviour
      * Function added by Spencer Butler
      * Returns the total honey accumulated so far
      */
-    public int getLifetimeHoney() 
+    public static int getLifetimeHoney() 
     {
         return lifetimeHoney;
     }
