@@ -110,7 +110,7 @@ public class UI_Shop : MonoBehaviour
             playerObject.GetComponent<PlayerController>().removeHoney(itemShopPrice);
             Inventory.inventoryInstance.addWeapon(weapon);
             //kaching!
-            AudioManager.instance.PlaySFX("boughtItem");
+            AudioManager.instance.PlaySFX("buyItem");
             Debug.Log("Bought an Item");
             //add item to user
         }
@@ -159,7 +159,7 @@ public class UI_Shop : MonoBehaviour
                 playerObject.GetComponent<PlayerController>().removeHoney(itemShopPrice);
                 playerObject.GetComponent<PlayerController>().healFully();
                 Debug.Log("Bought a Health Item");
-                AudioManager.instance.PlaySFX("boughtItem");
+                AudioManager.instance.PlaySFX("buyItem");
             //add item to user
         }
             else
