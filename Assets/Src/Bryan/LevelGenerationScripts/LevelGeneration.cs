@@ -60,11 +60,12 @@ public class LevelGeneration : MonoBehaviour
     {
        
         //causing the error outside bounds off array    
-        //int randStartingPos = Random.Range(0, worldStartingPositions.Length);
+      //  int randStartingPos = Random.Range(0, worldStartingPositions.Length);
     // hasLoaded added to fix error in array
     // seems to stem in how the rooms are spawned after the initial start room spawn    
     if(hasLoaded == false){
-        int randStartingPos = 0;
+//        int randStartingPos = 0;
+        int randStartingPos = Random.Range(0, worldStartingPositions.Length);
  
 //causing the error outside bounds off array  
         transform.position = worldStartingPositions[randStartingPos].position;
