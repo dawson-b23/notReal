@@ -74,6 +74,8 @@ public class SkillTreeMenu : MonoBehaviour
         skillTreeUI.SetActive(false);
         Time.timeScale = 1f;
         //IsActive = false;
+        //AudioManager.instance.PlayMusic("mainGame");
+        FindObjectOfType<AudioManager>().PlayMusic("mainGame");
     }
 
     //pause game
@@ -85,7 +87,7 @@ public class SkillTreeMenu : MonoBehaviour
         skillTreeUI.SetActive(true);
         Time.timeScale = 0f;
 
-        //FindObjectOfType<AudioManager>().PlayMusic("upgradeUI");
+        FindObjectOfType<AudioManager>().PlayMusic("upgradeUI");
 
         //AudioManager.instance.PlayMusic("upgradeUI");
         //AudioManager.instance.PlaySound("name_of_Sound");
