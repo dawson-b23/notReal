@@ -56,7 +56,7 @@ public class LevelGeneration : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-     AudioManager.instance.PlayMusic("maingame");
+       
         //causing the error outside bounds off array    
         int randStartingPos = Random.Range(0, worldStartingPositions.Length);
  
@@ -298,7 +298,8 @@ public class LevelGeneration : MonoBehaviour
                     // stop generation
                     //
                   stopGeneration = true;
-        
+                //Added for Jackson
+                 AudioManager.instance.PlayMusic("mainGame");
             }
         }
                       
