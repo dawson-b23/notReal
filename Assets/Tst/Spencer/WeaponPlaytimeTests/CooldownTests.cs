@@ -11,12 +11,12 @@ using UnityEngine.TestTools;
 using UnityEditor;
 
 
-/* class to test weapon attack cooldowns
+/* 
+ * class to test weapon attack cooldowns
  *
  * member functions:
  * attackBeforeCooldown() - attacks too fast
  * attackAfterCooldown() - attacks at a proper interval
- * getTestWeapon() - instantiates a basic weapon
  */
 public class CooldownTests 
 {
@@ -28,7 +28,7 @@ public class CooldownTests
     [Test]
     public void attackBeforeCooldown() 
     {
-        AbstractWeapon testWeapon = getTestWeapon();
+        AbstractWeapon testWeapon = WeaponRegistry.getWeaponRegistry().getSpecificWeapon("basicMelee");
         float lastAttack;
         testWeapon.attack();
         lastAttack = testWeapon.lastAttack();
@@ -40,34 +40,24 @@ public class CooldownTests
     }
 
     /*
-     * sends an attack signal at a longer interval than the weapon's cooldown
+     * sends an attack signal at an interval equal to the weapon's cooldown
      * test fails if the weapon fails to attack on any of these signals
      */
     [UnityTest]
     public IEnumerator attackAfterCooldown() 
     {
-        AbstractWeapon testWeapon = getTestWeapon();
+        AbstractWeapon testWeapon = WeaponRegistry.getWeaponRegistry().getSpecificWeapon("basicMelee");
         float lastAttack;
         testWeapon.attack();
         lastAttack = testWeapon.lastAttack();
         for(int i = 0; i < 3; i++) 
         {
-            yield return new WaitForSeconds(0.5f);
+            yield return new WaitForSeconds(testWeapon.effectiveCooldown());
             testWeapon.gameObject.SetActive(true);
             testWeapon.attack();
             Assert.That(lastAttack != testWeapon.lastAttack());
             lastAttack = testWeapon.lastAttack();
         }
-    }
-
-    /*
-     * instantiates a TestWeapon.prefab
-     * returns it as an AbstractWeapon
-     */
-    private AbstractWeapon getTestWeapon() 
-    {
-        AbstractWeapon prefab = (AbstractWeapon)AssetDatabase.LoadAssetAtPath("Assets/Tst/Spencer/WeaponPlaytimeTests/TestWeapon.prefab", typeof(AbstractWeapon));
-        return(GameObject.Instantiate(prefab, new Vector3(0f, 0f, 0f), Quaternion.identity));
     }
 
 }

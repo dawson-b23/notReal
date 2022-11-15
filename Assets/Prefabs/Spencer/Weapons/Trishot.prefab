@@ -53,7 +53,7 @@ MonoBehaviour:
   price: 72
   projectilePrototype: {fileID: 3119856475704003958}
   cooldownParticlePrototype: {fileID: 0}
-  launchPoint: {fileID: 0}
+  launchPoint: {fileID: 3119856475944918745}
   launchPoints:
   - {fileID: 3119856475944918745}
   - {fileID: 3119856475388647095}

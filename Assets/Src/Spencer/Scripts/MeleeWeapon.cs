@@ -75,9 +75,16 @@ public class MeleeWeapon : AbstractWeapon
             attackQueued = false;
             transform.localPosition = normalPosition;
             transform.localRotation = normalRotation;
-            transform.localScale = new Vector3(normalScale.x / transform.parent.lossyScale.x,
-                                               normalScale.y / transform.parent.lossyScale.y,
-                                               normalScale.z / transform.parent.lossyScale.z);
+            Vector3 divFactor;
+            if(transform.parent != null) {
+                divFactor = transform.parent.lossyScale;
+            } else
+            {
+                divFactor = Vector3.one;
+            }
+            transform.localScale = new Vector3(normalScale.x / divFactor.x,
+                                               normalScale.y / divFactor.y,
+                                               normalScale.z / divFactor.z);
 
         }
     }

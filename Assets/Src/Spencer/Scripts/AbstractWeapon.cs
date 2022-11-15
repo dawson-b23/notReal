@@ -74,10 +74,13 @@ public abstract class AbstractWeapon : MonoBehaviour
      */
     public void attack() 
     {
-        if ((Time.fixedTime - lastAttackTime) > effectiveCooldown()) 
+        if ((Time.fixedTime - lastAttackTime) >= effectiveCooldown()) 
         {
             lastAttackTime = Time.fixedTime;
-            AudioManager.instance.PlaySFX(attackSound);
+            if(AudioManager.instance != null) 
+            {
+                AudioManager.instance.PlaySFX(attackSound);
+            }
 
             // This comment section left-in for oral exam polymorphism demonstrations
             // Debug.Log("Dynamic Type of Equipped Weapon: " + this.GetType());
@@ -100,10 +103,11 @@ public abstract class AbstractWeapon : MonoBehaviour
     /*
      * Returns the effective cooldown of the weapon
      * References to cooldown use this to support potential future implementation of things (e.g. upgrades or powerups) modifying cooldown
+     * Rounds up to nearest multiple of fixedDeltaTime
      */
-    protected float effectiveCooldown() 
+    public float effectiveCooldown() 
     {
-        return cooldown;
+        return Mathf.Ceil(cooldown / Time.fixedDeltaTime) * Time.fixedDeltaTime;
     }
 
     /*
