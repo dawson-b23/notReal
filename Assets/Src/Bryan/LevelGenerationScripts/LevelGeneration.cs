@@ -56,9 +56,11 @@ public class LevelGeneration : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-       
- 
+     AudioManager.instance.PlayMusic("maingame");
+        //causing the error outside bounds off array    
         int randStartingPos = Random.Range(0, worldStartingPositions.Length);
+ 
+
         transform.position = worldStartingPositions[randStartingPos].position;
         
         if(PlayerController.playerLevel == 0){

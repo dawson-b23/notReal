@@ -11,6 +11,7 @@ using UnityEngine;
 
 public class EnemySpawner : MonoBehaviour
 {
+    public float spawnCollisionRadius;  
 
     [SerializeField]
     private float enemyStartTime = 8.0f;
@@ -21,7 +22,7 @@ public class EnemySpawner : MonoBehaviour
     private int enemyComposition;
     private float timeBetweenEnemy = 0.0f;
    // private ExitLevel exitLevel;
-    public float spawnCollisionRadius;   
+  
     // Start is called before the first frame update
     void Start()
     {   
