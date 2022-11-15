@@ -26,6 +26,7 @@ public class ShopKeeper : MonoBehaviour
           if(other.CompareTag("Player"))
           {
             playerInRange = false;
+            AudioManager.instance.PlayMusic("mainGame");
             dialogueScript.ToggleIndicator(playerInRange);
             dialogueScript.EndDialogue();
             uiShop.ToggleUI_Shop(false);

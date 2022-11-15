@@ -44,13 +44,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6fa3983956b7aa74b8350330c4236b44, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sfx_BC_Interact: {fileID: 0}
-  sfx_getXP: {fileID: 0}
-  sfx_meleeAttack: {fileID: 0}
-  sfx_NPC_Interact: {fileID: 0}
+  sfx_BC_Interact: {fileID: 8300000, guid: 078e642205c93034ea92d88db5d1a040, type: 3}
+  sfx_boughtItem: {fileID: 8300000, guid: 86626c6d0a311a64cab0584ac10c29d8, type: 3}
+  sfx_errorBuyItem: {fileID: 8300000, guid: 4f75be3306bcaed4f8620cbcde368718, type: 3}
+  sfx_meleeAttack: {fileID: 8300000, guid: 5264b2f7579cf0143a3863e6968a4f17, type: 3}
+  sfx_NPC_Interact: {fileID: 8300000, guid: 9cfa14e122562b8488b92382056ac853, type: 3}
   sfx_playerJump: {fileID: 8300000, guid: 6498bcdced7098946b7c4b69a9d49690, type: 3}
-  sfx_rangedAttack: {fileID: 0}
+  sfx_rangedAttack: {fileID: 8300000, guid: 47bc210991457934b8a5223e60331305, type: 3}
   music_mainMenu: {fileID: 8300000, guid: ef5a1917360a30d43b49f0b513043425, type: 3}
+  music_mainGame: {fileID: 8300000, guid: ef5a1917360a30d43b49f0b513043425, type: 3}
   music_shopKeeper: {fileID: 8300000, guid: 8e1c5b528046d8245aac00aa508cb707, type: 3}
   music_upgradeUI: {fileID: 0}
   currentMusicObject: {fileID: 0}

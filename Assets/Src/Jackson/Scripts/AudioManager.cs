@@ -9,7 +9,7 @@ public class AudioManager : MonoBehaviour
     void Awake() { instance = this;  }
 
     //Sound Effects
-    public AudioClip sfx_BC_Interact, sfx_getXP, sfx_meleeAttack, sfx_NPC_Interact, sfx_playerJump, sfx_rangedAttack;
+    public AudioClip sfx_BC_Interact, sfx_boughtItem, sfx_errorBuyItem, sfx_meleeAttack, sfx_NPC_Interact, sfx_playerJump, sfx_rangedAttack;
     //Music Tracks
     public AudioClip music_mainMenu, music_mainGame, music_shopKeeper, music_upgradeUI;
     //Current Music Object
@@ -23,11 +23,14 @@ public class AudioManager : MonoBehaviour
     {
         switch(sfxName)
         {
-            case "getXP":
-                SoundObjectCreation(sfx_getXP);
-                break;
             case "meleeAttack":
                 SoundObjectCreation(sfx_meleeAttack);
+                break;
+            case "buyItem":
+                SoundObjectCreation(sfx_boughtItem);
+                break;
+            case "errorBuyItem":
+                SoundObjectCreation(sfx_errorBuyItem);
                 break;
             case "rangedAttack":
                 SoundObjectCreation(sfx_rangedAttack);
@@ -63,8 +66,7 @@ public class AudioManager : MonoBehaviour
             case "mainMenu":
                 MusicObjectCreation(music_mainMenu);
                 break;
-            case "mainMusic":
-                break;
+            case "mainGame":
                 MusicObjectCreation(music_mainGame);
                 break;
             case "shopKeeper":

@@ -151,6 +151,8 @@ public class PlayerController : MonoBehaviour
             // Zero 'Y' velocity
             rigidBody.velocity = new Vector2(rigidBody.velocity.x, 0.0f);
             rigidBody.AddForce(new Vector2(0.0f, jumpForce), ForceMode2D.Impulse);
+
+            //added by Jackson Baldwin..calling singleton to add jumping sound effect
             AudioManager.instance.PlaySFX("playerJump");
             // Need to switch state back after jump
         }

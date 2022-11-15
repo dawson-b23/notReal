@@ -6,7 +6,7 @@ public class Shop : MonoBehaviour
 {
     // private PlayerController player = null;
 
-    int playerHoney = 0;
+    //int playerHoney = 0;
 
 
     private void Start()

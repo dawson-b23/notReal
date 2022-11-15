@@ -110,6 +110,7 @@ public class UI_Shop : MonoBehaviour
             playerObject.GetComponent<PlayerController>().removeHoney(itemShopPrice);
             Inventory.inventoryInstance.addWeapon(weapon);
             //kaching!
+            AudioManager.instance.PlaySFX("boughtItem");
             Debug.Log("Bought an Item");
             //add item to user
         }
@@ -117,7 +118,8 @@ public class UI_Shop : MonoBehaviour
         {
             Debug.Log("Error/insufficient funds");
             //beep beep
-            //display error
+            AudioManager.instance.PlaySFX("errorBuyItem");
+            
         }
     }
     /*Creates an Instance of our ShopTemplate and populates it with the itemSprite, itemName, cost, and position for the UI.
@@ -155,14 +157,16 @@ public class UI_Shop : MonoBehaviour
         if ((itemShopPrice <= totalHoney))
             {
                 playerObject.GetComponent<PlayerController>().removeHoney(itemShopPrice);
-            playerObject.GetComponent<PlayerController>().healFully();
+                playerObject.GetComponent<PlayerController>().healFully();
                 Debug.Log("Bought a Health Item");
-                //add item to user
-            }
+                AudioManager.instance.PlaySFX("boughtItem");
+            //add item to user
+        }
             else
             {
                 Debug.Log("Error/insufficient funds");
-                //display error
-            }
+            //display error
+                AudioManager.instance.PlaySFX("errorBuyItem");
+        }
     }
 }
