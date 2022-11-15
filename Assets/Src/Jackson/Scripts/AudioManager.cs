@@ -11,7 +11,7 @@ public class AudioManager : MonoBehaviour
     //Sound Effects
     public AudioClip sfx_BC_Interact, sfx_getXP, sfx_meleeAttack, sfx_NPC_Interact, sfx_playerJump, sfx_rangedAttack;
     //Music Tracks
-    public AudioClip music_mainMenu, music_shopKeeper, music_upgradeUI;
+    public AudioClip music_mainMenu, music_mainGame, music_shopKeeper, music_upgradeUI;
     //Current Music Object
     public GameObject currentMusicObject;
 
@@ -62,6 +62,8 @@ public class AudioManager : MonoBehaviour
         {
             case "mainMenu":
                 MusicObjectCreation(music_mainMenu);
+            case "mainMusic":
+                MusicObjectCreation(music_mainGame);
                 break;
             case "shopKeeper":
                 MusicObjectCreation(music_shopKeeper);
