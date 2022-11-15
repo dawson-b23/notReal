@@ -28,12 +28,16 @@ public class FullInventory : InventoryMenu
             Destroy(this);
             Debug.Log("error: extra Inventory menu instance");
         }
-        else
-        {
-            //DontDestroyOnLoad(this.gameObject);
-        }
     }
 
+    /*
+     * when a red x remove button is clicked on the inventory menu,
+     * a weapon will be removed from inventory, and the player will not be equiped with the weapon
+     * the button in inventory will deactivate and a slot will open up for a new weapon to be picked up
+     * 
+     * override function of weaponButtonClick in InventoryMenu class
+     * this function overrides equiping the player with a weapon, and instead just removes the weapon
+     */
     //public void weaponButtonClick(Button clickedButton)
     public override void weaponButtonClick(Button clickedButton)
     {
@@ -77,5 +81,13 @@ public class FullInventory : InventoryMenu
             Debug.Log("button clicked was not in the inventory menu!!");
         }
     }
+
+    /*
+     * InventoryMenu is the static type, a subclass of monobehaviour
+     * weaponButtonClick removes a weapon, equips the player with the weapon, and deactivates or activates a button
+     * 
+     * FullInventory is the dynamic type, a subclass of InventoryMenu
+     * overrides weaponButtonClick to remove a weapon but does NOT equip the player with the weapon
+     */
 
 }

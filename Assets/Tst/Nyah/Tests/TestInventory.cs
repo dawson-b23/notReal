@@ -2,7 +2,7 @@
  * TestInventory.cs
  * Nyah Nelson
  * Copy of inventory features for stress test
- */
+ *
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,7 +16,7 @@ using static Item;
  * inventoryItems - list of inventory items
  * TestInventory() - constructor to create list
  * AddInventory(Item item) - add items to inventory
- */
+ *
 public class TestInventory : MonoBehaviour
 {
     // no max inventory for test purposes
@@ -34,4 +34,4 @@ public class TestInventory : MonoBehaviour
         inventoryItems.Add(item);
     }
 
-}
+}*/

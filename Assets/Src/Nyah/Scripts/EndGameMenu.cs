@@ -29,7 +29,9 @@ using TMPro;
  */
 public class EndGameMenu : MenuManager
 {
+    // reference to TMP objects, public so can access in inspector 
     public TextMeshProUGUI honeyText, timeText, expText;
+
     private int honeyValue = 0, endEXPValue = 0;
     private float timeValue = 0;
     PlayerController playerObject;
@@ -49,18 +51,28 @@ public class EndGameMenu : MenuManager
         updateEXPText();
     }
 
+    /*
+     * resets all values displayed on the HUD and loads the main menu scene
+     * called when the return to main menu button is clicked
+     */
     public void returnToMainMenu()
     {
         resetValues();
         SceneManager.LoadScene(mainMenuScene);
     }
 
+    /*
+     * displays the final honey value on the game over scene
+     */
     public void updateHoneyText()
     {
         honeyValue = PlayerProfile.moneyValue;
         honeyText.text = "YOU COLLECTED " + honeyValue + " IN HONEY";
     }
 
+    /*
+     * displays the final time on the game over scene
+     */
     public void updateTimeText()
     {
         timeValue = Timer.currentTime;
@@ -71,12 +83,18 @@ public class EndGameMenu : MenuManager
         timeText.text = "YOUR TIME: " + string.Format("{0:00} : {1:00}", minutes, seconds);
     }
 
+    /*
+     * displays the final EXP value
+     */
     public void updateEXPText()
     {
         endEXPValue = PlayerProfile.expValue;
         expText.text = "YOUR EXP: " + endEXPValue;
     }
 
+    /*
+     * resets all values on the HUD to zero
+     */
     public void resetValues()
     {
         // restart all values back to zero

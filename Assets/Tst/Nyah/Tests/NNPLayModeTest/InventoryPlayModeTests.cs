@@ -1,7 +1,7 @@
 /*
  * Nyah Nelson
- * InventoryBoundaryTests.cs
- * boundary test plan for the inventory
+ * InventoryPlayModeTests.cs
+ * final boundary test plan for the inventory
  */
 
 using NUnit.Framework;
@@ -11,6 +11,21 @@ using System.Collections.Generic;
 using UnityEngine.SceneManagement;
 using UnityEngine.TestTools;
 
+/*
+ * InventoryPlayModeTests class for testing inventory list and menu while in playmode
+ * 
+ * member functions
+ * addInRangeTest() - adding in the bounds to inventory list
+ * addAboveRangeTest() - adding above the bounds to inventory list
+ * removeInRangeTest() - removing in the bounds
+ * removeBelowRangeTest() - removing below the bounds
+ * playerProfileChange() - testing if the player profile changes when inventory is full
+ * playerProfileChangeBack() - testing if the player profile changes when inventory is no longer full
+ * inventoryMenuChange() - testing if the inventory menu changes when inventory is full
+ * inventoryMenuChangeBack() - testing if the inventory menu changes when inventory is no longer full
+ * removeButtonsActivate() - testing if the inventory menu remove buttons activate when inventory is full
+ * removeButtonsDeactivate() - testing if the inventory menu remove buttons deactivate when inventory is no longer full
+ */
 public class InventoryPlayModeTests
 {
     [UnityTest]
@@ -33,6 +48,9 @@ public class InventoryPlayModeTests
 
         // ASSERT
         Assert.That(Inventory.inventoryInstance.inventoryAmount, Is.EqualTo(expectedAmount));
+
+        // Clear amount in inventory
+        Inventory.inventoryInstance.weaponList.Clear();
 
         yield return null;
 
@@ -69,6 +87,9 @@ public class InventoryPlayModeTests
         // ASSERT
         Assert.That(Inventory.inventoryInstance.inventoryAmount, Is.EqualTo(expectedAmount));
 
+        // Clear amount in inventory
+        Inventory.inventoryInstance.weaponList.Clear();
+
         yield return null;
     }
 
@@ -95,6 +116,9 @@ public class InventoryPlayModeTests
         // ASSERT
         Assert.That(Inventory.inventoryInstance.inventoryAmount, Is.EqualTo(expectedAmount));
 
+        // Clear amount in inventory
+        Inventory.inventoryInstance.weaponList.Clear();
+
         yield return null;
     }
 
@@ -119,6 +143,9 @@ public class InventoryPlayModeTests
 
         // ASSERT
         Assert.That(Inventory.inventoryInstance.inventoryAmount, Is.EqualTo(expectedAmount));
+
+        // Clear amount in inventory
+        Inventory.inventoryInstance.weaponList.Clear();
 
         yield return null;
     }
@@ -147,6 +174,9 @@ public class InventoryPlayModeTests
 
         // ASSERT
         Assert.That(PlayerProfile.profileInstance.inventoryText.color == Color.green);
+
+        // Clear amount in inventory
+        Inventory.inventoryInstance.weaponList.Clear();
 
         yield return null;
     }
@@ -179,6 +209,9 @@ public class InventoryPlayModeTests
         // ASSERT
         Assert.That(PlayerProfile.profileInstance.inventoryText.color == Color.white);
 
+        // Clear amount in inventory
+        Inventory.inventoryInstance.weaponList.Clear();
+
         yield return null;
     }
 
@@ -206,6 +239,9 @@ public class InventoryPlayModeTests
 
         // ASSERT
         Assert.That(InventoryMenu.inventoryMenuInstance.menuBackgroundColor.color == Color.green);
+
+        // Clear amount in inventory
+        Inventory.inventoryInstance.weaponList.Clear();
 
         yield return null;
     }
@@ -237,6 +273,9 @@ public class InventoryPlayModeTests
         // ASSERT
         Assert.That(InventoryMenu.inventoryMenuInstance.menuBackgroundColor.color == Color.black);
 
+        // Clear amount in inventory
+        Inventory.inventoryInstance.weaponList.Clear();
+
         yield return null;
     }
 
@@ -266,6 +305,9 @@ public class InventoryPlayModeTests
         Assert.That(InventoryMenu.inventoryMenuInstance.removeButton1.IsActive());
         Assert.That(InventoryMenu.inventoryMenuInstance.removeButton2.IsActive());
         Assert.That(InventoryMenu.inventoryMenuInstance.removeButton3.IsActive());
+
+        // Clear amount in inventory
+        Inventory.inventoryInstance.weaponList.Clear();
 
         yield return null;
     }
@@ -299,6 +341,9 @@ public class InventoryPlayModeTests
         Assert.That(!(InventoryMenu.inventoryMenuInstance.removeButton1.IsActive()));
         Assert.That(!(InventoryMenu.inventoryMenuInstance.removeButton2.IsActive()));
         Assert.That(!(InventoryMenu.inventoryMenuInstance.removeButton3.IsActive()));
+
+        // Clear amount in inventory
+        Inventory.inventoryInstance.weaponList.Clear();
 
         yield return null;
     }

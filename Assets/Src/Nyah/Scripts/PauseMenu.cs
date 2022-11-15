@@ -20,16 +20,17 @@ using UnityEngine.SceneManagement;
  */
 public class PauseMenu : MenuManager
 {
+    // reference to the timer
     Timer timerReference;
-    // function to open pause menu and pause game
+
+    /* 
+     * function to open pause menu and pause game
+     * overrides the function in MenuManager because this also opens the pause menu and stops the timer in addition to pausing the game
+     * stops the timer on the HUD
+     */
     // public  void pauseGame()
     public override void pauseGame()
     {
-        // if the skill tree menu is open, close it before opening the pause menu
-        /*if (skillTreeMenu.activeSelf)
-        {
-            closeMenu(Menu.SkillTreeMenu);
-        }*/
         // open pause menu
         openMenu(Menu.PauseMenu);
         // pause/stop game
@@ -39,7 +40,10 @@ public class PauseMenu : MenuManager
         Debug.Log("open pause menu");
     }
 
-    // function to close pause menu and resume game
+    /* 
+     * function to close pause menu and resume game
+     * overrides the function in MenuManager because this also closes the pause menu and resumes the timer in addition to resuming the game
+     */
     //public void resumeGame()
     public override void resumeGame()
     {
@@ -52,6 +56,10 @@ public class PauseMenu : MenuManager
         Debug.Log("close pause menu");
     }
 
+    /*
+     * opens the help menu
+     * closes the pause menu
+     */
     public void openHelp()
     {
         Debug.Log("Opening help menu");
@@ -59,6 +67,10 @@ public class PauseMenu : MenuManager
         openMenu(Menu.HelpMenu);
     }
 
+    /*
+     * closes the help menu
+     * opens the pause menu
+     */
     public void closeHelp()
     {
         Debug.Log("Closing help menu");
@@ -67,13 +79,19 @@ public class PauseMenu : MenuManager
 
     }
 
-    // if return to main menu button is clicked, load main menu scene
+    /* 
+     * if return to main menu button is clicked, load main menu scene
+     * reset values
+     */
     public void returnToMain()
     {
         resetValues();
         SceneManager.LoadScene(0);
     }
 
+    /*
+     * reset values on HUD to zero
+     */
     public void resetValues()
     {
         // restart all values back to zero

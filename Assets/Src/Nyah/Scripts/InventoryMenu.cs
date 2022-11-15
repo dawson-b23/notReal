@@ -18,7 +18,9 @@ using UnityEngine.SceneManagement;
  * menuBackground - object reference to the inventory menu background 
  * menuBackgroundColor - image reference to the inventory menu background color
  * inventoryButton (s) - 3 buttons to store the weapons
+ * inventoryButtonImage (s) - 3 images of the inventory buttons for the sprites
  * removeButton (s) - 3 buttons to remove a weapon and not equip it
+ * weaponSprite - sprite of weapon
  * 
  * member functions:
  * activateButton(int buttonNumber) - activate a buttons
@@ -27,7 +29,10 @@ using UnityEngine.SceneManagement;
  */
 public class InventoryMenu : MonoBehaviour
 {
-    // references to the inventory menu background 
+    // inventory menu (on the HUD) singleton
+    public static InventoryMenu inventoryMenuInstance { get; private set; }
+
+    // references to the inventory menu objects 
     public GameObject menuBackground;
     public Image menuBackgroundColor;
     public Button inventoryButton1;
@@ -37,11 +42,9 @@ public class InventoryMenu : MonoBehaviour
     public Button removeButton1;
     public Button removeButton2;
     public Button removeButton3;
-    private Transform buttonTransform;
-    private Sprite weaponSprite;
 
-    // inventory menu (on the HUD) singleton
-    public static InventoryMenu inventoryMenuInstance { get; private set; }
+    // weapon sprites to become the buttons on inentory menu
+    private Sprite weaponSprite;
 
     private void Awake()
     {
@@ -54,8 +57,8 @@ public class InventoryMenu : MonoBehaviour
         }
         else
         {
+            // set instance
             inventoryMenuInstance = this;
-            //GameObject.DontDestroyOnLoad(this.gameObject);
         }
 
         // initially disable all inventory buttons (since there is nothing in inventory at the beginning of the game)
@@ -70,13 +73,19 @@ public class InventoryMenu : MonoBehaviour
 
     public void Start()
     {
-        // get the image of the inventory menu to edit it later
+        // get the images of the inventory menu objects to edit them later (in the observers and weapon sprite)
         menuBackgroundColor = menuBackground.GetComponent<Image>();
         inventoryButton1Image = inventoryButton1.GetComponent<Image>();
         inventoryButton2Image = inventoryButton2.GetComponent<Image>();
         inventoryButton3Image = inventoryButton3.GetComponent<Image>();
     }
 
+    /*
+     * activates an inventory button when a weapon is added
+     * takes the button number as a parameter to activate the correct button in inventory associated with the slots and full array in inventory
+     * retrieves the weapon sprite to use as the image of the button
+     * activates the correct button based on the button number
+     */
     public void activateButton(int buttonNumber)
     {
         // get the sprite of the weapon
@@ -99,6 +108,10 @@ public class InventoryMenu : MonoBehaviour
         }
     }
 
+    /*
+     * deactivates a button when that weapon is removed from inventory
+     * button number passed as a parameter depending on the slots and full array
+     */
     public void deactivateButton(int buttonNumber)
     {
         switch (buttonNumber)
@@ -115,6 +128,13 @@ public class InventoryMenu : MonoBehaviour
         }
     }
 
+    /*
+     * the onclick function for all buttons that takes the associated button as a parameter
+     * checks which button was clicked, then calls the remove weapon function with the correct index associated with the button 
+     * 
+     * virtual function
+     * overriden in the FullInventory class to do something different when a remove button is clicked
+     */
     //public void weaponButtonClick(Button clickedButton)
     public virtual void weaponButtonClick(Button clickedButton)
     {

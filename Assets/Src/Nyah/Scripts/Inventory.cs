@@ -39,21 +39,37 @@ using System.Linq;
  */
 public class Inventory : MonoBehaviour
 {
-    private int maxInventory = 3;
+    // PUBLIC VARIABLES
+
+    /* inventory singleton instance
+     * private set allows for only this class to be able to set the instance to something (done in the Awake function)
+     * keyword get retrieves the variable inventoryInstance
+     * why i chose the singleton pattern:
+     * I chose the singleton pattern because I only wanted one instance of objects, such as the player profile, HUD, and inventory system. 
+     * That way only the original isntance would be updated and saved throughout scenes
+     */
+    public static Inventory inventoryInstance { get; private set; }
+
+    // list to store amount of weapons
     public List<AbstractWeapon> weaponList;
-    // used to check if there is an item in one of the inventory menu slots(buttons)
+
+    // array used to check if there is an item in one of the inventory menu slots(buttons)
+    // false means not full 
     public bool[] full = {false, false, false};
-    // keeps hold of the weapons
-    //public AbstractWeapon[] slots = {null, null, null};
+
+    // array to store the actual weapons in the correct slot on the inventory menu
     public AbstractWeapon[] slots;
+
     // reference to the player
     public GameObject playerObject;
+
+    // PRIVATE VARIABLES
 
     // observer list to keep track of which classes are observers
     private List<Observer> observers = new List<Observer>();
 
-    // inventory singleton
-    public static Inventory inventoryInstance { get; private set; }
+    // max amount allowed for inventory (weapons)
+    private int maxInventory = 3;
 
     /* thread safe singleton
      * other scripts can still use the singleton, but
@@ -70,12 +86,13 @@ public class Inventory : MonoBehaviour
         }
         else
         {
+            // set the instance of the class to the singleton
             inventoryInstance = this;
         }
     }
 
     /*
-     * adds an observer to the list
+     * adds an observer to the observer list
      */
     public void Attach(Observer observer)
     {
@@ -95,7 +112,6 @@ public class Inventory : MonoBehaviour
      */
     public void Notify()
     {
-        // when an item is removed or added notify
         // check if inventory amount is full or not
         if (inventoryAmount() < 3) // not full
         {
@@ -117,11 +133,11 @@ public class Inventory : MonoBehaviour
     }
 
     /*
-     * constructor initializes the weaponlist and attached the observers
+     * constructor initializes the weaponlist and attaches the observer classes
      */
     public Inventory()
     {
-        // initializes list
+        // initializes list to be the size of maxInventory
         weaponList = new List<AbstractWeapon>(maxInventory);
         // attach observers to this instance of the inventory
         Attach(new PlayerProfileObserver(this));
@@ -131,11 +147,13 @@ public class Inventory : MonoBehaviour
 
     /*
      * add an abstract weapon to the list
-     * first check if inventory is full
-     * if it isn't then add weapon to inventory list,
-     * update player profile
-     * update inventory menu for each individual weapon
-     * 
+     * checks if the abstractweapon actuall exists
+     * if the weapon exists, checks if inventory is full
+     * if it is not full, then adds weapon to the inventory list,
+     * updates player profile, changes the status of the full array to true (since it is now full)
+     * assigns the correct index in slots to store the weapon,
+     * updates the inventory menu to activate the correct button
+     * after a weapon is added, checks if inventory is full, if it is full, the function notifies the observers to change their state
      */
     public void addWeapon(AbstractWeapon abstractWeapon)
     {
@@ -153,11 +171,6 @@ public class Inventory : MonoBehaviour
                     if (full[i] == false) // one of the slots is empty
                     {
                         weaponList.Add(abstractWeapon);
-                        if (PlayerProfile.profileInstance == null)
-                        {
-                            Debug.Log("addweapon function: PlayerProfile.profileInstance is null");
-                            return;
-                        }
                         PlayerProfile.profileInstance.updateInventory(1);
                         Debug.Log("weapon added at index " + i);
 
@@ -188,11 +201,20 @@ public class Inventory : MonoBehaviour
     }
 
     /*
-     * called when the inventory button is clicked
-     * remove an  abstract weapon from inventory after a request is made
-     * check if the inventory list is not empty
-     * check what weapon the request was for
-     * remove the weapon if it exists in the inventory list
+     * called in the weaponButtonClick function for the inventory menu
+     * parameter - index of the weapon in the slots array to be removed
+     * returns - false if a weapon was not readded to inventory
+     * or true if a weapon was readded to inventory (meaning that the weapon the player is currently equiped with was swapped with one that was in inventory)
+     * 
+     * checks if the playerobject exists (to be able to equip the player with the weapon)
+     * checks if inventory is empty (if it is, then no weapon can be removed)
+     * if inventory is not full, then assignes an abstract weapon to the weapon to be removed from the slots array
+     * checks if inventory is full (if it is, it will notify observers because after a weapon is removed, inventory is no longer full and the observers need to change state)
+     * equips the player with the desired weapon
+     * the equipWeapon function returns the old weapon
+     * if the old weapon is null (meaning the player was not equiped with a weapon), then change HUD display and do not activate the button
+     * if the old weapon is not null, then assign the old weapon to the slot of the new weapon and activate the correct button
+     * return true to let the weaponButtonClick function know to not deactivate the button
      * 
      */
     public bool removeWeapon(int indexOfWeapon)
@@ -273,7 +295,15 @@ public class Inventory : MonoBehaviour
 
 
     /*
-     * remove a weapon but do not equip it 
+     * removes a weapon but do not equip it 
+     * called when the remove button is clicked to drop a weapon and open a slot in inventory
+     * parameter - index of slots to remove weapon from
+     * returns false since a weapon is not readded because the player is not equipped with a new weapon
+     * 
+     * checks if inventory is not empty
+     * retrieves the correct weapon from the paramter sent int
+     * removes the weapon from the list, assigns the full array to be false (empty), decreases the value on the player profile
+     * notifies observers to change state
      */
     public bool removeWeaponOnly(int indexOfWeapon)
     {

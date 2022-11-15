@@ -4,11 +4,6 @@
  * Menu reference values
  */
 
-/*using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using UnityEngine.SceneManagement;*/
-
 // enum to make references to menus
 public enum Menu
 {

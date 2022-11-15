@@ -2,7 +2,7 @@
  * InventoryTests.cs
  * Nyah Nelson
  * Boundary tests for inventory
- */
+ *
 using NUnit.Framework;
 using System;
 using System.Collections;
@@ -25,7 +25,7 @@ using static UnityEditor.Progress;
  * AddInRangeTest() - test in range
  * AddAboveRangeTest() - test above range
  * RemoveBelowRangeTest() - test below range
- */
+ *
 public class InventoryTests
 {
     [Test]
@@ -92,4 +92,4 @@ public class InventoryTests
         //Assert.That(inventory.ItemCount(), Is.EqualTo(expectedAmount));
         Assert.That(inventory.inventoryItems.Count, Is.EqualTo(expectedAmount));
     }
-}
+}*/

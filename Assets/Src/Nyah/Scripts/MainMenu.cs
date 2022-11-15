@@ -38,6 +38,7 @@ public class MainMenu : MenuManager
     /*
      * plays the background music (Jackson's feature)
      * destroys the HUD Game Object if it is active
+     * destroys the skill tree menu instance
      */
     void Start()
     {
@@ -46,6 +47,11 @@ public class MainMenu : MenuManager
         if (GameObject.Find("HUD").activeSelf)
         {
             Destroy(GameObject.Find("HUD"));
+        }
+
+        if (GameObject.Find("Canvas").activeSelf)
+        {
+            Destroy(GameObject.Find("Canvas"));
         }
     }
 
@@ -117,5 +123,17 @@ public class MainMenu : MenuManager
     {
         closeMenu(Menu.HelpMenu);
     }
+
+    /*
+     * copyright component: the main menu is a derivative work based upon the original work (stranger things logo)
+     * downloaded the font online, and imported it to the assets folder
+     * i had to create a text mesh pro asset of the font in order to use it (right click on the font -> create -> text mesh pro -> font asset)
+     * argument:
+     * The legal implication is that the original owner can declare this as a derivative of their work, and therefore is considered copyright. 
+     * They could sue me for the profits (if I were to make any off of this feature). However, this is not considered an infringement of of copyright 
+     * because, under the law of fair use, the amount and substantiality of the portion used in relation to the copyrighted work as a whole. 
+     * Im using a limited amount of the work, so it is not an infringement of copyright. It is also not that big of a part of the game, it is not considered 
+     * the “heart” of the game, so it isn’t that big of a deal, and is protected under fair use. 
+     */
 }
 

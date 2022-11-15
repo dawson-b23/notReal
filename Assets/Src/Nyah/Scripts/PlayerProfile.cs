@@ -12,7 +12,7 @@ using UnityEngine;
 using UnityEngine.UI;
 
 /*
- * PlayerProfile class to display player information
+ * PlayerProfile class to display player information on the player profile object on the HUD
  * 
  * member variables:
  * PlayerProfile Instance - singleton
@@ -28,6 +28,10 @@ using UnityEngine.UI;
  */
 public class PlayerProfile : MonoBehaviour
 {
+    public TextMeshProUGUI healthText, moneyText, expText, inventoryText;
+    public static int healthValue = 0, moneyValue = 0, expValue = 0;
+    public int inventoryValue = 0;
+
     /* thread safe singleton
      * other scripts can still use the singleton, but
      * only this class can get and set the singleton instance
@@ -52,10 +56,6 @@ public class PlayerProfile : MonoBehaviour
         updateEXP(0);
         updateInventory(0); 
     }
-
-    public TextMeshProUGUI healthText, moneyText, expText, inventoryText;
-    public static int healthValue = 0, moneyValue = 0, expValue = 0;
-    public int inventoryValue = 0;
 
     /* update health value in HUD
      * this function is called when the player health increases (shop) or decreases (enemies)

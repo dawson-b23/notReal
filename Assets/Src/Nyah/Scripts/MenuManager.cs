@@ -3,6 +3,7 @@
  * Nyah Nelson
  * Basic functions for all menus
  */
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -21,6 +22,8 @@ using UnityEngine.SceneManagement;
  * member functions:
  * openMenu(Menu menu) - open a menu
  * closeMenu(Menu menu) - close a menu
+ * pauseGame() - pauses the game by setting the timescale to 0
+ * resumeGame() - resumes the game by setting the tiemscale to 1
  */
 public class MenuManager : MonoBehaviour
 {
@@ -28,8 +31,10 @@ public class MenuManager : MonoBehaviour
     // reference to the menu objects
     public GameObject mainMenu, pauseMenu, optionsMenu, inventoryMenu, helpMenu, skillTreeMenu;
 
-    // public void OpenMenu(Menu menu, GameObject callingMenu)
-    // functions to open a menu
+    /* 
+     * opens a menu by activating the correct game object assigned in the inspector
+     * takes the menu name as a parameter
+     */
     public void openMenu(Menu menu)
     {
         // open menu
@@ -56,7 +61,9 @@ public class MenuManager : MonoBehaviour
         }
     }
 
-    // function to close a menu
+    /*
+     * cloes a menu by deactivating the game object
+     */
     public void closeMenu(Menu menu)
     {
         // close menu
@@ -83,12 +90,20 @@ public class MenuManager : MonoBehaviour
         }
     }
 
+    /*
+     * virtual function
+     * sets the timescale to 0 to pause the game
+     */
     public virtual void pauseGame()
     {
         Time.timeScale = 0f;
         Debug.Log("paused game, no menu opened");
     }
 
+    /*
+     * virtual function
+     * sets the timescale to 1 to resume the game
+     */
     public virtual void resumeGame()
     {
         Time.timeScale = 1f;

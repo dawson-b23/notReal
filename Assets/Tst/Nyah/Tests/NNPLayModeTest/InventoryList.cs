@@ -2,7 +2,7 @@
  * InventoryList.cs
  * Nyah Nelson
  * A copy of inventory class to use for testing
- */
+ *
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -19,7 +19,7 @@ using UnityEngine;
  * AddInventory(Item item) - add item to list
  * RemoveInventory() - remove item from list
  * IsFull() - check if inventory is full
- */
+ *
 public class InventoryList : MonoBehaviour
 {
     // public for test
@@ -82,3 +82,4 @@ public class InventoryList : MonoBehaviour
         }
     }
 }
+*/

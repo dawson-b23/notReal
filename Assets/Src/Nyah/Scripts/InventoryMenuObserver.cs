@@ -18,18 +18,32 @@ using UnityEngine;
  */
 public class InventoryMenuObserver : Observer
 {
+    /*
+     * constructor 
+     * attaches this observer to the list of observers in the inventory script
+     */
     public InventoryMenuObserver(Inventory inventory)
     {
         this.inventory = inventory;
         this.inventory.Attach(this);
     }
 
+    /*
+     * override function inherited from the Observer class
+     * called when inventory is full
+     * changes the color of the inventory menu background to green when inventory is full
+     */
     public override void fullUpdate()
     {
         // if inventory is full, change the color to green
         InventoryMenu.inventoryMenuInstance.menuBackgroundColor.color = Color.green;
     }
 
+    /*
+     * override function inherited from the observer class
+     * called when inventory is no longer full
+     * changes the color of the inventory menu background to black when inventory is not full
+     */
     public override void notFullUpdate()
     {
         // if inventory is not full, change the color back to black

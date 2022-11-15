@@ -2,7 +2,7 @@
  * StressInventory.cs
  * Nyah Nelson
  * Stress test for inventory
- */
+ *
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -23,7 +23,7 @@ using TMPro;
  * Awake() - called when script object is initialized, check game object references
  * Start() - called once per script, starts stress test
  * UpdateInventory() - stress test function, add to inventory until max
- */
+ *
 public class StressInventory : MonoBehaviour
 {
     public TextMeshProUGUI inventoryText;
@@ -68,7 +68,7 @@ public class StressInventory : MonoBehaviour
      * stress test funtion to add to inventory to see how unity responds
      * 
      * return a small IEnumerator to do the test as fast as possible
-     */
+     *
     public IEnumerator UpdateInventory()
     {
         // loop: continue to add to inventory until a limit is reached
@@ -99,4 +99,4 @@ public class StressInventory : MonoBehaviour
         //yield return new WaitForSeconds(5f);
     }
 
-}
+}*/

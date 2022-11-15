@@ -18,12 +18,21 @@ using UnityEngine;
  */
 public class FullInventoryObserver : Observer
 {
+    /*
+     * constructor 
+     * attaches this observer to the list of observers in the inventory script
+     */
     public FullInventoryObserver(Inventory inventory)
     {
         this.inventory = inventory;
         this.inventory.Attach(this);
     }
 
+    /*
+     * override function inherited from the Observer class
+     * called when inventory is full
+     * activates the remove buttons to give the player an option to drop a weapon when inventory is full
+     */
     public override void fullUpdate()
     {
         // if inventory is full, activiate full button
@@ -32,6 +41,11 @@ public class FullInventoryObserver : Observer
         InventoryMenu.inventoryMenuInstance.removeButton3.gameObject.SetActive(true);
     }
 
+    /*
+     * override function inherited from the observer class
+     * called when inventory is no longer full
+     * deactivates the remove buttons since you are only allowed to remove a weapon when inventory is full
+     */
     public override void notFullUpdate()
     {
         // if inventory is not full, deactivate full button

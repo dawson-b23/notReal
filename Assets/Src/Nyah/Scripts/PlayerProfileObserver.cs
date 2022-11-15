@@ -24,12 +24,22 @@ public class PlayerProfileObserver : Observer
         this.inventory.Attach(this);
     }
 
+    /*
+ * override function inherited from the Observer class
+ * called when inventory is full
+ * changes the color of the inventory text on the player profile to green when inventory is full
+ */
     public override void fullUpdate()
     {
         // if inventory is full, change the color to green
         PlayerProfile.profileInstance.inventoryText.color = Color.green;
     }
 
+    /*
+ * override function inherited from the observer class
+ * called when inventory is no longer full
+ * changes the color of the inventory text on the player profile to white when inventory is full
+ */
     public override void notFullUpdate()
     {
         // if inventory is not full, change the color back to white
