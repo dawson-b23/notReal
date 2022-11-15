@@ -111,6 +111,10 @@ public abstract class FullPlayer{
     abstract public float getAttack();
     abstract public float getHealth();
     abstract public float getSpeed();
+
+    //virtual public SkillTree resetSkillTree(){
+    //    return this;
+    //}
 }
 
 //
@@ -128,6 +132,11 @@ public class Upgrade : FullPlayer{
     //public Upgrade(FullPlayer newwrappee){wrappee = newwrappee;}
 
     protected FullPlayer wrappee; 
+
+    //override publicSkillTree resetSkillTree(){
+    //    return wrappee.resetSkillTree();
+    //    Destroy(this);
+    //}
 
     override public float getAttack(){return wrappee.getAttack();}
 

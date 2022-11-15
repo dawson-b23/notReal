@@ -147,7 +147,6 @@ GameObject:
   - component: {fileID: 1182408409192587273}
   - component: {fileID: 1182408409192587274}
   - component: {fileID: 1182408409192587275}
-  - component: {fileID: 1182408409192587316}
   m_Layer: 5
   m_Name: UpgradeButton
   m_TagString: Untagged
@@ -270,25 +269,3 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &1182408409192587316
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1182408409192587318}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 636833a1803471c47b66ad1fc85fb8c6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  mainMenu: {fileID: 0}
-  pauseMenu: {fileID: 0}
-  optionsMenu: {fileID: 0}
-  inventoryMenu: {fileID: 0}
-  helpMenu: {fileID: 0}
-  skillTreeMenu: {fileID: 0}
-  DisplayNumber1: {fileID: 0}
-  DisplayNumber2: {fileID: 0}
-  DisplayNumber3: {fileID: 0}
-  skillTreeUI: {fileID: 0}
