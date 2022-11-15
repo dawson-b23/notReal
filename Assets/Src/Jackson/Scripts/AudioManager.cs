@@ -11,7 +11,7 @@ public class AudioManager : MonoBehaviour
     //Sound Effects
     public AudioClip sfx_BC_Interact, sfx_getXP, sfx_meleeAttack, sfx_NPC_Interact, sfx_playerJump, sfx_rangedAttack;
     //Music Tracks
-    public AudioClip music_mainMenu, music_upgradeUI;
+    public AudioClip music_mainMenu, music_shopKeeper, music_upgradeUI;
     //Current Music Object
     public GameObject currentMusicObject;
 
@@ -63,9 +63,13 @@ public class AudioManager : MonoBehaviour
             case "mainMenu":
                 MusicObjectCreation(music_mainMenu);
                 break;
+            case "shopKeeper":
+                MusicObjectCreation(music_shopKeeper);
+                break;
             case "upgradeUI":
                 MusicObjectCreation(music_upgradeUI);
                 break;
+            
             default:
                 break;
         }
@@ -77,12 +81,12 @@ public class AudioManager : MonoBehaviour
         if (currentMusicObject)
             Destroy(currentMusicObject);
         //Create SoundsObject gameobject
-        GameObject newObject = Instantiate(soundObject, transform);
+        currentMusicObject = Instantiate(soundObject, transform);
         //Assign audioclip to audiosource
-        newObject.GetComponent<AudioSource>().clip = clip;
+        currentMusicObject.GetComponent<AudioSource>().clip = clip;
         //Loop the audio source
-        newObject.GetComponent<AudioSource>().loop = true;
+        currentMusicObject.GetComponent<AudioSource>().loop = true;
         //Play audio
-        newObject.GetComponent<AudioSource>().Play();
+        currentMusicObject.GetComponent<AudioSource>().Play();
     }
 }

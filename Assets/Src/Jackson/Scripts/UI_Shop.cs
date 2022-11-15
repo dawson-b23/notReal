@@ -66,8 +66,8 @@ public class UI_Shop : MonoBehaviour
         CreateItemInShop(weapon[2], itemSprite3, itemName3, itemCost3, 2);
 
         string fullRestoreName = "Full Restore";
-        Sprite fullRestoreSprite = Resources.Load<Sprite>("Assets/Src/Jackson/Sprites/healthIcon.png");// gameObject.GetComponent<SpriteRenderer>().sprite;
-        CreateHealthItemInShop(fullRestoreSprite, fullRestoreName, 100, 3);
+        //Sprite fullRestoreSprite = Resources.Load<Sprite>("Assets/Src/Jackson/Sprites/healthIcon.png");// gameObject.GetComponent<SpriteRenderer>().sprite;
+        CreateHealthItemInShop(fullRestoreName, 100, 3);
 
 
         ToggleUI_Shop(false);
@@ -109,19 +109,21 @@ public class UI_Shop : MonoBehaviour
         {
             playerObject.GetComponent<PlayerController>().removeHoney(itemShopPrice);
             Inventory.inventoryInstance.addWeapon(weapon);
+            //kaching!
             Debug.Log("Bought an Item");
             //add item to user
         }
         else
         {
             Debug.Log("Error/insufficient funds");
+            //beep beep
             //display error
         }
     }
     /*Creates an Instance of our ShopTemplate and populates it with the itemSprite, itemName, cost, and position for the UI.
     * No weapon is sent in this instance, and ItemCost is set
     */
-    private void CreateHealthItemInShop(Sprite itemSprite, string itemName, int itemCost, int positionIndex)
+    private void CreateHealthItemInShop(string itemName, int itemCost, int positionIndex)
     {
         Transform shopItemTransform = Instantiate(shopItemTemplate, container);
         shopItemTransform.gameObject.SetActive(true);
@@ -133,7 +135,7 @@ public class UI_Shop : MonoBehaviour
 
         shopItemTransform.Find("nameText").GetComponent<TextMeshProUGUI>().SetText(itemName);
         shopItemTransform.Find("priceText").GetComponent<TextMeshProUGUI>().SetText(itemCost.ToString());
-        shopItemTransform.Find("itemImage").GetComponent<Image>().sprite = itemSprite;
+        //shopItemTransform.Find("itemImage").GetComponent<Image>().sprite; // = itemSprite;
 
         //when clicked, try and purchase the weapon
         shopItemTransform.GetComponent<Button>().onClick.AddListener(() => TryBuyHealth());
