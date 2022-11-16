@@ -63,6 +63,11 @@ public class MainMenu : MenuManager
      */
     public void startGame()
     {
+        
+        //Added by Bryan for errors
+        LevelGeneration.hasLoaded = false;
+        //
+
         SceneManager.LoadScene(gameStartScene);
         if (Time.timeScale == 0f)
         {

@@ -58,6 +58,11 @@ public class EndGameMenu : MenuManager
     public void returnToMainMenu()
     {
         resetValues();
+        
+        //Added by Bryan for errors
+        LevelGeneration.hasLoaded = false;
+        //
+
         SceneManager.LoadScene(mainMenuScene);
     }
 

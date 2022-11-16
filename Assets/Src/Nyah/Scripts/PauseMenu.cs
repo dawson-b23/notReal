@@ -86,6 +86,11 @@ public class PauseMenu : MenuManager
     public void returnToMain()
     {
         resetValues();
+        
+        //Added by Bryan for errors
+        LevelGeneration.hasLoaded = false;
+        //
+
         SceneManager.LoadScene(0);
     }
 
