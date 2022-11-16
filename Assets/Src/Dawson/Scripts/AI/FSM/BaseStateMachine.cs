@@ -9,11 +9,14 @@ using System.Collections.Generic;
 using UnityEngine;
 
 /*
- *  Description
+ *  This class includes fundamental logic behind FSM.
+ *  It will call Enter() function of initial state, then it
+ *  will constantly run Execute() function of current state.
  *
  *  member variables:
  *
- *  member functions:
+ *  _initialState - gets the starting state of for the FSM
+ *  CurrentState  - gets the current state for the machine
  */
 namespace AI.FSM 
 {

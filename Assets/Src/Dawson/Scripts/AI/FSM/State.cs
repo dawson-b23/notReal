@@ -13,7 +13,14 @@ using UnityEngine;
  *
  *  member variables:
  *
+ *  Activities  - a list that stores activites for the FSM to carry out while in a state
+ *  Transitions - a list that stores transitions between activites 
+ *
  *  member functions:
+ *
+ *  Enter()   - gets the activities from scriptable object for the state
+ *  Execute() - executes the activites and their associated transitions for the state 
+ *  Exit()    - exits the state once executes have been compeleted
  */
 namespace AI.FSM
 {
