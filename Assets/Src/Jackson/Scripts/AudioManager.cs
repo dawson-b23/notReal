@@ -1,10 +1,28 @@
+/*
+ * Jackson Baldwin - 11/14/2022        
+ * AudioManager.cs - NotReal        
+ *                                    
+ * Handles SFX and Music audio in the game
+ * ...makes use of singleton pattern
+ *                                    
+ */
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/*
+ * AudioManager Class
+ * Handles all audio within current game, including SFX and Music tracks
+ * 
+ * member variables:
+ * instance - declaration of singleton
+ * sfx_*, music_* - Declares all current SFX and Music tracks used by the game
+ * currentMusicObject - Music that is currently being played
+ * soundObject - links to Sound Prefab to create instance of any sound
+ */
 public class AudioManager : MonoBehaviour
 {
-    //singleton
+    //declaration of singleton
     public static AudioManager instance;
     void Awake() { instance = this;  }
 
@@ -12,44 +30,49 @@ public class AudioManager : MonoBehaviour
     public AudioClip sfx_BC_Interact, sfx_boughtItem, sfx_errorBuyItem, sfx_meleeAttack, sfx_NPC_Interact, sfx_playerJump, sfx_rangedAttack;
     //Music Tracks
     public AudioClip music_mainMenu, music_mainGame, music_shopKeeper, music_upgradeUI;
+
     //Current Music Object
     public GameObject currentMusicObject;
-
     //Sound Object
     public GameObject soundObject;
 
-
+    /* Works in partnership with soundObjectCreation() to play a VFX dependent on the string
+     * Violates coding standards...should be playSFX(), but it is too late to change this...Many people's code already references the singleton,
+     *so changing it now would break other's code.
+     */ 
     public void PlaySFX(string sfxName)
     {
         switch(sfxName)
         {
-            case "meleeAttack":
-                SoundObjectCreation(sfx_meleeAttack);
-                break;
+            //cases for all current SFX (in alphabetical order)
             case "buyItem":
-                SoundObjectCreation(sfx_boughtItem);
+                soundObjectCreation(sfx_boughtItem);
                 break;
             case "errorBuyItem":
-                SoundObjectCreation(sfx_errorBuyItem);
-                break;
-            case "rangedAttack":
-                SoundObjectCreation(sfx_rangedAttack);
-                break;
-            case "playerJump":
-                SoundObjectCreation(sfx_playerJump);
-                break;
-            case "interactNPC":
-                SoundObjectCreation(sfx_NPC_Interact);
+                soundObjectCreation(sfx_errorBuyItem);
                 break;
             case "interactBC":
-                SoundObjectCreation(sfx_BC_Interact);
+                soundObjectCreation(sfx_BC_Interact);
+                break;
+            case "interactNPC":
+                soundObjectCreation(sfx_NPC_Interact);
+                break;
+            case "meleeAttack":
+                soundObjectCreation(sfx_meleeAttack);
+                break;
+            case "playerJump":
+                soundObjectCreation(sfx_playerJump);
+                break;
+            case "rangedAttack":
+                soundObjectCreation(sfx_rangedAttack);
                 break;
             default:
                 break;
         }
     }
 
-    void SoundObjectCreation(AudioClip clip)
+    //creates SFX object with corresponding audio to key string
+    void soundObjectCreation(AudioClip clip)
     {
         //Create SoundsObject gameobject
         GameObject newObject = Instantiate(soundObject, transform);
@@ -59,29 +82,36 @@ public class AudioManager : MonoBehaviour
         newObject.GetComponent<AudioSource>().Play();
     }
 
+
+
+
+    /* Works in partnership with musicObjectCreation() to play a VFX dependent on the string
+    * Violates coding standards...should be playMusic(), but it is too late to change this...Many people's code already references the singleton,
+    *so changing it now would break other's code.
+    */
     public void PlayMusic(string musicName)
     {
         switch (musicName)
         {
-            case "mainMenu":
-                MusicObjectCreation(music_mainMenu);
-                break;
+            //cases for all current music tracks (in alphabetical order)
             case "mainGame":
-                MusicObjectCreation(music_mainGame);
+                musicObjectCreation(music_mainGame);
+                break;
+            case "mainMenu":
+                musicObjectCreation(music_mainMenu);
                 break;
             case "shopKeeper":
-                MusicObjectCreation(music_shopKeeper);
+                musicObjectCreation(music_shopKeeper);
                 break;
             case "upgradeUI":
-                MusicObjectCreation(music_upgradeUI);
+                musicObjectCreation(music_upgradeUI);
                 break;
-            
             default:
                 break;
         }
     }
-
-    void MusicObjectCreation(AudioClip clip)
+    //creates music object with corresponding audio to key string
+    void musicObjectCreation(AudioClip clip)
     {
         //Check for existing music object...if so delete
         if (currentMusicObject)
