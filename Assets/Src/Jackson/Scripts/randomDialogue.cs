@@ -1,6 +1,6 @@
 /**************************************
  * Jackson Baldwin - 11/2/2022        *
- * Dialogue.cs - NotReal              *
+ * RandomDialogue.cs - NotReal        *
  *                                    *
  * Prefab to handle dialogue boxes    *
  * for NPC's...updated to randomize   *
@@ -12,65 +12,88 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
-
-public class randomDialogue : MonoBehaviour
+/*
+ * RandomDialogue Class
+ * used by non-specific friendly NPC prefabs
+ * to create and visually implement random dialogue
+ * 
+ * member variables:
+ * indicator - GameObject that connects to indicator in prefab
+ * window - GameObject that connects to the TextMeshPro window
+ * dialogues - public list of dialogue options for the RandomDialogue to spit out
+ * dialogueText - public type TextMeshPro that connects to the text component itself
+ * writingSpeed - public variable that sets the speed of text
+ * charIndex - private index that increments through the dialogue script
+ * index - index that increments through the list of dialogues
+ * started - boolean to know we have started writing
+ * waitForNext - boolean to know we
+ */
+public class RandomDialogue : MonoBehaviour
 {
     //Fields
     //Indicator
     public GameObject indicator;
     //Window
     public GameObject window;
+
     //Dialogues List
     public List<string> dialogues;
+    //Text component
+    public TMP_Text dialogueText;
+    //Writing speed 
+    public float writingSpeed;
+
     //character index;
     private int charIndex;
     //Index on dialogue
     private int index;
     //started boolean
     private bool started;
-    //Text component
-    public TMP_Text dialogueText;
     //Wait for next boolean
-    private bool WaitForNext;
-    //Writing speed 
-    public float writingSpeed;
+    private bool waitForNext;
+    
 
 
-
+    //makes sure indicator and window are both not active on Awake
     private void Awake()
     {
-        ToggleIndicator(false);
-        ToggleWindow(false);
+        toggleIndicator(false);
+        toggleWindow(false);
     }
 
-    private void ToggleWindow(bool show)
+    //essentially a boolean to toggle Window on and off
+    private void toggleWindow(bool show)
     {
         window.SetActive(show);
     }
 
-    public void ToggleIndicator(bool show)
+    //essentially a boolean to toggle Indicator on and off
+    public void toggleIndicator(bool show)
     {
         indicator.SetActive(show);
     }
 
-    public void StartDialogue()
+    //when Dialogue starts, turn off the indicator, show the window, and select a randomDialogue
+    public void startDialogue()
     {
         if (started)
             return;
         //Boolean to indicate we have started
         started = true;
         //show window
-        ToggleWindow(true);
+        toggleWindow(true);
         //hide indicator
-        ToggleIndicator(false);
-        //Start a random dialogue
+        toggleIndicator(false);
+        //Start a random dialogue (from 26 options)...area for improvement here
         int randNum = Random.Range(0, 25);
-        GetDialogue(randNum);
+        getDialogue(randNum);
+        //instance of Audio Manager...play interactNPC sound effect when dialogue begins
         AudioManager.instance.PlaySFX("interactNPC");
 
     }
 
-    private void GetDialogue(int i)
+    //resets appropriate variables and begins writing selected string (by randNum)
+    private void getDialogue(int i)
     {
 
         //start index at zero
@@ -83,21 +106,22 @@ public class randomDialogue : MonoBehaviour
         StartCoroutine(Writing());
     }
 
-    //End Dialogue
-    public void EndDialogue()
+    //End dialogue and hide the window
+    public void endDialogue()
     {
         //diable started and waitfornext
         started = false;
-        WaitForNext = false;
+        waitForNext = false;
         //stop all IENumerators
         StopAllCoroutines();
         //hide window
-        ToggleWindow(false);
+        toggleWindow(false);
     }
 
+    //Writing component...not in camelCase because its only one word
     IEnumerator Writing()
     {
-        
+        //sets current dialogue to selected dialogue within List
         string currentDialogue = dialogues[index];
         //write the character
         dialogueText.text += currentDialogue[charIndex];
@@ -112,29 +136,23 @@ public class randomDialogue : MonoBehaviour
         }
         else
         {
-            WaitForNext = true;
+            waitForNext = true;
         }
         
 
     }
+
+    //if 'E' is pressed again, end Dialogue...because all RandomDialogues are only one string long
     private void Update()
     {
             if (!started)
                 return;
-        if(WaitForNext && Input.GetKeyDown(KeyCode.E))
+        if(waitForNext && Input.GetKeyDown(KeyCode.E))
         {
-            WaitForNext = false;
+            waitForNext = false;
             index++;
-         /*   if(index < dialogues.Count)
-            {
-                GetDialogue(index);
-            }
-            else
-            {
-         */       ToggleIndicator(true);
-                EndDialogue();
-          //  }
-
+            toggleIndicator(true);
+            endDialogue();
         }
     }
 }
