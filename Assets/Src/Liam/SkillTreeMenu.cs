@@ -11,43 +11,54 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
+
 /*
  * SkillTreeMenu class
  * 
  * member variables:
- * IsActive - boolean value that checks if the menu is active
- * Update() - Unity function, called once per frame
- * MakeInactive() - set IsActive to false, closing the menu
+ * pause - GameObject that holds the pause menu 
+ * sk - instance of SkillTree class
+ * DisplayNumber# - text variable for displaying each upgrade
+ * count# - number of times an uprade function has been called
+ * instance - instance of the SkillTreeMenu class
+ * skillTreeUI - GameObject that holds the SkillTreeMenu subset
+ *     of the Canvas in the hierarchy
+ * Start() - creates instance of SkillTreeMenu if necessary,
+ *     sets SkillTreeMenu to false, initializes TMP_Text for
+ *     display 
+ * MakeInactive() - set IsActive to false, closing the menu, calls
+ *     calls AudioManager to play Main Game World music
  * MakeActive() - activate the menu when the IsActive is set to true
+ *     calls AudioManager to play Skill Tree Menu music
+ * IncreaseCount1() - On Click, check count and player.exp, call associated update
+ *     function if conditions are met 
+ * IncreaseCount2() - On Click, check count and player.exp, call associated update
+ *     function if conditions are met 
+ * IncreaseCount3() - On Click, check count and player.exp, call associated update
+ *     function if conditions are met
  */
 public class SkillTreeMenu : MonoBehaviour
 {
-    [SerializeField] GameObject pause;
-    //AudioManager stMusic = new AudioManager();
-    //SkillTree skilltree = GameObject.GetComponent<SkillTree>;
     SkillTree sk = SkillTree.makeSkillTree();
 
-    //GameObject hudEXP = FindObjectOfType<PlayerProfile>();
+    [SerializeField] GameObject pause;
+    [SerializeField] GameObject skillTreeUI;
 
-      public TMP_Text DisplayNumber1;
-      public TMP_Text DisplayNumber2;
-      public TMP_Text DisplayNumber3;
+    public TMP_Text DisplayNumber1;
+    public TMP_Text DisplayNumber2;
+    public TMP_Text DisplayNumber3;
+    public static SkillTreeMenu instance;
 
     private int count1;
     private int count2;
     private int count3;
 
-    public static SkillTreeMenu instance;
-
-    //public static bool IsActive = false;
-    [SerializeField] GameObject skillTreeUI;
-
-
-    //public void resetSkillTree(){
-    //    instance = instance.reset();
-    //}
-
-    public void Start(){
+    /* set skillTreeUI to inactive on startup
+     * initialize display variables
+     */
+    public void Start()
+    {
+        //WIP Keeps track of number of instances of SkillTree
         /*
         if(instance != null){
             Debug.Log("Too many Skill Trees");
@@ -61,7 +72,10 @@ public class SkillTreeMenu : MonoBehaviour
         }
         */
 
+        //Make SkillTreeMenu inactive when Scene starts
         skillTreeUI.SetActive(false);
+
+        //Initialize values that are displayed on SkillTreeMenu
         DisplayNumber1.text = "LEVEL: " + count1.ToString() + "/5";
         DisplayNumber2.text = "LEVEL: " + count2.ToString() + "/5";
         DisplayNumber3.text = "LEVEL: " + count3.ToString() + "/5";
@@ -69,18 +83,25 @@ public class SkillTreeMenu : MonoBehaviour
     }
     
 
-    //Resume game
-    public void MakeInactive(){
+    /* Resume the game, call AudioManager to play mainGame music
+     */
+    public void MakeInactive()
+    {
         skillTreeUI.SetActive(false);
+
         Time.timeScale = 1f;
-        //IsActive = false;
-        //AudioManager.instance.PlayMusic("mainGame");
         FindObjectOfType<AudioManager>().PlayMusic("mainGame");
+
     }
 
-    //pause game
-    public void MakeActive(){
-        if(pause.activeSelf){
+    /* Check that pause menu is inactive, if not, set inactive
+     * Pause game
+     * Call AudioManager to play upgradeUI music 
+     */
+    public void MakeActive()
+    {
+        if(pause.activeSelf)
+        {
             pause.SetActive(false);
         }
 
@@ -94,64 +115,83 @@ public class SkillTreeMenu : MonoBehaviour
         //IsActive = true;
     }
 
-
-    public void IncreaseCount1(){
-        //Add EXP requirement
+    /* Access Player variables
+     * Check that count and player.exp are acceptable values
+     * Iterate count
+     * Upgrade the Player's attack value
+     * Subtract the EXP by its cost
+     * Call PlayerProfile, display new EXP value in HUD  
+     */
+    public void IncreaseCount1()
+    {
         GameObject playerGameObject = GameObject.FindWithTag("Player");
         PlayerController player = playerGameObject.GetComponent<PlayerController>();
-        
-        //player.currenthealth = player.currenthealth;
 
-        //Debug.Log("=============  " + player.exp);
-        if(count1 < 5 && player.exp >= 10){ 
+        if(count1 < 5 && player.exp >= 10)
+        { 
             count1++;
             DisplayNumber1.text = "LEVEL: " + count1.ToString() + "/5"; 
+
             sk.updateAttack();
 
-            //Debug.Log("Before UPGRADE ===============: " + player.exp);
-
             player.exp -= 10;
-            
             int newEXP = player.exp;
 
             FindObjectOfType<PlayerProfile>().updateEXP(-10);
-            
-            //Debug.Log("After UPGRADE ===============: " + player.exp);
-            
+                        
         }
     }
 
-    public void IncreaseCount2(){
+    /* Access Player variables
+     * Check that count and player.exp are acceptable values
+     * Iterate count
+     * Upgrade the Player's health value
+     * Subtract the EXP by its cost
+     * Call PlayerProfile, display new EXP value in HUD  
+     */
+    public void IncreaseCount2()
+    {
         GameObject playerGameObject = GameObject.FindWithTag("Player");
         PlayerController player = playerGameObject.GetComponent<PlayerController>();
-        
-        if(count2 < 5 && player.exp >= 10){
-           
+
+        if(count2 < 5 && player.exp >= 10)
+        {   
             count2++;
-           
             DisplayNumber2.text = "LEVEL: " + count2.ToString() + "/5"; 
            
             sk.updateHealth();
 
             player.exp -= 10;
-           
             FindObjectOfType<PlayerProfile>().updateEXP(-10);
+
+            //In case we decide to do FullPlayerRestore when upgrading health
             //FindObjectOfType<PlayerProfile>().updateHealth(player.Maxhealth += (player.Maxhealth *= 0.15));
             //PlayerProfile.profileInstance.updateHealth(player.health += (player.health * 0.15));
-            //Debug.Log("count2: " + count2);
         }
     }
 
-    public void IncreaseCount3(){
+    /* Access Player variables
+     * Check that count and player.exp are acceptable values
+     * Iterate count
+     * Upgrade the Player's speed value
+     * Subtract the EXP by its cost
+     * Call PlayerProfile, display new EXP value in HUD  
+     */
+    public void IncreaseCount3()
+    {
         GameObject playerGameObject = GameObject.FindWithTag("Player");
         PlayerController player = playerGameObject.GetComponent<PlayerController>();
-        if(count3 < 5 && player.exp >= 10){
+
+        if(count3 < 5 && player.exp >= 10)
+        {
             count3++;
             DisplayNumber3.text = "LEVEL: " + count3.ToString() + "/5"; 
+        
             sk.updateMovement();
+        
             player.exp -= 10;
             FindObjectOfType<PlayerProfile>().updateEXP(-10);
-            //Debug.Log("count3: " + count3);
+        
         }
     }
 }

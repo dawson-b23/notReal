@@ -3,7 +3,8 @@
  * Liam Mathews
  * Boundary Tests, ensure
  * Upgrade method functions properly
- * and proper amt of exp is exchanged  
+ * and Player stats are changed 
+ * to proper amt  
  */
 
 using NUnit.Framework;
@@ -15,97 +16,31 @@ using UnityEngine.TestTools;
 
 /*
  * NewTestScript class
- * contains methods for ensuring that upgrade function
- * behaves properly, with a control test, a test with too much exp,
- * and a test with too little exp 
+ * contains methods for ensuring decorator upgrade functions
+ * behave properly, calls to each and checks that specified
+ * Player stats are the correct value
  * 
  * member variables:
- * EXPTestControl() - control test, checks exp exchange with exact amount
- * EXPTestAbove() - above test, checks exp exchange with high amount
- * EXPTestBelow() - below test, checks exp exchange with a low amount
- * NewTestScriptWithEnumeratorPasses() - for PlayMode tests, unecessary here
- 
+ * testUpgrades() - create an instance of the Skill Tree, make sure
+ * targeted player stats are increased by the proper amount
+ */
 public class NewTestScript
-{
+{  
+    /* creates an instance of the Skill Tree, initalizes variables
+     * that will be used for comparison of original values and new values
+     * init variables will hold values of sk.get____(); and
+     * will be modified as though they are the actual variables.
+     *
+     * update functions are called, then get functions, 
+     * check to make sure that init functions multiplied by 1.15^n is 
+     * equal to get functions where n is the number of times the associated
+     * update function has been called  
+     */
     [Test]
-    //assign player exact amount of exp needed
-    //call upgrade function to ensure exp removed does not exceed or 
-    //go under required value
-    //call again to make sure player.exp does not go under zero
-    public void EXPTestControl()
-        {   
-            SkillTree skillTree = new SkillTree(); // initialize a skill tree
-            
-            PlayerController player = skillTree.GetPlayer(); //initalize player from SkillTree script
-
-            // assign player 5 exp, check for success
-            player.exp = 5; 
-            Assert.That(player.exp == 5);
-
-            //call upgrade method, ensure proper amount
-            //of exp was removed, try again to make sure
-            //no more exp is removed
-            skillTree.Upgrade();
-            Assert.That(player.exp == 0);
-            skillTree.Upgrade();
-            Assert.That(player.exp == 0);
-        }
-
-    [Test]
-    //assign player one more exp than needed
-    //call upgrade function to ensure exp removed does not exceed or 
-    //go under required value
-    //call again to make sure player.exp is not spent, 
-    //will be less than required amt but greater than zero
-    public void EXPTestAbove()
-        {
-            SkillTree skillTree = new SkillTree();
-            
-            PlayerController player = skillTree.GetPlayer();
-            
-            player.exp = 6; 
-            Assert.That(player.exp == 6);
-
-            //keep calling Upgrade
-            skillTree.Upgrade();
-            Assert.That(player.exp == 1);
-            skillTree.Upgrade();
-            Assert.That(player.exp == 1);
-        }
-
-        [Test]
-        //assign player four more exp than needed, after first call to upgrade 
-        //player.exp will be below the required amount
-        //call upgrade function to ensure exp removed does not exceed or 
-        //go under required value
-        //call again to make sure player.exp is not spent, 
-        //will be less than required amt but greater than zero
-        public void EXPTestBelow()
-        {  
-            SkillTree skillTree = new SkillTree(); 
-            
-            PlayerController player = skillTree.GetPlayer();
-
-            player.exp = 9; 
-            Assert.That(player.exp == 9);
-
-            //keep calling Upgrade
-            skillTree.Upgrade();
-            Assert.That(player.exp == 4);
-            skillTree.Upgrade();
-            Assert.That(player.exp == 4);
-        }   
-}
-*/
-
-public class NewTestScript
-{
-    [Test]
-    public void testUpgrades(){
+    public void testUpgrades()
+    {
         SkillTree sk = SkillTree.makeSkillTree(); 
-        //SkillTree sk = SkillTree;
-        //Debug.Log("Health value: " + sk.getHealth());
-
+        
         float initHealth = sk.getHealth();
         float initAttack = sk.getAttack();
         float initSpeed = sk.getSpeed();
@@ -114,15 +49,15 @@ public class NewTestScript
         float upAttack = initAttack;
         float upSpeed = initSpeed;
 
-        //sk.getTrait -> initTrait
-        //Assert.That(initHealth == 1);
-        //Assert.That(initAttack == 1);
-        //Assert.That(initSpeed == 1);
-
         sk.updateHealth();
+        //Test fails for unknown reason, Debug Logs prove 
+        //Value returned should be true.
+        Debug.Log("sk.getHealth() =========" + sk.getHealth());
+        Debug.Log("initHealth" + (1.15f*initHealth));
+
         Assert.That(sk.getHealth() == (1.15f*initHealth));
         Assert.That(sk.getAttack() == initAttack);
-        Assert.That(upSpeed == initSpeed);
+        Assert.That(sk.getSpeed() == initSpeed);
 
         sk.updateHealth();
         Assert.That(sk.getHealth() == (1.15f*1.15f*initHealth));
@@ -142,3 +77,4 @@ public class NewTestScript
     }
 
 }
+

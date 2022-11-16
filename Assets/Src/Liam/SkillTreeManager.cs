@@ -1,8 +1,27 @@
+/*
+ * SkillTreeManager.cs
+ * Liam Mathews
+ * == WORK IN PROGRESS == 
+ * Maintains instance of Skill Tree
+ * between rooms in-game, resets Skill Tree
+ * once back in Main Menu 
+ */
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+
+/*
+ * SkillTreeManager class
+ * 
+ * member variables:
+ * instance - instance of SkillTreeManager class
+ * Awake() - checks if an instance of the Skill Tree
+ *     exists and if current scene is MainMenu, 
+ *     creates one if not   
+ */
 public class SkillTreeManager : MonoBehaviour
 {
     /*
@@ -33,11 +52,5 @@ public class SkillTreeManager : MonoBehaviour
             //      Debug.Log("Yo Mr White we're removing a skill tree!");
             //      instance = null;
             //}
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     } */
 }

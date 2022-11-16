@@ -1724,10 +1724,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pause: {fileID: 1187513360}
+  skillTreeUI: {fileID: 1376610908}
   DisplayNumber1: {fileID: 650523485}
   DisplayNumber2: {fileID: 471993062}
   DisplayNumber3: {fileID: 1489702046}
-  skillTreeUI: {fileID: 1376610908}
 --- !u!1001 &546486563
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2518,10 +2518,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pause: {fileID: 1187513360}
+  skillTreeUI: {fileID: 1376610908}
   DisplayNumber1: {fileID: 650523485}
   DisplayNumber2: {fileID: 471993062}
   DisplayNumber3: {fileID: 1489702046}
-  skillTreeUI: {fileID: 1376610908}
 --- !u!1001 &1001038962
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3038,11 +3038,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3038936716490449781, guid: 565fefe30185a47269ae8fb970557c56, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -1.8480225
+      value: -1.8480301
       objectReference: {fileID: 0}
     - target: {fileID: 3688765862377361203, guid: 565fefe30185a47269ae8fb970557c56, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -1.8480225
+      value: -1.8480301
       objectReference: {fileID: 0}
     - target: {fileID: 3966226063579996259, guid: 565fefe30185a47269ae8fb970557c56, type: 3}
       propertyPath: m_Name
@@ -5538,6 +5538,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3466249989561542329, guid: be428bfbd4fdbf84993aaa5abfafafc8, type: 3}
+      propertyPath: music_upgradeUI
+      value: 
+      objectReference: {fileID: 8300000, guid: f0f73fbb592316b4a8441228257a0136, type: 3}
     - target: {fileID: 3466249989561542329, guid: be428bfbd4fdbf84993aaa5abfafafc8, type: 3}
       propertyPath: sfx_BC_Interact
       value: 
