@@ -53,7 +53,7 @@ public class Enemy : MonoBehaviour
 
     void Start()
     {
-        InitEnemy();
+        //InitEnemy();
     }
 
 
