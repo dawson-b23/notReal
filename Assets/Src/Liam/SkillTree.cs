@@ -255,7 +255,7 @@ public class Upgrade : FullPlayer
         return wrappee.getHealth();
     }
 
-    return speed value in wrappee
+    //return speed value in wrappee
     override public float getSpeed()
     {
         return wrappee.getSpeed();
