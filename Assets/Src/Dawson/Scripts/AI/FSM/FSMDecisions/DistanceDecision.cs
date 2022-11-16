@@ -9,11 +9,14 @@ using System.Collections.Generic;
 using UnityEngine;
 
 /*
- *  Description
+ *  Since the player can outrun the enemy, AI must know how far away the player actually is. If too far,
+ *  then the AI should resume patrolling. Otherwise it will follow player.
  *
  *  member variables:
  *
- *  member functions:
+ *  target             - used with targetTag to give AI something to chase 
+ *  targetTag          - Enemy will only chase game object with this tag value 
+ *  distanceThreshould - distance to check against, if distance <= threshould return true
  */
 namespace AI.FSM.Decisions
 {

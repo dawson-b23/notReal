@@ -9,11 +9,16 @@ using System.Collections.Generic;
 using UnityEngine;
 
 /*
- *  Description
+ *  When the finite state machine enters the wait state, there is a timer that count towards certain amount of seconds. 
+ *  After, an invoke to an event will start the transition to the new state.
  *
  *  member variables:
  *
+ *  waitTime - time to wait 
+ *
  *  member functions:
+ *
+ *  Decide() - makes the AI wait in this state before transitioning to the next 
  */
 namespace AI.FSM.Decisions
 {

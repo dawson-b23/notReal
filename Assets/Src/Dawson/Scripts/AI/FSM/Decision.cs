@@ -9,11 +9,8 @@ using System.Collections.Generic;
 using UnityEngine;
 
 /*
- *  Description
- *
- *  member variables:
- *
- *  member functions:
+ *  On its own the class doesn’t contribute much to the framework. This can be changed by adding few more 
+ *  classes implementing specific event-handling logic. This will allow lots of flexibility for the machine.
  */
 namespace AI.FSM 
 {

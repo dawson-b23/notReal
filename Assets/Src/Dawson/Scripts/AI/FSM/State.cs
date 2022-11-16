@@ -22,6 +22,21 @@ using UnityEngine;
  *  Execute() - executes the activites and their associated transitions for the state 
  *  Exit()    - exits the state once executes have been compeleted
  */
+
+/*
+ *  The State design pattern allows an object to alter its behavior when its internal state changes. 
+ *  The object will appear to change its class.
+ *
+ *  Context  (Account)
+        defines the interface of interest to clients
+        maintains an instance of a ConcreteState subclass that defines the current state.
+    
+    State  (State)
+        defines an interface for encapsulating the behavior associated with a particular state of the Context.
+    
+    Concrete State  (RedState, SilverState, GoldState)
+        each subclass implements a behavior associated with a state of Context
+ */
 namespace AI.FSM
 {
     [CreateAssetMenu(menuName = "AI/FSM/State")]

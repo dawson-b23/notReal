@@ -9,11 +9,17 @@ using System.Collections.Generic;
 using UnityEngine;
 
 /*
- *  Description
+ *  Implementation of logic of patrolling inside the overidden methods.
  *
  *  member variables:
  *
+ *  speed - the generic speed at which the AI will travel at 
+ *
  *  member functions:
+ *
+ *  Enter()   - gets components associated to the AI and stores them as variables, configuration code
+ *  Execute() - this is called the entire duration of the state, it patrols between the points
+ *  Exit()    - when the state is left, the next point will be designated 
  */
 namespace AI.FSM.Activities
 {

@@ -10,11 +10,9 @@ using System.Collections.Generic;
 using UnityEngine;
 
 /*
- *  Description
- *
- *  member variables:
- *
- *  member functions:
+ *  Most times we want the AI to stick with the same state when incoming 
+ *  events don’t fulfil the conditions of a transition. It acts as an empty game object the machine can
+ *  use to transition not change states.
  */
 namespace AI.FSM 
 {

@@ -9,11 +9,13 @@ using System.Collections.Generic;
 using UnityEngine;
 
 /*
- *  Description
- *
- *  member variables:
+ *  This class inherits from the activity class. The overidden methods correspond to
+ *  the states we have assumed for the model. This class is the wait class that gets
+ *  called between other activities.
  *
  *  member functions:
+ *
+ *  Enter() - makes the AI stop and wait before entering its next state. 
  */
 namespace AI.FSM.Activities
 {

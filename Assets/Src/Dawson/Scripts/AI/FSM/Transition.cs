@@ -9,11 +9,15 @@ using System.Collections.Generic;
 using UnityEngine;
 
 /*
- *  Description
+ *  transitions in the finite state machine are invoked by events. The machine only changes its 
+ *  state when the event invokes the trigger for that change. The AI requires two separate pieces 
+ *  of data so that it can make up a decision about the transition.
  *
  *  member variables:
  *
- *  member functions:
+ *  decision   - holds a reference to an object that contains its own logic on handling the event, similiar to a conditional statement
+ *  TrueState  - reference to the states participating in the transition
+ *  FalseState - reference to the states participating in the transition
  */
 namespace AI.FSM 
 {

@@ -9,11 +9,18 @@ using System.Collections.Generic;
 using UnityEngine;
 
 /*
- *  Description
+ *  This class is very similiar to the patrolActivity class, except its chasing the player instead of a point
  *
  *  member variables:
  *
+ *  target    - reference to the gameObject the AI will chase
+ *  targetTag - this combined with target will set something for the AI to chase 
+ *  speed     - generic speed value 
+ *
  *  member functions:
+ *
+ *  Enter()   - finds the targetTag and sets the GameObject as a target
+ *  Execute() - this is similiar to the patrol points execute, but with a player target instead 
  */
 namespace AI.FSM.Activities
 {

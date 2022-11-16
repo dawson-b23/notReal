@@ -9,11 +9,23 @@ using System.Collections.Generic;
 using UnityEngine;
 
 /*
- *  Description
+ *  This is a helper class that designates a patrol route for the AI. It has methods and data 
+ *  necessary for a waypoint system. It stores Vector3 waypoints inside a list, then visits them.
  *
  *  member variables:
  *
+ *  points      - the list of Vector3 points that the AI will use to traverse
+ *  targetPoint - a reference to a location the AI should head towards 
+ *  index       - the current list pointer
+ *  point1      - used to auto assign a point
+ *  point2      - used to auto assign a point
+ *
  *  member functions:
+ *
+ *  HasReachedPoint()         - used to know if the AI has reached a certain point. Vector3.Distance
+                                returns the measurement of a distance between 2 points. 
+ *  SetNextTargetPoint()      - designates a new target location, this is where index is used 
+ *  GetTargetPointDirection() - used to know the direction in which current target is. 
  */
 namespace AI.FSM 
 { 

@@ -9,11 +9,11 @@ using System.Collections.Generic;
 using UnityEngine;
 
 /*
- *  Description
- *
- *  member variables:
+ *  This class will detect whether the NPC reached his current destination on patrol route.
  *
  *  member functions:
+ * 
+ *  Decide() - extended from decisions, it will decide true when it has reached a destination
  */
 namespace AI.FSM.Decisions
 {
