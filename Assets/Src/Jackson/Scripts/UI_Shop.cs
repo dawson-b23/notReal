@@ -87,7 +87,9 @@ public class UI_Shop : MonoBehaviour
     }
 
     /*Creates an Instance of our ShopTemplate and populates it with the itemSprite, itemName, cost, and position for the UI.
-    * The weapon itself is passed in to be sent to the shop...proxy (what is the object and what is the proxy to it)
+    * The weapon itself is passed in to be sent to the shop
+    * Makes use of Proxy design pattern by standing in place of the real object
+    * ...weapon is real object, Proxy creates a placeholder of the weapon by showing its name, price, and sprite
     */
     private void createItemInShop(AbstractWeapon weapon, Sprite itemSprite, string itemName, int itemCost, int positionIndex)
     {

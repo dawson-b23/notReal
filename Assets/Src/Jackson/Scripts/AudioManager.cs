@@ -22,7 +22,8 @@ using UnityEngine;
  */
 public class AudioManager : MonoBehaviour
 {
-    //declaration of singleton
+    //declaration of singleton..."initialization on first use"
+    //ensures that a class has only one instance and provides a global point of access to that instance
     public static AudioManager instance;
     void Awake() { instance = this;  }
 

@@ -34,8 +34,8 @@ public class DemoModeVideoRunner : MonoBehaviour
     //turns on videoPlayer on main menu. If a player clicks or moves the mouse, it will instantly go away
     void Start()
     {
-        videoPlayer.SetActive(true);
-        menuHUD.SetActive(false);
+        videoPlayer.SetActive(false);
+        menuHUD.SetActive(true);
     }
 
     //Use fixed update because its called every fixed framerate frame
@@ -54,7 +54,7 @@ public class DemoModeVideoRunner : MonoBehaviour
             // If a button is being pressed, restart counter to Zero and turn off video
             time = 0;
             videoPlayer.SetActive(false);
-           // menuHUD.SetActive(true);
+            menuHUD.SetActive(true);
         }
 
         //if time equals idleTime, play the video
