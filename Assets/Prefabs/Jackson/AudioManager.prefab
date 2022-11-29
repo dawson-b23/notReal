@@ -53,7 +53,7 @@ MonoBehaviour:
   sfx_rangedAttack: {fileID: 8300000, guid: 47bc210991457934b8a5223e60331305, type: 3}
   music_mainMenu: {fileID: 8300000, guid: ef5a1917360a30d43b49f0b513043425, type: 3}
   music_mainGame: {fileID: 8300000, guid: ef5a1917360a30d43b49f0b513043425, type: 3}
-  music_shopKeeper: {fileID: 8300000, guid: 8e1c5b528046d8245aac00aa508cb707, type: 3}
+  music_shopKeeper: {fileID: 8300000, guid: af4c822a76d924e42bbe8ce80cc9f26c, type: 3}
   music_upgradeUI: {fileID: 8300000, guid: f0f73fbb592316b4a8441228257a0136, type: 3}
   currentMusicObject: {fileID: 0}
   soundObject: {fileID: 5606137210040466403, guid: c51730e977c27ce44823bc787acfde23, type: 3}
