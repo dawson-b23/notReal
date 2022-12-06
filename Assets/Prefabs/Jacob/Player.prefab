@@ -182,7 +182,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ecf131fe7bc4e0f4bbd34ad53de49399, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerexp: 0
   playerSpeed: 4
   maxHealth: 100
   damageCooldown: 0.36
@@ -355,7 +354,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.8, y: 0.05}
+  m_Size: {x: 0.1, y: 0.05}
   m_EdgeRadius: 0.05
 --- !u!114 &2334357428482312824
 MonoBehaviour:

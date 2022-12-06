@@ -28,6 +28,9 @@ public class PlayerController : MonoBehaviour
 
     private int facing = 1;
 
+    //Pair Programming 
+    private float hoverCooldown = 0.25f;
+
     /* end of spencer-variables section */
     
     //playerLevel added by Bryan Frahm
@@ -64,6 +67,9 @@ public class PlayerController : MonoBehaviour
     private bool isGrounded = true;
     private bool canAttack = true;
     private bool canDash = true;
+
+    //Pair Programming new bool variable
+    private bool canHover = false;
 
     private PlayerState currentPlayerState = PlayerState.Idle;
 
@@ -130,7 +136,7 @@ public class PlayerController : MonoBehaviour
     {
         movementInput = Input.GetAxis("Horizontal");
 
-        if(Input.GetButtonDown("Jump"))
+        if(Input.GetButton("Jump"))
         {
             PlayerJump();
         }
@@ -145,6 +151,9 @@ public class PlayerController : MonoBehaviour
     {
         if(isGrounded)
         {
+            canHover = false;
+            StartCoroutine(HoverCooldown());
+            //Debug.Log("Initial Jump! ##########################");
             isGrounded = false;
             SwitchPlayerState(PlayerState.Jumping);
 
@@ -155,8 +164,20 @@ public class PlayerController : MonoBehaviour
             //added by Jackson Baldwin..calling singleton to add jumping sound effect
             AudioManager.instance.PlaySFX("playerJump");
             // Need to switch state back after jump
+        }else{
+            if(canHover){
+            //Pair Programming
+            isGrounded = false;
+            SwitchPlayerState(PlayerState.Jumping);
+
+            // Zero 'Y' velocity
+            //rigidBody.velocity = new Vector2(rigidBody.velocity.x, 0.0f);  
+            rigidBody.AddForce(new Vector2(0.0f, jumpForce/20), ForceMode2D.Impulse); //jumpForce 
+            }
         }
+        
     }
+
 
     public void PlayerLanded()
     {
@@ -356,6 +377,15 @@ public class PlayerController : MonoBehaviour
         yield return new WaitForSeconds(dashCooldown);
 
         canDash = true;
+    }
+
+    //Pair Programming HoverCooldown 
+    //Sets canHover after hoverCooldown seconds
+    private IEnumerator HoverCooldown()
+    {
+        yield return new WaitForSeconds(hoverCooldown);
+        
+        canHover = true;
     }
 
     #endregion
