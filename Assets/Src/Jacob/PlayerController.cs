@@ -106,6 +106,7 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         DetectInputs();
+        //DetectInputs() <- was here
     }
 
     private void FixedUpdate()
@@ -128,8 +129,20 @@ public class PlayerController : MonoBehaviour
 
             }
 
+
             this.transform.localPosition += new Vector3(movementInput * effectiveSpeed() * Time.fixedDeltaTime, 0.0f, 0.0f);
         }
+
+        //Move Hover logic here
+        if(canHover && isGrounded != true && Input.GetButton("Jump")){
+            //Pair Programming
+            isGrounded = false;
+            SwitchPlayerState(PlayerState.Jumping);
+
+            // Zero 'Y' velocity
+            //rigidBody.velocity = new Vector2(rigidBody.velocity.x, 0.0f);  
+            rigidBody.AddForce(new Vector2(0.0f, jumpForce/12), ForceMode2D.Impulse); //jumpForce 
+            }
     }
 
     private void DetectInputs()
@@ -164,18 +177,7 @@ public class PlayerController : MonoBehaviour
             //added by Jackson Baldwin..calling singleton to add jumping sound effect
             AudioManager.instance.PlaySFX("playerJump");
             // Need to switch state back after jump
-        }else{
-            if(canHover){
-            //Pair Programming
-            isGrounded = false;
-            SwitchPlayerState(PlayerState.Jumping);
-
-            // Zero 'Y' velocity
-            //rigidBody.velocity = new Vector2(rigidBody.velocity.x, 0.0f);  
-            rigidBody.AddForce(new Vector2(0.0f, jumpForce/20), ForceMode2D.Impulse); //jumpForce 
-            }
-        }
-        
+        }      
     }
 
 
